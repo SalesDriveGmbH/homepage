@@ -222,9 +222,12 @@
 .cases { background: var(--bg); padding-bottom: clamp(60px, 9vw, 120px); }
 .case {
   display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  gap: clamp(30px, 5vw, 70px);
-  align-items: center;
+  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-areas:
+    "body video"
+    "funnel funnel";
+  gap: clamp(28px, 4vw, 50px) clamp(28px, 5vw, 60px);
+  align-items: start;
   margin-bottom: clamp(28px, 3.5vw, 48px);
   padding: clamp(36px, 5vw, 70px);
   background: linear-gradient(180deg, rgba(255,255,255,.028), rgba(255,255,255,.012));
@@ -236,7 +239,12 @@
   position: relative;
   isolation: isolate;
 }
-.case--reverse { grid-template-columns: 1fr 1.05fr; }
+.case__body { grid-area: body; }
+.case__media { grid-area: video; }
+.case__funnel { grid-area: funnel; }
+@media (max-width: 900px) {
+  .case { grid-template-columns: 1fr; grid-template-areas: "body" "video" "funnel"; }
+}
 .case::before {
   content: "";
   position: absolute; inset: 0;
@@ -247,8 +255,7 @@
 }
 .case > * { position: relative; z-index: 1; }
 .case:last-child { margin-bottom: 0; }
-.case--reverse .case__media { order: 2; }
-.case__media { position: relative; aspect-ratio: 9 / 16; width: 100%; max-width: 460px; margin: 0 auto; border-radius: var(--r-lg); overflow: hidden; background: #0c0d10; isolation: isolate; border: 2px solid var(--line-3); box-shadow: 0 30px 80px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06) inset, 0 60px 160px -40px rgba(41,151,255,.25); }
+.case__media { position: relative; aspect-ratio: 16 / 9; width: 100%; border-radius: var(--r-lg); overflow: hidden; background: #0c0d10; isolation: isolate; border: 2px solid var(--line-3); box-shadow: 0 30px 80px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06) inset, 0 60px 160px -40px rgba(41,151,255,.25); }
 .case__media iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
 
 /* Person pill in case body (formerly overlay on video) */
@@ -273,15 +280,76 @@
 .case__block { display: flex; flex-direction: column; gap: 6px; }
 .case__block-label { font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--blue); }
 .case__block-text { font-size: 14px; line-height: 1.5; color: var(--ink-2); }
-.case__funnel { margin-top: 8px; padding: 22px; background: var(--surf); border: 1px solid var(--line); border-radius: var(--r-md); display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; position: relative; }
-.case__funnel::before { content: attr(data-period); position: absolute; left: 18px; top: -9px; background: var(--bg); border: 1px solid var(--line-2); border-radius: 980px; padding: 3px 11px; font-size: 10px; color: var(--ink-3); letter-spacing: .04em; }
-.case__step { text-align: center; padding: 4px 2px; }
-.case__step-num { font-family: var(--display); font-size: clamp(17px, 1.8vw, 22px); font-weight: 600; letter-spacing: -.025em; color: var(--ink); display: block; }
-.case__step.green .case__step-num { color: var(--green); }
-.case__step-lbl { font-size: 10px; line-height: 1.3; color: var(--ink-3); margin-top: 4px; }
+.case__funnel {
+  margin-top: clamp(12px, 2vw, 24px);
+  padding: clamp(28px, 3.5vw, 44px) clamp(22px, 3vw, 38px);
+  background: linear-gradient(180deg, rgba(255,255,255,.025), rgba(0,0,0,.2));
+  border: 1px solid var(--line-2);
+  border-radius: clamp(18px, 2vw, 24px);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(14px, 2vw, 28px);
+  position: relative;
+  align-items: end;
+}
+.case__funnel::before {
+  content: attr(data-period);
+  position: absolute;
+  left: clamp(22px, 3vw, 38px); top: -11px;
+  background: var(--bg);
+  border: 1px solid var(--line-2);
+  border-radius: 980px;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink-3);
+  letter-spacing: .04em;
+}
+.case__step {
+  text-align: center;
+  padding: 4px 2px;
+  position: relative;
+}
+/* connecting chevron between steps */
+.case__step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: calc(clamp(14px, 2vw, 28px) / -2 - 3px);
+  top: 28px;
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid var(--line-3);
+  border-top: 1.5px solid var(--line-3);
+  transform: rotate(45deg);
+  opacity: .55;
+}
+.case__step-num {
+  font-family: var(--display);
+  font-size: clamp(26px, 3.4vw, 44px);
+  font-weight: 700;
+  letter-spacing: -.035em;
+  color: #ffffff;
+  display: block;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.case__step.green .case__step-num {
+  color: var(--green);
+  text-shadow: 0 0 28px rgba(48, 209, 88, .42), 0 0 60px rgba(48, 209, 88, .18);
+}
+.case__step.green::after { display: none; }
+.case__step-lbl {
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--ink-3);
+  letter-spacing: .04em;
+}
+@media (max-width: 760px) {
+  .case__funnel { grid-template-columns: repeat(2, 1fr); }
+  .case__step::after { display: none !important; }
+}
 .case__link { display: inline-flex; align-items: center; gap: 5px; color: var(--blue); font-size: 14px; align-self: flex-start; }
 .case__link svg { width: 11px; height: 11px; }
-@media (max-width: 900px) { .case, .case--reverse { grid-template-columns: 1fr; gap: 30px; } .case--reverse .case__media { order: 0; } .case__funnel { grid-template-columns: repeat(2, 1fr); } }
 
 /* INSIDE BENTO — text-first, image as background, clickable */
 .inside { background: var(--bg); }
@@ -832,18 +900,18 @@
         <h3 class="case__title">15 qualifizierte<br>Abschlussgespräche<br>in 90 Tagen.</h3>
         <div class="case__block"><span class="case__block-label">Problem</span><p class="case__block-text">Hochwertiges Angebot, aber keine planbare Neukundengewinnung. Empfehlungen reichten nicht mehr.</p></div>
         <div class="case__block"><span class="case__block-label">Ergebnis</span><p class="case__block-text">Ein klarer Erstansprache-Prozess brachte regelmäßig qualifizierte Gespräche mit Entscheidern.</p></div>
-        <div class="case__funnel" data-period="Zeitraum · 3 Monate">
-          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="3200">3.200</span></span><div class="case__step-lbl">Erstansprachen</div></div>
-          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="45">45</span></span><div class="case__step-lbl">Ersttermine</div></div>
-          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="16">16</span></span><div class="case__step-lbl">Abschluss-Gespräche</div></div>
-          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="9">9</span></span><div class="case__step-lbl">Neukunden</div></div>
-          <div class="case__step green"><span class="case__step-num">€<span class="counter" data-to="259000">259.000</span></span><div class="case__step-lbl">Auftragseingang</div></div>
-        </div>
         <a class="case__link" href="putzandstingl.html">Case-Details ansehen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="case__funnel" data-period="Ergebnisse · 3 Monate">
+        <div class="case__step"><span class="case__step-num"><span class="counter" data-to="3200">3.200</span></span><div class="case__step-lbl">Erstansprachen</div></div>
+        <div class="case__step"><span class="case__step-num"><span class="counter" data-to="45">45</span></span><div class="case__step-lbl">Ersttermine</div></div>
+        <div class="case__step"><span class="case__step-num"><span class="counter" data-to="16">16</span></span><div class="case__step-lbl">Abschluss-Gespräche</div></div>
+        <div class="case__step"><span class="case__step-num"><span class="counter" data-to="9">9</span></span><div class="case__step-lbl">Neukunden</div></div>
+        <div class="case__step green"><span class="case__step-num">€<span class="counter" data-to="259000">259.000</span></span><div class="case__step-lbl">Auftragseingang</div></div>
       </div>
     </article>
 
-    <article class="case case--reverse reveal-blur">
+    <article class="case reveal-blur">
       <div class="case__media">
         <iframe src="https://player.vimeo.com/video/1134147007?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen loading="lazy" title="RINK GmbH · Case-Statement"></iframe>
       </div>
@@ -855,14 +923,14 @@
         <h3 class="case__title">67.000&nbsp;€<br>Auftragseingang<br>in 1 Monat.</h3>
         <div class="case__block"><span class="case__block-label">Problem</span><p class="case__block-text">Akquise blockierte das Kreativteam. Zeitaufwendig, unangenehm und nicht skalierbar.</p></div>
         <div class="case__block"><span class="case__block-label">Ergebnis</span><p class="case__block-text">Komplette Erstansprache ausgelagert. Innerhalb eines Monats messbarer Auftragseingang.</p></div>
-        <div class="case__funnel" data-period="Zeitraum · 1 Monat">
-          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="866">866</span></span><div class="case__step-lbl">Erstansprachen</div></div>
-          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="12">12</span></span><div class="case__step-lbl">Ersttermine</div></div>
-          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="4">4</span></span><div class="case__step-lbl">Abschluss-Gespräche</div></div>
-          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="3">3</span></span><div class="case__step-lbl">Neukunden</div></div>
-          <div class="case__step green"><span class="case__step-num">€<span class="counter" data-to="67000">67.000</span></span><div class="case__step-lbl">Auftragseingang</div></div>
-        </div>
         <a class="case__link" href="rink-media.html">Case-Details ansehen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="case__funnel" data-period="Ergebnisse · 1 Monat">
+        <div class="case__step"><span class="case__step-num"><span class="counter" data-to="866">866</span></span><div class="case__step-lbl">Erstansprachen</div></div>
+        <div class="case__step"><span class="case__step-num"><span class="counter" data-to="12">12</span></span><div class="case__step-lbl">Ersttermine</div></div>
+        <div class="case__step"><span class="case__step-num"><span class="counter" data-to="4">4</span></span><div class="case__step-lbl">Abschluss-Gespräche</div></div>
+        <div class="case__step"><span class="case__step-num"><span class="counter" data-to="3">3</span></span><div class="case__step-lbl">Neukunden</div></div>
+        <div class="case__step green"><span class="case__step-num">€<span class="counter" data-to="67000">67.000</span></span><div class="case__step-lbl">Auftragseingang</div></div>
       </div>
     </article>
 
@@ -878,14 +946,14 @@
         <h3 class="case__title">342.000&nbsp;€<br>mehr Auftrag<br>in 60 Tagen.</h3>
         <div class="case__block"><span class="case__block-label">Problem</span><p class="case__block-text">Erklärungsbedürftiges Angebot, anspruchsvolle Zielgruppe, fehlende Sales-Kapazitäten.</p></div>
         <div class="case__block"><span class="case__block-label">Ergebnis</span><p class="case__block-text">Strukturierte Erstansprache füllte die Sales-Pipeline und führte zu messbarem Umsatzwachstum.</p></div>
-        <div class="case__funnel" data-period="Zeitraum · 2 Monate">
-          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="2850">2.850</span></span><div class="case__step-lbl">Erstansprachen</div></div>
-          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="101">101</span></span><div class="case__step-lbl">Ersttermine</div></div>
-          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="27">27</span></span><div class="case__step-lbl">Abschluss-Gespräche</div></div>
-          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="20">20</span></span><div class="case__step-lbl">Neukunden</div></div>
-          <div class="case__step green"><span class="case__step-num">€<span class="counter" data-to="342000">342.000</span></span><div class="case__step-lbl">Auftragseingang</div></div>
-        </div>
         <a class="case__link" href="linkbroker.html">Case-Details ansehen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="case__funnel" data-period="Ergebnisse · 2 Monate">
+        <div class="case__step"><span class="case__step-num"><span class="counter" data-to="2850">2.850</span></span><div class="case__step-lbl">Erstansprachen</div></div>
+        <div class="case__step"><span class="case__step-num"><span class="counter" data-to="101">101</span></span><div class="case__step-lbl">Ersttermine</div></div>
+        <div class="case__step"><span class="case__step-num"><span class="counter" data-to="27">27</span></span><div class="case__step-lbl">Abschluss-Gespräche</div></div>
+        <div class="case__step"><span class="case__step-num"><span class="counter" data-to="20">20</span></span><div class="case__step-lbl">Neukunden</div></div>
+        <div class="case__step green"><span class="case__step-num">€<span class="counter" data-to="342000">342.000</span></span><div class="case__step-lbl">Auftragseingang</div></div>
       </div>
     </article>
 
