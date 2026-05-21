@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=20260521f">
+<link rel="stylesheet" href="assets/css/site.css?v=20260521g">
 <style>
 /* ===== HOME-specific styles ===== */
 
@@ -132,9 +132,15 @@
   animation: logo-scroll 38s linear infinite;
   align-items: center;
 }
-.hero__logos-item { height: clamp(26px, 2.6vw, 36px); flex-shrink: 0; display: flex; align-items: center; }
-.hero__logos-item img { height: 100%; width: auto; filter: brightness(0) invert(1); opacity: .42; transition: opacity .3s ease; }
-.hero__logos-item img:hover { opacity: .8; }
+.hero__logos-item { height: clamp(36px, 3.4vw, 50px); flex-shrink: 0; display: flex; align-items: center; }
+.hero__logos-item img {
+  height: 100%;
+  width: auto;
+  opacity: .72;
+  filter: grayscale(.15);
+  transition: opacity .25s ease, filter .25s ease, transform .35s var(--ease-out);
+}
+.hero__logos-item img:hover { opacity: 1; filter: grayscale(0); transform: translateY(-1px); }
 .hero__meta { margin-top: 26px; display: inline-flex; align-items: center; gap: 16px; font-size: 12px; color: var(--ink-3); flex-wrap: wrap; justify-content: center; }
 .hero__meta-sep { width: 3px; height: 3px; border-radius: 50%; background: var(--ink-mute); }
 .hero__meta-item { display: inline-flex; align-items: center; gap: 5px; }
@@ -469,8 +475,8 @@
 .logos__track { display: flex; gap: clamp(40px, 5vw, 70px); width: max-content; animation: logo-scroll 36s linear infinite; align-items: center; }
 @keyframes logo-scroll { to { transform: translateX(-50%); } }
 .logos__item { height: clamp(30px, 3vw, 44px); flex-shrink: 0; display: flex; align-items: center; }
-.logos__item img { height: 100%; width: auto; filter: brightness(0) invert(1); opacity: .42; transition: opacity .3s ease; }
-.logos__item img:hover { opacity: 1; }
+.logos__item img { height: 100%; width: auto; opacity: .72; filter: grayscale(.15); transition: opacity .25s ease, filter .25s ease; }
+.logos__item img:hover { opacity: 1; filter: grayscale(0); }
 
 /* ======================================
    TRANSFORM. Apple-style services grid
@@ -2727,7 +2733,7 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=20260521f"></script>
+<script src="assets/js/site.js?v=20260521g"></script>
 <script>
 // Hero MacBook lid-open: triggered on first scroll OR when laptop comes into view
 (function() {
