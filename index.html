@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=20260521g">
+<link rel="stylesheet" href="assets/css/site.css?v=20260521h">
 <style>
 /* ===== HOME-specific styles ===== */
 
@@ -105,20 +105,11 @@
 }
 .btn--secondary:hover { background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.22); transform: translateY(-1px); }
 
-/* Hero customer logos. container-width, scrolling */
+/* Hero customer logos. container-width, scrolling, under the laptop */
 .hero__logos {
   position: relative; z-index: 2;
-  margin: clamp(36px, 5vw, 60px) auto 0;
+  margin: clamp(60px, 8vw, 100px) auto clamp(70px, 9vw, 120px);
   padding: 0 22px;
-}
-.hero__logos-label {
-  text-align: center;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-  margin-bottom: 22px;
 }
 .hero__logos-viewport {
   overflow: hidden;
@@ -127,17 +118,17 @@
 }
 .hero__logos-track {
   display: flex;
-  gap: clamp(36px, 4.5vw, 64px);
+  gap: clamp(40px, 5vw, 70px);
   width: max-content;
-  animation: logo-scroll 38s linear infinite;
+  animation: logo-scroll 42s linear infinite;
   align-items: center;
 }
-.hero__logos-item { height: clamp(36px, 3.4vw, 50px); flex-shrink: 0; display: flex; align-items: center; }
+.hero__logos-item { height: clamp(22px, 2.1vw, 30px); flex-shrink: 0; display: flex; align-items: center; }
 .hero__logos-item img {
   height: 100%;
   width: auto;
-  opacity: .72;
-  filter: grayscale(.15);
+  opacity: .58;
+  filter: grayscale(.25);
   transition: opacity .25s ease, filter .25s ease, transform .35s var(--ease-out);
 }
 .hero__logos-item img:hover { opacity: 1; filter: grayscale(0); transform: translateY(-1px); }
@@ -155,18 +146,17 @@
   perspective: 2400px;
 }
 
-/* Backlight glow behind laptop. bigger, brighter, more atmospheric */
+/* Backlight glow behind laptop. subtle, atmospheric, not glaring */
 .hero__stage::before {
   content: "";
   position: absolute;
   left: 50%; top: 45%;
   transform: translate(-50%, -50%);
-  width: 140%; height: 150%;
+  width: 130%; height: 130%;
   background:
-    radial-gradient(50% 50% at 50% 45%, rgba(41,151,255,.48), transparent 72%),
-    radial-gradient(65% 45% at 50% 75%, rgba(107,201,255,.30), transparent 70%),
-    radial-gradient(40% 30% at 50% 30%, rgba(255,255,255,.06), transparent 70%);
-  filter: blur(60px);
+    radial-gradient(50% 50% at 50% 45%, rgba(41,151,255,.18), transparent 72%),
+    radial-gradient(65% 45% at 50% 75%, rgba(107,201,255,.10), transparent 70%);
+  filter: blur(70px);
   pointer-events: none;
   z-index: -1;
 }
@@ -174,7 +164,7 @@
 .laptop {
   position: relative;
   transform-style: preserve-3d;
-  filter: drop-shadow(0 70px 90px rgba(0,0,0,.55)) drop-shadow(0 0 60px rgba(41,151,255,.18));
+  filter: drop-shadow(0 60px 80px rgba(0,0,0,.55)) drop-shadow(0 0 40px rgba(41,151,255,.08));
 }
 
 .laptop__lid {
@@ -192,9 +182,9 @@
     0 0 0 1px rgba(0,0,0,.7),
     /* Drop shadow */
     0 28px 90px -14px rgba(0,0,0,.75),
-    /* Backlight glow */
-    0 0 120px rgba(41,151,255,.32),
-    0 0 220px rgba(107,201,255,.18);
+    /* Backlight glow. subtle */
+    0 0 80px rgba(41,151,255,.14),
+    0 0 160px rgba(107,201,255,.08);
   transform-origin: 50% 100%;
   transform: perspective(2400px) rotateX(-100deg);
   opacity: 0;
@@ -1748,10 +1738,20 @@
     </div>
   </div>
 
-  <!-- Customer logos directly under hero CTA. container-width scroll -->
+  <div class="hero__stage">
+    <div class="laptop" id="heroLaptop">
+      <div class="laptop__lid">
+        <div class="laptop__screen">
+          <iframe src="https://player.vimeo.com/video/1157996306?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen loading="lazy" title="SalesDrive · Vorstellung"></iframe>
+        </div>
+      </div>
+      <div class="laptop__base"></div>
+    </div>
+  </div>
+
+  <!-- Customer logos under the laptop. container-width scroll, no label -->
   <div class="hero__logos">
     <div class="container">
-      <div class="hero__logos-label">Über 250 Mandanten in DACH vertrauen uns</div>
       <div class="hero__logos-viewport">
         <div class="hero__logos-track">
           <div class="hero__logos-item"><img src="assets/logos/hano-einbaukuechen.png" alt="hano" /></div>
@@ -1777,18 +1777,6 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="hero__stage">
-    <div class="laptop" id="heroLaptop">
-      <div class="laptop__lid">
-        <div class="laptop__screen">
-          <iframe src="https://player.vimeo.com/video/1157996306?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen loading="lazy" title="SalesDrive · Vorstellung"></iframe>
-        </div>
-      </div>
-      <div class="laptop__base"></div>
-    </div>
-
   </div>
 
 </section>
@@ -2733,7 +2721,7 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=20260521g"></script>
+<script src="assets/js/site.js?v=20260521h"></script>
 <script>
 // Hero MacBook lid-open: triggered on first scroll OR when laptop comes into view
 (function() {
