@@ -200,6 +200,7 @@ em { font-style: normal; color: var(--blue); }
   border-color: rgba(255,255,255,.12);
 }
 .nav__brand { display: flex; align-items: center; flex-shrink: 0; color: var(--ink); }
+.nav__brand-logo { height: 22px; width: auto; display: block; }
 .nav__brand-wordmark {
   font-family: var(--display);
   font-size: 17px; font-weight: 700;
@@ -488,6 +489,7 @@ em { font-style: normal; color: var(--blue); }
   margin-left: auto; margin-right: auto;
 }
 
+.footer__brand-logo { height: 28px; width: auto; display: block; margin-bottom: 22px; opacity: .95; }
 .footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 40px; padding-top: clamp(40px, 5vw, 60px); border-top: 1px solid var(--line); }
 .footer__brand-wordmark { font-family: var(--display); font-size: 18px; font-weight: 700; letter-spacing: -.028em; line-height: 1; display: inline-flex; align-items: baseline; margin-bottom: 16px; }
 .footer__brand-wordmark .s { color: var(--ink); }
