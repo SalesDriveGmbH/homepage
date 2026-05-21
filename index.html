@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=20260521v">
+<link rel="stylesheet" href="assets/css/site.css?v=20260521w">
 <style>
 /* ===== HOME-specific styles ===== */
 
@@ -1618,9 +1618,158 @@
 
 /* HUB - WOW Standard of Excellence + animated dashboard */
 .hub { background: var(--bg); padding-bottom: clamp(80px, 12vw, 140px); overflow: hidden; position: relative; }
-.hub__head-wrap { position: relative; padding-top: clamp(60px, 9vw, 120px); padding-bottom: clamp(40px, 6vw, 80px); text-align: center; }
+.hub__head-wrap { position: relative; padding-top: clamp(60px, 9vw, 120px); padding-bottom: clamp(40px, 6vw, 80px); text-align: center; overflow: hidden; }
 .hub__head-wrap::before { content: ""; position: absolute; inset: 0; background: radial-gradient(900px 500px at 50% 50%, rgba(41,151,255,.10), transparent 60%); pointer-events: none; }
-.hub__head { position: relative; z-index: 1; }
+.hub__head { position: relative; z-index: 2; }
+
+/* Decorative floating devices behind the hub headline */
+.hub__decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.hub__decor-phone, .hub__decor-card, .hub__decor-notif, .hub__decor-shape {
+  position: absolute;
+  filter: drop-shadow(0 30px 60px rgba(0,0,0,.5));
+  opacity: 0;
+  animation: decor-in 1.6s cubic-bezier(.16,1,.3,1) .3s forwards;
+}
+@keyframes decor-in {
+  to { opacity: 1; }
+}
+@keyframes decor-float-1 {
+  0%, 100% { transform: translateY(0) rotate(-8deg); }
+  50%      { transform: translateY(-12px) rotate(-8deg); }
+}
+@keyframes decor-float-2 {
+  0%, 100% { transform: translateY(0) rotate(12deg); }
+  50%      { transform: translateY(-10px) rotate(12deg); }
+}
+@keyframes decor-float-3 {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50%      { transform: translateY(-8px) rotate(-4deg); }
+}
+
+/* iPhone links oben */
+.hub__decor-phone {
+  left: 4%;
+  top: 18%;
+  width: 110px;
+  aspect-ratio: 9 / 19;
+  background: linear-gradient(180deg, #2a2b30, #0c0d10);
+  border-radius: 18px;
+  padding: 7px;
+  border: 1px solid rgba(255,255,255,.10);
+  animation: decor-in 1.6s cubic-bezier(.16,1,.3,1) .3s forwards, decor-float-1 7s ease-in-out infinite;
+  transform: rotate(-8deg);
+}
+.hub__decor-phone::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  background:
+    radial-gradient(60% 50% at 50% 30%, rgba(41,151,255,.5), transparent 70%),
+    linear-gradient(180deg, #0a0f1c 0%, #050810 100%);
+  border-radius: 12px;
+}
+.hub__decor-phone::after {
+  content: "08:58";
+  position: absolute;
+  left: 50%;
+  top: 36%;
+  transform: translateX(-50%);
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 200;
+  color: #fff;
+  letter-spacing: -.02em;
+}
+
+/* Floating Calendly-Notif rechts oben */
+.hub__decor-notif {
+  right: 6%;
+  top: 14%;
+  width: 220px;
+  background: rgba(40,40,42,.78);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 14px;
+  padding: 10px 12px;
+  display: flex; gap: 10px;
+  font-family: var(--display);
+  animation: decor-in 1.6s cubic-bezier(.16,1,.3,1) .6s forwards, decor-float-2 8s ease-in-out infinite;
+  transform: rotate(12deg);
+}
+.hub__decor-notif-ico {
+  width: 26px; height: 26px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-bright));
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+.hub__decor-notif-ico svg { width: 14px; height: 14px; }
+.hub__decor-notif-body { min-width: 0; font-size: 10px; line-height: 1.3; }
+.hub__decor-notif-app { color: rgba(255,255,255,.55); letter-spacing: .08em; font-weight: 700; }
+.hub__decor-notif-title { color: #fff; font-weight: 600; font-size: 11px; margin-top: 2px; }
+.hub__decor-notif-text { color: rgba(255,255,255,.7); font-size: 10px; margin-top: 1px; }
+
+/* Mini-Stats-Card links unten */
+.hub__decor-card {
+  left: 8%;
+  bottom: 20%;
+  width: 180px;
+  padding: 12px 14px;
+  background: rgba(20,21,26,.88);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 12px;
+  display: flex; flex-direction: column; gap: 4px;
+  font-family: var(--display);
+  animation: decor-in 1.6s cubic-bezier(.16,1,.3,1) .9s forwards, decor-float-3 9s ease-in-out infinite;
+  transform: rotate(-4deg);
+}
+.hub__decor-card-lbl {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--blue-bright);
+}
+.hub__decor-card-num {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -.024em;
+  line-height: 1;
+}
+.hub__decor-card-trend {
+  display: inline-flex; align-items: center; gap: 4px;
+  color: var(--green); font-size: 10.5px; font-weight: 700; letter-spacing: -.008em;
+}
+.hub__decor-card-trend svg { width: 10px; height: 10px; }
+
+/* Abstrakte Glow-Shapes */
+.hub__decor-shape {
+  border-radius: 50%;
+  filter: blur(60px);
+}
+.hub__decor-shape--1 {
+  left: 18%; top: 10%;
+  width: 220px; height: 220px;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(107,201,255,.22), transparent 70%);
+}
+.hub__decor-shape--2 {
+  right: 16%; bottom: 18%;
+  width: 260px; height: 260px;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(41,151,255,.18), transparent 70%);
+}
+
+@media (max-width: 980px) {
+  .hub__decor-phone, .hub__decor-notif, .hub__decor-card { display: none; }
+}
 .hub__excellence {
   font-family: var(--display);
   font-size: clamp(38px, 5.6vw, 72px);
@@ -3701,6 +3850,32 @@
 <!-- HUB. Standard of Excellence + Animated Dashboard -->
 <section class="hub section--divide" id="hub">
   <div class="hub__head-wrap">
+
+    <!-- Floating Decor: Phone, Notif, Mini-Card, Glow-Shapes hinter dem Headline -->
+    <div class="hub__decor" aria-hidden="true">
+      <span class="hub__decor-shape hub__decor-shape--1"></span>
+      <span class="hub__decor-shape hub__decor-shape--2"></span>
+      <div class="hub__decor-phone"></div>
+      <div class="hub__decor-notif">
+        <div class="hub__decor-notif-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div class="hub__decor-notif-body">
+          <div class="hub__decor-notif-app">CALENDLY · jetzt</div>
+          <div class="hub__decor-notif-title">Neues Strategiegespräch</div>
+          <div class="hub__decor-notif-text">Andrea Brunner · Mi 11:15</div>
+        </div>
+      </div>
+      <div class="hub__decor-card">
+        <span class="hub__decor-card-lbl">Pipeline · Heute</span>
+        <span class="hub__decor-card-num">€ 87.500</span>
+        <span class="hub__decor-card-trend">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          +14,2 % zur Vorwoche
+        </span>
+      </div>
+    </div>
+
     <div class="hub__head">
       <div class="container">
         <div class="section-num reveal"><span class="section-num__num">07</span><span>Dein Live-Dashboard</span></div>
@@ -4311,7 +4486,7 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=20260521v"></script>
+<script src="assets/js/site.js?v=20260521w"></script>
 <script>
 // Hero MacBook lid-open: triggered on first scroll OR when laptop comes into view.
 // Einmaliges Aufklappen mit 5.2s CSS-Transition (cinematic).

@@ -169,14 +169,14 @@ em { font-style: normal; color: var(--blue); }
 /* NAV */
 /* Floating contained nav pill — Apple-style */
 .nav {
-  position: fixed; top: 14px; left: 0; right: 0; z-index: 100;
+  position: fixed; top: 24px; left: 0; right: 0; z-index: 100;
   height: auto;
   background: transparent;
   border: 0;
   transition: top .3s var(--ease-out);
   pointer-events: none;
 }
-.nav.scrolled { top: 10px; }
+.nav.scrolled { top: 16px; }
 .nav__inner {
   pointer-events: auto;
   max-width: 1024px;
@@ -249,7 +249,7 @@ em { font-style: normal; color: var(--blue); }
 }
 .nav__login:hover { color: var(--blue-bright); opacity: 1; }
 .nav__login svg { width: 11px; height: 11px; opacity: .7; }
-.nav-spacer { height: 80px; }
+.nav-spacer { height: 92px; }
 
 .progress {
   position: fixed; top: 46px; left: 0; height: 1px;
