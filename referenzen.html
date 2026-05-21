@@ -262,7 +262,13 @@
 <nav class="nav" id="nav">
   <div class="nav__inner">
     <a class="nav__brand" href="/" aria-label="SalesDrive">
-      <img class="nav__brand-logo" src="/assets/brand/salesdrive-logo.png" alt="SalesDrive">
+      <svg class="nav__brand-icon" viewBox="0 0 200 200" aria-hidden="true">
+        <defs><linearGradient id="ndg" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#7CD0FF"/><stop offset="100%" stop-color="#2987F0"/></linearGradient></defs>
+        <circle cx="78" cy="132" r="42" fill="none" stroke="url(#ndg)" stroke-width="26"/>
+        <rect x="109" y="60" width="26" height="112" fill="url(#ndg)"/>
+        <polygon points="82,60 122,18 162,60" fill="url(#ndg)"/>
+      </svg>
+      <span class="nav__brand-text"><span class="s">Sales</span><span class="d">drive</span></span>
     </a>
     <ul class="nav__links">
       <li><a href="index.html#cases">Cases</a></li>
