@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=20260521x">
+<link rel="stylesheet" href="assets/css/site.css?v=20260521y">
 <style>
 /* ===== HOME-specific styles ===== */
 
@@ -43,6 +43,264 @@
 /* HERO */
 .hero { position: relative; padding: clamp(40px, 5vw, 64px) 0 0; overflow: hidden; isolation: isolate; }
 .hero__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+
+/* ============================================================
+   HERO FLOATING DECOR. iPhone with Calendly Notifs, Live-Call,
+   Termin-Badge, Pipeline-Card. fliegt rein, schwebt, ploppt.
+============================================================ */
+.hero__floats {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+.hero__floats > * {
+  position: absolute;
+  filter: drop-shadow(0 30px 60px rgba(0,0,0,.55));
+  opacity: 0;
+  font-family: var(--display);
+}
+@keyframes hero-pop {
+  0%   { opacity: 0; transform: translateY(24px) rotate(var(--rot,0)) scale(.7); filter: blur(8px); }
+  60%  { opacity: 1; transform: translateY(-4px) rotate(var(--rot,0)) scale(1.04); filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0) rotate(var(--rot,0)) scale(1); }
+}
+@keyframes hero-drift-1 {
+  0%, 100% { transform: translateY(0) rotate(var(--rot,0)); }
+  50%      { transform: translateY(-12px) rotate(var(--rot,0)); }
+}
+
+/* iPhone Mock rechts oben mit pulsierenden Notifs */
+.hero__float-phone {
+  --rot: 6deg;
+  right: 3%;
+  top: 80px;
+  width: 180px;
+  aspect-ratio: 9 / 19;
+  background: linear-gradient(180deg, #2a2b30, #0c0d10);
+  border-radius: 26px;
+  padding: 7px;
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 0 0 1px rgba(0,0,0,.6), 0 30px 60px rgba(0,0,0,.55);
+  animation: hero-pop 1.4s cubic-bezier(.34,1.56,.64,1) .6s forwards,
+             hero-drift-1 8s ease-in-out 2s infinite;
+}
+.hero__float-phone-screen {
+  position: relative;
+  width: 100%; height: 100%;
+  background:
+    radial-gradient(60% 50% at 50% 30%, rgba(41,151,255,.45), transparent 70%),
+    linear-gradient(180deg, #0a0f1c 0%, #050810 100%);
+  border-radius: 19px;
+  padding: 28px 8px 8px;
+  overflow: hidden;
+  display: flex; flex-direction: column; gap: 7px;
+}
+.hero__float-phone-screen::before {
+  content: "";
+  position: absolute; top: 7px; left: 50%;
+  transform: translateX(-50%);
+  width: 50px; height: 14px;
+  background: #000; border-radius: 999px;
+}
+.hero__float-phone-time {
+  text-align: center; color: #fff;
+  font-size: 22px; font-weight: 200;
+  letter-spacing: -.025em;
+  margin: 4px 0 6px;
+}
+.hero__float-notif {
+  background: rgba(40,40,42,.86);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 9px;
+  padding: 6px 7px;
+  display: flex; gap: 6px; align-items: flex-start;
+  opacity: 0;
+  position: relative;
+}
+.hero__float-notif::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 9px;
+  box-shadow: 0 0 0 1px rgba(107,201,255,.5), 0 0 20px rgba(41,151,255,.4);
+  opacity: 0;
+  pointer-events: none;
+}
+.hero__float-phone-screen .hero__float-notif:nth-of-type(1) {
+  animation: hero-notif-pop 9s cubic-bezier(.34,1.45,.64,1) 1.6s infinite;
+}
+.hero__float-phone-screen .hero__float-notif:nth-of-type(1)::after {
+  animation: hero-notif-flash 9s ease-out 1.6s infinite;
+}
+.hero__float-phone-screen .hero__float-notif:nth-of-type(2) {
+  animation: hero-notif-pop 9s cubic-bezier(.34,1.45,.64,1) 4.2s infinite;
+}
+.hero__float-phone-screen .hero__float-notif:nth-of-type(2)::after {
+  animation: hero-notif-flash 9s ease-out 4.2s infinite;
+}
+@keyframes hero-notif-pop {
+  0%   { opacity: 0; transform: translateY(-22px) scale(.78); filter: blur(3px); }
+  6%   { opacity: 1; transform: translateY(2px) scale(1.04); filter: blur(0); }
+  14%  { transform: translateY(0) scale(1); }
+  82%  { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes hero-notif-flash {
+  0%, 5%  { opacity: 0; }
+  6%      { opacity: 1; }
+  18%     { opacity: 0; }
+  100%    { opacity: 0; }
+}
+.hero__float-notif-ico {
+  width: 20px; height: 20px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-bright));
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; flex-shrink: 0;
+}
+.hero__float-notif-ico svg { width: 11px; height: 11px; }
+.hero__float-notif-body { min-width: 0; flex: 1; }
+.hero__float-notif-app {
+  display: flex; justify-content: space-between;
+  font-size: 7px; color: rgba(255,255,255,.55);
+  letter-spacing: .08em; font-weight: 700;
+}
+.hero__float-notif-title {
+  font-size: 8.5px; font-weight: 600;
+  color: #fff; line-height: 1.25;
+  margin-top: 1px;
+}
+.hero__float-notif-text {
+  font-size: 7.5px; color: rgba(255,255,255,.72);
+  line-height: 1.3; margin-top: 1px;
+}
+
+/* Live-Call Widget links oben */
+.hero__float-call {
+  --rot: -5deg;
+  left: 3%;
+  top: 130px;
+  width: 220px;
+  background: rgba(20,21,26,.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex; flex-direction: column; gap: 9px;
+  animation: hero-pop 1.4s cubic-bezier(.34,1.56,.64,1) 1.0s forwards,
+             hero-drift-1 9s ease-in-out 3s infinite;
+}
+.hero__float-call-head {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 9.5px; color: var(--ink-3);
+}
+.hero__float-call-status {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-weight: 700; color: var(--green);
+  letter-spacing: .08em; text-transform: uppercase;
+  font-size: 9px;
+}
+.hero__float-call-status::before {
+  content: "";
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+  animation: pulse 1.4s ease infinite;
+}
+.hero__float-call-wave {
+  display: flex; align-items: center; gap: 2px;
+  height: 32px; padding: 0 2px;
+}
+.hero__float-call-wave span {
+  flex: 1;
+  background: linear-gradient(180deg, #6BC9FF, #2997ff);
+  border-radius: 2px;
+  animation: waveform 1.4s ease-in-out infinite;
+}
+.hero__float-call-wave span:nth-child(2) { animation-delay: .1s; }
+.hero__float-call-wave span:nth-child(3) { animation-delay: .2s; }
+.hero__float-call-wave span:nth-child(4) { animation-delay: .3s; }
+.hero__float-call-wave span:nth-child(5) { animation-delay: .4s; }
+.hero__float-call-wave span:nth-child(6) { animation-delay: .5s; }
+.hero__float-call-wave span:nth-child(7) { animation-delay: .6s; }
+.hero__float-call-wave span:nth-child(8) { animation-delay: .7s; }
+.hero__float-call-wave span:nth-child(9) { animation-delay: .8s; }
+.hero__float-call-wave span:nth-child(10) { animation-delay: .9s; }
+.hero__float-call-meta {
+  display: flex; justify-content: space-between;
+  font-size: 10px;
+}
+.hero__float-call-name { color: #fff; font-weight: 600; }
+.hero__float-call-time { color: var(--ink-3); font-variant-numeric: tabular-nums; }
+
+/* Termin-Badge */
+.hero__float-badge {
+  --rot: -4deg;
+  left: 4%;
+  bottom: 220px;
+  background: rgba(48,209,88,.14);
+  border: 1px solid rgba(48,209,88,.32);
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex; align-items: center; gap: 10px;
+  animation: hero-pop 1.4s cubic-bezier(.34,1.56,.64,1) 1.6s forwards,
+             hero-drift-1 7s ease-in-out 4s infinite;
+}
+.hero__float-badge-ico {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--green);
+  display: flex; align-items: center; justify-content: center;
+  color: #000; flex-shrink: 0;
+}
+.hero__float-badge-ico svg { width: 13px; height: 13px; stroke-width: 3; }
+.hero__float-badge-eye {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--green);
+  display: block;
+}
+.hero__float-badge-label { font-size: 12px; color: #fff; font-weight: 600; letter-spacing: -.01em; }
+
+/* Pipeline-Card */
+.hero__float-pipeline {
+  --rot: 5deg;
+  right: 4%;
+  bottom: 230px;
+  background: rgba(20,21,26,.88);
+  border: 1px solid rgba(107,201,255,.30);
+  border-radius: 14px;
+  padding: 11px 15px;
+  display: flex; flex-direction: column; gap: 3px;
+  animation: hero-pop 1.4s cubic-bezier(.34,1.56,.64,1) 2.0s forwards,
+             hero-drift-1 10s ease-in-out 5s infinite;
+}
+.hero__float-pipeline-eye {
+  font-size: 9px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--blue-bright);
+}
+.hero__float-pipeline-num {
+  font-size: 20px; font-weight: 700;
+  color: #fff; letter-spacing: -.024em;
+  line-height: 1;
+}
+.hero__float-pipeline-trend {
+  display: inline-flex; align-items: center; gap: 4px;
+  color: var(--green); font-size: 10px; font-weight: 700;
+  letter-spacing: -.008em;
+  margin-top: 2px;
+}
+.hero__float-pipeline-trend svg { width: 10px; height: 10px; }
+
+@media (max-width: 1180px) {
+  .hero__floats { display: none; }
+}
 .hero__bg .orb { width: 720px; height: 720px; opacity: .45; }
 .hero__bg .orb--1 { top: -300px; left: 50%; transform: translateX(-50%); }
 .hero__bg .orb--2 { top: 200px; left: -200px; }
@@ -2987,6 +3245,76 @@
     <div class="orb orb--purple orb--2 orb-anim-2"></div>
     <div class="orb orb--cyan orb--3 orb-anim-1"></div>
   </div>
+
+  <!-- Floating Decor: iPhone mit Calendly-Notifs, Live-Call, Termin-Badge, Pipeline-Card -->
+  <div class="hero__floats" aria-hidden="true">
+
+    <!-- iPhone Mock rechts oben -->
+    <div class="hero__float-phone">
+      <div class="hero__float-phone-screen">
+        <div class="hero__float-phone-time">08:58</div>
+        <div class="hero__float-notif">
+          <div class="hero__float-notif-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="hero__float-notif-body">
+            <div class="hero__float-notif-app"><span>CALENDLY</span><span>jetzt</span></div>
+            <div class="hero__float-notif-title">Neues Strategiegespräch</div>
+            <div class="hero__float-notif-text">Andrea Brunner · Mi 11:15</div>
+          </div>
+        </div>
+        <div class="hero__float-notif">
+          <div class="hero__float-notif-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="hero__float-notif-body">
+            <div class="hero__float-notif-app"><span>CALENDLY</span><span>vor 3 Std.</span></div>
+            <div class="hero__float-notif-title">Neues Strategiegespräch</div>
+            <div class="hero__float-notif-text">Florian Holzer · Do 08:30</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live-Call Widget links oben -->
+    <div class="hero__float-call">
+      <div class="hero__float-call-head">
+        <span>Outbound Call</span>
+        <span class="hero__float-call-status">Live</span>
+      </div>
+      <div class="hero__float-call-wave">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="hero__float-call-meta">
+        <span class="hero__float-call-name">Daniel R. · CFO</span>
+        <span class="hero__float-call-time">04:12</span>
+      </div>
+    </div>
+
+    <!-- Termin-Badge links unten -->
+    <div class="hero__float-badge">
+      <span class="hero__float-badge-ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg>
+      </span>
+      <span>
+        <span class="hero__float-badge-eye">Termin gebucht</span>
+        <span class="hero__float-badge-label">Sabine Hofer · 14:00</span>
+      </span>
+    </div>
+
+    <!-- Pipeline-Card rechts unten -->
+    <div class="hero__float-pipeline">
+      <span class="hero__float-pipeline-eye">Pipeline · Heute</span>
+      <span class="hero__float-pipeline-num">€ 87.500</span>
+      <span class="hero__float-pipeline-trend">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        +14,2 % zur Vorwoche
+      </span>
+    </div>
+
+  </div>
+
   <div class="hero__inner">
     <div class="hero__pill">
       DEINE EXTERNE B2B-AKQUISE
@@ -4740,7 +5068,7 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=20260521x"></script>
+<script src="assets/js/site.js?v=20260521y"></script>
 <script>
 // Hero MacBook lid-open: triggered on first scroll OR when laptop comes into view.
 // Einmaliges Aufklappen mit 5.2s CSS-Transition (cinematic).
