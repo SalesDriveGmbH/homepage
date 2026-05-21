@@ -463,7 +463,7 @@
     try { localStorage.setItem('sd_last_lead', JSON.stringify(data)); } catch(e) {}
 
     // Best-effort POST to our Vercel function. Move on regardless of result so the
-    // user always reaches the calendar — the lead is saved in Close from the API call.
+    // user always reaches the calendar. the lead is saved in Close from the API call.
     try {
       const resp = await fetch('/api/lead', {
         method: 'POST',
