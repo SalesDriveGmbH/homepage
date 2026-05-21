@@ -170,30 +170,31 @@
 
 
 /* Testimonials wall */
-.wall { background: var(--bg-2); padding: clamp(60px, 9vw, 120px) 0; }
+.wall { background: var(--bg-2); padding: clamp(50px, 7vw, 90px) 0; }
 .wall__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
 }
 .testimonial {
   background: var(--surf);
   border: 1px solid var(--line);
-  border-radius: var(--r-lg);
-  padding: 26px;
-  display: flex; flex-direction: column; gap: 16px;
+  border-radius: var(--r-md);
+  padding: 18px;
+  display: flex; flex-direction: column; gap: 12px;
   transition: border-color .3s var(--ease), transform .4s var(--ease-out);
 }
-.testimonial:hover { border-color: var(--line-3); transform: translateY(-3px); }
-.testimonial__quote { font-size: 14px; line-height: 1.55; color: var(--ink-2); font-style: italic; }
-.testimonial__quote::before { content: "„"; color: var(--blue); font-size: 28px; font-family: var(--display); line-height: 0; margin-right: 4px; }
-.testimonial__person { display: flex; align-items: center; gap: 10px; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); }
-.testimonial__av { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--surf-3), var(--surf)); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 12px; font-weight: 600; color: var(--blue); border: 1px solid var(--line-2); flex-shrink: 0; }
-.testimonial__name { font-family: var(--display); font-size: 13px; font-weight: 600; letter-spacing: -.014em; color: var(--ink); }
-.testimonial__role { font-size: 11px; color: var(--ink-3); }
-.testimonial__site { color: var(--blue); font-size: 11px; }
-@media (max-width: 980px) { .wall__grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 640px) { .wall__grid { grid-template-columns: 1fr; } }
+.testimonial:hover { border-color: var(--line-3); transform: translateY(-2px); }
+.testimonial__quote { font-size: 13px; line-height: 1.5; color: var(--ink-2); font-style: italic; }
+.testimonial__quote::before { content: "„"; color: var(--blue); font-size: 22px; font-family: var(--display); line-height: 0; margin-right: 3px; }
+.testimonial__person { display: flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); }
+.testimonial__av { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--surf-3), var(--surf)); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 10px; font-weight: 600; color: var(--blue); border: 1px solid var(--line-2); flex-shrink: 0; }
+.testimonial__name { font-family: var(--display); font-size: 12px; font-weight: 600; letter-spacing: -.012em; color: var(--ink); line-height: 1.2; }
+.testimonial__role { font-size: 10px; color: var(--ink-3); line-height: 1.2; }
+.testimonial__site { color: var(--blue); font-size: 10px; }
+@media (max-width: 1200px) { .wall__grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 880px)  { .wall__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px)  { .wall__grid { grid-template-columns: 1fr; } }
 
 .final { position: relative; padding: clamp(80px, 12vw, 160px) 0; text-align: center; overflow: hidden; background: var(--bg); }
 .final::before { content: ""; position: absolute; inset: 0; background: radial-gradient(1000px 600px at 50% 50%, rgba(41,151,255,.16), transparent 60%); pointer-events: none; }
@@ -362,7 +363,6 @@
 <section class="subhero">
   <div class="subhero__bg"><div class="orb orb--blue orb--1 orb-anim-1"></div></div>
   <div class="subhero__inner">
-    <div class="subhero__eyebrow reveal"><span class="subhero__eyebrow-dot"></span>Referenzen · Dokumentiert · Auditiert</div>
     <h1 class="subhero__title word-reveal-soft">Hinter jedem Case<br>steht ein <em>echter Name.</em></h1>
     <p class="subhero__sub reveal d-2">Drei dokumentierte Kampagnen mit Funnel, Foto und Video-Statement. Plus echte Stimmen aus weiteren Projekten. Keine Stockfotos. Keine Initialen. Klarnamen.</p>
   </div>
