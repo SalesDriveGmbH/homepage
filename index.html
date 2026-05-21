@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=20260521i">
+<link rel="stylesheet" href="assets/css/site.css?v=20260521j">
 <style>
 /* ===== HOME-specific styles ===== */
 
@@ -1203,20 +1203,8 @@
   50%      { transform: translateY(-6px); }
 }
 
-/* Stylized hand silhouette. holds iPhone from behind right */
-.icp__hand {
-  position: absolute;
-  right: -8%;
-  top: 38%;
-  width: 58%;
-  height: 70%;
-  z-index: 0;
-  pointer-events: none;
-  filter: drop-shadow(0 20px 35px rgba(0,0,0,.7));
-  opacity: 0;
-  animation: hand-in 1.2s cubic-bezier(.16,1,.3,1) .4s forwards;
-}
-.icp__hand svg { width: 100%; height: 100%; display: block; }
+/* Hand-Silhouette war zu cartoonhaft. komplett ausgeblendet. */
+.icp__hand { display: none; }
 @keyframes hand-in {
   from { opacity: 0; transform: translate(40px, 30px) rotate(-4deg); }
   to   { opacity: 1; transform: translate(0, 0) rotate(0); }
@@ -3061,7 +3049,7 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=20260521i"></script>
+<script src="assets/js/site.js?v=20260521j"></script>
 <script>
 // Hero MacBook lid-open: triggered on first scroll OR when laptop comes into view
 (function() {
