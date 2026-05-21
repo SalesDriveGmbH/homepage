@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="sdg" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#7CD0FF"/>
+      <stop offset="100%" stop-color="#2987F0"/>
+    </linearGradient>
+  </defs>
+  <!-- d bowl (ring) -->
+  <circle cx="78" cy="132" r="42" fill="none" stroke="url(#sdg)" stroke-width="26"/>
+  <!-- stem -->
+  <rect x="109" y="60" width="26" height="112" fill="url(#sdg)"/>
+  <!-- arrow head -->
+  <polygon points="82,60 122,18 162,60" fill="url(#sdg)"/>
+</svg>
