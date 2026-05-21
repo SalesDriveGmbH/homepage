@@ -199,8 +199,15 @@ em { font-style: normal; color: var(--blue); }
   background: rgba(10,11,14,.88);
   border-color: rgba(255,255,255,.12);
 }
-.nav__brand { display: flex; align-items: center; flex-shrink: 0; color: var(--ink); }
-.nav__brand-logo { height: 22px; width: auto; display: block; }
+.nav__brand { display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0; color: var(--ink); text-decoration: none; }
+.nav__brand-logo { height: 22px; width: auto; max-height: 22px; display: block; flex-shrink: 0; }
+.nav__brand-icon { width: 22px; height: 22px; display: block; flex-shrink: 0; }
+.nav__brand-text { font-family: var(--display); font-size: 18px; font-weight: 700; letter-spacing: -.024em; line-height: 1; }
+.nav__brand-text .s { color: var(--ink); }
+.nav__brand-text .d { color: var(--blue); }
+/* legacy markup safety */
+.nav__brand-drive { display: none !important; }
+.nav__brand-arrow { display: none !important; }
 .nav__brand-wordmark {
   font-family: var(--display);
   font-size: 17px; font-weight: 700;
