@@ -93,7 +93,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="assets/css/site.css?v=20260522d">
+<link rel="stylesheet" href="assets/css/site.css?v=20260522e">
 <link rel="stylesheet" href="assets/css/mobile.css">
 <style>
 /* ===== HOME-specific styles ===== */
@@ -135,16 +135,16 @@
   z-index: 0;
   overflow: hidden;
   opacity: 0;
-  animation: storyIn 1.6s ease-out 1.4s forwards;
-  --story-tone: rgba(255,255,255,.28);
+  animation: storyIn 1.8s ease-out 1.4s forwards;
+  --story-tone: rgba(255,255,255,.22);
 }
-@keyframes storyIn { to { opacity: .42; } }
+@keyframes storyIn { to { opacity: .32; } }
 
-/* Phone-Knoten links mitte — subtil, monochrom */
+/* Phone-Knoten links — doppelt so gross (88px), tief im Hintergrund */
 .story-phone {
   position: absolute;
-  left: 6%; top: 46%;
-  width: 44px; height: 44px;
+  left: 7%; top: 44%;
+  width: 88px; height: 88px;
   border-radius: 50%;
   background: transparent;
   border: 1px solid var(--story-tone);
@@ -152,25 +152,25 @@
   color: var(--story-tone);
   animation: phoneRing 7s ease-in-out infinite;
 }
-.story-phone svg { width: 18px; height: 18px; stroke-width: 1.6; }
+.story-phone svg { width: 36px; height: 36px; stroke-width: 1.5; }
 @keyframes phoneRing {
   0%, 8%   { transform: rotate(0); }
-  2%       { transform: rotate(-12deg); }
-  4%       { transform: rotate(12deg); }
-  6%       { transform: rotate(-8deg); }
+  2%       { transform: rotate(-10deg); }
+  4%       { transform: rotate(10deg); }
+  6%       { transform: rotate(-6deg); }
   10%, 100% { transform: rotate(0); }
 }
 
-/* Schallwellen — dünn, monochrom, dezent */
+/* Schallwellen — gross genug fuers neue Phone */
 .story-waves {
   position: absolute;
-  left: calc(6% + 22px); top: calc(46% + 22px);
+  left: calc(7% + 44px); top: calc(44% + 44px);
   width: 0; height: 0;
 }
 .story-waves span {
   position: absolute;
   left: 0; top: 0;
-  width: 44px; height: 44px;
+  width: 88px; height: 88px;
   border-radius: 50%;
   border: 1px solid var(--story-tone);
   transform: translate(-50%, -50%) scale(0);
@@ -181,14 +181,14 @@
 @keyframes waveOut {
   0%   { transform: translate(-50%, -50%) scale(.4); opacity: 0; }
   6%   { opacity: .9; }
-  35%  { opacity: 0; transform: translate(-50%, -50%) scale(5.5); }
-  100% { opacity: 0; transform: translate(-50%, -50%) scale(5.5); }
+  35%  { opacity: 0; transform: translate(-50%, -50%) scale(4.5); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(4.5); }
 }
 
-/* Sprach-Pfad — eine dünne weiße Linie die durchläuft */
+/* Sprach-Pfad — startet in der MITTE, geht nach rechts zum Termin */
 .story-path {
   position: absolute;
-  left: 11%; right: 13%;
+  left: 50%; right: 13%;
   top: 51%;
   height: 1px;
   background:
@@ -210,12 +210,12 @@
   100%     { background-position: 140% 0; opacity: 0; }
 }
 
-/* Wave-Bars — dezente weiße Bars, kleiner */
+/* Voice-Bars — von der MITTE bis nach rechts, sichtbarer */
 .story-bars {
   position: absolute;
-  left: 13%; right: 15%;
+  left: 51%; right: 15%;
   top: 51%;
-  height: 18px;
+  height: 22px;
   transform: translateY(-50%);
   display: flex; align-items: center; gap: 5px;
   pointer-events: none;
@@ -5383,7 +5383,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
 </a>
 
-<script src="assets/js/site.js?v=20260522d"></script>
+<script src="assets/js/site.js?v=20260522e"></script>
 <script>
 // Hero MacBook lid-open: triggered on first scroll OR when laptop comes into view.
 // Einmaliges Aufklappen mit 5.2s CSS-Transition (cinematic).
