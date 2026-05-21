@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=20260521d">
+<link rel="stylesheet" href="assets/css/site.css?v=20260521e">
 <style>
 /* ===== HOME-specific styles ===== */
 
@@ -193,8 +193,8 @@
   transform: perspective(2400px) rotateX(-100deg);
   opacity: 0;
   transition:
-    transform 3.4s cubic-bezier(.18,.85,.25,1),
-    opacity 1.2s ease-out;
+    transform 5.2s cubic-bezier(.22, .82, .28, 1),
+    opacity 1.6s ease-out;
   will-change: transform, opacity;
 }
 /* Top-edge highlight strip. Apple aluminum signature */
@@ -221,6 +221,18 @@
   /* subtle inner shine */
   box-shadow: 0 0 0 1px rgba(255,255,255,.04) inset;
 }
+/* Video fills entire screen, crop overflow */
+.laptop__screen iframe {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 178%;       /* zoom in so 16:9 video covers 16:10 screen */
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  border: 0;
+  object-fit: cover;
+}
 /* Notch. small camera bump in center top */
 .laptop__screen::before {
   content: "";
@@ -245,12 +257,7 @@
   border: 1px solid #1a1a1a;
   z-index: 5;
 }
-.laptop__screen iframe {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  border: 0;
-  display: block;
-}
+/* iframe rule above wins via cascade — keep simple fallback */
 .laptop__base {
   position: relative;
   height: clamp(11px, 1.3vw, 16px);
@@ -396,28 +403,22 @@
   .iphone { display: none; }
 }
 
-/* Trust seals directly under laptop */
+/* Trust seals — directly under CTA buttons, compact + muted */
 .hero__seals {
-  position: relative; z-index: 2;
-  margin: clamp(28px, 3.5vw, 44px) auto 0;
+  margin: 22px auto 0;
   padding: 0 22px;
   display: flex; align-items: center; justify-content: center;
-  gap: clamp(28px, 4vw, 60px);
+  gap: clamp(20px, 3vw, 40px);
   flex-wrap: wrap;
-  opacity: 0;
-  animation: seals-in 1s ease-out 2.4s forwards;
-}
-@keyframes seals-in {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 .hero__seals img {
-  height: clamp(46px, 5vw, 64px);
+  height: clamp(36px, 3.6vw, 48px);
   width: auto;
-  opacity: .92;
-  transition: opacity .25s ease, transform .35s var(--ease-out);
+  opacity: .55;
+  filter: grayscale(.25);
+  transition: opacity .25s ease, filter .25s ease, transform .35s var(--ease-out);
 }
-.hero__seals img:hover { opacity: 1; transform: translateY(-2px); }
+.hero__seals img:hover { opacity: .85; filter: grayscale(0); transform: translateY(-2px); }
 
 .hero__cue { display: flex; flex-direction: column; align-items: center; gap: 6px; margin: clamp(40px, 6vw, 70px) auto 0; color: var(--ink-3); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; opacity: .65; }
 .hero__cue-line { width: 1px; height: 36px; background: linear-gradient(180deg, var(--ink-3), transparent); animation: cue-pulse 2.4s ease-in-out infinite; transform-origin: top; }
@@ -1630,8 +1631,29 @@
   color: transparent;
   font-style: normal;
 }
-.final__sub { max-width: 660px; margin: 0 auto 32px; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.4; color: var(--ink-2); }
+.final__eye {
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--blue-bright);
+  margin-bottom: 18px;
+  display: inline-block;
+}
+.final__sub { max-width: 720px; margin: 0 auto 32px; font-size: clamp(15px, 1.2vw, 18px); line-height: 1.55; color: var(--ink-2); }
+.final__sub b { color: var(--ink); font-weight: 600; }
 .final__host { display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; padding: 11px 18px 11px 11px; background: rgba(255,255,255,.04); border: 1px solid var(--line-2); border-radius: 980px; }
+.final__meta {
+  margin-top: 22px;
+  display: inline-flex; align-items: center; gap: 16px;
+  font-size: 12px; color: var(--ink-3);
+  flex-wrap: wrap; justify-content: center;
+  font-family: var(--display);
+}
+.final__meta span { display: inline-flex; align-items: center; gap: 6px; }
+.final__meta svg { width: 12px; height: 12px; opacity: .55; }
+.final__meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--ink-mute); padding: 0; }
 .final__host-av { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--blue-bright)); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-weight: 600; font-size: 13px; color: #fff; }
 .final__host-text { text-align: left; }
 .final__host-name { font-family: var(--display); font-weight: 600; font-size: 13px; letter-spacing: -.012em; }
@@ -1690,6 +1712,12 @@
         Referenzen ansehen
       </a>
     </div>
+
+    <!-- Trust seals directly under CTA -->
+    <div class="hero__seals">
+      <img src="assets/trust/tuv-rheinland.png" alt="TÜV Rheinland zertifiziert · ID 0217466221" />
+      <img src="assets/trust/provenexpert-badges.jpg" alt="ProvenExpert · 4,82 / 5 · 74 Bewertungen" />
+    </div>
   </div>
 
   <!-- Customer logos directly under hero CTA. container-width scroll -->
@@ -1733,11 +1761,6 @@
       <div class="laptop__base"></div>
     </div>
 
-  </div>
-
-  <div class="hero__seals">
-    <img src="assets/trust/tuv-rheinland.png" alt="TÜV Rheinland zertifiziert · ID 0217466221" />
-    <img src="assets/trust/provenexpert-badges.jpg" alt="ProvenExpert · 4,82 / 5 · 74 Bewertungen" />
   </div>
 
 </section>
@@ -2593,18 +2616,27 @@
 <!-- FINAL CTA -->
 <section class="final" id="final">
   <div class="final__inner">
-    <div class="eyebrow reveal" style="color:var(--blue);margin-bottom:20px">Jetzt anfragen</div>
-    <h2 class="final__title reveal d-1">Du closest.<br><em>Wir telefonieren.</em></h2>
-    <p class="final__sub reveal d-2">30 Minuten am Telefon oder per Video. direkt mit Alex. Wir schauen, ob deine Pipeline-Lücke zu unserem Setup passt. Keine Demo, kein Pitch. Diagnose.</p>
+    <div class="final__eye reveal">JETZT KOSTENLOS ANALYSEGESPRÄCH SICHERN</div>
+    <h2 class="final__title reveal d-1">Wir telefonieren.<br><em>Du verkaufst.</em></h2>
+    <p class="final__sub reveal d-2">
+      Du sprichst direkt mit <b style="color:var(--ink)">Alexander Király</b>. Kein Setter, kein Sales-Agent, kein automatisches Kalendertool. Geschäftsführer zu Geschäftsführer, auf Augenhöhe. In 30 Minuten klären wir, ob deine Pipeline-Lücke zu unserem Setup passt und ob eine Zusammenarbeit für dich Sinn ergibt. Keine Demo, kein Pitch. Diagnose.
+    </p>
     <div class="reveal d-3">
       <a href="formular.html" class="btn btn--primary btn--lg">
-        Analysegespräch sichern
+        Kostenloses Analysegespräch sichern
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
     <div class="final__host reveal d-4">
       <div class="final__host-av">AK</div>
-      <div class="final__host-text"><div class="final__host-name">Alexander Kiraly</div><div class="final__host-role">Geschäftsführer · SalesDrive GmbH</div></div>
+      <div class="final__host-text"><div class="final__host-name">Alexander Király</div><div class="final__host-role">Geschäftsführer · SalesDrive GmbH</div></div>
+    </div>
+    <div class="final__meta reveal d-5">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>30 Min.</span>
+      <span class="dot"></span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/></svg>100 % kostenlos</span>
+      <span class="dot"></span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg>Direkt mit Alex</span>
     </div>
   </div>
 </section>
@@ -2612,15 +2644,6 @@
 <!-- FOOTER -->
 <footer class="footer">
   <div class="container">
-
-    <!-- TAGLINE -->
-    <div class="footer__tagline">
-      <div class="footer__tagline-logo">
-        <span class="s">Sales</span><span class="d">drive</span><svg class="arrow" viewBox="0 0 12 14" aria-hidden="true"><path d="M6 1l4 4h-2.5v8h-3V5H2z"/></svg>
-      </div>
-      <h3 class="footer__tagline-headline">Wir telefonieren.<br><em>Du verkaufst.</em></h3>
-      <p class="footer__tagline-sub">B2B-Kaltakquise für Premium-Anbieter im DACH-Raum. TÜV-Rheinland zertifiziert. Wien. Seit 2023.</p>
-    </div>
 
     <!-- LINKS GRID -->
     <div class="footer__grid">
@@ -2681,7 +2704,7 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=20260521d"></script>
+<script src="assets/js/site.js?v=20260521e"></script>
 <script>
 // Hero MacBook lid-open: triggered on first scroll OR when laptop comes into view
 (function() {

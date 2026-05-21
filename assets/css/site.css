@@ -146,9 +146,19 @@ em { font-style: normal; color: var(--blue); }
 }
 .btn svg { width: 13px; height: 13px; transition: transform .22s var(--ease); }
 .btn:hover svg { transform: translateX(3px); }
-.btn--primary { background: var(--blue-deep); color: #fff; }
-.btn--primary:hover { background: var(--blue); }
-.btn--primary:active { background: var(--blue-press); }
+.btn--primary {
+  background: linear-gradient(180deg, #1f6fbe, #135fa8);
+  color: #fff;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.18) inset,
+    0 8px 24px -10px rgba(31,111,190,.5);
+  border-color: rgba(255,255,255,.08);
+}
+.btn--primary:hover {
+  background: linear-gradient(180deg, #2680d4, #1f6fbe);
+  transform: translateY(-1px);
+}
+.btn--primary:active { background: linear-gradient(180deg, #135fa8, #0e4d8a); transform: translateY(0); }
 .btn--ghost { background: transparent; color: var(--ink); border-color: var(--line-3); }
 .btn--ghost:hover { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.32); }
 .btn--link { padding: 0; color: var(--blue); font-size: 15px; border-radius: 0; }
@@ -157,23 +167,37 @@ em { font-style: normal; color: var(--blue); }
 .btn--xl { font-size: 18px; padding: 16px 32px; }
 
 /* NAV */
+/* Floating contained nav pill — Apple-style */
 .nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  height: 46px;
-  background: rgba(0,0,0,.55);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid var(--line);
-  transition: background .25s var(--ease), border-color .25s var(--ease);
+  position: fixed; top: 14px; left: 0; right: 0; z-index: 100;
+  height: auto;
+  background: transparent;
+  border: 0;
+  transition: top .3s var(--ease-out);
+  pointer-events: none;
 }
-.nav.scrolled { background: rgba(0,0,0,.85); border-bottom-color: var(--line-2); }
+.nav.scrolled { top: 10px; }
 .nav__inner {
+  pointer-events: auto;
   max-width: 1024px;
   margin: 0 auto;
-  height: 100%;
-  padding: 0 22px;
+  height: 52px;
+  padding: 0 18px 0 22px;
   display: flex; align-items: center; justify-content: space-between;
   gap: 18px;
+  background: rgba(14,15,18,.78);
+  backdrop-filter: saturate(180%) blur(22px);
+  -webkit-backdrop-filter: saturate(180%) blur(22px);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 980px;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.04) inset,
+    0 18px 60px -16px rgba(0,0,0,.6);
+  width: calc(100% - 32px);
+}
+.nav.scrolled .nav__inner {
+  background: rgba(10,11,14,.88);
+  border-color: rgba(255,255,255,.12);
 }
 .nav__brand { display: flex; align-items: center; flex-shrink: 0; color: var(--ink); }
 .nav__brand-wordmark {
@@ -206,7 +230,7 @@ em { font-style: normal; color: var(--blue); }
 }
 .nav__cta:hover { background: var(--blue-deep); border-color: var(--blue-deep); color: #fff; opacity: 1; }
 .nav__cta svg { width: 9px; height: 9px; }
-.nav-spacer { height: 46px; }
+.nav-spacer { height: 80px; }
 
 .progress {
   position: fixed; top: 46px; left: 0; height: 1px;
@@ -406,9 +430,9 @@ em { font-style: normal; color: var(--blue); }
 
 /* FOOTER */
 .footer {
-  background: #000;
+  background: #0d0e11;
   color: var(--ink-3);
-  padding: clamp(80px, 11vw, 130px) 0 30px;
+  padding: clamp(60px, 8vw, 100px) 0 30px;
   font-size: 12px;
   border-top: 1px solid var(--line-2);
   position: relative;
@@ -471,10 +495,13 @@ em { font-style: normal; color: var(--blue); }
 .footer__brand p { color: var(--ink-mute); line-height: 1.6; max-width: 310px; margin-bottom: 22px; }
 .footer__trust { display: flex; gap: 14px; align-items: center; margin-bottom: 18px; }
 .footer__trust img {
-  height: 56px;
+  height: 50px;
   width: auto;
-  opacity: 1;   /* NOT dimmed — show seal in full color */
+  opacity: .55;
+  filter: grayscale(.3);
+  transition: opacity .2s ease, filter .2s ease;
 }
+.footer__trust img:hover { opacity: .9; filter: grayscale(0); }
 .footer__col h6 { font-family: var(--display); font-size: 11px; font-weight: 600; color: var(--ink); margin-bottom: 12px; text-transform: uppercase; letter-spacing: .08em; }
 .footer__col a { display: block; color: var(--ink-3); padding: 3px 0; font-size: 12px; transition: color .15s ease; }
 .footer__col a:hover { color: var(--blue); }
