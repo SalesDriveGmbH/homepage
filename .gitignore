@@ -3,3 +3,7 @@
 .claude
 *.log
 node_modules/
+
+# Legacy / backup snapshots — kept locally, never committed
+index.old.html
+index.v2.html
