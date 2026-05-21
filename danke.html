@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Termin bestätigt · SalesDrive GmbH</title>
+<meta name="theme-color" content="#000000" />
+<link rel="icon" type="image/png" href="assets/brand/salesdrive-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+.thanks { padding: clamp(120px, 14vw, 180px) 0 clamp(60px, 9vw, 120px); text-align: center; position: relative; overflow: hidden; min-height: 80vh; display: flex; align-items: center; }
+.thanks::before { content: ""; position: absolute; inset: 0; background: radial-gradient(900px 600px at 50% 30%, rgba(41,151,255,.16), transparent 60%); pointer-events: none; }
+.thanks__inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 0 22px; width: 100%; }
+
+.thanks__check {
+  width: 84px; height: 84px;
+  margin: 0 auto 22px;
+  border-radius: 50%;
+  background: rgba(48,209,88,.14);
+  border: 1.5px solid rgba(48,209,88,.4);
+  color: var(--green);
+  display: flex; align-items: center; justify-content: center;
+  animation: thanks-pop .8s var(--ease-spring) .2s both;
+}
+.thanks__check svg { width: 38px; height: 38px; stroke-width: 2.6; }
+@keyframes thanks-pop { 0% { opacity: 0; transform: scale(.5); } 100% { opacity: 1; transform: scale(1); } }
+
+.thanks__title {
+  font-family: var(--display);
+  font-size: clamp(36px, 6vw, 76px);
+  font-weight: 600;
+  letter-spacing: -.044em;
+  line-height: 1.02;
+  margin-bottom: 18px;
+}
+.thanks__title em { background: linear-gradient(180deg, var(--blue-bright), var(--blue)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.thanks__sub { font-size: clamp(16px, 1.4vw, 20px); color: var(--ink-2); line-height: 1.45; margin-bottom: 36px; }
+
+.checklist { background: var(--surf); border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(22px, 3vw, 32px); text-align: left; margin-bottom: 32px; }
+.checklist__title { font-family: var(--display); font-size: 17px; font-weight: 600; letter-spacing: -.02em; margin-bottom: 14px; }
+.checklist__item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+.checklist__item:first-of-type { border-top: 0; }
+.checklist__item b { color: var(--ink); font-weight: 600; }
+.checklist__num {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: rgba(41,151,255,.12);
+  color: var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--display);
+  font-size: 12px; font-weight: 600;
+  flex-shrink: 0;
+}
+
+.thanks__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="/" aria-label="SalesDrive">
+      <span class="nav__brand-wordmark"><span class="nav__brand-sales">Sales</span><span class="nav__brand-drive">drive</span><svg class="nav__brand-arrow" viewBox="0 0 12 14"><path d="M6 1l4 4h-2.5v8h-3V5H2z"/></svg></span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html#cases">Cases</a></li>
+      <li><a href="referenzen.html">Referenzen</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="zertifizierungen.html">Zertifizierungen</a></li>
+    </ul>
+    <a class="nav__cta" href="/">
+      Zurück zur Startseite
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 19l-7-7 7-7"/></svg>
+    </a>
+  </div>
+</nav>
+<div class="progress" id="progress"></div>
+<div class="nav-spacer"></div>
+
+<section class="thanks">
+  <div class="thanks__inner">
+    <div class="thanks__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></div>
+    <h1 class="thanks__title reveal">Termin bestätigt.<br><em>Wir freuen uns auf dich.</em></h1>
+    <p class="thanks__sub reveal d-1">Du erhältst gleich eine Bestätigung per E-Mail mit Kalendereintrag und Zoom-Link. Falls du in den nächsten 2 Minuten keine Mail siehst, prüfe den Spam-Ordner.</p>
+
+    <div class="checklist reveal-blur d-2">
+      <div class="checklist__title">So bereitest du dich in 5 Minuten vor</div>
+      <div class="checklist__item"><span class="checklist__num">1</span><span><b>Stell dir kurz die echte Frage:</b> Was würde sich in deinem Vertrieb ändern, wenn jede Woche 4 vorqualifizierte Termine in deinem Kalender stehen?</span></div>
+      <div class="checklist__item"><span class="checklist__num">2</span><span><b>Notier dir, was du bisher probiert hast:</b> Setter, Pool-Agenturen, Inbound, Empfehlungen. Was hat funktioniert, was nicht?</span></div>
+      <div class="checklist__item"><span class="checklist__num">3</span><span><b>Halte deine Zahlen bereit:</b> ungefährer Kundenwert, durchschnittlicher Sales-Cycle, aktuelle monatliche Neukunden-Anzahl.</span></div>
+      <div class="checklist__item"><span class="checklist__num">4</span><span><b>Schau dir vorab unsere Cases an:</b> Putz &amp; Stingl, RINK, Linkbroker — damit du im Gespräch konkrete Vergleichspunkte hast.</span></div>
+    </div>
+
+    <div class="thanks__actions reveal d-3">
+      <a href="referenzen.html" class="btn btn--ghost btn--lg">
+        Cases ansehen
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="zertifizierungen.html" class="btn btn--ghost btn--lg">
+        Zertifizierungen
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__brand-wordmark"><span class="s">Sales</span><span class="d">drive</span></div>
+        <p>Die SalesDrive GmbH übernimmt die telefonische B2B-Kaltakquise für Premium-Anbieter im DACH-Raum. Wien. Seit 2023.</p>
+      </div>
+      <div class="footer__col"><h6>Plattform</h6><a href="index.html#cases">Cases</a><a href="referenzen.html">Referenzen</a><a href="zertifizierungen.html">Zertifizierungen</a></div>
+      <div class="footer__col"><h6>Kontakt</h6><a href="mailto:office@salesdrive.at">office@salesdrive.at</a><a href="tel:+436767951018">+43 676 795 10 18</a></div>
+      <div class="footer__col"><h6>Rechtliches</h6><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="agb.html">AGB</a></div>
+    </div>
+    <div class="footer__bottom"><span>© 2026 SalesDrive GmbH · FN 599821s · HG Wien</span><span>Made in Vienna</span></div>
+  </div>
+</footer>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

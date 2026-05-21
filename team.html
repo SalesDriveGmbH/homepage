@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="index, follow" />
+<title>Team · SalesDrive GmbH</title>
+<meta name="description" content="Hinter jeder Kampagne sitzt ein Mensch, der unterschreibt. Das Team der SalesDrive GmbH — Wien, geprüft, im Headset." />
+<meta name="theme-color" content="#000000" />
+<link rel="icon" type="image/png" href="assets/brand/salesdrive-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+.lead-section { padding: clamp(50px, 8vw, 100px) 0; background: var(--bg); }
+.lead-card {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: clamp(30px, 5vw, 70px);
+  align-items: center;
+  margin-bottom: clamp(50px, 8vw, 90px);
+}
+.lead-card:last-child { margin-bottom: 0; }
+.lead-card.reverse { grid-template-columns: 1.2fr 1fr; }
+.lead-card.reverse .lead-card__photo { order: 2; }
+.lead-card__photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--surf);
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,.6);
+}
+.lead-card__photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease-out); }
+.lead-card__photo:hover img { transform: scale(1.04); }
+.lead-card__photo::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,.4) 100%);
+}
+.lead-card__content { display: flex; flex-direction: column; gap: 18px; }
+.lead-card__role { font-size: 12px; color: var(--blue); letter-spacing: .14em; text-transform: uppercase; font-weight: 600; }
+.lead-card__name { font-family: var(--display); font-size: clamp(32px, 4.2vw, 56px); font-weight: 600; letter-spacing: -.038em; line-height: 1.04; }
+.lead-card__bio { font-size: clamp(16px, 1.3vw, 18px); line-height: 1.55; color: var(--ink-2); }
+.lead-card__bio b { color: var(--ink); font-weight: 600; }
+.lead-card__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 10px; padding-top: 18px; border-top: 1px solid var(--line); }
+.lead-card__stat-num { font-family: var(--display); font-size: 24px; font-weight: 600; letter-spacing: -.025em; color: var(--blue); }
+.lead-card__stat-lbl { font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+.lead-card__socials { display: flex; gap: 8px; margin-top: 8px; }
+.lead-card__socials a { width: 32px; height: 32px; border-radius: 50%; background: var(--surf); border: 1px solid var(--line-2); display: flex; align-items: center; justify-content: center; color: var(--ink-3); transition: all .2s ease; }
+.lead-card__socials a:hover { color: var(--blue); border-color: var(--blue); }
+.lead-card__socials svg { width: 14px; height: 14px; }
+@media (max-width: 900px) {
+  .lead-card, .lead-card.reverse { grid-template-columns: 1fr; }
+  .lead-card.reverse .lead-card__photo { order: 0; }
+}
+
+.crew { background: var(--bg-2); padding: clamp(70px, 10vw, 120px) 0; }
+.crew__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.crew__card { position: relative; aspect-ratio: 4 / 5; border-radius: var(--r-md); overflow: hidden; background: var(--surf); border: 1px solid var(--line); }
+.crew__card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(.15) brightness(.92); transition: transform .8s var(--ease-out), filter .3s ease; }
+.crew__card:hover img { transform: scale(1.05); filter: grayscale(0) brightness(1); }
+.crew__card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,.85) 100%); }
+.crew__overlay { position: absolute; left: 16px; right: 16px; bottom: 16px; z-index: 2; color: #fff; }
+.crew__name { font-family: var(--display); font-size: 15px; font-weight: 600; letter-spacing: -.018em; }
+.crew__role { font-size: 12px; opacity: .8; margin-top: 1px; }
+@media (max-width: 980px) { .crew__grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 700px) { .crew__grid { grid-template-columns: repeat(2, 1fr); } }
+
+.office { background: var(--bg); }
+.office__bento { display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 180px; gap: 12px; }
+.office__tile { position: relative; border-radius: var(--r-lg); overflow: hidden; background: var(--surf); border: 1px solid var(--line); grid-column: span 2; transition: transform .5s var(--ease-out); }
+.office__tile.large { grid-column: span 3; }
+.office__tile.tall { grid-row: span 2; }
+.office__tile.wide { grid-column: span 4; }
+.office__tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .9s var(--ease-out); filter: brightness(.92); }
+.office__tile:hover img { transform: scale(1.05); filter: brightness(1); }
+.office__tile:hover { transform: translateY(-4px); }
+.office__tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.1) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,.65) 100%); pointer-events: none; }
+.office__tag { position: absolute; left: 14px; top: 14px; z-index: 2; padding: 5px 11px; background: rgba(0,0,0,.5); backdrop-filter: blur(12px); border-radius: 980px; font-size: 11px; font-weight: 500; color: #fff; }
+@media (max-width: 900px) {
+  .office__bento { grid-template-columns: repeat(2, 1fr); }
+  .office__tile, .office__tile.large, .office__tile.tall, .office__tile.wide { grid-column: span 2; grid-row: span 1; }
+}
+
+.final { position: relative; padding: clamp(80px, 12vw, 160px) 0; text-align: center; overflow: hidden; background: var(--bg); }
+.final::before { content: ""; position: absolute; inset: 0; background: radial-gradient(1000px 600px at 50% 50%, rgba(41,151,255,.16), transparent 60%); pointer-events: none; }
+.final__inner { position: relative; z-index: 1; padding: 0 22px; }
+.final__title { font-family: var(--display); font-size: clamp(32px, 5vw, 64px); font-weight: 600; line-height: 1.04; letter-spacing: -.04em; margin-bottom: 18px; }
+.final__title em { background: linear-gradient(180deg, var(--blue-bright), var(--blue)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.final__sub { max-width: 640px; margin: 0 auto 32px; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.4; color: var(--ink-2); }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="/" aria-label="SalesDrive">
+      <span class="nav__brand-wordmark"><span class="nav__brand-sales">Sales</span><span class="nav__brand-drive">drive</span><svg class="nav__brand-arrow" viewBox="0 0 12 14"><path d="M6 1l4 4h-2.5v8h-3V5H2z"/></svg></span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html#cases">Cases</a></li>
+      <li><a href="referenzen.html">Referenzen</a></li>
+      <li><a href="index.html#mechanik">Ablauf</a></li>
+      <li><a href="team.html" class="is-current">Team</a></li>
+      <li><a href="zertifizierungen.html">Zertifizierungen</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+    </ul>
+    <a class="nav__cta" href="formular.html">
+      Analysegespräch
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</nav>
+<div class="progress" id="progress"></div>
+<div class="nav-spacer"></div>
+
+<section class="subhero">
+  <div class="subhero__bg"><div class="orb orb--blue orb--1 orb-anim-1"></div></div>
+  <div class="subhero__inner">
+    <div class="subhero__eyebrow reveal"><span class="subhero__eyebrow-dot"></span>Das Team</div>
+    <h1 class="subhero__title reveal d-1">Hinter jeder Kampagne sitzt<br>ein <em>Mensch, der unterschreibt.</em></h1>
+    <p class="subhero__sub reveal d-2">Kein Outsourcing-Mantel, kein Pool-Callcenter aus dem fünften Stock. Du arbeitest mit den Personen, die das System gebaut haben — und die jeden Tag selbst am Hörer hängen.</p>
+  </div>
+</section>
+
+<section class="lead-section">
+  <div class="container">
+    <div class="lead-card">
+      <div class="lead-card__photo reveal-blur"><img src="assets/team/alexander-kiraly.jpeg" alt="Alexander Kiraly" /></div>
+      <div class="lead-card__content reveal-slide-r d-1">
+        <span class="lead-card__role">Geschäftsführer · Founder</span>
+        <h2 class="lead-card__name">Alexander Kiraly</h2>
+        <p class="lead-card__bio">Alex trägt die operative Verantwortung bei SalesDrive. Er ist <b>der direkte Ansprechpartner für jeden Kunden</b> — kein Account-Manager-Pool, kein Setter zwischen euch. Er begleitet Kampagnen von Strategie bis Umsetzung persönlich und hat über 1,3 Millionen B2B-Anrufe für Premium-Anbieter im DACH-Raum verantwortet.</p>
+        <p class="lead-card__bio">Sein Anspruch: Cold Calling, das deinen besten Kunden empfohlen werden kann.</p>
+        <div class="lead-card__stats">
+          <div><div class="lead-card__stat-num">1,3 Mio.+</div><div class="lead-card__stat-lbl">Anrufe verantwortet</div></div>
+          <div><div class="lead-card__stat-num">180+</div><div class="lead-card__stat-lbl">Kunden begleitet</div></div>
+          <div><div class="lead-card__stat-num">10.230+</div><div class="lead-card__stat-lbl">Termine generiert</div></div>
+        </div>
+        <div class="lead-card__socials">
+          <a href="https://www.linkedin.com/in/alexander-kiraly/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></a>
+          <a href="mailto:alexander@salesdrive.at" aria-label="E-Mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="lead-card reverse">
+      <div class="lead-card__photo reveal-blur"><img src="assets/team/lukas-lehner.jpeg" alt="Lukas Lehner" /></div>
+      <div class="lead-card__content reveal-slide-l d-1">
+        <span class="lead-card__role">Founder · Strategy &amp; Business Development</span>
+        <h2 class="lead-card__name">Lukas Lehner</h2>
+        <p class="lead-card__bio">Lukas hat <b>über zehn Jahre Vertriebserfahrung</b> und mehr als <b>250 Vertriebsmitarbeiter</b> trainiert. Bei SalesDrive verantwortet er strategische Ausrichtung und Kampagnen-Entwicklung — die Person hinter den Skripten, ICPs und der Kampagnen-Architektur.</p>
+        <p class="lead-card__bio">Er baut das System dahinter. Alex und das Team sorgen dafür, dass es jeden Tag liefert.</p>
+        <div class="lead-card__stats">
+          <div><div class="lead-card__stat-num">10+</div><div class="lead-card__stat-lbl">Jahre Vertrieb</div></div>
+          <div><div class="lead-card__stat-num">250+</div><div class="lead-card__stat-lbl">Sales-MA trainiert</div></div>
+          <div><div class="lead-card__stat-num">€83 Mio.</div><div class="lead-card__stat-lbl">Kunden-Umsatz</div></div>
+        </div>
+        <div class="lead-card__socials">
+          <a href="https://www.linkedin.com/in/lukas-lehner-vertrieb/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></a>
+          <a href="mailto:lukas@salesdrive.at" aria-label="E-Mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="crew section--divide">
+  <div class="container">
+    <div class="sec-head reveal">
+      <h2 class="display">Das Team in Wien.<br><em>Jeder geprüft. Jeder im Headset.</em></h2>
+      <p class="lead">Sales, Strategie, Personal-Entwicklung. Die Personen, die hinter den 1,3 Millionen Anrufen stehen.</p>
+    </div>
+    <div class="crew__grid">
+      <div class="crew__card reveal-blur"><img src="assets/team/sophie-oberlechner.jpeg" alt="Sophie Oberlechner"><div class="crew__overlay"><div class="crew__name">Sophie Oberlechner</div><div class="crew__role">Head of Personnel Development</div></div></div>
+      <div class="crew__card reveal-blur d-1"><img src="assets/team/hans-peter-lorenz.jpeg" alt="Hans-Peter Lorenz"><div class="crew__overlay"><div class="crew__name">Hans-Peter Lorenz</div><div class="crew__role">Strategic Consulting</div></div></div>
+      <div class="crew__card reveal-blur d-2"><img src="assets/team/michael-huber.jpeg" alt="Michael Huber"><div class="crew__overlay"><div class="crew__name">Michael Huber</div><div class="crew__role">Account Manager</div></div></div>
+      <div class="crew__card reveal-blur d-3"><img src="assets/team/zahrah-kannstein.jpeg" alt="Zahrah Kannstein"><div class="crew__overlay"><div class="crew__name">Zahrah Kannstein</div><div class="crew__role">Account Manager</div></div></div>
+      <div class="crew__card reveal-blur"><img src="assets/team/marcel-wolf.jpeg" alt="Marcel Wolf"><div class="crew__overlay"><div class="crew__name">Marcel Wolf</div><div class="crew__role">Sales · Senior SalesAgent</div></div></div>
+      <div class="crew__card reveal-blur d-1"><img src="assets/team/lili-neumann.jpeg" alt="Lili Neumann"><div class="crew__overlay"><div class="crew__name">Lili Neumann</div><div class="crew__role">Sales · Senior SalesAgent</div></div></div>
+      <div class="crew__card reveal-blur d-2"><img src="assets/team/monika-fussi.jpeg" alt="Monika Fussi"><div class="crew__overlay"><div class="crew__name">Monika Fussi</div><div class="crew__role">Sales</div></div></div>
+      <div class="crew__card reveal-blur d-3"><img src="assets/team/thomas-thate.jpeg" alt="Thomas Thate"><div class="crew__overlay"><div class="crew__name">Thomas Thate</div><div class="crew__role">Sales</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section office section--divide">
+  <div class="container">
+    <div class="sec-head reveal">
+      <h2 class="display">200 m² <em>Premium-Sales-Floor</em><br>im Leopoldquartier.</h2>
+      <p class="lead">Hier entstehen Kampagnen. Hier trainiert das Team. Hier triffst du uns, wenn es ernst wird.</p>
+    </div>
+    <div class="office__bento">
+      <div class="office__tile large reveal-blur"><img src="assets/team/leopoldquartier-team.jpeg" alt="Leopoldquartier Team" /><div class="office__tag">Team-Foto · Wien</div></div>
+      <div class="office__tile tall reveal-blur d-1"><img src="assets/photos/alex-headset-portrait.jpg" alt="Live-Calls" /><div class="office__tag">Live-Calls am Headset</div></div>
+      <div class="office__tile reveal-blur d-2"><img src="assets/photos/whiteboard-session.jpg" alt="Whiteboard" /><div class="office__tag">Workshop</div></div>
+      <div class="office__tile reveal-blur d-3"><img src="assets/photos/videocall-strategy.jpg" alt="Strategie-Call" /><div class="office__tag">Strategie-Call</div></div>
+      <div class="office__tile wide reveal-blur d-4"><img src="assets/photos/leopoldquartier-office.jpg" alt="HQ" /><div class="office__tag">HQ · Leopoldquartier 1020</div></div>
+      <div class="office__tile reveal-blur d-5"><img src="assets/photos/messe-stand-talk.jpg" alt="Messestand" /><div class="office__tag">Done 4 You · Messeauftritt</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="final__inner">
+    <div class="eyebrow reveal" style="color:var(--blue);margin-bottom:18px">Jetzt anfragen</div>
+    <h2 class="final__title reveal d-1">Du closest. <em>Wir telefonieren.</em></h2>
+    <p class="final__sub reveal d-2">30 Minuten am Telefon oder per Video — direkt mit Alex. Kein Setter, kein Pool.</p>
+    <div class="reveal d-3">
+      <a href="formular.html" class="btn btn--primary btn--lg">
+        Analysegespräch sichern
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__brand-wordmark"><span class="s">Sales</span><span class="d">drive</span></div>
+        <p>Die SalesDrive GmbH übernimmt die telefonische B2B-Kaltakquise für Premium-Anbieter im DACH-Raum. Wien. Seit 2023.</p>
+        <div class="footer__trust"><img src="assets/trust/tuv-rheinland.png" alt="TÜV Rheinland Zertifiziert" /></div>
+        <div class="footer__socials">
+          <a href="https://www.facebook.com/salesdrivegmbh" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.55V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="https://www.instagram.com/salesdrive.at/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://www.youtube.com/@SalesDriveGmbH" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.2 0 12 0 12s0 3.8.5 5.8A3 3 0 0 0 2.6 19.9c2 .6 9.4.6 9.4.6s7.4 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.8 24 12 24 12s0-3.8-.5-5.8zM9.5 15.5v-7l6.5 3.5-6.5 3.5z"/></svg></a>
+          <a href="https://www.linkedin.com/company/lehner-consulting/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__col"><h6>Plattform</h6><a href="index.html#cases">Cases</a><a href="referenzen.html">Referenzen</a><a href="index.html#mechanik">Ablauf</a><a href="zertifizierungen.html">Zertifizierungen</a><a href="index.html#faq">FAQ</a></div>
+      <div class="footer__col"><h6>Kontakt</h6><a href="mailto:office@salesdrive.at">office@salesdrive.at</a><a href="tel:+436767951018">+43 676 795 10 18</a><a href="index.html#standort">Obere Donaustraße 25<br>1020 Wien</a></div>
+      <div class="footer__col"><h6>Rechtliches</h6><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="agb.html">AGB</a><a href="team.html">Team</a></div>
+    </div>
+    <div class="footer__bottom"><span>© 2026 SalesDrive GmbH · FN 599821s · HG Wien · UID ATU79430518</span><span>Made in Vienna</span></div>
+  </div>
+</footer>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

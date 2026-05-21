@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Analysegespräch anfragen · SalesDrive GmbH</title>
+<meta name="description" content="Trage dich für ein kostenloses 30-Minuten-Analysegespräch ein. Direkt mit Geschäftsführer Alexander Kiraly." />
+<meta name="theme-color" content="#000000" />
+<link rel="icon" type="image/png" href="assets/brand/salesdrive-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+.funnel { padding: clamp(100px, 12vw, 160px) 0 clamp(60px, 9vw, 120px); position: relative; overflow: hidden; }
+.funnel::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(900px 500px at 50% 10%, rgba(41,151,255,.10), transparent 60%);
+  pointer-events: none;
+}
+.funnel__inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 22px; }
+
+.funnel__progress {
+  display: flex; justify-content: center; gap: 6px;
+  margin-bottom: 32px;
+}
+.funnel__progress span {
+  height: 3px; width: 36px;
+  background: var(--surf-2);
+  border-radius: 2px;
+  transition: background .35s var(--ease);
+}
+.funnel__progress span.is-active { background: var(--blue); box-shadow: 0 0 8px var(--blue-glow); }
+
+.funnel__head { text-align: center; margin-bottom: 36px; }
+.funnel__eyebrow { font-size: 12px; color: var(--blue); margin-bottom: 12px; letter-spacing: .14em; text-transform: uppercase; }
+.funnel__title { font-family: var(--display); font-size: clamp(28px, 4vw, 48px); font-weight: 600; letter-spacing: -.038em; line-height: 1.05; margin-bottom: 14px; }
+.funnel__title em { background: linear-gradient(180deg, var(--blue-bright), var(--blue)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.funnel__sub { font-size: 16px; color: var(--ink-2); line-height: 1.5; }
+
+.funnel__card {
+  background: var(--surf);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: clamp(24px, 4vw, 40px);
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,.6);
+}
+
+.fstep { display: none; flex-direction: column; gap: 16px; }
+.fstep.is-active { display: flex; animation: fadeUp .5s var(--ease-out); }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field__label { font-size: 13px; font-weight: 500; color: var(--ink); }
+.field__hint { font-size: 12px; color: var(--ink-mute); }
+.field__input,
+.field__select,
+.field__textarea {
+  width: 100%;
+  background: var(--bg-3);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-sm);
+  padding: 12px 14px;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 15px;
+  letter-spacing: -.005em;
+  transition: border-color .2s ease, background .2s ease;
+}
+.field__input:focus,
+.field__select:focus,
+.field__textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+  background: var(--bg-2);
+  box-shadow: 0 0 0 3px var(--blue-soft);
+}
+.field__textarea { min-height: 110px; resize: vertical; }
+.field__select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a1a1a6' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 14px; padding-right: 40px; }
+
+.field__row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 580px) { .field__row { grid-template-columns: 1fr; } }
+
+.choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (max-width: 580px) { .choice-grid { grid-template-columns: 1fr; } }
+.choice {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 14px 16px;
+  background: var(--bg-3);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: all .2s ease;
+}
+.choice:hover { border-color: var(--line-3); background: var(--bg-2); }
+.choice.is-selected { border-color: var(--blue); background: var(--blue-soft); }
+.choice__radio {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink-3);
+  flex-shrink: 0;
+  margin-top: 2px;
+  position: relative;
+  transition: border-color .2s ease;
+}
+.choice.is-selected .choice__radio { border-color: var(--blue); }
+.choice.is-selected .choice__radio::after { content: ""; position: absolute; inset: 3px; border-radius: 50%; background: var(--blue); }
+.choice__label { font-size: 14px; color: var(--ink); font-weight: 500; }
+.choice__sub { font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+
+.fstep__actions { display: flex; justify-content: space-between; gap: 10px; margin-top: 8px; }
+.fstep__actions .btn { flex: 1; max-width: 220px; }
+.btn--back { background: transparent; color: var(--ink-3); border: 1px solid var(--line-2); }
+.btn--back:hover { color: var(--ink); border-color: var(--line-3); background: rgba(255,255,255,.04); }
+
+.error-msg { font-size: 12px; color: var(--red); margin-top: 4px; min-height: 16px; }
+
+.calendly-wrap {
+  background: var(--surf);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 14px;
+  min-height: 720px;
+  overflow: hidden;
+}
+.calendly-inline-widget { min-height: 720px; }
+
+.spinner {
+  width: 32px; height: 32px;
+  border: 2.5px solid var(--line-2);
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  margin: 30px auto;
+  animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.assurance { display: flex; gap: 22px; justify-content: center; margin-top: 28px; flex-wrap: wrap; }
+.assurance__item { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-3); }
+.assurance__item svg { width: 12px; height: 12px; color: var(--green); }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="/" aria-label="SalesDrive">
+      <span class="nav__brand-wordmark"><span class="nav__brand-sales">Sales</span><span class="nav__brand-drive">drive</span><svg class="nav__brand-arrow" viewBox="0 0 12 14"><path d="M6 1l4 4h-2.5v8h-3V5H2z"/></svg></span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html#cases">Cases</a></li>
+      <li><a href="referenzen.html">Referenzen</a></li>
+      <li><a href="index.html#mechanik">Ablauf</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="zertifizierungen.html">Zertifizierungen</a></li>
+    </ul>
+    <a class="nav__cta" href="index.html">
+      Zurück zur Seite
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 19l-7-7 7-7"/></svg>
+    </a>
+  </div>
+</nav>
+<div class="progress" id="progress"></div>
+<div class="nav-spacer"></div>
+
+<section class="funnel">
+  <div class="funnel__inner">
+    <div class="funnel__progress" id="funnelProgress">
+      <span class="is-active"></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="funnel__head">
+      <div class="funnel__eyebrow">Kostenloses Analysegespräch</div>
+      <h1 class="funnel__title">Du gibst uns 2 Minuten.<br>Wir geben dir <em>einen Termin mit Alex.</em></h1>
+      <p class="funnel__sub">Vier kurze Fragen, dann buchst du direkt deinen Termin im Kalender. Direkter Draht zur Geschäftsführung.</p>
+    </div>
+
+    <form class="funnel__card" id="funnelForm" novalidate>
+      <!-- STEP 1: Company basics -->
+      <div class="fstep is-active" data-step="1">
+        <div class="field">
+          <label class="field__label" for="firma">Firma</label>
+          <input class="field__input" type="text" id="firma" name="firma" required autocomplete="organization" placeholder="z.B. Acme GmbH" />
+          <div class="error-msg" data-error="firma"></div>
+        </div>
+        <div class="field">
+          <label class="field__label" for="website">Website</label>
+          <input class="field__input" type="url" id="website" name="website" autocomplete="url" placeholder="https://" />
+        </div>
+        <div class="field">
+          <label class="field__label">Was bietet ihr an?</label>
+          <p class="field__hint">Wir lehnen B2C, Coaching, Kurse und Anbieter unter 5.000 € Kundenwert ab.</p>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="branche" value="agentur" hidden><span class="choice__radio"></span><span><span class="choice__label">Marketing- / Werbeagentur</span><span class="choice__sub">Branding, Performance, PR, Web</span></span></label>
+            <label class="choice"><input type="radio" name="branche" value="software" hidden><span class="choice__radio"></span><span><span class="choice__label">Software / SaaS</span><span class="choice__sub">B2B-Tools, Plattformen</span></span></label>
+            <label class="choice"><input type="radio" name="branche" value="dienstleistung" hidden><span class="choice__radio"></span><span><span class="choice__label">B2B-Dienstleistung</span><span class="choice__sub">Hochpreisige Services</span></span></label>
+            <label class="choice"><input type="radio" name="branche" value="andere" hidden><span class="choice__radio"></span><span><span class="choice__label">Andere Branche</span><span class="choice__sub">Sag uns, wer du bist</span></span></label>
+          </div>
+          <div class="error-msg" data-error="branche"></div>
+        </div>
+        <div class="fstep__actions">
+          <div></div>
+          <button type="button" class="btn btn--primary btn--lg" data-next>Weiter <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Qualification -->
+      <div class="fstep" data-step="2">
+        <div class="field">
+          <label class="field__label">Wie hoch ist euer Jahresumsatz?</label>
+          <p class="field__hint">Wir arbeiten ab 1 Mio. € Jahresumsatz.</p>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="umsatz" value="<1M" hidden><span class="choice__radio"></span><span class="choice__label">Unter 1 Mio. €</span></label>
+            <label class="choice"><input type="radio" name="umsatz" value="1-3M" hidden><span class="choice__radio"></span><span class="choice__label">1 – 3 Mio. €</span></label>
+            <label class="choice"><input type="radio" name="umsatz" value="3-10M" hidden><span class="choice__radio"></span><span class="choice__label">3 – 10 Mio. €</span></label>
+            <label class="choice"><input type="radio" name="umsatz" value=">10M" hidden><span class="choice__radio"></span><span class="choice__label">Über 10 Mio. €</span></label>
+          </div>
+          <div class="error-msg" data-error="umsatz"></div>
+        </div>
+        <div class="field">
+          <label class="field__label">Wie hoch ist euer durchschnittlicher Kundenwert?</label>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="kundenwert" value="<5k" hidden><span class="choice__radio"></span><span class="choice__label">Unter 5.000 €</span></label>
+            <label class="choice"><input type="radio" name="kundenwert" value="5-15k" hidden><span class="choice__radio"></span><span class="choice__label">5.000 – 15.000 €</span></label>
+            <label class="choice"><input type="radio" name="kundenwert" value="15-50k" hidden><span class="choice__radio"></span><span class="choice__label">15.000 – 50.000 €</span></label>
+            <label class="choice"><input type="radio" name="kundenwert" value=">50k" hidden><span class="choice__radio"></span><span class="choice__label">Über 50.000 €</span></label>
+          </div>
+          <div class="error-msg" data-error="kundenwert"></div>
+        </div>
+        <div class="fstep__actions">
+          <button type="button" class="btn btn--back" data-back>Zurück</button>
+          <button type="button" class="btn btn--primary btn--lg" data-next>Weiter <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Personal details -->
+      <div class="fstep" data-step="3">
+        <div class="field__row">
+          <div class="field">
+            <label class="field__label" for="vorname">Vorname</label>
+            <input class="field__input" type="text" id="vorname" name="vorname" required autocomplete="given-name" />
+            <div class="error-msg" data-error="vorname"></div>
+          </div>
+          <div class="field">
+            <label class="field__label" for="nachname">Nachname</label>
+            <input class="field__input" type="text" id="nachname" name="nachname" required autocomplete="family-name" />
+            <div class="error-msg" data-error="nachname"></div>
+          </div>
+        </div>
+        <div class="field">
+          <label class="field__label" for="email">Geschäftliche E-Mail</label>
+          <input class="field__input" type="email" id="email" name="email" required autocomplete="email" placeholder="name@firma.at" />
+          <div class="error-msg" data-error="email"></div>
+        </div>
+        <div class="field">
+          <label class="field__label" for="telefon">Telefon</label>
+          <input class="field__input" type="tel" id="telefon" name="telefon" required autocomplete="tel" placeholder="+43 …" />
+          <div class="error-msg" data-error="telefon"></div>
+        </div>
+        <div class="field">
+          <label class="field__label" for="position">Deine Position</label>
+          <select class="field__select" id="position" name="position">
+            <option value="">Auswählen …</option>
+            <option>Geschäftsführer:in / Inhaber:in</option>
+            <option>Vertriebsleitung</option>
+            <option>Marketing / Growth</option>
+            <option>Andere</option>
+          </select>
+        </div>
+        <div class="fstep__actions">
+          <button type="button" class="btn btn--back" data-back>Zurück</button>
+          <button type="button" class="btn btn--primary btn--lg" data-next>Weiter <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 4: Concern -->
+      <div class="fstep" data-step="4">
+        <div class="field">
+          <label class="field__label" for="anliegen">Worum geht es konkret?</label>
+          <p class="field__hint">Optional. Hilft uns, das Gespräch vorzubereiten.</p>
+          <textarea class="field__textarea" id="anliegen" name="anliegen" placeholder="z.B. 'Wir wollen unseren Pool an Marketing-Agenturen ausbauen' oder 'Aktuell hängt unsere Akquise an mir, das blockiert Geschäftsführung'"></textarea>
+        </div>
+        <div class="field">
+          <label class="field__label" for="quelle">Wie bist du auf uns aufmerksam geworden?</label>
+          <select class="field__select" id="quelle" name="quelle">
+            <option value="">Auswählen …</option>
+            <option>Empfehlung</option>
+            <option>Google / Suche</option>
+            <option>LinkedIn</option>
+            <option>Messe / Event</option>
+            <option>YouTube / Podcast</option>
+            <option>Anders</option>
+          </select>
+        </div>
+        <div class="fstep__actions">
+          <button type="button" class="btn btn--back" data-back>Zurück</button>
+          <button type="submit" class="btn btn--primary btn--lg" id="submitBtn">Termin buchen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 5: Loading -->
+      <div class="fstep" data-step="5">
+        <div style="text-align:center;padding:30px 0">
+          <div class="spinner"></div>
+          <p style="color:var(--ink-2);font-size:15px">Wir prüfen kurz deine Anfrage …</p>
+        </div>
+      </div>
+
+      <!-- STEP 6: Calendly -->
+      <div class="fstep" data-step="6">
+        <div style="text-align:center;margin-bottom:24px">
+          <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:rgba(48,209,88,.12);border:1px solid rgba(48,209,88,.3);border-radius:980px;font-size:12px;color:var(--green);margin-bottom:18px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><path d="M5 12l5 5 9-11"/></svg>Anfrage erhalten</div>
+          <h2 style="font-family:var(--display);font-size:clamp(22px,2.8vw,30px);font-weight:600;letter-spacing:-.028em;margin-bottom:8px">Such dir jetzt deinen Termin aus.</h2>
+          <p style="color:var(--ink-3);font-size:14px">30 Minuten · direkt mit Alexander Kiraly · per Telefon oder Video</p>
+        </div>
+        <div class="calendly-wrap">
+          <div class="calendly-inline-widget" data-url="https://calendly.com/salesdrive/analysegesprach-klon?hide_event_type_details=0&hide_gdpr_banner=1&background_color=15161c&text_color=f5f5f7&primary_color=2997ff" id="calendlyEmbed"></div>
+        </div>
+      </div>
+    </form>
+
+    <div class="assurance">
+      <div class="assurance__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg>
+        DSGVO-konform
+      </div>
+      <div class="assurance__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg>
+        TÜV-zertifiziert
+      </div>
+      <div class="assurance__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg>
+        Keine Verkaufsmasche
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__brand-wordmark"><span class="s">Sales</span><span class="d">drive</span></div>
+        <p>Die SalesDrive GmbH übernimmt die telefonische B2B-Kaltakquise für Premium-Anbieter im DACH-Raum. Wien. Seit 2023.</p>
+      </div>
+      <div class="footer__col"><h6>Plattform</h6><a href="index.html#cases">Cases</a><a href="referenzen.html">Referenzen</a><a href="zertifizierungen.html">Zertifizierungen</a></div>
+      <div class="footer__col"><h6>Kontakt</h6><a href="mailto:office@salesdrive.at">office@salesdrive.at</a><a href="tel:+436767951018">+43 676 795 10 18</a></div>
+      <div class="footer__col"><h6>Rechtliches</h6><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="agb.html">AGB</a></div>
+    </div>
+    <div class="footer__bottom"><span>© 2026 SalesDrive GmbH · FN 599821s · HG Wien</span><span>Made in Vienna</span></div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script>
+(function() {
+  const form = document.getElementById('funnelForm');
+  const steps = form.querySelectorAll('.fstep');
+  const progressDots = document.querySelectorAll('#funnelProgress span');
+  let currentStep = 1;
+  const maxFormStep = 4; // step 5 = loading, step 6 = calendly
+
+  // Choice selection (radio cards)
+  form.querySelectorAll('.choice').forEach(choice => {
+    choice.addEventListener('click', () => {
+      const input = choice.querySelector('input[type="radio"]');
+      const name = input.name;
+      form.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+        r.checked = false;
+        r.closest('.choice').classList.remove('is-selected');
+      });
+      input.checked = true;
+      choice.classList.add('is-selected');
+      // clear error
+      const err = form.querySelector(`[data-error="${name}"]`);
+      if (err) err.textContent = '';
+    });
+  });
+
+  // Validation per step
+  function validateStep(n) {
+    let valid = true;
+    const step = form.querySelector(`.fstep[data-step="${n}"]`);
+    step.querySelectorAll('.error-msg').forEach(e => e.textContent = '');
+
+    if (n === 1) {
+      const firma = form.elements.firma.value.trim();
+      if (!firma) { showErr('firma', 'Bitte Firmenname angeben.'); valid = false; }
+      const branche = form.querySelector('input[name="branche"]:checked');
+      if (!branche) { showErr('branche', 'Bitte eine Branche wählen.'); valid = false; }
+    }
+    if (n === 2) {
+      if (!form.querySelector('input[name="umsatz"]:checked')) { showErr('umsatz', 'Bitte auswählen.'); valid = false; }
+      if (!form.querySelector('input[name="kundenwert"]:checked')) { showErr('kundenwert', 'Bitte auswählen.'); valid = false; }
+    }
+    if (n === 3) {
+      if (!form.elements.vorname.value.trim()) { showErr('vorname', 'Pflichtfeld.'); valid = false; }
+      if (!form.elements.nachname.value.trim()) { showErr('nachname', 'Pflichtfeld.'); valid = false; }
+      const email = form.elements.email.value.trim();
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showErr('email', 'Gültige E-Mail-Adresse erforderlich.'); valid = false; }
+      if (!form.elements.telefon.value.trim()) { showErr('telefon', 'Pflichtfeld.'); valid = false; }
+    }
+    return valid;
+  }
+  function showErr(name, msg) {
+    const el = form.querySelector(`[data-error="${name}"]`);
+    if (el) el.textContent = msg;
+  }
+
+  function goToStep(n) {
+    steps.forEach(s => s.classList.remove('is-active'));
+    const target = form.querySelector(`.fstep[data-step="${n}"]`);
+    if (target) target.classList.add('is-active');
+    currentStep = n;
+    // update progress (only for form steps 1-4)
+    progressDots.forEach((d, i) => {
+      if (i < Math.min(n, 4)) d.classList.add('is-active');
+      else d.classList.remove('is-active');
+    });
+    // scroll to top of card
+    window.scrollTo({ top: document.querySelector('.funnel').offsetTop - 60, behavior: 'smooth' });
+  }
+
+  form.querySelectorAll('[data-next]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (!validateStep(currentStep)) return;
+      goToStep(currentStep + 1);
+    });
+  });
+  form.querySelectorAll('[data-back]').forEach(btn => {
+    btn.addEventListener('click', () => goToStep(currentStep - 1));
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!validateStep(currentStep)) return;
+    goToStep(5); // loading
+
+    const data = {
+      firma: form.elements.firma.value.trim(),
+      website: form.elements.website.value.trim(),
+      branche: (form.querySelector('input[name="branche"]:checked') || {}).value,
+      umsatz: (form.querySelector('input[name="umsatz"]:checked') || {}).value,
+      kundenwert: (form.querySelector('input[name="kundenwert"]:checked') || {}).value,
+      vorname: form.elements.vorname.value.trim(),
+      nachname: form.elements.nachname.value.trim(),
+      email: form.elements.email.value.trim(),
+      telefon: form.elements.telefon.value.trim(),
+      position: form.elements.position.value,
+      anliegen: form.elements.anliegen.value.trim(),
+      quelle: form.elements.quelle.value,
+      page: location.href,
+      ts: new Date().toISOString()
+    };
+
+    // Persist locally in case the API fails (so we don't lose the lead)
+    try { localStorage.setItem('sd_last_lead', JSON.stringify(data)); } catch(e) {}
+
+    // Best-effort POST to our Vercel function. Move on regardless of result so the
+    // user always reaches the calendar — the lead is saved in Close from the API call.
+    try {
+      const resp = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (!resp.ok) console.warn('Lead API status:', resp.status);
+    } catch (err) {
+      console.warn('Lead API error:', err);
+    }
+
+    // Prefill Calendly via URL params
+    setTimeout(() => {
+      const url = new URL('https://calendly.com/salesdrive/analysegesprach-klon');
+      url.searchParams.set('name', data.vorname + ' ' + data.nachname);
+      url.searchParams.set('email', data.email);
+      url.searchParams.set('a1', data.firma);
+      url.searchParams.set('a2', data.telefon);
+      url.searchParams.set('hide_gdpr_banner', '1');
+      url.searchParams.set('background_color', '15161c');
+      url.searchParams.set('text_color', 'f5f5f7');
+      url.searchParams.set('primary_color', '2997ff');
+      const widget = document.getElementById('calendlyEmbed');
+      widget.setAttribute('data-url', url.toString());
+      // Initialize Calendly widget
+      if (window.Calendly) {
+        window.Calendly.initInlineWidget({
+          url: url.toString(),
+          parentElement: widget,
+        });
+      }
+      goToStep(6);
+    }, 900);
+  });
+})();
+</script>
+</body>
+</html>

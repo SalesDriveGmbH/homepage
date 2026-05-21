@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="index, follow" />
+<title>Referenzen · SalesDrive GmbH</title>
+<meta name="description" content="€83 Mio. Umsatz für 180+ Premium-Anbieter. Dokumentierte Kampagnen mit Namen, Funnel-Zahlen und Video-Statement." />
+<meta name="theme-color" content="#000000" />
+<link rel="icon" type="image/png" href="assets/brand/salesdrive-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+.cases { background: var(--bg); padding-bottom: clamp(60px, 9vw, 120px); }
+.case {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: clamp(30px, 5vw, 70px);
+  align-items: center;
+  margin-bottom: clamp(60px, 8vw, 100px);
+}
+.case:last-child { margin-bottom: 0; }
+.case--reverse { grid-template-columns: 1.1fr .9fr; }
+.case--reverse .case__media { order: 2; }
+.case__media {
+  position: relative;
+  aspect-ratio: 4 / 5; /* compact portrait — wider than 9:16 */
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: #0c0d10;
+  cursor: pointer;
+  isolation: isolate;
+  border: 2px solid var(--line-3);
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06) inset, 0 60px 160px -40px rgba(41,151,255,.25);
+  max-width: 520px;
+  margin: 0 auto;
+  transition: box-shadow .5s var(--ease-out);
+}
+.case__media:hover { box-shadow: 0 35px 90px -20px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.1) inset, 0 60px 180px -40px rgba(41,151,255,.35); }
+.case__media img, .case__media iframe {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; /* will be set to contain by JS for portrait videos */
+  border: 0;
+  transition: transform 1s var(--ease-out);
+}
+.case__media:hover img { transform: scale(1.04); }
+.case__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,.7) 100%); pointer-events: none; }
+.case__tag {
+  position: absolute; left: 14px; top: 14px;
+  z-index: 2;
+  padding: 5px 11px;
+  background: rgba(0,0,0,.5);
+  backdrop-filter: blur(12px);
+  border-radius: 980px;
+  font-size: 11px; font-weight: 500; color: #fff;
+}
+.case__play {
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.95);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2;
+  box-shadow: 0 16px 40px rgba(0,0,0,.5);
+  transition: transform .25s var(--ease-out);
+}
+.case__media:hover .case__play { transform: translate(-50%, -50%) scale(1.08); }
+.case__play svg { width: 30%; height: 30%; fill: #000; margin-left: 6%; }
+.case__author { position: absolute; left: 14px; right: 14px; bottom: 14px; z-index: 2; color: #fff; display: flex; align-items: center; gap: 10px; }
+.case__author-av { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--blue-bright)); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 12px; font-weight: 600; flex-shrink: 0; }
+.case__author-name { font-family: var(--display); font-weight: 600; font-size: 13px; letter-spacing: -.012em; }
+.case__author-role { font-size: 11px; opacity: .75; }
+
+.case__body { display: flex; flex-direction: column; gap: 20px; }
+.case__title { font-family: var(--display); font-size: clamp(24px, 3.2vw, 44px); font-weight: 600; letter-spacing: -.04em; line-height: 1.05; color: var(--ink); }
+.case__block { display: flex; flex-direction: column; gap: 6px; }
+.case__block-label { font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--blue); }
+.case__block-text { font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+
+.case__funnel { margin-top: 8px; padding: 22px; background: var(--surf); border: 1px solid var(--line); border-radius: var(--r-md); display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; position: relative; }
+.case__funnel::before { content: attr(data-period); position: absolute; left: 18px; top: -9px; background: var(--bg); border: 1px solid var(--line-2); border-radius: 980px; padding: 3px 11px; font-size: 10px; color: var(--ink-3); letter-spacing: .04em; }
+.case__step { text-align: center; padding: 4px 2px; }
+.case__step-num { font-family: var(--display); font-size: clamp(17px, 1.8vw, 22px); font-weight: 600; letter-spacing: -.025em; color: var(--ink); display: block; }
+.case__step.green .case__step-num { color: var(--green); }
+.case__step-lbl { font-size: 10px; line-height: 1.3; color: var(--ink-3); margin-top: 4px; }
+.case__link { display: inline-flex; align-items: center; gap: 5px; color: var(--blue); font-size: 14px; align-self: flex-start; }
+.case__link svg { width: 11px; height: 11px; }
+
+@media (max-width: 900px) {
+  .case, .case--reverse { grid-template-columns: 1fr; gap: 30px; }
+  .case--reverse .case__media { order: 0; }
+  .case__media { max-width: 440px; }
+  .case__funnel { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Testimonials wall */
+.wall { background: var(--bg-2); padding: clamp(60px, 9vw, 120px) 0; }
+.wall__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.testimonial {
+  background: var(--surf);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 26px;
+  display: flex; flex-direction: column; gap: 16px;
+  transition: border-color .3s var(--ease), transform .4s var(--ease-out);
+}
+.testimonial:hover { border-color: var(--line-3); transform: translateY(-3px); }
+.testimonial__quote { font-size: 14px; line-height: 1.55; color: var(--ink-2); font-style: italic; }
+.testimonial__quote::before { content: "„"; color: var(--blue); font-size: 28px; font-family: var(--display); line-height: 0; margin-right: 4px; }
+.testimonial__person { display: flex; align-items: center; gap: 10px; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); }
+.testimonial__av { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--surf-3), var(--surf)); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 12px; font-weight: 600; color: var(--blue); border: 1px solid var(--line-2); flex-shrink: 0; }
+.testimonial__name { font-family: var(--display); font-size: 13px; font-weight: 600; letter-spacing: -.014em; color: var(--ink); }
+.testimonial__role { font-size: 11px; color: var(--ink-3); }
+.testimonial__site { color: var(--blue); font-size: 11px; }
+@media (max-width: 980px) { .wall__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .wall__grid { grid-template-columns: 1fr; } }
+
+.final { position: relative; padding: clamp(80px, 12vw, 160px) 0; text-align: center; overflow: hidden; background: var(--bg); }
+.final::before { content: ""; position: absolute; inset: 0; background: radial-gradient(1000px 600px at 50% 50%, rgba(41,151,255,.16), transparent 60%); pointer-events: none; }
+.final__inner { position: relative; z-index: 1; padding: 0 22px; }
+.final__title { font-family: var(--display); font-size: clamp(32px, 5vw, 64px); font-weight: 600; line-height: 1.04; letter-spacing: -.04em; margin-bottom: 18px; }
+.final__title em { background: linear-gradient(180deg, var(--blue-bright), var(--blue)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.final__sub { max-width: 640px; margin: 0 auto 32px; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.4; color: var(--ink-2); }
+
+/* Sizzle — general intro video, cinematic 16:9 */
+.sizzle { padding: clamp(20px, 3vw, 40px) 0 clamp(60px, 9vw, 100px); }
+.sizzle__stage { max-width: 1200px; margin: 0 auto; perspective: 1500px; padding: 0 22px; }
+.sizzle__device {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: clamp(14px, 1.6vw, 24px);
+  overflow: hidden;
+  background: #0a0a0e;
+  cursor: pointer;
+  isolation: isolate;
+  box-shadow:
+    0 50px 140px -30px rgba(0,0,0,.9),
+    0 0 0 1px rgba(255,255,255,.06) inset,
+    0 60px 220px -60px rgba(41,151,255,.45);
+}
+.sizzle__device img, .sizzle__device iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
+.sizzle__device::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.65) 100%);
+  pointer-events: none;
+}
+.sizzle__play {
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(64px, 6vw, 92px); height: clamp(64px, 6vw, 92px);
+  border-radius: 50%;
+  background: rgba(255,255,255,.95);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2;
+  transition: transform .25s var(--ease-out);
+  box-shadow: 0 16px 50px rgba(0,0,0,.5);
+}
+.sizzle__play::before { content: ""; position: absolute; inset: -8px; border-radius: 50%; border: 1px solid rgba(255,255,255,.3); animation: sz-ring 2.4s ease-out infinite; }
+@keyframes sz-ring { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.6); opacity: 0; } }
+.sizzle__device:hover .sizzle__play { transform: translate(-50%, -50%) scale(1.08); }
+.sizzle__play svg { width: 32%; height: 32%; fill: #000; margin-left: 8%; }
+.sizzle__caption {
+  position: absolute; left: 24px; right: 24px; bottom: 22px; z-index: 2;
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 16px;
+  color: #fff;
+}
+.sizzle__caption-title {
+  font-family: var(--display); font-weight: 600; font-size: clamp(16px, 1.8vw, 22px);
+  letter-spacing: -.018em; line-height: 1.15; max-width: 70%;
+}
+.sizzle__caption-meta {
+  font-size: 11px; opacity: .85; padding: 5px 11px;
+  background: rgba(0,0,0,.5); backdrop-filter: blur(12px);
+  border-radius: 980px;
+}
+@media (max-width: 640px) { .sizzle__caption-title { max-width: 100%; font-size: 14px; } .sizzle__caption-meta { display: none; } }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="/" aria-label="SalesDrive">
+      <span class="nav__brand-wordmark"><span class="nav__brand-sales">Sales</span><span class="nav__brand-drive">drive</span><svg class="nav__brand-arrow" viewBox="0 0 12 14"><path d="M6 1l4 4h-2.5v8h-3V5H2z"/></svg></span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html#cases">Cases</a></li>
+      <li><a href="referenzen.html" class="is-current">Referenzen</a></li>
+      <li><a href="index.html#mechanik">Ablauf</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="zertifizierungen.html">Zertifizierungen</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+    </ul>
+    <a class="nav__cta" href="formular.html">
+      Analysegespräch
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</nav>
+<div class="progress" id="progress"></div>
+<div class="nav-spacer"></div>
+
+<section class="subhero">
+  <div class="subhero__bg"><div class="orb orb--blue orb--1 orb-anim-1"></div></div>
+  <div class="subhero__inner">
+    <div class="subhero__eyebrow reveal"><span class="subhero__eyebrow-dot"></span>Referenzen · 180+ Kunden · €83 Mio. Umsatz</div>
+    <h1 class="subhero__title reveal d-1">Hinter jedem Case<br>steht ein <em>echter Name.</em></h1>
+    <p class="subhero__sub reveal d-2">Drei dokumentierte Kampagnen mit Funnel, Foto und Video-Statement. Plus echte Stimmen aus weiteren Projekten. Keine Stockfotos. Keine Initialen. Klarnamen.</p>
+  </div>
+</section>
+
+<!-- SIZZLE — general intro video -->
+<section class="sizzle">
+  <div class="sizzle__stage reveal-blur">
+    <div class="sizzle__device hero__device" data-vimeo-id="1157996306">
+      <img src="https://vumbnail.com/1157996306_large.jpg" alt="SalesDrive Referenzen — Reel" onerror="this.src='https://vumbnail.com/1157996306.jpg'" />
+      <button class="sizzle__play" aria-label="Referenz-Reel abspielen" type="button"><svg viewBox="0 0 24 24"><polygon points="7 4 21 12 7 20 7 4"/></svg></button>
+      <div class="sizzle__caption">
+        <div class="sizzle__caption-title">Drei Kampagnen, ein Ziel: planbare Pipeline für Premium-Anbieter.</div>
+        <div class="sizzle__caption-meta">Reel · 1:45</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILED CASES -->
+<section class="section cases section--divide">
+  <div class="container">
+    <!-- Case 1: Putz & Stingl -->
+    <article class="case reveal-blur">
+      <div class="case__media" data-vimeo-id="860681704">
+        <img src="https://vumbnail.com/860681704.jpg" alt="Gert Zaunbauer" onerror="this.src='assets/photos/leopoldquartier-office.jpg'" />
+        <span class="case__tag">PR &amp; Kommunikation</span>
+        <button class="case__play" aria-label="Fallstudie ansehen" type="button"><svg viewBox="0 0 24 24"><polygon points="7 4 21 12 7 20 7 4"/></svg></button>
+        <div class="case__author">
+          <div class="case__author-av">GZ</div>
+          <div>
+            <div class="case__author-name">Gert Zaunbauer</div>
+            <div class="case__author-role">Gründer · Putz &amp; Stingl Events</div>
+          </div>
+        </div>
+      </div>
+      <div class="case__body">
+        <h3 class="case__title">15 qualifizierte<br>Abschlussgespräche<br>in 90 Tagen.</h3>
+        <div class="case__block"><span class="case__block-label">Problem</span><p class="case__block-text">Hochwertiges Angebot, aber keine planbare Neukundengewinnung. Empfehlungen reichten nicht mehr. Interner Vertrieb hätte Zeit, Fokus und Struktur gekostet.</p></div>
+        <div class="case__block"><span class="case__block-label">Ergebnis</span><p class="case__block-text">Ein klarer Erstansprache-Prozess brachte regelmäßig qualifizierte Abschlussgespräche mit Entscheidern und machte den Vertrieb erstmals kalkulierbar.</p></div>
+        <div class="case__funnel" data-period="Zeitraum · 3 Monate">
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="3200">3.200</span></span><div class="case__step-lbl">Erstansprachen</div></div>
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="45">45</span></span><div class="case__step-lbl">Ersttermine</div></div>
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="16">16</span></span><div class="case__step-lbl">Abschluss-Gespräche</div></div>
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="9">9</span></span><div class="case__step-lbl">Neukunden</div></div>
+          <div class="case__step green"><span class="case__step-num">€<span class="counter" data-to="259000">259.000</span></span><div class="case__step-lbl">Auftragseingang</div></div>
+        </div>
+        <a class="case__link" href="putzandstingl.html">Case-Details ansehen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+    </article>
+
+    <!-- Case 2: RINK -->
+    <article class="case case--reverse reveal-blur">
+      <div class="case__media" data-vimeo-id="1134147007">
+        <img src="https://vumbnail.com/1134147007.jpg" alt="Nico Macek · RINK GmbH" onerror="this.src='assets/photos/messe-vortrag.jpg'" />
+        <span class="case__tag">Filmproduktion</span>
+        <button class="case__play" aria-label="Fallstudie ansehen" type="button"><svg viewBox="0 0 24 24"><polygon points="7 4 21 12 7 20 7 4"/></svg></button>
+        <div class="case__author">
+          <div class="case__author-av">NM</div>
+          <div>
+            <div class="case__author-name">Nico Macek</div>
+            <div class="case__author-role">Gründer · RINK GmbH</div>
+          </div>
+        </div>
+      </div>
+      <div class="case__body">
+        <h3 class="case__title">67.000&nbsp;€<br>Auftragseingang<br>in 1 Monat.</h3>
+        <div class="case__block"><span class="case__block-label">Problem</span><p class="case__block-text">Akquise blockierte das Kreativteam: zeitaufwendig, unangenehm und nicht skalierbar. Gleichzeitig bestand Skepsis gegenüber externem Vertrieb.</p></div>
+        <div class="case__block"><span class="case__block-label">Ergebnis</span><p class="case__block-text">Die komplette Erstansprache wurde ausgelagert. Innerhalb eines Monats entstanden neue, passende Projekte und messbarer Auftragseingang.</p></div>
+        <div class="case__funnel" data-period="Zeitraum · 1 Monat">
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="866">866</span></span><div class="case__step-lbl">Erstansprachen</div></div>
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="12">12</span></span><div class="case__step-lbl">Ersttermine</div></div>
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="4">4</span></span><div class="case__step-lbl">Abschluss-Gespräche</div></div>
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="3">3</span></span><div class="case__step-lbl">Neukunden</div></div>
+          <div class="case__step green"><span class="case__step-num">€<span class="counter" data-to="67000">67.000</span></span><div class="case__step-lbl">Auftragseingang</div></div>
+        </div>
+        <a class="case__link" href="rink-media.html">Case-Details ansehen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+    </article>
+
+    <!-- Case 3: Linkbroker -->
+    <article class="case reveal-blur">
+      <div class="case__media" data-vimeo-id="1108387444">
+        <img src="https://vumbnail.com/1108387444.jpg" alt="Julian Kirfel" onerror="this.src='assets/photos/menschen-im-vertrieb.jpg'" />
+        <span class="case__tag">Backlink Marktplatz &amp; SEO</span>
+        <button class="case__play" aria-label="Fallstudie ansehen" type="button"><svg viewBox="0 0 24 24"><polygon points="7 4 21 12 7 20 7 4"/></svg></button>
+        <div class="case__author">
+          <div class="case__author-av">JK</div>
+          <div>
+            <div class="case__author-name">Julian Kirfel</div>
+            <div class="case__author-role">Gründer · Linkbroker.io (JustScale GmbH)</div>
+          </div>
+        </div>
+      </div>
+      <div class="case__body">
+        <h3 class="case__title">342.000&nbsp;€<br>mehr Auftragseingang<br>in 60 Tagen.</h3>
+        <div class="case__block"><span class="case__block-label">Problem</span><p class="case__block-text">Erklärungsbedürftiges Angebot, anspruchsvolle Zielgruppe und fehlende Sales-Kapazitäten. Gute Gespräche entstanden zu selten und nicht systematisch.</p></div>
+        <div class="case__block"><span class="case__block-label">Ergebnis</span><p class="case__block-text">Eine strukturierte Erstansprache erzeugte qualifizierte Gespräche auf Augenhöhe, füllte die Sales-Pipeline und führte zu messbarem Umsatzwachstum.</p></div>
+        <div class="case__funnel" data-period="Zeitraum · 2 Monate">
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="2850">2.850</span></span><div class="case__step-lbl">Erstansprachen</div></div>
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="101">101</span></span><div class="case__step-lbl">Ersttermine</div></div>
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="27">27</span></span><div class="case__step-lbl">Abschluss-Gespräche</div></div>
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="20">20</span></span><div class="case__step-lbl">Neukunden</div></div>
+          <div class="case__step green"><span class="case__step-num">€<span class="counter" data-to="342000">342.000</span></span><div class="case__step-lbl">Auftragseingang</div></div>
+        </div>
+        <a class="case__link" href="linkbroker.html">Case-Details ansehen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- TESTIMONIAL WALL -->
+<section class="wall section--divide">
+  <div class="container">
+    <div class="sec-head reveal">
+      <h2 class="display">Was unsere Kunden<br>tatsächlich <em>sagen.</em></h2>
+      <p class="lead">Zitate aus laufenden Kampagnen. Vollständige Bewertungen findest du auf <a href="https://www.provenexpert.com/salesdrive-gmbh/" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:underline;text-underline-offset:3px;">ProvenExpert</a>.</p>
+    </div>
+    <div class="wall__grid">
+      <div class="testimonial reveal-blur">
+        <p class="testimonial__quote">SalesDrive arbeitet extrem strukturiert und professionell. Der klare Plan und die saubere Umsetzung haben einen spürbaren Unterschied gemacht. So stellt man sich verlässliche Vertriebsunterstützung vor."</p>
+        <div class="testimonial__person">
+          <div class="testimonial__av">PN</div>
+          <div>
+            <div class="testimonial__name">Philipp Nitschmann, MAS</div>
+            <div class="testimonial__role">Gründer · R. N. Personalagentur GmbH</div>
+            <a href="https://rn-personal.at" target="_blank" rel="noopener" class="testimonial__site">rn-personal.at</a>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial reveal-blur d-1">
+        <p class="testimonial__quote">SalesDrive hat unsere Promotionkampagne vollständig Done4You umgesetzt und damit die Basis für skalierbare, rentable Umsätze geschaffen. Durch klare Prozesse und automatisierte Abläufe konnten wir neue Aufträge gewinnen und deutlich wachsen — mit spürbar weniger operativem Aufwand."</p>
+        <div class="testimonial__person">
+          <div class="testimonial__av">LS</div>
+          <div>
+            <div class="testimonial__name">Lea Süss</div>
+            <div class="testimonial__role">Gründerin · Süss Media</div>
+            <a href="https://suss-media.com" target="_blank" rel="noopener" class="testimonial__site">suss-media.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial reveal-blur d-2">
+        <p class="testimonial__quote">Seit der Zusammenarbeit mit SalesDrive haben wir unseren bislang höchsten Monatsumsatz erzielt. Entscheidend dafür war die klare Struktur, das enge Sparring und die Möglichkeit, den Vertriebsprozess gemeinsam weiterzuentwickeln statt starren Vorgaben zu folgen."</p>
+        <div class="testimonial__person">
+          <div class="testimonial__av">HG</div>
+          <div>
+            <div class="testimonial__name">Hermann Germayer</div>
+            <div class="testimonial__role">Betriebsleiter · Highbryd Media GmbH</div>
+            <a href="https://highbryd.media" target="_blank" rel="noopener" class="testimonial__site">highbryd.media</a>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial reveal-blur">
+        <p class="testimonial__quote">Mit der SalesDrive GmbH habe ich nach langer Suche endlich einen Partner gefunden, der mich wirklich versteht und zuverlässig die Neukundenakquise bis zum Abschlusstermin übernimmt. Ich kann Sales Drive von Herzen weiterempfehlen."</p>
+        <div class="testimonial__person">
+          <div class="testimonial__av">CZ</div>
+          <div>
+            <div class="testimonial__name">Christian Züger</div>
+            <div class="testimonial__role">Geschäftsführer · Z-Management AG</div>
+            <a href="https://z-management.ch" target="_blank" rel="noopener" class="testimonial__site">z-management.ch</a>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial reveal-blur d-1">
+        <p class="testimonial__quote">SalesDrive hat bei uns eine echte Lücke geschlossen. Nach der Corona-Zeit war unsere Kundengewinnung intern nicht mehr lösbar. Mein größter Gewinn: Ich schlafe besser, weil ich weiß, dass unsere Akquise in den besten Händen ist."</p>
+        <div class="testimonial__person">
+          <div class="testimonial__av">GZ</div>
+          <div>
+            <div class="testimonial__name">Gert Zaunbauer</div>
+            <div class="testimonial__role">Geschäftsführer · Putz &amp; Stingl Events</div>
+            <a href="https://putzstingl.at" target="_blank" rel="noopener" class="testimonial__site">putzstingl.at</a>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial reveal-blur d-2">
+        <p class="testimonial__quote">Schon in der zweiten Woche hatten wir das erste Abschlussgespräch und in der dritten Woche ein bestätigtes Angebot — schneller, als wir es erwartet hätten. Besonders beeindruckt hat uns der direkte Kontakt mit Alexander, was für kurze Wege und sehr persönliche Betreuung sorgt."</p>
+        <div class="testimonial__person">
+          <div class="testimonial__av">JK</div>
+          <div>
+            <div class="testimonial__name">Julian Kirfel</div>
+            <div class="testimonial__role">Geschäftsführer · JustScale GmbH</div>
+            <a href="https://linkbroker.io" target="_blank" rel="noopener" class="testimonial__site">linkbroker.io</a>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial reveal-blur">
+        <p class="testimonial__quote">Wir sind mit Skepsis gestartet, doch SalesDrive hat diese schnell genommen — durch klare Struktur, volle Transparenz und die vollständige Übernahme der telefonischen Erstansprache. Seit der Zusammenarbeit entstehen messbare Umsätze, neue Aufträge und spürbares Wachstum."</p>
+        <div class="testimonial__person">
+          <div class="testimonial__av">RM</div>
+          <div>
+            <div class="testimonial__name">Raphael Matschi</div>
+            <div class="testimonial__role">Geschäftsführer · RINK GmbH</div>
+            <a href="https://rink-media.com" target="_blank" rel="noopener" class="testimonial__site">rink-media.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="final__inner">
+    <div class="eyebrow reveal" style="color:var(--blue);margin-bottom:18px">€83 Mio. · 180 Kunden · Ein Hörer</div>
+    <h2 class="final__title reveal d-1">Wer fehlt?<br><em>Du.</em></h2>
+    <p class="final__sub reveal d-2">30 Minuten Analysegespräch. Direkt mit Alex. Wir schauen, ob deine Pipeline-Lücke zu unserem Setup passt.</p>
+    <div class="reveal d-3">
+      <a href="formular.html" class="btn btn--primary btn--lg">
+        Analysegespräch sichern
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__brand-wordmark"><span class="s">Sales</span><span class="d">drive</span></div>
+        <p>Die SalesDrive GmbH übernimmt die telefonische B2B-Kaltakquise für Premium-Anbieter im DACH-Raum. Wien. Seit 2023.</p>
+        <div class="footer__trust"><img src="assets/trust/tuv-rheinland.png" alt="TÜV Rheinland Zertifiziert" /></div>
+        <div class="footer__socials">
+          <a href="https://www.facebook.com/salesdrivegmbh" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.55V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="https://www.instagram.com/salesdrive.at/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://www.youtube.com/@SalesDriveGmbH" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.2 0 12 0 12s0 3.8.5 5.8A3 3 0 0 0 2.6 19.9c2 .6 9.4.6 9.4.6s7.4 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.8 24 12 24 12s0-3.8-.5-5.8zM9.5 15.5v-7l6.5 3.5-6.5 3.5z"/></svg></a>
+          <a href="https://www.linkedin.com/company/lehner-consulting/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__col"><h6>Plattform</h6><a href="index.html#cases">Cases</a><a href="referenzen.html">Referenzen</a><a href="index.html#mechanik">Ablauf</a><a href="zertifizierungen.html">Zertifizierungen</a><a href="index.html#faq">FAQ</a></div>
+      <div class="footer__col"><h6>Kontakt</h6><a href="mailto:office@salesdrive.at">office@salesdrive.at</a><a href="tel:+436767951018">+43 676 795 10 18</a><a href="index.html#standort">Obere Donaustraße 25<br>1020 Wien</a></div>
+      <div class="footer__col"><h6>Rechtliches</h6><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="agb.html">AGB</a><a href="team.html">Team</a></div>
+    </div>
+    <div class="footer__bottom"><span>© 2026 SalesDrive GmbH · FN 599821s · HG Wien · UID ATU79430518</span><span>Made in Vienna</span></div>
+  </div>
+</footer>
+<script src="assets/js/site.js"></script>
+</body>
+</html>

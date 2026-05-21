@@ -1,0 +1,5 @@
+# Beta-Subdomain, NICHT für Suchmaschinen indexieren
+# Wenn die Seite final auf salesdrive.at umzieht, wird dort ein anderer robots.txt verwendet
+
+User-agent: *
+Disallow: /

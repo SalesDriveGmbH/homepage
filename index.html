@@ -1,0 +1,1475 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="index, follow" />
+<title>SalesDrive · Du closest. Wir telefonieren.</title>
+<meta name="description" content="Wir füllen deinen Kalender mit kaufbereiten Entscheidern. €83 Mio. Umsatz für 180+ Premium-Anbieter. TÜV-Rheinland zertifiziert. Wien." />
+<meta property="og:title" content="SalesDrive · Du closest. Wir telefonieren." />
+<meta property="og:description" content="Lookalike-Listen, geschulte SalesAgents, qualifizierte Erstgespräche mit Entscheidern. Live einsehbar im SalesDrive Hub." />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#000000" />
+<link rel="icon" type="image/png" href="assets/brand/salesdrive-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+/* ===== HOME-specific styles ===== */
+
+/* Section headers — matched to hero size */
+.sec-head h2 {
+  font-family: var(--display);
+  font-size: clamp(28px, 4.6vw, 60px) !important;
+  font-weight: 700 !important;
+  letter-spacing: -.035em !important;
+  line-height: 1.14 !important;
+  margin-bottom: 22px;
+  background: linear-gradient(155deg, #ffffff 0%, #ffffff 38%, #b9bac4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: .2em;
+}
+.sec-head h2 em {
+  background: linear-gradient(155deg, #ffffff 0%, #6BC9FF 55%, #2997ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-style: normal;
+}
+
+/* HERO */
+.hero { position: relative; padding: clamp(60px, 9vw, 100px) 0 0; overflow: hidden; isolation: isolate; }
+.hero__bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.hero__bg .orb { width: 720px; height: 720px; opacity: .45; }
+.hero__bg .orb--1 { top: -300px; left: 50%; transform: translateX(-50%); }
+.hero__bg .orb--2 { top: 200px; left: -200px; }
+.hero__bg .orb--3 { top: 100px; right: -200px; }
+.hero__bg::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 800px 400px at 50% 0%, rgba(41,151,255,.10), transparent 60%); }
+
+.hero__inner { position: relative; z-index: 2; text-align: center; padding: 0 22px; max-width: 1280px; margin: 0 auto; }
+.hero__pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 5px 12px 5px 8px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--line-2);
+  border-radius: 980px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-2);
+  margin-bottom: 22px;
+  backdrop-filter: blur(10px);
+}
+.hero__pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 10px var(--blue); animation: pulse 1.6s ease infinite; }
+.hero__pill em { color: var(--blue); }
+
+.hero__title {
+  font-family: var(--display);
+  font-size: clamp(28px, 4.6vw, 60px);
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: -.035em;
+  margin-bottom: 24px;
+  padding-bottom: .2em;
+  color: #fff; /* fallback */
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Apply gradient to each word-span individually because background-clip:text
+   doesn't propagate through inline-block children. */
+.hero__title .w {
+  background: linear-gradient(155deg, #ffffff 0%, #ffffff 35%, #b9bac4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: inherit;
+}
+.hero__title .w em,
+.hero__title em {
+  background: linear-gradient(155deg, #ffffff 0%, #6BC9FF 55%, #2997ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-style: normal;
+}
+.hero__sub { font-size: clamp(16px, 1.5vw, 22px); font-weight: 400; line-height: 1.32; letter-spacing: -.018em; color: var(--ink-2); max-width: 760px; margin: 0 auto 28px; }
+.hero__cta-row { display: inline-flex; align-items: center; gap: 22px; flex-wrap: wrap; justify-content: center; }
+.hero__meta { margin-top: 26px; display: inline-flex; align-items: center; gap: 16px; font-size: 12px; color: var(--ink-3); flex-wrap: wrap; justify-content: center; }
+.hero__meta-sep { width: 3px; height: 3px; border-radius: 50%; background: var(--ink-mute); }
+.hero__meta-item { display: inline-flex; align-items: center; gap: 5px; }
+.hero__meta-item svg { width: 12px; height: 12px; opacity: .55; }
+
+/* HERO VIDEO — fly-in from depth */
+.hero__stage { position: relative; z-index: 2; max-width: 1000px; margin: clamp(40px, 6vw, 80px) auto 0; padding: 0 22px; perspective: 1500px; }
+.hero__device {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: clamp(14px, 1.6vw, 22px);
+  overflow: hidden;
+  background: #0a0a0e;
+  cursor: pointer;
+  isolation: isolate;
+  transform-style: preserve-3d;
+  box-shadow: 0 30px 100px -30px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.06) inset, 0 60px 220px -60px rgba(41,151,255,.45);
+  opacity: 0;
+  transform: perspective(1500px) translateZ(-600px) translateY(60px) scale(.7);
+  filter: blur(30px);
+  animation: hero-fly-in 1.8s cubic-bezier(.16,1,.3,1) .35s forwards;
+  will-change: transform, opacity, filter;
+}
+@keyframes hero-fly-in {
+  0%   { opacity: 0; transform: perspective(1500px) translateZ(-600px) translateY(60px) scale(.7); filter: blur(30px); }
+  60%  { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: perspective(1500px) translateZ(0) translateY(0) scale(1); filter: blur(0); }
+}
+.hero__device img, .hero__device iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
+.hero__device::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,.55) 100%), radial-gradient(800px 300px at 50% 100%, rgba(0,0,0,.4), transparent 60%); pointer-events: none; }
+.hero__play {
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(52px, 5.5vw, 72px); height: clamp(52px, 5.5vw, 72px);
+  border-radius: 50%;
+  background: rgba(255,255,255,.95);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2;
+  transition: transform .25s var(--ease-out), background .25s var(--ease);
+  box-shadow: 0 16px 50px rgba(0,0,0,.5);
+}
+.hero__play::before { content: ""; position: absolute; inset: -8px; border-radius: 50%; border: 1px solid rgba(255,255,255,.3); animation: ring-pulse 2.4s ease-out infinite; }
+@keyframes ring-pulse { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.6); opacity: 0; } }
+.hero__play:hover { transform: translate(-50%, -50%) scale(1.08); }
+.hero__play svg { width: 32%; height: 32%; fill: #000; margin-left: 8%; }
+.hero__caption { position: absolute; left: 18px; bottom: 18px; z-index: 2; color: rgba(255,255,255,.95); }
+.hero__caption-label { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; opacity: .65; margin-bottom: 4px; }
+.hero__caption-title { font-family: var(--display); font-size: clamp(14px, 1.3vw, 18px); font-weight: 500; letter-spacing: -.02em; }
+.hero__rec { position: absolute; right: 18px; top: 18px; z-index: 2; display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; background: rgba(0,0,0,.55); backdrop-filter: blur(14px); border-radius: 980px; font-size: 10px; font-family: var(--display); font-weight: 500; letter-spacing: .14em; color: rgba(255,255,255,.95); }
+.hero__rec-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--red); animation: pulse 1.6s var(--ease) infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(255,69,58,.6); } 50% { opacity: .55; box-shadow: 0 0 0 6px rgba(255,69,58,0); } }
+
+.hero__cue { display: flex; flex-direction: column; align-items: center; gap: 6px; margin: clamp(40px, 6vw, 70px) auto 0; color: var(--ink-3); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; opacity: .65; }
+.hero__cue-line { width: 1px; height: 36px; background: linear-gradient(180deg, var(--ink-3), transparent); animation: cue-pulse 2.4s ease-in-out infinite; transform-origin: top; }
+@keyframes cue-pulse { 0%,100% { transform: scaleY(.4); opacity: .4; } 50% { transform: scaleY(1); opacity: 1; } }
+
+/* AUDITED */
+.audited { position: relative; padding: clamp(60px, 9vw, 100px) 0; background: var(--bg); border-top: 1px solid var(--line); }
+.audited::before { content: ""; position: absolute; inset: 0; background: radial-gradient(900px 400px at 50% 0%, rgba(41,151,255,.08), transparent 60%); pointer-events: none; }
+.audited__head { text-align: center; margin-bottom: clamp(36px, 5vw, 60px); position: relative; z-index: 1; }
+.audited__kicker { display: inline-block; font-size: 13px; color: var(--ink-3); margin-bottom: 14px; }
+.audited__title { font-family: var(--display); font-size: clamp(24px, 3vw, 40px); font-weight: 600; line-height: 1.12; letter-spacing: -.032em; color: var(--ink); }
+.audited__title em { background: linear-gradient(180deg, var(--blue-bright), var(--blue)); -webkit-background-clip: text; background-clip: text; color: transparent; font-style: normal; }
+.audited__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; position: relative; z-index: 1; }
+.audited__card { position: relative; background: rgba(255,255,255,.025); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 28px 26px; display: flex; flex-direction: column; gap: 16px; transition: border-color .3s var(--ease), transform .4s var(--ease-out), background .3s var(--ease); overflow: hidden; }
+.audited__card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(400px 200px at 50% 0%, var(--blue-soft), transparent 60%); opacity: 0; transition: opacity .35s var(--ease); pointer-events: none; }
+.audited__card:hover { border-color: var(--line-3); transform: translateY(-4px); background: rgba(255,255,255,.04); }
+.audited__card:hover::before { opacity: 1; }
+.audited__visual { height: 110px; display: flex; align-items: center; justify-content: center; background: #fff; border-radius: var(--r-md); padding: 14px; position: relative; z-index: 1; }
+.audited__visual img { max-height: 100%; max-width: 100%; object-fit: contain; }
+.audited__visual--partners { background: #f5f5f7; }
+.audited__pe { text-align: center; color: var(--bg); }
+.audited__pe-num { font-family: var(--display); font-size: 48px; font-weight: 600; letter-spacing: -.04em; line-height: 1; color: var(--bg); }
+.audited__pe-stars { display: flex; justify-content: center; gap: 3px; margin-top: 6px; color: var(--amber); }
+.audited__pe-stars svg { width: 14px; height: 14px; }
+.audited__partners { display: flex; gap: 16px; align-items: center; font-family: var(--display); font-size: 22px; font-weight: 600; letter-spacing: -.028em; color: var(--bg); }
+.audited__partners-dot { color: #86868b; font-weight: 400; }
+.audited__name { font-family: var(--display); font-size: 17px; font-weight: 600; letter-spacing: -.022em; color: var(--ink); margin-bottom: 4px; position: relative; z-index: 1; }
+.audited__detail { font-size: 13px; line-height: 1.5; color: var(--ink-3); position: relative; z-index: 1; }
+.audited__detail b { color: var(--ink-2); font-weight: 500; }
+@media (max-width: 880px) { .audited__grid { grid-template-columns: 1fr; } }
+
+/* STATS */
+.stats { padding: clamp(60px, 9vw, 110px) 0; background: var(--bg); position: relative; }
+.stats__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(20px, 3vw, 50px); position: relative; }
+.stats__cell { text-align: center; position: relative; }
+.stats__cell:not(:first-child)::before { content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%); height: 60%; width: 1px; background: var(--line); }
+.stats__num { font-family: var(--display); font-size: clamp(36px, 5.2vw, 72px); font-weight: 600; letter-spacing: -.04em; line-height: 1; color: var(--ink); margin-bottom: 10px; display: inline-flex; align-items: baseline; gap: 4px; }
+.stats__num em { color: var(--blue); font-style: normal; }
+.stats__num .unit { font-size: .42em; font-weight: 500; color: var(--ink-3); margin-left: 4px; }
+.stats__num .plus { font-size: .55em; font-weight: 400; color: var(--blue); }
+.stats__label { font-size: 13px; color: var(--ink-3); line-height: 1.4; max-width: 200px; margin: 0 auto; }
+@media (max-width: 760px) { .stats__grid { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; } .stats__cell::before { display: none; } }
+
+/* LOGOS */
+.logos { padding: clamp(50px, 7vw, 90px) 0; overflow: hidden; background: var(--bg); }
+.logos__label { text-align: center; font-size: 13px; color: var(--ink-3); margin-bottom: 36px; }
+.logos__viewport { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.logos__track { display: flex; gap: clamp(40px, 5vw, 70px); width: max-content; animation: logo-scroll 36s linear infinite; align-items: center; }
+@keyframes logo-scroll { to { transform: translateX(-50%); } }
+.logos__item { height: clamp(30px, 3vw, 44px); flex-shrink: 0; display: flex; align-items: center; }
+.logos__item img { height: 100%; width: auto; filter: brightness(0) invert(1); opacity: .42; transition: opacity .3s ease; }
+.logos__item img:hover { opacity: 1; }
+
+/* STATEMENT */
+.statement { padding: clamp(80px, 12vw, 160px) 0; text-align: center; position: relative; background: var(--bg); overflow: hidden; }
+.statement::before { content: ""; position: absolute; inset: 0; background: radial-gradient(1000px 500px at 50% 50%, rgba(41,151,255,.10), transparent 60%); pointer-events: none; }
+.statement__inner { position: relative; z-index: 1; }
+.statement__eye { font-size: 12px; color: var(--blue); margin-bottom: 18px; display: inline-block; letter-spacing: .04em; }
+.statement__num {
+  font-family: var(--display);
+  font-size: clamp(80px, 16vw, 220px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.058em;
+  margin-bottom: 24px;
+  background: linear-gradient(155deg, #ffffff 0%, #ffffff 35%, #b9bac4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: .18em;
+}
+.statement__num em {
+  background: linear-gradient(155deg, #ffffff 0%, #6BC9FF 55%, #2997ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.statement__num .unit { font-size: .32em; font-weight: 500; color: var(--ink-3); margin-left: 6px; }
+.statement__sub { max-width: 700px; margin: 0 auto; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.42; color: var(--ink-2); }
+.statement__sub b { color: var(--ink); font-weight: 500; }
+
+/* Generic card-frame utility — lifts content off pure black */
+.frame {
+  background: linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.012));
+  border: 1px solid var(--line-2);
+  border-radius: clamp(20px, 2.4vw, 32px);
+  padding: clamp(36px, 5.5vw, 80px) clamp(24px, 4vw, 60px);
+  box-shadow:
+    0 50px 120px -40px rgba(0,0,0,.8),
+    0 0 0 1px rgba(255,255,255,.03) inset;
+  position: relative;
+  overflow: hidden;
+}
+.frame::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(800px 400px at 50% 0%, rgba(41,151,255,.06), transparent 60%);
+  pointer-events: none;
+}
+.frame > * { position: relative; z-index: 1; }
+
+/* CASES — Portrait video (9:16) uncropped */
+.cases { background: var(--bg); padding-bottom: clamp(60px, 9vw, 120px); }
+.case {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: clamp(30px, 5vw, 70px);
+  align-items: center;
+  margin-bottom: clamp(24px, 3vw, 40px);
+  padding: clamp(32px, 4.4vw, 60px);
+  background: linear-gradient(180deg, rgba(255,255,255,.028), rgba(255,255,255,.012));
+  border: 1px solid var(--line-2);
+  border-radius: clamp(20px, 2.2vw, 28px);
+  box-shadow:
+    0 40px 100px -40px rgba(0,0,0,.75),
+    0 0 0 1px rgba(255,255,255,.03) inset;
+  position: relative;
+  isolation: isolate;
+}
+.case::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(700px 350px at 0% 0%, rgba(41,151,255,.06), transparent 60%);
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 0;
+}
+.case > * { position: relative; z-index: 1; }
+.case:last-child { margin-bottom: 0; }
+.case--reverse { grid-template-columns: 1.2fr .8fr; }
+.case--reverse .case__media { order: 2; }
+.case__media { position: relative; aspect-ratio: 4 / 5; max-width: 520px; margin: 0 auto; border-radius: var(--r-lg); overflow: hidden; background: #0c0d10; cursor: pointer; isolation: isolate; border: 2px solid var(--line-3); box-shadow: 0 30px 80px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06) inset, 0 60px 160px -40px rgba(41,151,255,.25); transition: transform .5s var(--ease-out), box-shadow .5s var(--ease-out); }
+.case__media:hover { box-shadow: 0 35px 90px -20px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.1) inset, 0 60px 180px -40px rgba(41,151,255,.35); }
+.case__media:hover { transform: translateY(-4px); }
+.case__media img, .case__media iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; transition: transform 1s var(--ease-out); }
+.case__media:hover img { transform: scale(1.04); }
+.case__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,.7) 100%); pointer-events: none; }
+.case__tag { position: absolute; left: 14px; top: 14px; z-index: 2; padding: 5px 11px; background: rgba(0,0,0,.5); backdrop-filter: blur(12px); border-radius: 980px; font-size: 11px; font-weight: 500; color: #fff; }
+.case__play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 56px; height: 56px; border-radius: 50%; background: rgba(255,255,255,.95); display: flex; align-items: center; justify-content: center; z-index: 2; transition: transform .25s var(--ease-out); box-shadow: 0 15px 40px rgba(0,0,0,.4); }
+.case__media:hover .case__play { transform: translate(-50%, -50%) scale(1.08); }
+.case__play svg { width: 30%; height: 30%; fill: #000; margin-left: 6%; }
+.case__author { position: absolute; left: 14px; right: 14px; bottom: 14px; z-index: 2; color: #fff; display: flex; align-items: center; gap: 10px; }
+.case__author-av { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--blue-bright)); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 11px; font-weight: 600; flex-shrink: 0; }
+.case__author-name { font-family: var(--display); font-weight: 600; font-size: 12px; letter-spacing: -.012em; }
+.case__author-role { font-size: 10px; opacity: .75; }
+.case__body { display: flex; flex-direction: column; gap: 20px; }
+.case__title { font-family: var(--display); font-size: clamp(24px, 3.2vw, 44px); font-weight: 600; letter-spacing: -.04em; line-height: 1.05; color: var(--ink); }
+.case__block { display: flex; flex-direction: column; gap: 6px; }
+.case__block-label { font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--blue); }
+.case__block-text { font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+.case__funnel { margin-top: 8px; padding: 22px; background: var(--surf); border: 1px solid var(--line); border-radius: var(--r-md); display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; position: relative; }
+.case__funnel::before { content: attr(data-period); position: absolute; left: 18px; top: -9px; background: var(--bg); border: 1px solid var(--line-2); border-radius: 980px; padding: 3px 11px; font-size: 10px; color: var(--ink-3); letter-spacing: .04em; }
+.case__step { text-align: center; padding: 4px 2px; }
+.case__step-num { font-family: var(--display); font-size: clamp(17px, 1.8vw, 22px); font-weight: 600; letter-spacing: -.025em; color: var(--ink); display: block; }
+.case__step.green .case__step-num { color: var(--green); }
+.case__step-lbl { font-size: 10px; line-height: 1.3; color: var(--ink-3); margin-top: 4px; }
+.case__link { display: inline-flex; align-items: center; gap: 5px; color: var(--blue); font-size: 14px; align-self: flex-start; }
+.case__link svg { width: 11px; height: 11px; }
+@media (max-width: 900px) { .case, .case--reverse { grid-template-columns: 1fr; gap: 30px; } .case--reverse .case__media { order: 0; } .case__funnel { grid-template-columns: repeat(2, 1fr); } }
+
+/* INSIDE BENTO — text-first, image as background, clickable */
+.inside { background: var(--bg); }
+.bento { display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 240px; gap: 14px; }
+.bento__tile {
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  isolation: isolate;
+  grid-column: span 2;
+  grid-row: span 1;
+  transition: transform .5s var(--ease-out), border-color .3s var(--ease);
+  border: 1px solid var(--line);
+  background: var(--surf);
+  display: flex; flex-direction: column;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+.bento__tile:hover { transform: translateY(-5px); border-color: var(--line-3); }
+.bento__bg {
+  position: absolute; inset: 0; z-index: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(.42) saturate(.85);
+  transition: filter .5s var(--ease-out), transform .9s var(--ease-out);
+}
+.bento__tile:hover .bento__bg { filter: brightness(.62) saturate(1); transform: scale(1.04); }
+.bento__tile::after {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.65) 0%, rgba(0,0,0,.3) 40%, rgba(0,0,0,.85) 100%),
+    radial-gradient(800px 400px at 0% 100%, rgba(0,0,0,.5), transparent 60%);
+  pointer-events: none;
+}
+.bento__tile--portrait { grid-column: span 2; grid-row: span 2; }
+.bento__tile--wide { grid-column: span 4; }
+.bento__tile--xl { grid-column: span 4; grid-row: span 2; }
+
+.bento__content {
+  position: relative; z-index: 2;
+  padding: clamp(22px, 2.6vw, 32px);
+  display: flex; flex-direction: column;
+  height: 100%;
+  color: #fff;
+}
+.bento__eye {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--blue-bright);
+  margin-bottom: 10px;
+  text-shadow: 0 0 14px rgba(107, 201, 255, .55);
+}
+.bento__title {
+  font-family: var(--display);
+  font-size: clamp(20px, 2.6vw, 36px);
+  font-weight: 700;
+  letter-spacing: -.028em;
+  line-height: 1.04;
+  margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 0 0 22px rgba(107, 201, 255, .25), 0 2px 24px rgba(0,0,0,.6);
+}
+.bento__title em { color: var(--blue-bright); font-style: normal; }
+.bento__desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255,255,255,.78);
+  max-width: 480px;
+}
+.bento__desc b { color: #fff; font-weight: 600; }
+.bento__cta {
+  margin-top: auto;
+  padding-top: 18px;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--blue-bright);
+  align-self: flex-start;
+  transition: gap .25s var(--ease);
+}
+.bento__cta svg { width: 12px; height: 12px; transition: transform .25s var(--ease); }
+.bento__tile:hover .bento__cta { gap: 10px; }
+.bento__tile:hover .bento__cta svg { transform: translateX(3px); }
+
+.bento__stats {
+  display: flex; gap: 22px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+.bento__stat-num { font-family: var(--display); font-size: 22px; font-weight: 700; letter-spacing: -.025em; color: var(--blue-bright); }
+.bento__stat-lbl { font-size: 11px; color: rgba(255,255,255,.6); }
+
+@media (max-width: 900px) {
+  .bento { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 220px; }
+  .bento__tile--portrait { grid-column: span 2; grid-row: span 2; }
+  .bento__tile--wide, .bento__tile--xl { grid-column: span 4; grid-row: span 1; }
+  .bento__tile { grid-column: span 2; }
+}
+@media (max-width: 560px) {
+  .bento { grid-template-columns: 1fr; grid-auto-rows: 260px; }
+  .bento__tile, .bento__tile--portrait, .bento__tile--wide, .bento__tile--xl { grid-column: span 1; grid-row: span 1; }
+  .bento__title { font-size: 22px; }
+}
+
+/* FILTER */
+.filter { background: var(--bg); }
+.filter__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.filter__col { background: var(--surf); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 28px 24px; display: flex; flex-direction: column; gap: 18px; transition: border-color .3s var(--ease), transform .4s var(--ease-out), background .3s var(--ease); position: relative; overflow: hidden; }
+.filter__col::before { content: ""; position: absolute; inset: 0; background: radial-gradient(300px 200px at 50% 0%, var(--col-glow, var(--blue-soft)), transparent 60%); opacity: 0; transition: opacity .3s var(--ease); pointer-events: none; }
+.filter__col:hover { transform: translateY(-4px); border-color: var(--line-3); }
+.filter__col:hover::before { opacity: 1; }
+.filter__col--match { --col-glow: rgba(48,209,88,.16); }
+.filter__col--serve { --col-glow: rgba(41,151,255,.16); }
+.filter__col--reject { --col-glow: rgba(255,69,58,.16); }
+.filter__col-head { display: flex; align-items: baseline; gap: 10px; position: relative; z-index: 1; }
+.filter__col-num { font-family: var(--display); font-size: 11px; font-weight: 500; letter-spacing: .14em; color: var(--ink-3); }
+.filter__col-title { font-family: var(--display); font-size: 19px; font-weight: 600; letter-spacing: -.024em; }
+.filter__list { display: flex; flex-direction: column; gap: 12px; position: relative; z-index: 1; }
+.filter__item { display: flex; gap: 10px; }
+.filter__mark { width: 20px; height: 20px; flex-shrink: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.filter__mark svg { width: 11px; height: 11px; stroke-width: 2.4; }
+.filter__col--match .filter__mark { background: rgba(48,209,88,.14); color: var(--green); }
+.filter__col--serve .filter__mark { background: rgba(41,151,255,.14); color: var(--blue); }
+.filter__col--reject .filter__mark { background: rgba(255,69,58,.14); color: var(--red); }
+.filter__text { font-size: 13.5px; color: var(--ink-2); line-height: 1.5; }
+.filter__text b { color: var(--ink); font-weight: 600; }
+@media (max-width: 900px) { .filter__grid { grid-template-columns: 1fr; } }
+
+/* INDUSTRIES */
+.industries { background: var(--bg); }
+.industries__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.industry { background: var(--surf); border: 1px solid var(--line); border-radius: var(--r-md); padding: 26px 22px; display: flex; flex-direction: column; gap: 12px; transition: background .3s var(--ease), transform .4s var(--ease-out), border-color .3s var(--ease); }
+.industry:hover { background: var(--surf-2); transform: translateY(-3px); border-color: var(--line-2); }
+.industry__icon { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; color: var(--blue); }
+.industry__icon svg { width: 100%; height: 100%; stroke-width: 1.5; }
+.industry__title { font-family: var(--display); font-size: 17px; font-weight: 600; letter-spacing: -.022em; }
+.industry__desc { font-size: 13px; line-height: 1.46; color: var(--ink-3); }
+.industry__refs { margin-top: auto; padding-top: 8px; border-top: 1px solid var(--line); font-size: 11px; color: var(--ink-mute); }
+.industry__refs strong { color: var(--ink-2); font-weight: 500; }
+@media (max-width: 1100px) { .industries__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px)  { .industries__grid { grid-template-columns: 1fr; } }
+
+/* COMPARE */
+.compare { background: var(--bg); }
+.compare__table { background: var(--surf); border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--line); }
+.compare__row { display: grid; grid-template-columns: 1.1fr 1.4fr 1.4fr; border-bottom: 1px solid var(--line); transition: background .2s ease; }
+.compare__row:hover:not(.compare__row--head) { background: rgba(255,255,255,.02); }
+.compare__row:last-child { border-bottom: 0; }
+.compare__row--head .compare__cell { padding-top: 22px; padding-bottom: 22px; background: var(--surf-2); }
+.compare__cell { padding: 18px 22px; font-size: 14px; line-height: 1.4; display: flex; align-items: flex-start; gap: 8px; }
+.compare__cell--label { font-weight: 500; color: var(--ink-2); }
+.compare__cell--head { font-family: var(--display); font-size: 17px; font-weight: 600; letter-spacing: -.024em; align-items: center; }
+.compare__cell--head.us { color: var(--blue); }
+.compare__cell--head.others { color: var(--ink-3); }
+.compare__ico { width: 18px; height: 18px; flex-shrink: 0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.compare__ico svg { width: 10px; height: 10px; stroke-width: 2.6; }
+.compare__cell--good .compare__ico { background: rgba(48,209,88,.16); color: var(--green); }
+.compare__cell--bad  .compare__ico { background: rgba(255,69,58,.16); color: var(--red); }
+.compare__cell--good { color: var(--ink); }
+.compare__cell--bad  { color: var(--ink-3); }
+@media (max-width: 720px) { .compare__row { grid-template-columns: 1fr; } .compare__cell { border-top: 1px solid var(--line); } .compare__row--head { display: none; } .compare__cell--label { background: var(--surf-2); font-family: var(--display); font-size: 11px; text-transform: uppercase; letter-spacing: .12em; color: var(--ink-mute); padding: 12px 22px 4px; border-top: 0; } }
+
+/* MECHANIK */
+.mechanik { background: var(--bg); }
+.mechanik__timeline { position: relative; max-width: 820px; margin: 0 auto; }
+.mechanik__line { position: absolute; left: 27px; top: 0; bottom: 0; width: 1px; background: var(--line); }
+.mechanik__line-fill { position: absolute; left: 27px; top: 0; width: 1px; height: 0; background: linear-gradient(180deg, var(--blue-bright), var(--blue), transparent); box-shadow: 0 0 12px var(--blue-glow); transition: height .15s linear; z-index: 1; }
+.tl-step { position: relative; padding-left: 80px; margin-bottom: 36px; }
+.tl-step:last-child { margin-bottom: 0; }
+.tl-step__bubble { position: absolute; left: 0; top: 0; width: 56px; height: 56px; border-radius: 50%; background: var(--surf); border: 1px solid var(--line-2); display: flex; align-items: center; justify-content: center; color: var(--blue); box-shadow: 0 0 0 6px var(--bg); z-index: 2; transition: all .4s var(--ease-out); }
+.tl-step.active .tl-step__bubble { background: var(--blue); border-color: var(--blue); color: #000; box-shadow: 0 0 0 6px var(--bg), 0 0 28px var(--blue-glow); }
+.tl-step__bubble svg { width: 20px; height: 20px; stroke-width: 1.6; }
+.tl-step__n { position: absolute; left: -6px; top: -6px; background: var(--blue); color: #000; font-family: var(--display); font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 980px; }
+.tl-step__card { background: var(--surf); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 22px 26px; transition: border-color .25s var(--ease), transform .4s var(--ease-out); }
+.tl-step__card:hover { border-color: var(--line-3); transform: translateY(-2px); }
+.tl-step__eyebrow { font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--blue); margin-bottom: 6px; }
+.tl-step__title { font-family: var(--display); font-size: clamp(18px, 2vw, 24px); font-weight: 600; letter-spacing: -.025em; color: var(--ink); margin-bottom: 8px; }
+.tl-step__desc { font-size: 14px; line-height: 1.5; color: var(--ink-2); margin-bottom: 14px; }
+.tl-step__tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tl-tag { display: inline-flex; align-items: center; gap: 5px; padding: 5px 10px; background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 980px; font-size: 11px; color: var(--ink-2); }
+.tl-tag svg { width: 10px; height: 10px; opacity: .6; }
+
+/* HUB - WOW Standard of Excellence + animated dashboard */
+.hub { background: var(--bg); padding-bottom: clamp(80px, 12vw, 140px); overflow: hidden; position: relative; }
+.hub__head-wrap { position: relative; padding-top: clamp(60px, 9vw, 120px); padding-bottom: clamp(40px, 6vw, 80px); text-align: center; }
+.hub__head-wrap::before { content: ""; position: absolute; inset: 0; background: radial-gradient(900px 500px at 50% 50%, rgba(41,151,255,.10), transparent 60%); pointer-events: none; }
+.hub__head { position: relative; z-index: 1; }
+.hub__excellence {
+  font-family: var(--display);
+  font-size: clamp(28px, 4.6vw, 60px);
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: -.035em;
+  margin-bottom: 28px;
+  background: linear-gradient(155deg, #ffffff 0%, #ffffff 38%, #b9bac4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: .2em;
+}
+.hub__excellence em {
+  background: linear-gradient(155deg, #ffffff 0%, #6BC9FF 55%, #2997ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-style: normal;
+}
+.hub__stage { position: relative; max-width: 1100px; margin: 0 auto; padding: 0 22px; perspective: 1800px; }
+.hub__bezel { position: relative; background: linear-gradient(180deg, #1f2026 0%, #0a0b0e 100%); border-radius: clamp(14px, 1.6vw, 22px); padding: 8px; box-shadow: 0 50px 160px -40px rgba(41,151,255,.30), 0 30px 80px -20px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.05) inset; transform-style: preserve-3d; transition: transform .6s var(--ease-out); }
+.hub__screen { position: relative; background: #0c0d10; border-radius: calc(clamp(14px, 1.6vw, 22px) - 8px); overflow: hidden; }
+.hub__topbar { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid var(--line); background: rgba(255,255,255,.02); }
+.hub__topbar-left { display: flex; align-items: center; gap: 14px; }
+.hub__brand { font-family: var(--display); font-size: 14px; font-weight: 700; letter-spacing: -.024em; }
+.hub__brand-sales { color: var(--ink); }
+.hub__brand-drive { color: var(--blue); }
+.hub__topbar-divider { width: 1px; height: 14px; background: var(--line-2); }
+.hub__ws { display: flex; flex-direction: column; font-size: 10px; }
+.hub__ws-eye { color: var(--ink-mute); letter-spacing: .04em; text-transform: uppercase; }
+.hub__ws-name { color: var(--ink); font-weight: 500; font-size: 12px; }
+.hub__live { display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px; background: rgba(48,209,88,.14); border: 1px solid rgba(48,209,88,.32); border-radius: 980px; font-size: 10px; font-weight: 600; letter-spacing: .12em; color: var(--green); text-transform: uppercase; }
+.hub__live::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--green); animation: pulse 1.6s ease infinite; }
+.hub__topbar-right { display: flex; align-items: center; gap: 10px; }
+.hub__user { display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px 3px 3px; background: rgba(255,255,255,.05); border-radius: 980px; font-size: 11px; }
+.hub__user-av { width: 19px; height: 19px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--blue-bright)); display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 600; color: #fff; }
+
+.hub__body { display: grid; grid-template-columns: 220px 1fr; min-height: 540px; }
+.hub__sidebar { border-right: 1px solid var(--line); padding: 18px 12px; display: flex; flex-direction: column; gap: 18px; background: rgba(0,0,0,.18); }
+.hub__side-section { display: flex; flex-direction: column; gap: 2px; }
+.hub__side-label { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-mute); padding: 4px 10px 6px; }
+.hub__side-item { display: flex; align-items: center; gap: 9px; padding: 7px 10px; border-radius: 8px; font-size: 12px; color: var(--ink-3); cursor: default; transition: background .2s ease, color .2s ease; }
+.hub__side-item svg { width: 12px; height: 12px; stroke-width: 1.8; flex-shrink: 0; }
+.hub__side-item.active { background: rgba(41,151,255,.14); color: var(--blue); }
+.hub__side-item:hover:not(.active) { background: rgba(255,255,255,.03); color: var(--ink-2); }
+.hub__side-badge { margin-left: auto; padding: 2px 7px; background: rgba(48,209,88,.18); color: var(--green); border-radius: 980px; font-size: 9px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.hub__side-badge.pro { background: rgba(41,151,255,.18); color: var(--blue-bright); }
+.hub__main { padding: 22px 26px; overflow: hidden; }
+.hub__dash-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
+.hub__dash-title { font-family: var(--display); font-size: 18px; font-weight: 600; letter-spacing: -.02em; color: var(--ink); }
+.hub__dash-update { font-size: 11px; color: var(--ink-3); }
+.hub__dash-tabs { display: flex; gap: 4px; }
+.hub__dash-tab { padding: 5px 11px; font-size: 11px; color: var(--ink-3); border-radius: 980px; border: 1px solid var(--line); }
+.hub__dash-tab.active { background: var(--blue); color: #000; border-color: var(--blue); font-weight: 600; }
+
+/* Funnel — the WOW dashboard */
+.hub__funnel { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 18px; }
+.hub__fcard { background: rgba(255,255,255,.025); border: 1px solid var(--line); border-radius: var(--r-md); padding: 16px; position: relative; overflow: hidden; }
+.hub__fcard-pct { font-size: 11px; color: var(--blue); font-weight: 600; margin-bottom: 6px; }
+.hub__fcard-num { font-family: var(--display); font-size: clamp(28px, 3.5vw, 44px); font-weight: 600; letter-spacing: -.032em; line-height: 1; color: var(--ink); margin-bottom: 4px; }
+.hub__fcard-lbl { font-size: 10px; color: var(--ink-mute); letter-spacing: .12em; text-transform: uppercase; }
+.hub__fcard-bar { position: absolute; left: 0; bottom: 0; height: 3px; background: linear-gradient(90deg, var(--blue-deep), var(--blue-bright)); border-radius: 0 3px 0 0; box-shadow: 0 0 12px var(--blue-glow); transition: width 1.8s var(--ease-out); }
+
+.hub__metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px; }
+.hub__metric { background: rgba(255,255,255,.025); border: 1px solid var(--line); border-radius: var(--r-sm); padding: 12px 14px; text-align: center; }
+.hub__metric-num { font-family: var(--display); font-size: 22px; font-weight: 600; letter-spacing: -.025em; color: var(--blue); }
+.hub__metric-lbl { font-size: 10px; color: var(--ink-3); margin-top: 2px; letter-spacing: .06em; text-transform: uppercase; }
+
+.hub__steps { background: rgba(255,255,255,.02); border: 1px solid var(--line); border-radius: var(--r-md); padding: 16px; }
+.hub__step-row { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; padding: 8px 0; align-items: center; font-size: 12px; }
+.hub__step-row:not(:last-child) { border-bottom: 1px solid var(--line); }
+.hub__step-label { color: var(--ink-2); }
+.hub__step-val { color: var(--ink); font-family: var(--display); font-weight: 600; }
+.hub__step-pct { color: var(--blue); font-family: var(--display); font-weight: 600; min-width: 50px; text-align: right; font-size: 11px; }
+
+@media (max-width: 880px) {
+  .hub__body { grid-template-columns: 1fr; }
+  .hub__sidebar { display: none; }
+}
+@media (max-width: 760px) {
+  .hub__main { padding: 16px; }
+  .hub__funnel { grid-template-columns: repeat(2, 1fr); }
+  .hub__metrics { grid-template-columns: 1fr; }
+  .hub__dash-tabs { display: none; }
+}
+
+/* ===== BONUS STACK SECTION ===== */
+.stack { background: var(--bg); padding: clamp(80px, 12vw, 160px) 0; border-top: 1px solid var(--line); position: relative; overflow: hidden; }
+.stack::before { content: ""; position: absolute; inset: 0; background: radial-gradient(900px 500px at 50% 30%, rgba(41,151,255,.08), transparent 60%); pointer-events: none; }
+.stack__head { text-align: center; margin-bottom: clamp(40px, 6vw, 70px); position: relative; z-index: 1; }
+.stack__eye { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px 5px 8px; background: rgba(48,209,88,.10); border: 1px solid rgba(48,209,88,.32); border-radius: 980px; font-size: 12px; color: var(--green); margin-bottom: 22px; font-weight: 500; }
+.stack__eye-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px rgba(48,209,88,.6); }
+.stack__sub { max-width: 700px; margin: 0 auto; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.42; color: var(--ink-2); margin-top: 4px; }
+.stack__grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+.stack__card { position: relative; background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015)); border: 1px solid var(--line-2); border-radius: var(--r-lg); padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 14px; transition: border-color .3s var(--ease), transform .4s var(--ease-out), background .3s var(--ease); overflow: hidden; }
+.stack__card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(400px 200px at 50% 0%, rgba(41,151,255,.08), transparent 60%); opacity: 0; transition: opacity .3s ease; pointer-events: none; }
+.stack__card:hover { transform: translateY(-4px); border-color: var(--line-3); }
+.stack__card:hover::before { opacity: 1; }
+.stack__card--xl { grid-column: span 3; }
+.stack__card--md { grid-column: span 2; }
+.stack__card--sm { grid-column: span 2; }
+.stack__card-content { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 12px; height: 100%; }
+
+.stack__inc { display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; background: rgba(48,209,88,.14); border: 1px solid rgba(48,209,88,.28); border-radius: 980px; font-size: 10px; font-weight: 600; color: var(--green); text-transform: uppercase; letter-spacing: .08em; align-self: flex-start; }
+.stack__inc svg { width: 10px; height: 10px; }
+.stack__icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(41,151,255,.12); color: var(--blue-bright); display: flex; align-items: center; justify-content: center; }
+.stack__icon svg { width: 22px; height: 22px; stroke-width: 1.6; }
+.stack__title { font-family: var(--display); font-size: clamp(20px, 2.2vw, 28px); font-weight: 700; letter-spacing: -.024em; line-height: 1.08; }
+.stack__title em { background: linear-gradient(155deg, #ffffff 0%, #6BC9FF 55%, #2997ff 100%); -webkit-background-clip: text; background-clip: text; color: transparent; font-style: normal; }
+.stack__desc { font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+.stack__desc b { color: var(--ink); font-weight: 600; }
+.stack__bullets { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+.stack__bullet { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--ink-2); }
+.stack__bullet svg { width: 12px; height: 12px; color: var(--blue); flex-shrink: 0; margin-top: 4px; }
+
+.stack__bottom-note { max-width: 800px; margin: clamp(40px, 5vw, 60px) auto 0; text-align: center; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.45; padding: 0 22px; position: relative; z-index: 1; }
+
+@media (max-width: 980px) {
+  .stack__grid { grid-template-columns: repeat(4, 1fr); }
+  .stack__card--xl { grid-column: span 4; }
+  .stack__card--md, .stack__card--sm { grid-column: span 2; }
+}
+@media (max-width: 560px) {
+  .stack__grid { grid-template-columns: 1fr; }
+  .stack__card--xl, .stack__card--md, .stack__card--sm { grid-column: span 1; }
+}
+
+/* STANDORT */
+.standort { background: var(--bg); }
+.standort__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 70px); align-items: center; }
+.standort__photo { position: relative; aspect-ratio: 4 / 5; border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--line); box-shadow: 0 20px 60px -20px rgba(0,0,0,.6); }
+.standort__photo img { width: 100%; height: 100%; object-fit: cover; }
+.standort__photo-tag { position: absolute; left: 16px; bottom: 16px; padding: 6px 12px; background: rgba(0,0,0,.5); backdrop-filter: blur(12px); border-radius: 980px; font-size: 12px; color: #fff; font-weight: 500; }
+.standort__content { display: flex; flex-direction: column; gap: 18px; }
+.standort__title { font-family: var(--display); font-size: clamp(26px, 3.4vw, 44px); font-weight: 600; letter-spacing: -.038em; line-height: 1.05; }
+.standort__title em { background: linear-gradient(180deg, var(--blue-bright), var(--blue)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.standort__points { margin-top: 8px; display: grid; gap: 14px; }
+.standort__point { display: grid; grid-template-columns: 70px 1fr; gap: 14px; padding: 14px 0; border-top: 1px solid var(--line); }
+.standort__point:last-child { border-bottom: 1px solid var(--line); }
+.standort__point-k { font-family: var(--display); font-size: 19px; font-weight: 600; letter-spacing: -.025em; color: var(--blue); }
+.standort__point-v { font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+.standort__point-v b { color: var(--ink); font-weight: 600; }
+@media (max-width: 900px) { .standort__grid { grid-template-columns: 1fr; } }
+
+/* FAQ */
+.faq { background: var(--bg); }
+.faq__list { max-width: 820px; margin: 0 auto; border-top: 1px solid var(--line); }
+.faq__q { border-bottom: 1px solid var(--line); transition: background .2s ease; }
+.faq__q[open] { background: rgba(255,255,255,.015); }
+.faq__q summary { list-style: none; cursor: pointer; padding: 22px 0; display: flex; align-items: center; justify-content: space-between; gap: 22px; font-family: var(--display); font-size: clamp(15px, 1.4vw, 19px); font-weight: 500; letter-spacing: -.018em; color: var(--ink); transition: color .2s ease; }
+.faq__q summary::-webkit-details-marker { display: none; }
+.faq__q summary:hover { color: var(--blue); }
+.faq__plus { position: relative; width: 18px; height: 18px; flex-shrink: 0; }
+.faq__plus::before, .faq__plus::after { content: ""; position: absolute; background: currentColor; }
+.faq__plus::before { left: 0; right: 0; top: 50%; height: 1.5px; transform: translateY(-50%); }
+.faq__plus::after { top: 0; bottom: 0; left: 50%; width: 1.5px; transform: translateX(-50%); transition: transform .3s var(--ease); }
+.faq__q[open] .faq__plus::after { transform: translateX(-50%) rotate(90deg); opacity: 0; }
+.faq__body { padding: 0 0 22px; max-width: 740px; font-size: 14px; line-height: 1.55; color: var(--ink-2); }
+.faq__body b { color: var(--ink); font-weight: 600; }
+
+/* FINAL CTA */
+.final { position: relative; padding: clamp(80px, 12vw, 160px) 0; text-align: center; overflow: hidden; background: var(--bg); }
+.final::before { content: ""; position: absolute; inset: 0; background: radial-gradient(1000px 600px at 50% 50%, rgba(41,151,255,.16), transparent 60%); pointer-events: none; }
+.final__inner { position: relative; z-index: 1; padding: 0 22px; }
+.final__title {
+  font-family: var(--display);
+  font-size: clamp(28px, 4.6vw, 60px);
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: -.035em;
+  margin-bottom: 22px;
+  background: linear-gradient(155deg, #ffffff 0%, #ffffff 38%, #b9bac4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: .2em;
+}
+.final__title em {
+  background: linear-gradient(155deg, #ffffff 0%, #6BC9FF 55%, #2997ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.final__sub { max-width: 660px; margin: 0 auto 32px; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.4; color: var(--ink-2); }
+.final__host { display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; padding: 11px 18px 11px 11px; background: rgba(255,255,255,.04); border: 1px solid var(--line-2); border-radius: 980px; }
+.final__host-av { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--blue-bright)); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-weight: 600; font-size: 13px; color: #fff; }
+.final__host-text { text-align: left; }
+.final__host-name { font-family: var(--display); font-weight: 600; font-size: 13px; letter-spacing: -.012em; }
+.final__host-role { font-size: 11px; color: var(--ink-3); }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="/" aria-label="SalesDrive">
+      <span class="nav__brand-wordmark"><span class="nav__brand-sales">Sales</span><span class="nav__brand-drive">drive</span><svg class="nav__brand-arrow" viewBox="0 0 12 14"><path d="M6 1l4 4h-2.5v8h-3V5H2z"/></svg></span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="#cases">Cases</a></li>
+      <li><a href="referenzen.html">Referenzen</a></li>
+      <li><a href="#mechanik">Ablauf</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="zertifizierungen.html">Zertifizierungen</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="nav__cta" href="formular.html">
+      Analysegespräch
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</nav>
+<div class="progress" id="progress"></div>
+<div class="nav-spacer"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__bg">
+    <div class="orb orb--blue orb--1 orb-anim-1"></div>
+    <div class="orb orb--purple orb--2 orb-anim-2"></div>
+    <div class="orb orb--cyan orb--3 orb-anim-1"></div>
+  </div>
+  <div class="hero__inner">
+    <div class="hero__pill reveal">
+      <span class="hero__pill-dot"></span>
+      B2B-Akquise · DACH · <em>TÜV-Rheinland zertifiziert</em>
+    </div>
+    <h1 class="hero__title">
+      <span class="word-reveal" data-words>
+        <span class="w">Wir</span> <span class="w">rufen</span> <span class="w">deine</span> <span class="w"><em>Wunschkunden</em></span> <span class="w">an,</span><br>
+        <span class="w">qualifizieren</span> <span class="w">sie</span> <span class="w">vor</span> <span class="w">und</span> <span class="w">legen</span> <span class="w">dir</span><br>
+        <span class="w"><em>Abschlussgespräche</em></span> <span class="w">in</span> <span class="w">deinen</span> <span class="w">Kalender.</span>
+      </span>
+    </h1>
+    <p class="hero__sub reveal d-3">
+      Wir nehmen für dich den Hörer in die Hand, führen Gespräche mit deiner Zielgruppe und qualifizieren Interessenten vor — damit du ausschließlich Abschlussgespräche mit Entscheidern in deinem Kalender hast, die nicht nur Kaufkraft haben, sondern bereit sind, dich direkt zu beauftragen.
+    </p>
+    <div class="hero__cta-row reveal d-4">
+      <a href="formular.html" class="btn btn--primary btn--lg">
+        Analysegespräch sichern
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#cases" class="btn btn--link">
+        Cases ansehen
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="hero__meta reveal d-5">
+      <span class="hero__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>30 Min.</span>
+      <span class="hero__meta-sep"></span>
+      <span class="hero__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/></svg>100 % kostenlos</span>
+      <span class="hero__meta-sep"></span>
+      <span class="hero__meta-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>Direkt mit Alex</span>
+    </div>
+  </div>
+
+  <div class="hero__stage">
+    <div class="hero__device" data-vimeo-id="1157996306">
+      <img src="https://vumbnail.com/1157996306.jpg" alt="SalesDrive Vorstellung" onerror="this.src='assets/photos/alex-headset-portrait.jpg'" />
+      <div class="hero__rec"><span class="hero__rec-dot"></span>REC</div>
+      <button class="hero__play" aria-label="Video abspielen" type="button"><svg viewBox="0 0 24 24"><polygon points="7 4 21 12 7 20 7 4"/></svg></button>
+      <div class="hero__caption"><div class="hero__caption-label">90 SECONDS</div><div class="hero__caption-title">So tickt SalesDrive.</div></div>
+    </div>
+  </div>
+
+  <div class="hero__cue"><span>scroll</span><span class="hero__cue-line"></span></div>
+</section>
+
+<!-- AUDITED -->
+<section class="audited">
+  <div class="container">
+    <div class="audited__head reveal">
+      <span class="audited__kicker">Auditiert von Dritten · Nicht von uns selbst.</span>
+      <h2 class="audited__title">Drei externe Stellen prüfen unsere Arbeit.<br><em>Jedes Jahr aufs Neue.</em></h2>
+    </div>
+    <div class="audited__grid">
+      <a class="audited__card reveal-blur" href="zertifizierungen.html" style="text-decoration:none;color:inherit;cursor:pointer">
+        <div class="audited__visual"><img src="assets/trust/tuv-rheinland.png" alt="TÜV Rheinland Zertifiziert" /></div>
+        <div><div class="audited__name">TÜV Rheinland Zertifikat</div><p class="audited__detail">Geprüfte Qualifikation als B2B-Vertriebsdienstleister · Prüfzeichen gültig bis <b>11.03.2029</b> · ID 0217466221</p></div>
+      </a>
+      <a class="audited__card reveal-blur d-1" href="https://www.provenexpert.com/salesdrive-gmbh/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;cursor:pointer">
+        <div class="audited__visual">
+          <div class="audited__pe">
+            <div class="audited__pe-num">4,82</div>
+            <div class="audited__pe-stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div><div class="audited__name">ProvenExpert · Sehr gut</div><p class="audited__detail"><b>74 verifizierte Kundenbewertungen.</b> TOP DIENSTLEISTER 2025 · TOP EMPFEHLUNG 2025.</p></div>
+      </a>
+      <a class="audited__card reveal-blur d-2" href="formular.html" style="text-decoration:none;color:inherit;cursor:pointer">
+        <div class="audited__visual audited__visual--partners">
+          <div class="audited__partners"><span>HubSpot</span><span class="audited__partners-dot">·</span><span>Close</span></div>
+        </div>
+        <div><div class="audited__name">CRM Implementation Partner</div><p class="audited__detail"><b>HubSpot Solutions Partner.</b> Close CRM Implementation für DACH-Vertriebsorganisationen.</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats section--divide" id="ergebnisse">
+  <div class="container">
+    <div class="stats__grid">
+      <div class="stats__cell reveal-blur"><div class="stats__num">€<span class="counter" data-to="83">0</span><span class="unit">Mio.</span></div><div class="stats__label">generierter Kundenumsatz</div></div>
+      <div class="stats__cell reveal-blur d-1"><div class="stats__num"><span class="counter" data-to="10230">0</span><span class="plus">+</span></div><div class="stats__label">Abschlussgespräche vereinbart</div></div>
+      <div class="stats__cell reveal-blur d-2"><div class="stats__num"><span class="counter" data-to="180">0</span><span class="plus">+</span></div><div class="stats__label">Premium-Anbieter vertrauen uns</div></div>
+      <div class="stats__cell reveal-blur d-3"><div class="stats__num"><span class="counter" data-to="4.82" data-decimals="2">0</span><span class="unit">/&nbsp;5</span></div><div class="stats__label">ProvenExpert · 74 Bewertungen</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGOS -->
+<section class="logos">
+  <div class="container"><div class="logos__label reveal">Eine Auswahl unserer Kunden</div></div>
+  <div class="logos__viewport">
+    <div class="logos__track">
+      <div class="logos__item"><img src="assets/logos/hano-einbaukuechen.png" alt="hano" /></div>
+      <div class="logos__item"><img src="assets/logos/z-management.png" alt="Z-Management" /></div>
+      <div class="logos__item"><img src="assets/logos/kleinstark.png" alt="KleinSTARK" /></div>
+      <div class="logos__item"><img src="assets/logos/highbryd-media.png" alt="Highbryd Media" /></div>
+      <div class="logos__item"><img src="assets/logos/corestad.png" alt="CORESTAD" /></div>
+      <div class="logos__item"><img src="assets/logos/menschen-im-vertrieb.png" alt="Menschen im Vertrieb" /></div>
+      <div class="logos__item"><img src="assets/logos/rink.png" alt="RINK" /></div>
+      <div class="logos__item"><img src="assets/logos/memberspot.png" alt="Memberspot" /></div>
+      <div class="logos__item"><img src="assets/logos/this-is-marketing.png" alt="This is Marketing" /></div>
+      <div class="logos__item"><img src="assets/logos/webit.png" alt="webit!" /></div>
+      <div class="logos__item" aria-hidden="true"><img src="assets/logos/hano-einbaukuechen.png" alt="" /></div>
+      <div class="logos__item" aria-hidden="true"><img src="assets/logos/z-management.png" alt="" /></div>
+      <div class="logos__item" aria-hidden="true"><img src="assets/logos/kleinstark.png" alt="" /></div>
+      <div class="logos__item" aria-hidden="true"><img src="assets/logos/highbryd-media.png" alt="" /></div>
+      <div class="logos__item" aria-hidden="true"><img src="assets/logos/corestad.png" alt="" /></div>
+      <div class="logos__item" aria-hidden="true"><img src="assets/logos/menschen-im-vertrieb.png" alt="" /></div>
+      <div class="logos__item" aria-hidden="true"><img src="assets/logos/rink.png" alt="" /></div>
+      <div class="logos__item" aria-hidden="true"><img src="assets/logos/memberspot.png" alt="" /></div>
+      <div class="logos__item" aria-hidden="true"><img src="assets/logos/this-is-marketing.png" alt="" /></div>
+      <div class="logos__item" aria-hidden="true"><img src="assets/logos/webit.png" alt="" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<section class="statement">
+  <div class="container container--narrow">
+    <div class="statement__inner reveal-scale">
+      <div class="statement__eye">Echte Ergebnisse</div>
+      <div class="statement__num">€&nbsp;<em>83</em><span class="unit">Mio.</span></div>
+      <p class="statement__sub">haben wir für <b>über 180 Unternehmen</b> aus dem DACH-Raum an Umsatz generiert. Keine geschätzten Pipeline-Zahlen. <b>Bestätigte Abschlüsse.</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- CASES — portrait video, uncropped 9:16 -->
+<section class="section cases section--divide" id="cases">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="section-num"><span class="section-num__num">01</span><span>Echte Kunden · Echte Zahlen</span></div>
+      <h2 class="display">Hinter jedem Case<br>steht ein <em>echter Name.</em></h2>
+      <p class="lead">Drei dokumentierte Kampagnen mit Funnel und Video-Statement. Keine Stockfotos.</p>
+    </div>
+
+    <article class="case reveal-blur">
+      <div class="case__media" data-vimeo-id="860681704">
+        <img src="https://vumbnail.com/860681704.jpg" alt="Gert Zaunbauer" onerror="this.src='assets/photos/leopoldquartier-office.jpg'" />
+        <span class="case__tag">PR &amp; Kommunikation</span>
+        <button class="case__play" aria-label="Fallstudie ansehen" type="button"><svg viewBox="0 0 24 24"><polygon points="7 4 21 12 7 20 7 4"/></svg></button>
+        <div class="case__author"><div class="case__author-av">GZ</div><div><div class="case__author-name">Gert Zaunbauer</div><div class="case__author-role">Gründer · Putz &amp; Stingl Events</div></div></div>
+      </div>
+      <div class="case__body">
+        <h3 class="case__title">15 qualifizierte<br>Abschlussgespräche<br>in 90 Tagen.</h3>
+        <div class="case__block"><span class="case__block-label">Problem</span><p class="case__block-text">Hochwertiges Angebot, aber keine planbare Neukundengewinnung. Empfehlungen reichten nicht mehr.</p></div>
+        <div class="case__block"><span class="case__block-label">Ergebnis</span><p class="case__block-text">Ein klarer Erstansprache-Prozess brachte regelmäßig qualifizierte Gespräche mit Entscheidern.</p></div>
+        <div class="case__funnel" data-period="Zeitraum · 3 Monate">
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="3200">3.200</span></span><div class="case__step-lbl">Erstansprachen</div></div>
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="45">45</span></span><div class="case__step-lbl">Ersttermine</div></div>
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="16">16</span></span><div class="case__step-lbl">Abschluss-Gespräche</div></div>
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="9">9</span></span><div class="case__step-lbl">Neukunden</div></div>
+          <div class="case__step green"><span class="case__step-num">€<span class="counter" data-to="259000">259.000</span></span><div class="case__step-lbl">Auftragseingang</div></div>
+        </div>
+        <a class="case__link" href="putzandstingl.html">Case-Details ansehen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+    </article>
+
+    <article class="case case--reverse reveal-blur">
+      <div class="case__media" data-vimeo-id="1134147007">
+        <img src="https://vumbnail.com/1134147007.jpg" alt="Nico Macek" onerror="this.src='assets/photos/messe-vortrag.jpg'" />
+        <span class="case__tag">Filmproduktion</span>
+        <button class="case__play" aria-label="Fallstudie ansehen" type="button"><svg viewBox="0 0 24 24"><polygon points="7 4 21 12 7 20 7 4"/></svg></button>
+        <div class="case__author"><div class="case__author-av">NM</div><div><div class="case__author-name">Nico Macek</div><div class="case__author-role">Gründer · RINK GmbH</div></div></div>
+      </div>
+      <div class="case__body">
+        <h3 class="case__title">67.000&nbsp;€<br>Auftragseingang<br>in 1 Monat.</h3>
+        <div class="case__block"><span class="case__block-label">Problem</span><p class="case__block-text">Akquise blockierte das Kreativteam. Zeitaufwendig, unangenehm und nicht skalierbar.</p></div>
+        <div class="case__block"><span class="case__block-label">Ergebnis</span><p class="case__block-text">Komplette Erstansprache ausgelagert. Innerhalb eines Monats messbarer Auftragseingang.</p></div>
+        <div class="case__funnel" data-period="Zeitraum · 1 Monat">
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="866">866</span></span><div class="case__step-lbl">Erstansprachen</div></div>
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="12">12</span></span><div class="case__step-lbl">Ersttermine</div></div>
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="4">4</span></span><div class="case__step-lbl">Abschluss-Gespräche</div></div>
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="3">3</span></span><div class="case__step-lbl">Neukunden</div></div>
+          <div class="case__step green"><span class="case__step-num">€<span class="counter" data-to="67000">67.000</span></span><div class="case__step-lbl">Auftragseingang</div></div>
+        </div>
+        <a class="case__link" href="rink-media.html">Case-Details ansehen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+    </article>
+
+    <article class="case reveal-blur">
+      <div class="case__media" data-vimeo-id="1108387444">
+        <img src="https://vumbnail.com/1108387444.jpg" alt="Julian Kirfel" onerror="this.src='assets/photos/menschen-im-vertrieb.jpg'" />
+        <span class="case__tag">Backlink Marktplatz &amp; SEO</span>
+        <button class="case__play" aria-label="Fallstudie ansehen" type="button"><svg viewBox="0 0 24 24"><polygon points="7 4 21 12 7 20 7 4"/></svg></button>
+        <div class="case__author"><div class="case__author-av">JK</div><div><div class="case__author-name">Julian Kirfel</div><div class="case__author-role">Gründer · Linkbroker.io</div></div></div>
+      </div>
+      <div class="case__body">
+        <h3 class="case__title">342.000&nbsp;€<br>mehr Auftrag<br>in 60 Tagen.</h3>
+        <div class="case__block"><span class="case__block-label">Problem</span><p class="case__block-text">Erklärungsbedürftiges Angebot, anspruchsvolle Zielgruppe, fehlende Sales-Kapazitäten.</p></div>
+        <div class="case__block"><span class="case__block-label">Ergebnis</span><p class="case__block-text">Strukturierte Erstansprache füllte die Sales-Pipeline und führte zu messbarem Umsatzwachstum.</p></div>
+        <div class="case__funnel" data-period="Zeitraum · 2 Monate">
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="2850">2.850</span></span><div class="case__step-lbl">Erstansprachen</div></div>
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="101">101</span></span><div class="case__step-lbl">Ersttermine</div></div>
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="27">27</span></span><div class="case__step-lbl">Abschluss-Gespräche</div></div>
+          <div class="case__step"><span class="case__step-num"><span class="counter" data-to="20">20</span></span><div class="case__step-lbl">Neukunden</div></div>
+          <div class="case__step green"><span class="case__step-num">€<span class="counter" data-to="342000">342.000</span></span><div class="case__step-lbl">Auftragseingang</div></div>
+        </div>
+        <a class="case__link" href="linkbroker.html">Case-Details ansehen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+    </article>
+
+    <div style="text-align:center;margin-top:clamp(50px,7vw,80px)" class="reveal">
+      <a href="referenzen.html" class="btn btn--ghost btn--lg">
+        Alle Referenzen ansehen
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- INSIDE BENTO -->
+<section class="section inside section--divide" id="inside">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="section-num"><span class="section-num__num">02</span><span>Inside SalesDrive</span></div>
+      <h2 class="display">Hinter jedem Termin<br>steht <em>echte Arbeit</em> in Wien.</h2>
+      <p class="lead">Keine Pool-Setter aus dem Ausland, kein Outsourcing-Mantel. Trainings, Coaching, Strategie, Messeauftritte.</p>
+    </div>
+    <div class="bento">
+      <a class="bento__tile bento__tile--portrait reveal-blur" href="team.html">
+        <div class="bento__bg" style="background-image:url('assets/photos/alex-headset-portrait.jpg')"></div>
+        <div class="bento__content">
+          <div class="bento__eye">Operations</div>
+          <div class="bento__title">Geschäftsführung <em>am Hörer.</em></div>
+          <div class="bento__desc">Alex sitzt selbst täglich im Headset. Damit das System nie den Kontakt zur Frontlinie verliert.</div>
+          <div class="bento__stats">
+            <div><div class="bento__stat-num">1,3 Mio.+</div><div class="bento__stat-lbl">Anrufe verantwortet</div></div>
+            <div><div class="bento__stat-num">180+</div><div class="bento__stat-lbl">Kunden begleitet</div></div>
+          </div>
+          <div class="bento__cta">Team kennenlernen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+
+      <a class="bento__tile bento__tile--wide reveal-blur d-1" href="referenzen.html">
+        <div class="bento__bg" style="background-image:url('assets/photos/messe-vortrag.jpg')"></div>
+        <div class="bento__content">
+          <div class="bento__eye">Speaker · This is Marketing</div>
+          <div class="bento__title">Vor <em>200 Marketern</em> in Wien.</div>
+          <div class="bento__desc">Wir treten dort auf, wo unsere Zielgruppe sitzt. Bühne, Q&amp;A, Messestand — Vertrieb mit Gesicht statt Pool-Setter.</div>
+          <div class="bento__cta">Referenzen ansehen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+
+      <a class="bento__tile reveal-blur d-2" href="formular.html">
+        <div class="bento__bg" style="background-image:url('assets/photos/whiteboard-session.jpg')"></div>
+        <div class="bento__content">
+          <div class="bento__eye">Workshop</div>
+          <div class="bento__title">Strategie am Whiteboard.</div>
+          <div class="bento__cta">2-Tages-Workshop buchen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+
+      <a class="bento__tile reveal-blur d-3" href="formular.html">
+        <div class="bento__bg" style="background-image:url('assets/photos/videocall-strategy.jpg')"></div>
+        <div class="bento__content">
+          <div class="bento__eye">Strategie-Call</div>
+          <div class="bento__title">Wöchentliches Sparring.</div>
+          <div class="bento__cta">Direkt mit Alex sprechen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+
+      <a class="bento__tile bento__tile--wide reveal-blur d-4" href="#standort">
+        <div class="bento__bg" style="background-image:url('assets/photos/leopoldquartier-office.jpg')"></div>
+        <div class="bento__content">
+          <div class="bento__eye">Headquarters · 1020 Wien</div>
+          <div class="bento__title">200 m² <em>Premium-Sales-Floor.</em></div>
+          <div class="bento__desc">Hier entstehen Kampagnen. Hier trainiert das Team. Hier triffst du uns persönlich — Strategie-Workshops, Live-Coaching, gemeinsame Call-Beobachtung.</div>
+          <div class="bento__cta">Standort &amp; Live-Events <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+
+      <a class="bento__tile reveal-blur d-5" href="zertifizierungen.html">
+        <div class="bento__bg" style="background-image:url('assets/photos/messe-stand-talk.jpg')"></div>
+        <div class="bento__content">
+          <div class="bento__eye">Done 4 You · Messe</div>
+          <div class="bento__title">Wir sind dort, wo Wachstum passiert.</div>
+          <div class="bento__cta">Auditierungen ansehen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER -->
+<section class="section filter section--divide" id="filter">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="section-num"><span class="section-num__num">03</span><span>Klartext · Für wen wir arbeiten</span></div>
+      <h2 class="display">Wir sagen Nein,<br>damit du <em>echtes Ja</em> bekommst.</h2>
+      <p class="lead">Wir nehmen nicht jeden Kunden. Wenn du zu uns passt, gehen wir die Extrameile. Wenn nicht, sagen wir es dir am Telefon.</p>
+    </div>
+    <div class="filter__grid">
+      <div class="filter__col filter__col--match reveal-blur">
+        <div class="filter__col-head"><span class="filter__col-num">01</span><div class="filter__col-title">Für dich, wenn …</div></div>
+        <div class="filter__list">
+          <div class="filter__item"><span class="filter__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span><span class="filter__text"><b>Über 1 Mio. € Jahresumsatz</b> und bereit, in planbares Wachstum zu investieren.</span></div>
+          <div class="filter__item"><span class="filter__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span><span class="filter__text"><b>Kundenwert ≥ 5.000 €</b> pro Auftrag, idealerweise 10.000 €+.</span></div>
+          <div class="filter__item"><span class="filter__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span><span class="filter__text"><b>B2B-Verkauf</b> an Entscheider in DACH-Unternehmen.</span></div>
+          <div class="filter__item"><span class="filter__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span><span class="filter__text"><b>Marge &gt; 25 %,</b> damit jeder Auftrag dich wirklich weiterbringt.</span></div>
+          <div class="filter__item"><span class="filter__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span><span class="filter__text"><b>Echte Partnerschaft</b> statt Provisions-Spielchen und Pool-Setter.</span></div>
+        </div>
+      </div>
+      <div class="filter__col filter__col--serve reveal-blur d-1">
+        <div class="filter__col-head"><span class="filter__col-num">02</span><div class="filter__col-title">Wir liefern dir …</div></div>
+        <div class="filter__list">
+          <div class="filter__item"><span class="filter__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span><span class="filter__text"><b>Lookalike-Liste</b> deiner besten Kunden, AI-generiert aus deinen Top-Aufträgen.</span></div>
+          <div class="filter__item"><span class="filter__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span><span class="filter__text"><b>Geschulte SalesAgents,</b> die in deinem Namen telefonieren.</span></div>
+          <div class="filter__item"><span class="filter__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span><span class="filter__text"><b>Qualifizierte Erstgespräche</b> mit vorgeklärtem Bedarf.</span></div>
+          <div class="filter__item"><span class="filter__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span><span class="filter__text"><b>SalesDrive Hub</b> mit Live-Tracking jedes Anrufs.</span></div>
+          <div class="filter__item"><span class="filter__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span><span class="filter__text"><b>Wöchentliches Sparring</b> direkt mit Alex.</span></div>
+        </div>
+      </div>
+      <div class="filter__col filter__col--reject reveal-blur d-2">
+        <div class="filter__col-head"><span class="filter__col-num">03</span><div class="filter__col-title">Wir lehnen ab, wenn …</div></div>
+        <div class="filter__list">
+          <div class="filter__item"><span class="filter__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span class="filter__text"><b>Du unter 1 Mio. € Jahresumsatz</b> hast.</span></div>
+          <div class="filter__item"><span class="filter__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span class="filter__text"><b>Coaching / Kurse / Mentoring</b> ohne operative Umsetzung anbietest.</span></div>
+          <div class="filter__item"><span class="filter__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span class="filter__text"><b>B2C / Endkunden</b> ansprechen willst.</span></div>
+          <div class="filter__item"><span class="filter__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span class="filter__text"><b>Über 200 Mitarbeiter</b> hast — zu komplex für unsere Arbeitsweise.</span></div>
+          <div class="filter__item"><span class="filter__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span class="filter__text"><b>Kundenwert unter 5.000 €</b> hast.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="section industries section--divide" id="branchen">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="section-num"><span class="section-num__num">04</span><span>Branchen · Wo wir liefern</span></div>
+      <h2 class="display">Acht Branchen,<br>in denen wir <em>jedes Skript</em> kennen.</h2>
+      <p class="lead">Wir sind keine Generalisten. Wir kennen die Tonalität, Einwände und Entscheider in unseren Branchen.</p>
+    </div>
+    <div class="industries__grid">
+      <a href="referenzen.html" class="industry reveal-blur" style="text-decoration:none;color:inherit;cursor:pointer"><div class="industry__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div><div class="industry__title">Markenagenturen</div><p class="industry__desc">Branding, Corporate Design, Identity-Projekte mit klarer Spitze.</p><div class="industry__refs"><strong>brandtouch · KleinSTARK · creanovo</strong></div></a>
+      <a href="referenzen.html" class="industry reveal-blur d-1" style="text-decoration:none;color:inherit;cursor:pointer"><div class="industry__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div><div class="industry__title">Filmproduktion &amp; 3D</div><p class="industry__desc">Unternehmensfilme, Produkt-Animationen, VR. Jeder Pitch eigene Geschichte.</p><div class="industry__refs"><strong>tecmotion · RINK · Marc Anton</strong></div></a>
+      <a href="referenzen.html" class="industry reveal-blur d-2" style="text-decoration:none;color:inherit;cursor:pointer"><div class="industry__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="industry__title">Industrielle Kommunikation</div><p class="industry__desc">Hardware, Sensorik, B2B-Komponenten. Sprache von Einkauf bis C-Level.</p><div class="industry__refs"><strong>dieEntwickler · SATIAMO · signTEK</strong></div></a>
+      <a href="referenzen.html" class="industry reveal-blur d-3" style="text-decoration:none;color:inherit;cursor:pointer"><div class="industry__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><div class="industry__title">Software &amp; SaaS</div><p class="industry__desc">B2B-Plattformen, Tools für Vertrieb, HR oder Operations.</p><div class="industry__refs"><strong>Memberspot · 1Tool · netzreich</strong></div></a>
+      <a href="referenzen.html" class="industry reveal-blur" style="text-decoration:none;color:inherit;cursor:pointer"><div class="industry__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><div class="industry__title">Werbetechnik &amp; Print</div><p class="industry__desc">Digitale Außenwerbung, Beschilderung, Einbau-Lösungen.</p><div class="industry__refs"><strong>Digilight · hano · Leibing</strong></div></a>
+      <a href="referenzen.html" class="industry reveal-blur d-1" style="text-decoration:none;color:inherit;cursor:pointer"><div class="industry__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg></div><div class="industry__title">Personalberatungen</div><p class="industry__desc">Headhunter, Recruiting-Boutiquen, HR-Consultancies.</p><div class="industry__refs"><strong>Z-Management · RN Personal</strong></div></a>
+      <a href="referenzen.html" class="industry reveal-blur d-2" style="text-decoration:none;color:inherit;cursor:pointer"><div class="industry__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div><div class="industry__title">PR &amp; Kommunikation</div><p class="industry__desc">Pressearbeit, Public Affairs, Krisenkommunikation.</p><div class="industry__refs"><strong>Putz &amp; Stingl · Riba · W/PRO</strong></div></a>
+      <a href="referenzen.html" class="industry reveal-blur d-3" style="text-decoration:none;color:inherit;cursor:pointer"><div class="industry__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div class="industry__title">Eventagenturen</div><p class="industry__desc">Konferenzen, Messen, Live-Veranstaltungen.</p><div class="industry__refs"><strong>eVisions · Putz &amp; Stingl Events</strong></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="section compare section--divide" id="vergleich">
+  <div class="container container--narrow">
+    <div class="sec-head reveal">
+      <div class="section-num"><span class="section-num__num">05</span><span>Der Vergleich</span></div>
+      <h2 class="display">Was uns von anderen<br><em>komplett unterscheidet.</em></h2>
+      <p class="lead">Schwarz auf weiß, was du bei uns bekommst und was woanders nicht.</p>
+    </div>
+    <div class="compare__table reveal-blur">
+      <div class="compare__row compare__row--head"><div class="compare__cell compare__cell--label">Kriterium</div><div class="compare__cell compare__cell--head us">SalesDrive</div><div class="compare__cell compare__cell--head others">Andere Anbieter</div></div>
+      <div class="compare__row"><div class="compare__cell compare__cell--label">Zertifizierung</div><div class="compare__cell compare__cell--good"><span class="compare__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span>TÜV-Rheinland zertifiziert</div><div class="compare__cell compare__cell--bad"><span class="compare__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Keine externe Prüfung</div></div>
+      <div class="compare__row"><div class="compare__cell compare__cell--label">Markenschutz</div><div class="compare__cell compare__cell--good"><span class="compare__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span>Schriftlich freigegebene Tonalität</div><div class="compare__cell compare__cell--bad"><span class="compare__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Drücker-Methoden verbrennen Marken</div></div>
+      <div class="compare__row"><div class="compare__cell compare__cell--label">Transparenz</div><div class="compare__cell compare__cell--good"><span class="compare__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span>Live-Hub mit jedem Anruf</div><div class="compare__cell compare__cell--bad"><span class="compare__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Excel am Monatsende</div></div>
+      <div class="compare__row"><div class="compare__cell compare__cell--label">Ansprechpartner</div><div class="compare__cell compare__cell--good"><span class="compare__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span>Direkt mit Alex (Geschäftsführer)</div><div class="compare__cell compare__cell--bad"><span class="compare__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Account-Manager-Pool</div></div>
+      <div class="compare__row"><div class="compare__cell compare__cell--label">Sales-Coaching</div><div class="compare__cell compare__cell--good"><span class="compare__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span>Wöchentliche Live-Trainings</div><div class="compare__cell compare__cell--bad"><span class="compare__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Termin geliefert — du musst klarkommen</div></div>
+      <div class="compare__row"><div class="compare__cell compare__cell--label">Auditierbarkeit</div><div class="compare__cell compare__cell--good"><span class="compare__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span>Jeder Call mitgeschnitten</div><div class="compare__cell compare__cell--bad"><span class="compare__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>Du glaubst, was im Report steht</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MECHANIK -->
+<section class="section mechanik section--divide" id="mechanik">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="section-num"><span class="section-num__num">06</span><span>Der Ablauf</span></div>
+      <h2 class="display">3 Schritte.<br><em>2 Stunden Aufwand für dich.</em></h2>
+      <p class="lead">Wir übernehmen das Set-up. Wir führen die Calls. Du closest die warmen Termine.</p>
+    </div>
+    <div class="mechanik__timeline" id="mechanikTimeline">
+      <div class="mechanik__line"></div>
+      <div class="mechanik__line-fill" id="mechanikLineFill"></div>
+
+      <div class="tl-step reveal">
+        <div class="tl-step__bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span class="tl-step__n">01</span></div>
+        <div class="tl-step__card">
+          <div class="tl-step__eyebrow">Das Setup übernehmen wir</div>
+          <div class="tl-step__title">Im Kick-Off bereiten wir alles vor.</div>
+          <p class="tl-step__desc">Wir lernen Angebot, Zielgruppe und Vertriebsprozess kennen, definieren ein No-Brainer-Offer, generieren mit AI hochqualitative Datensätze und richten das technische Setup komplett für dich ein.</p>
+          <div class="tl-step__tags"><span class="tl-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Dein Zeitaufwand: 60 Min.</span></div>
+        </div>
+      </div>
+
+      <div class="tl-step reveal d-1">
+        <div class="tl-step__bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="tl-step__n">02</span></div>
+        <div class="tl-step__card">
+          <div class="tl-step__eyebrow">Diese Gespräche führen wir</div>
+          <div class="tl-step__title">Nach deiner Freigabe legen wir los.</div>
+          <p class="tl-step__desc">2 Wochen nach dem Kick-Off besprechen wir das Kampagnenkonzept; dein Go löst den Start aus. Danach führen wir die Erstansprachen, qualifizieren vor und buchen Abschlussgespräche in deinen Kalender.</p>
+          <div class="tl-step__tags"><span class="tl-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Dein Zeitaufwand: 60 Min. Freigabe</span></div>
+        </div>
+      </div>
+
+      <div class="tl-step reveal d-2">
+        <div class="tl-step__bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg><span class="tl-step__n">03</span></div>
+        <div class="tl-step__card">
+          <div class="tl-step__eyebrow">Das ist deine Aufgabe</div>
+          <div class="tl-step__title">Du führst die Abschlussgespräche.</div>
+          <p class="tl-step__desc">Du führst Verkaufsgespräche mit vorqualifizierten Leads, erhältst vorab alle Gesprächsnotizen und ein bewährtes Gesprächs-Framework. Nach jedem Call gibst du kurzes Feedback — damit wir die Kampagne laufend verbessern.</p>
+          <div class="tl-step__tags"><span class="tl-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Dein Zeitaufwand: 60–90 Min. pro Termin</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HUB — Standard of Excellence + Animated Dashboard -->
+<section class="hub section--divide" id="hub">
+  <div class="hub__head-wrap">
+    <div class="hub__head">
+      <div class="container">
+        <div class="section-num reveal"><span class="section-num__num">07</span><span>Dein Live-Dashboard</span></div>
+        <h2 class="hub__excellence reveal-shadow">Du hast alles im Griff.<br><em>Live. Auditierbar. Echtzeit.</em></h2>
+        <p class="lead reveal d-2" style="max-width:680px;margin:0 auto">Über unseren Live-Hub kannst du die aktuellen Zahlen deiner Kampagne jederzeit live einsehen. Jeder Anruf, jeder Termin, jede Conversion. Stündlich aktualisiert.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="hub__stage reveal-scale" id="hubStage">
+    <div class="hub__bezel" id="hubBezel">
+      <div class="hub__screen">
+        <div class="hub__topbar">
+          <div class="hub__topbar-left">
+            <span class="hub__brand"><span class="hub__brand-sales">Sales</span><span class="hub__brand-drive">drive</span></span>
+            <span class="hub__topbar-divider"></span>
+            <div class="hub__ws"><span class="hub__ws-eye">Workspace</span><span class="hub__ws-name">Lukas GmbH</span></div>
+          </div>
+          <div class="hub__topbar-right">
+            <div class="hub__live">LIVE</div>
+            <div class="hub__user"><span class="hub__user-av">AK</span><span>Alex K.</span></div>
+          </div>
+        </div>
+
+        <div class="hub__body">
+          <aside class="hub__sidebar">
+            <div class="hub__side-section">
+              <div class="hub__side-label">Workspace</div>
+              <div class="hub__side-item active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                Dashboard
+              </div>
+              <div class="hub__side-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
+                Live Tracking
+              </div>
+              <div class="hub__side-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg>
+                Onboarding
+              </div>
+              <div class="hub__side-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M16 3v6M8 3v6M2 11h20"/></svg>
+                Konzept &amp; Leitfäden
+              </div>
+            </div>
+            <div class="hub__side-section">
+              <div class="hub__side-label">Im Programm enthalten</div>
+              <div class="hub__side-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2a4 4 0 0 0-4 4v3H6a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-6a3 3 0 0 0-3-3h-2V6a4 4 0 0 0-4-4z"/><circle cx="9" cy="14" r="1"/><circle cx="15" cy="14" r="1"/></svg>
+                AI Sales Coach
+                <span class="hub__side-badge pro">Beta</span>
+              </div>
+              <div class="hub__side-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                Sales Training
+              </div>
+              <div class="hub__side-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6M17 11h6"/></svg>
+                1:1 Sales Sparring
+              </div>
+              <div class="hub__side-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Execution Days · Wien
+              </div>
+              <div class="hub__side-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+                Auto-Berichte
+              </div>
+            </div>
+            <div class="hub__side-section" style="margin-top:auto">
+              <div class="hub__side-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                Chat
+              </div>
+            </div>
+          </aside>
+          <div class="hub__main">
+          <div class="hub__dash-head">
+            <div>
+              <div class="hub__dash-title">Kampagnen-Dashboard</div>
+              <div class="hub__dash-update">Update: 20.05.26 · 22:06</div>
+            </div>
+            <div class="hub__dash-tabs"><div class="hub__dash-tab">7 Tage</div><div class="hub__dash-tab active">30 Tage</div><div class="hub__dash-tab">Gesamt</div></div>
+          </div>
+
+          <div class="hub__funnel">
+            <div class="hub__fcard" data-bar="100">
+              <div class="hub__fcard-pct">100 %</div>
+              <div class="hub__fcard-num"><span class="counter" data-to="4500">0</span></div>
+              <div class="hub__fcard-lbl">Wählversuche</div>
+              <div class="hub__fcard-bar" style="width:0%"></div>
+            </div>
+            <div class="hub__fcard" data-bar="46">
+              <div class="hub__fcard-pct">45,6 %</div>
+              <div class="hub__fcard-num"><span class="counter" data-to="2050">0</span></div>
+              <div class="hub__fcard-lbl">Erreicht</div>
+              <div class="hub__fcard-bar" style="width:0%"></div>
+            </div>
+            <div class="hub__fcard" data-bar="26">
+              <div class="hub__fcard-pct">26,3 %</div>
+              <div class="hub__fcard-num"><span class="counter" data-to="540">0</span></div>
+              <div class="hub__fcard-lbl">Entscheider</div>
+              <div class="hub__fcard-bar" style="width:0%"></div>
+            </div>
+            <div class="hub__fcard" data-bar="6.5">
+              <div class="hub__fcard-pct">6,5 %</div>
+              <div class="hub__fcard-num"><span class="counter" data-to="35">0</span></div>
+              <div class="hub__fcard-lbl">EG-Termine</div>
+              <div class="hub__fcard-bar" style="width:0%"></div>
+            </div>
+          </div>
+
+          <div class="hub__metrics">
+            <div class="hub__metric"><div class="hub__metric-num">91,4 %</div><div class="hub__metric-lbl">Show-Rate</div></div>
+            <div class="hub__metric"><div class="hub__metric-num">34,4 %</div><div class="hub__metric-lbl">AG-Rate</div></div>
+            <div class="hub__metric"><div class="hub__metric-num">63,6 %</div><div class="hub__metric-lbl">Close-Rate</div></div>
+          </div>
+
+          <div class="hub__steps">
+            <div class="hub__step-row"><div class="hub__step-label">EG-Termine vereinbart</div><div class="hub__step-val">35</div><div class="hub__step-pct">100 %</div></div>
+            <div class="hub__step-row"><div class="hub__step-label">EG geführt</div><div class="hub__step-val">32</div><div class="hub__step-pct">91,4 %</div></div>
+            <div class="hub__step-row"><div class="hub__step-label">AG terminiert</div><div class="hub__step-val">11</div><div class="hub__step-pct">34,4 %</div></div>
+            <div class="hub__step-row"><div class="hub__step-label">AG geführt</div><div class="hub__step-val">10</div><div class="hub__step-pct">90,9 %</div></div>
+            <div class="hub__step-row"><div class="hub__step-label">Abschlüsse</div><div class="hub__step-val" style="color:var(--green)">7</div><div class="hub__step-pct" style="color:var(--green)">63,6 %</div></div>
+          </div>
+          </div><!-- .hub__main -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BONUS STACK — 5 Add-ons im Programm enthalten -->
+<section class="stack" id="stack">
+  <div class="container">
+    <div class="stack__head">
+      <div class="stack__eye reveal"><span class="stack__eye-dot"></span>Im Programm enthalten · ohne Aufpreis</div>
+      <h2 class="display reveal" style="font-family:var(--display);font-size:clamp(28px, 4.6vw, 60px);font-weight:700;letter-spacing:-.035em;line-height:1.14;background:linear-gradient(155deg,#ffffff 0%,#ffffff 38%,#b9bac4 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.2em">
+        5 Add-ons, die andere extra verkaufen.<br><em style="background:linear-gradient(155deg,#ffffff 0%,#6BC9FF 55%,#2997ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:normal">Bei uns inkludiert.</em>
+      </h2>
+      <p class="stack__sub reveal d-2">
+        Du bekommst nicht nur deine Termine. Du bekommst Auswertung, Training und Vor-Ort-Sessions — alles, was deine Closing-Quote nach oben zieht. Standardmäßig im Programm.
+      </p>
+    </div>
+
+    <div class="stack__grid">
+      <!-- 01 Auswertung von Strategiegesprächen (XL — featured) -->
+      <div class="stack__card stack__card--xl reveal-blur">
+        <div class="stack__card-content">
+          <span class="stack__inc">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg>
+            Inkludiert
+          </span>
+          <div class="stack__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/><circle cx="20" cy="9" r="2"/></svg></div>
+          <h3 class="stack__title">Auswertung deiner <em>Strategiegespräche</em></h3>
+          <p class="stack__desc">Wir hören jedes Strategiegespräch nach, das du mit unseren Leads führst, und geben dir <b>konkrete Verbesserungen</b> für die nächste Woche. Was hat gewirkt. Was nicht. Was du beim nächsten Mal anders sagen sollst.</p>
+          <div class="stack__bullets">
+            <div class="stack__bullet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg>Strukturierte Auswertung in 6 Dimensionen</div>
+            <div class="stack__bullet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg>Einwand- und Closing-Pattern dokumentiert</div>
+            <div class="stack__bullet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg>Konkrete Übungen für den nächsten Call</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 Persönliches Trainingsprofil -->
+      <div class="stack__card stack__card--md reveal-blur d-1">
+        <div class="stack__card-content">
+          <span class="stack__inc">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg>
+            Inkludiert
+          </span>
+          <div class="stack__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M16 11l2 2 4-4"/></svg></div>
+          <h3 class="stack__title">Persönliches <em>Trainingsprofil</em></h3>
+          <p class="stack__desc">Wir bauen für dich eine individuelle Skill-Map: welche Phase im Gespräch deine Stärke ist, wo der Hebel liegt. Gezielte Übungen pro Schwachstelle — kein Standard-Sales-Training-Buffet.</p>
+        </div>
+      </div>
+
+      <!-- 03 Wöchentliches Sales Training -->
+      <div class="stack__card stack__card--sm reveal-blur d-2">
+        <div class="stack__card-content">
+          <span class="stack__inc">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg>
+            Inkludiert
+          </span>
+          <div class="stack__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+          <h3 class="stack__title">Wöchentliches <em>Live-Training</em></h3>
+          <p class="stack__desc">Jeden Freitag mit Alex. Aktuelle Einwand-Patterns, Closing-Techniken, Case-Reviews. Aufzeichnung im Hub.</p>
+        </div>
+      </div>
+
+      <!-- 04 Deal Execution Days Wien -->
+      <div class="stack__card stack__card--md reveal-blur d-3">
+        <div class="stack__card-content">
+          <span class="stack__inc">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg>
+            Inkludiert
+          </span>
+          <div class="stack__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <h3 class="stack__title">Deal Execution Days <em>· Wien</em></h3>
+          <p class="stack__desc">2-Tages-Intensiv-Sessions vor Ort im HQ Leopoldquartier. Du sitzt am Live-Headset, beobachtest Calls, baust deine Pipeline gemeinsam mit dem Team.</p>
+        </div>
+      </div>
+
+      <!-- 05 Sparring -->
+      <div class="stack__card stack__card--sm reveal-blur d-4">
+        <div class="stack__card-content">
+          <span class="stack__inc">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg>
+            Inkludiert
+          </span>
+          <div class="stack__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6M17 11h6"/></svg></div>
+          <h3 class="stack__title"><em>1:1 Sparring</em> mit Alex</h3>
+          <p class="stack__desc">Direkter Draht zur Geschäftsführung. Deal-Reviews, Skript-Optimierung, Strategie für deine Top-Accounts.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stack__bottom-note reveal-blur">
+      <span style="color:var(--ink-2)">Alles inkludiert. <b style="color:var(--ink)">Damit dein Erfolg nicht beim ersten Termin endet — sondern beim Auftrag beginnt.</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- STANDORT -->
+<section class="section standort section--divide" id="standort">
+  <div class="container">
+    <div class="standort__grid">
+      <div class="standort__photo reveal-slide-l">
+        <img src="assets/photos/leopoldquartier-office.jpg" alt="SalesDrive HQ Leopoldquartier" />
+        <span class="standort__photo-tag">Headquarters · 1020 Wien</span>
+      </div>
+      <div class="standort__content reveal-slide-r d-1">
+        <div class="eyebrow eyebrow--blue">Standort &amp; Live-Events</div>
+        <h2 class="standort__title">Wir sitzen <em>in der Stadt,<br>in die du fliegst, wenn es ernst wird.</em></h2>
+        <p class="lead">Unser Büro ist mehr als eine Impressums-Adresse. Hier entsteht deine Kampagne, hier trainiert das SalesAgent-Team, hier triffst du uns persönlich.</p>
+        <div class="standort__points">
+          <div class="standort__point"><div class="standort__point-k">200 m²</div><div class="standort__point-v"><b>Premium-Büroflächen</b> im Leopoldquartier — Sales-Sessions, Workshops, Trainings.</div></div>
+          <div class="standort__point"><div class="standort__point-k">Wö.</div><div class="standort__point-v"><b>Live-Training</b> mit Alex jeden Freitag 16:00.</div></div>
+          <div class="standort__point"><div class="standort__point-k">2 Tage</div><div class="standort__point-v"><b>Strategie-Workshops</b> für Premium-Kunden, inkl. im Onboarding.</div></div>
+        </div>
+        <a href="formular.html" class="btn btn--ghost" style="align-self:flex-start;margin-top:6px">
+          Vor-Ort-Termin anfragen
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq section--divide" id="faq">
+  <div class="container container--narrow">
+    <div class="sec-head reveal">
+      <div class="section-num"><span class="section-num__num">08</span><span>FAQ</span></div>
+      <h2 class="display">Du hast<br><em>noch Fragen?</em></h2>
+    </div>
+    <div class="faq__list reveal">
+      <details class="faq__q"><summary>Wie läuft die Zusammenarbeit grundsätzlich ab? <span class="faq__plus"></span></summary><div class="faq__body">In drei Phasen. <b>Phase 1 Analyse</b> (5-7 Werktage): Kick-Off, Digital Trust Audit. <b>Phase 2 Aufbau</b> (7-10 Werktage): Listengenerierung, Opening, Einwand-Behandlung — schriftlich freigegeben. <b>Phase 3 Akquise</b> startet spätestens in Woche 4. Wir telefonieren, du übernimmst am Tisch.</div></details>
+      <details class="faq__q"><summary>Was unterscheidet euch von anderen Anbietern? <span class="faq__plus"></span></summary><div class="faq__body"><b>TÜV Rheinland zertifiziert.</b> <b>ProvenExpert auditiert</b> (4,82/5). <b>SalesDrive Hub</b> mit auditierbarer Live-Doku. <b>Direkter Kontakt zur Geschäftsführung</b> — kein Setter, kein Pool.</div></details>
+      <details class="faq__q"><summary>Welche Ergebnisse kann ich erwarten? <span class="faq__plus"></span></summary><div class="faq__body">Wir versprechen keine Pauschalzahl. Als Richtwert: in 90 Tagen typischerweise <b>15 bis 25 qualifizierte Abschlussgespräche</b>. Bei unseren Top-Cases sind daraus Deals von 24.000 bis 39.600 € entstanden. Genaue Zahlen modellieren wir im Analysegespräch.</div></details>
+      <details class="faq__q"><summary>Wie schützt ihr meine Brand konkret? <span class="faq__plus"></span></summary><div class="faq__body">Drei Mechaniken: <b>Freigabe-Prinzip</b> (kein Wort ohne deine schriftliche Abnahme), <b>geprüfte Top-Performer</b> telefonieren, <b>Tonalität dokumentiert</b> im Brand-Profil.</div></details>
+      <details class="faq__q"><summary>Wie stellt ihr die Qualität sicher? <span class="faq__plus"></span></summary><div class="faq__body">Jeder Call gegen einen <b>Qualifikations-Filter</b>: Kaufkraft, Entscheidungsbefugnis, Zeitfenster, Anwendungsfall. Wer durchfällt, kommt nicht in deinen Kalender. Jeder bestätigte Termin mit <b>schriftlichem Briefing</b>.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" id="final">
+  <div class="final__inner">
+    <div class="eyebrow reveal" style="color:var(--blue);margin-bottom:20px">Jetzt anfragen</div>
+    <h2 class="final__title reveal d-1">Du closest.<br><em>Wir telefonieren.</em></h2>
+    <p class="final__sub reveal d-2">30 Minuten am Telefon oder per Video — direkt mit Alex. Wir schauen, ob deine Pipeline-Lücke zu unserem Setup passt. Keine Demo, kein Pitch. Diagnose.</p>
+    <div class="reveal d-3">
+      <a href="formular.html" class="btn btn--primary btn--lg">
+        Analysegespräch sichern
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="final__host reveal d-4">
+      <div class="final__host-av">AK</div>
+      <div class="final__host-text"><div class="final__host-name">Alexander Kiraly</div><div class="final__host-role">Geschäftsführer · SalesDrive GmbH</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__brand-wordmark"><span class="s">Sales</span><span class="d">drive</span></div>
+        <p>Die SalesDrive GmbH übernimmt die telefonische B2B-Kaltakquise für Premium-Anbieter im DACH-Raum. Wien. Seit 2023.</p>
+        <div class="footer__trust"><img src="assets/trust/tuv-rheinland.png" alt="TÜV Rheinland Zertifiziert" /></div>
+        <div class="footer__socials">
+          <a href="https://www.facebook.com/salesdrivegmbh" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.55V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="https://www.instagram.com/salesdrive.at/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://www.youtube.com/@SalesDriveGmbH" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.2 0 12 0 12s0 3.8.5 5.8A3 3 0 0 0 2.6 19.9c2 .6 9.4.6 9.4.6s7.4 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.8 24 12 24 12s0-3.8-.5-5.8zM9.5 15.5v-7l6.5 3.5-6.5 3.5z"/></svg></a>
+          <a href="https://www.linkedin.com/company/lehner-consulting/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__col"><h6>Plattform</h6><a href="#cases">Cases</a><a href="referenzen.html">Referenzen</a><a href="#mechanik">Ablauf</a><a href="zertifizierungen.html">Zertifizierungen</a><a href="#faq">FAQ</a></div>
+      <div class="footer__col"><h6>Kontakt</h6><a href="mailto:office@salesdrive.at">office@salesdrive.at</a><a href="tel:+436767951018">+43 676 795 10 18</a><a href="#standort">Obere Donaustraße 25<br>1020 Wien</a></div>
+      <div class="footer__col"><h6>Rechtliches</h6><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="agb.html">AGB</a><a href="team.html">Team</a></div>
+    </div>
+    <div class="footer__bottom"><span>© 2026 SalesDrive GmbH · FN 599821s · HG Wien · UID ATU79430518</span><span>Made in Vienna</span></div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+<script>
+// Dashboard bar fill on scroll
+(function() {
+  const cards = document.querySelectorAll('.hub__fcard[data-bar]');
+  if (!cards.length) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const pct = e.target.getAttribute('data-bar');
+        const bar = e.target.querySelector('.hub__fcard-bar');
+        if (bar) bar.style.width = pct + '%';
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  cards.forEach(c => io.observe(c));
+})();
+</script>
+</body>
+</html>
