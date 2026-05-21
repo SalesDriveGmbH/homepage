@@ -14,17 +14,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=20260521r">
+<link rel="stylesheet" href="assets/css/site.css?v=20260521s">
 <style>
 /* ===== HOME-specific styles ===== */
 
 /* Section headers. Apple Mint→Steel-Blue gradient (like "Fast runs in the family") */
 .sec-head h2 {
   font-family: var(--display);
-  font-size: clamp(32px, 4.8vw, 58px) !important;
+  font-size: clamp(38px, 5.6vw, 72px) !important;
   font-weight: 600 !important;
-  letter-spacing: -.024em !important;
-  line-height: 1.08 !important;
+  letter-spacing: -.026em !important;
+  line-height: 1.05 !important;
   margin-bottom: 16px;
   background: linear-gradient(105deg, #d6f0e0 0%, #b3d8e0 38%, #8aa9c0 100%) !important;
   -webkit-background-clip: text !important;
@@ -33,7 +33,7 @@
   padding-bottom: .18em !important;
 }
 .sec-head h2 em {
-  background: linear-gradient(105deg, #d6f0e0 0%, #6BC9FF 50%, #2997ff 100%);
+  background: linear-gradient(180deg, #7CD0FF 0%, #2987F0 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -525,10 +525,10 @@
 }
 .transform__title {
   font-family: var(--display);
-  font-size: clamp(26px, 3.6vw, 46px);
+  font-size: clamp(32px, 4.6vw, 60px);
   font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -.022em;
+  line-height: 1.06;
+  letter-spacing: -.024em;
   background: linear-gradient(105deg, #d6f0e0 0%, #b3d8e0 38%, #8aa9c0 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1623,10 +1623,10 @@
 .hub__head { position: relative; z-index: 1; }
 .hub__excellence {
   font-family: var(--display);
-  font-size: clamp(32px, 4.8vw, 58px);
+  font-size: clamp(38px, 5.6vw, 72px);
   font-weight: 600;
-  line-height: 1.08;
-  letter-spacing: -.024em;
+  line-height: 1.05;
+  letter-spacing: -.026em;
   margin-bottom: 20px;
   background: linear-gradient(105deg, #d6f0e0 0%, #b3d8e0 38%, #8aa9c0 100%);
   -webkit-background-clip: text;
@@ -1635,7 +1635,7 @@
   padding-bottom: .18em;
 }
 .hub__excellence em {
-  background: linear-gradient(105deg, #d6f0e0 0%, #6BC9FF 50%, #2997ff 100%);
+  background: linear-gradient(180deg, #7CD0FF 0%, #2987F0 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -1669,7 +1669,191 @@
 .hub__side-item:hover:not(.active) { background: rgba(255,255,255,.03); color: var(--ink-2); }
 .hub__side-badge { margin-left: auto; padding: 2px 7px; background: rgba(48,209,88,.18); color: var(--green); border-radius: 980px; font-size: 9px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
 .hub__side-badge.pro { background: rgba(41,151,255,.18); color: var(--blue-bright); }
-.hub__main { padding: 22px 26px; overflow: hidden; }
+.hub__main { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+
+/* Tab-Switcher above main content */
+.hub__tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255,255,255,.015);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.hub__tabs::-webkit-scrollbar { display: none; }
+.hub__tab {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-3);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+  white-space: nowrap;
+}
+.hub__tab svg { width: 13px; height: 13px; stroke-width: 1.8; }
+.hub__tab:hover { color: var(--ink); background: rgba(255,255,255,.04); }
+.hub__tab.active {
+  color: var(--blue-bright);
+  background: rgba(41,151,255,.12);
+  border-color: rgba(107,201,255,.25);
+}
+.hub__tab-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+  animation: pulse 1.6s ease infinite;
+}
+
+.hub__board-wrap { padding: 22px 26px; flex: 1; min-height: 480px; }
+.hub__board { display: none; animation: board-in .45s cubic-bezier(.16,1,.3,1); }
+.hub__board.active { display: block; }
+@keyframes board-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Board: Live Tracking */
+.hub__board--live { display: none; }
+.hub__board--live.active { display: flex; flex-direction: column; gap: 16px; }
+.hub__live-head { display: flex; align-items: center; justify-content: space-between; }
+.hub__live-status { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: rgba(48,209,88,.14); border: 1px solid rgba(48,209,88,.32); border-radius: 980px; font-size: 11px; font-weight: 700; color: var(--green); letter-spacing: .08em; text-transform: uppercase; font-family: var(--display); }
+.hub__live-status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); animation: pulse 1.4s ease infinite; }
+.hub__live-calls { display: flex; flex-direction: column; gap: 8px; }
+.hub__live-call {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,.025);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-family: var(--display);
+  font-size: 12.5px;
+}
+.hub__live-call--active {
+  background: linear-gradient(90deg, rgba(48,209,88,.08), rgba(48,209,88,.02));
+  border-color: rgba(48,209,88,.25);
+}
+.hub__live-call-time { font-size: 10px; color: var(--ink-mute); letter-spacing: .04em; font-variant-numeric: tabular-nums; min-width: 44px; }
+.hub__live-call-name { color: #fff; font-weight: 600; }
+.hub__live-call-co { font-size: 11px; color: var(--ink-3); }
+.hub__live-call-dur { font-variant-numeric: tabular-nums; color: var(--ink-2); font-size: 11.5px; min-width: 48px; text-align: right; }
+.hub__live-call-state {
+  font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  padding: 3px 8px; border-radius: 980px;
+}
+.hub__live-call-state--live { background: rgba(48,209,88,.18); color: var(--green); }
+.hub__live-call-state--queued { background: rgba(107,201,255,.14); color: var(--blue-bright); }
+.hub__live-call-state--done { background: rgba(255,255,255,.05); color: var(--ink-3); }
+
+/* Board: AI Sales Coach */
+.hub__coach-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 14px; }
+.hub__coach-card { background: rgba(255,255,255,.025); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+.hub__coach-title { font-family: var(--display); font-size: 13px; font-weight: 600; color: #fff; letter-spacing: -.012em; }
+.hub__coach-score-ring {
+  width: 100px; height: 100px;
+  margin: 8px auto 4px;
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.hub__coach-score-ring svg { width: 100%; height: 100%; }
+.hub__coach-score-ring-num { position: absolute; font-family: var(--display); font-size: 26px; font-weight: 700; color: var(--blue-bright); letter-spacing: -.024em; font-variant-numeric: tabular-nums; }
+.hub__coach-skill { display: flex; flex-direction: column; gap: 5px; }
+.hub__coach-skill-head { display: flex; justify-content: space-between; font-size: 11px; font-family: var(--display); }
+.hub__coach-skill-name { color: var(--ink-2); }
+.hub__coach-skill-val { color: var(--blue-bright); font-weight: 600; font-variant-numeric: tabular-nums; }
+.hub__coach-skill-bar { height: 5px; background: rgba(255,255,255,.06); border-radius: 999px; overflow: hidden; }
+.hub__coach-skill-bar > span { display: block; height: 100%; background: linear-gradient(90deg, var(--blue), var(--blue-bright)); border-radius: inherit; }
+
+.hub__coach-tip {
+  padding: 12px 14px;
+  border-left: 2px solid var(--blue-bright);
+  background: rgba(41,151,255,.06);
+  border-radius: 0 8px 8px 0;
+  font-family: var(--display); font-size: 11.5px; line-height: 1.5; color: var(--ink-2);
+}
+.hub__coach-tip b { color: #fff; font-weight: 600; }
+
+/* Board: Berichte */
+.hub__rep-list { display: flex; flex-direction: column; gap: 8px; }
+.hub__rep-item {
+  display: grid;
+  grid-template-columns: 36px 1fr auto auto;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,.025);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  transition: background .2s ease, border-color .2s ease;
+  cursor: default;
+}
+.hub__rep-item:hover { background: rgba(255,255,255,.045); border-color: var(--line-2); }
+.hub__rep-icon { width: 36px; height: 36px; border-radius: 9px; background: rgba(41,151,255,.12); color: var(--blue-bright); display: flex; align-items: center; justify-content: center; }
+.hub__rep-icon svg { width: 16px; height: 16px; stroke-width: 1.8; }
+.hub__rep-title { font-family: var(--display); font-size: 13px; font-weight: 600; color: #fff; }
+.hub__rep-meta { font-size: 10.5px; color: var(--ink-3); font-family: var(--display); letter-spacing: .04em; }
+.hub__rep-date { font-size: 11px; color: var(--ink-3); font-variant-numeric: tabular-nums; font-family: var(--display); }
+.hub__rep-dl {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: rgba(107,201,255,.10);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--blue-bright);
+}
+.hub__rep-dl svg { width: 12px; height: 12px; }
+
+/* Board: Training */
+.hub__tr-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.hub__tr-card {
+  background: rgba(255,255,255,.025);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+.hub__tr-thumb {
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(41,151,255,.18), transparent 60%),
+    linear-gradient(135deg, #1c1d24, #0c0d10);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  border: 1px solid var(--line-2);
+}
+.hub__tr-thumb-play {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(107,201,255,.20);
+  border: 1px solid rgba(107,201,255,.4);
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(8px);
+}
+.hub__tr-thumb-play svg { width: 12px; height: 12px; color: var(--blue-bright); margin-left: 2px; }
+.hub__tr-thumb-dur {
+  position: absolute; bottom: 6px; right: 6px;
+  padding: 2px 7px; background: rgba(0,0,0,.6); backdrop-filter: blur(6px);
+  border-radius: 4px;
+  font-family: var(--display); font-size: 9.5px; color: #fff; font-variant-numeric: tabular-nums;
+}
+.hub__tr-cat { font-family: var(--display); font-size: 9.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--blue-bright); }
+.hub__tr-title { font-family: var(--display); font-size: 12.5px; font-weight: 600; color: #fff; line-height: 1.25; letter-spacing: -.01em; }
+.hub__tr-meta { display: flex; gap: 10px; font-size: 10.5px; color: var(--ink-3); font-family: var(--display); }
+.hub__tr-meta-item { display: inline-flex; align-items: center; gap: 4px; }
+.hub__tr-meta-item svg { width: 10px; height: 10px; opacity: .7; }
+
 .hub__dash-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
 .hub__dash-title { font-family: var(--display); font-size: 18px; font-weight: 600; letter-spacing: -.02em; color: var(--ink); }
 .hub__dash-update { font-size: 11px; color: var(--ink-3); }
@@ -1711,18 +1895,18 @@
 /* ===== BONUS STACK SECTION ===== */
 .stack { background: var(--bg); padding: clamp(80px, 12vw, 160px) 0; border-top: 1px solid var(--line); position: relative; overflow: hidden; }
 .stack::before { content: ""; position: absolute; inset: 0; background: radial-gradient(900px 500px at 50% 30%, rgba(41,151,255,.08), transparent 60%); pointer-events: none; }
-.stack__head { text-align: center; margin-bottom: clamp(40px, 6vw, 70px); position: relative; z-index: 1; }
-.stack__eye { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px 5px 8px; background: rgba(48,209,88,.10); border: 1px solid rgba(48,209,88,.32); border-radius: 980px; font-size: 12px; color: var(--green); margin-bottom: 22px; font-weight: 500; }
+.stack__head { text-align: center; margin-bottom: clamp(28px, 4vw, 48px); position: relative; z-index: 1; }
+.stack__eye { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px 5px 8px; background: rgba(48,209,88,.10); border: 1px solid rgba(48,209,88,.32); border-radius: 980px; font-size: 11px; color: var(--green); margin-bottom: 16px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
 .stack__eye-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px rgba(48,209,88,.6); }
-.stack__sub { max-width: 700px; margin: 0 auto; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.42; color: var(--ink-2); margin-top: 4px; }
-.stack__grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+.stack__sub { max-width: 660px; margin: 0 auto; font-size: 15px; line-height: 1.55; color: var(--ink-2); margin-top: 4px; }
+.stack__grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
 .stack__card {
   position: relative;
   background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
-  border: 2px solid var(--line-3);
-  border-radius: var(--r-lg);
-  padding: clamp(24px, 3vw, 36px);
-  display: flex; flex-direction: column; gap: 14px;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 18px;
+  padding: 20px 20px 18px;
+  display: flex; flex-direction: column; gap: 10px;
   transition: border-color .3s var(--ease), transform .4s var(--ease-out), background .3s var(--ease);
   overflow: hidden;
   isolation: isolate;
@@ -1755,15 +1939,15 @@
 
 .stack__inc { display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; background: rgba(48,209,88,.14); border: 1px solid rgba(48,209,88,.28); border-radius: 980px; font-size: 10px; font-weight: 600; color: var(--green); text-transform: uppercase; letter-spacing: .08em; align-self: flex-start; }
 .stack__inc svg { width: 10px; height: 10px; }
-.stack__icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(41,151,255,.12); color: var(--blue-bright); display: flex; align-items: center; justify-content: center; }
-.stack__icon svg { width: 22px; height: 22px; stroke-width: 1.6; }
-.stack__title { font-family: var(--display); font-size: clamp(20px, 2.2vw, 28px); font-weight: 700; letter-spacing: -.024em; line-height: 1.08; }
+.stack__icon { width: 36px; height: 36px; border-radius: 10px; background: rgba(41,151,255,.12); color: var(--blue-bright); display: flex; align-items: center; justify-content: center; }
+.stack__icon svg { width: 18px; height: 18px; stroke-width: 1.6; }
+.stack__title { font-family: var(--display); font-size: 17px; font-weight: 600; letter-spacing: -.018em; line-height: 1.18; }
 .stack__title em { background: linear-gradient(155deg, #ffffff 0%, #6BC9FF 55%, #2997ff 100%); -webkit-background-clip: text; background-clip: text; color: transparent; font-style: normal; }
-.stack__desc { font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+.stack__desc { font-size: 12.5px; line-height: 1.5; color: var(--ink-2); }
 .stack__desc b { color: var(--ink); font-weight: 600; }
-.stack__bullets { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
-.stack__bullet { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--ink-2); }
-.stack__bullet svg { width: 12px; height: 12px; color: var(--blue); flex-shrink: 0; margin-top: 4px; }
+.stack__bullets { display: flex; flex-direction: column; gap: 4px; margin-top: 2px; }
+.stack__bullet { display: flex; align-items: flex-start; gap: 7px; font-size: 11.5px; color: var(--ink-2); }
+.stack__bullet svg { width: 11px; height: 11px; color: var(--blue); flex-shrink: 0; margin-top: 3px; }
 
 .stack__bottom-note { max-width: 800px; margin: clamp(40px, 5vw, 60px) auto 0; text-align: center; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.45; padding: 0 22px; position: relative; z-index: 1; }
 
@@ -1784,7 +1968,7 @@
 .standort__photo img { width: 100%; height: 100%; object-fit: cover; }
 .standort__photo-tag { position: absolute; left: 16px; bottom: 16px; padding: 6px 12px; background: rgba(0,0,0,.5); backdrop-filter: blur(12px); border-radius: 980px; font-size: 12px; color: #fff; font-weight: 500; }
 .standort__content { display: flex; flex-direction: column; gap: 18px; }
-.standort__title { font-family: var(--display); font-size: clamp(26px, 3.4vw, 44px); font-weight: 600; letter-spacing: -.038em; line-height: 1.05; }
+.standort__title { font-family: var(--display); font-size: clamp(34px, 4.6vw, 58px); font-weight: 600; letter-spacing: -.028em; line-height: 1.05; }
 .standort__title em { background: linear-gradient(180deg, var(--blue-bright), var(--blue)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .standort__points { margin-top: 8px; display: grid; gap: 14px; }
 .standort__point { display: grid; grid-template-columns: 70px 1fr; gap: 14px; padding: 14px 0; border-top: 1px solid var(--line); }
@@ -2860,7 +3044,7 @@
   <div class="container container--wide">
     <div class="sec-head reveal">
       <div class="section-num"><span class="section-num__num">02</span><span>Stimmen aus dem Programm</span></div>
-      <h2 class="display">Was unsere <em>Mandanten</em> sagen.</h2>
+      <h2 class="display">Resultate, die <em>für sich sprechen.</em></h2>
       <p class="lead">Nicht aus Stockfotos. Nicht aus Templates. Echte Geschäftsführer:innen, echte Programme.</p>
     </div>
 
@@ -3518,54 +3702,267 @@
             </div>
           </aside>
           <div class="hub__main">
-          <div class="hub__dash-head">
-            <div>
-              <div class="hub__dash-title">Kampagnen-Dashboard</div>
-              <div class="hub__dash-update">Update: 20.05.26 · 22:06</div>
-            </div>
-            <div class="hub__dash-tabs"><div class="hub__dash-tab">7 Tage</div><div class="hub__dash-tab active">30 Tage</div><div class="hub__dash-tab">Gesamt</div></div>
-          </div>
 
-          <div class="hub__funnel">
-            <div class="hub__fcard" data-bar="100">
-              <div class="hub__fcard-pct">100 %</div>
-              <div class="hub__fcard-num"><span class="counter" data-to="4500">0</span></div>
-              <div class="hub__fcard-lbl">Wählversuche</div>
-              <div class="hub__fcard-bar" style="width:0%"></div>
+            <!-- Tab-Switcher zwischen den 5 Boards -->
+            <div class="hub__tabs" id="hubTabs" role="tablist">
+              <button class="hub__tab active" data-board="dashboard" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                Dashboard
+              </button>
+              <button class="hub__tab" data-board="live" type="button">
+                <span class="hub__tab-dot"></span>
+                Live Tracking
+              </button>
+              <button class="hub__tab" data-board="coach" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a4 4 0 0 0-4 4v3H6a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3v-6a3 3 0 0 0-3-3h-2V6a4 4 0 0 0-4-4z"/><circle cx="9" cy="14" r="1"/><circle cx="15" cy="14" r="1"/></svg>
+                AI Sales Coach
+              </button>
+              <button class="hub__tab" data-board="berichte" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/></svg>
+                Berichte
+              </button>
+              <button class="hub__tab" data-board="training" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                Training
+              </button>
             </div>
-            <div class="hub__fcard" data-bar="46">
-              <div class="hub__fcard-pct">45,6 %</div>
-              <div class="hub__fcard-num"><span class="counter" data-to="2050">0</span></div>
-              <div class="hub__fcard-lbl">Erreicht</div>
-              <div class="hub__fcard-bar" style="width:0%"></div>
-            </div>
-            <div class="hub__fcard" data-bar="26">
-              <div class="hub__fcard-pct">26,3 %</div>
-              <div class="hub__fcard-num"><span class="counter" data-to="540">0</span></div>
-              <div class="hub__fcard-lbl">Entscheider</div>
-              <div class="hub__fcard-bar" style="width:0%"></div>
-            </div>
-            <div class="hub__fcard" data-bar="6.5">
-              <div class="hub__fcard-pct">6,5 %</div>
-              <div class="hub__fcard-num"><span class="counter" data-to="35">0</span></div>
-              <div class="hub__fcard-lbl">EG-Termine</div>
-              <div class="hub__fcard-bar" style="width:0%"></div>
-            </div>
-          </div>
 
-          <div class="hub__metrics">
-            <div class="hub__metric"><div class="hub__metric-num">91,4 %</div><div class="hub__metric-lbl">Show-Rate</div></div>
-            <div class="hub__metric"><div class="hub__metric-num">34,4 %</div><div class="hub__metric-lbl">AG-Rate</div></div>
-            <div class="hub__metric"><div class="hub__metric-num">63,6 %</div><div class="hub__metric-lbl">Close-Rate</div></div>
-          </div>
+            <div class="hub__board-wrap">
 
-          <div class="hub__steps">
-            <div class="hub__step-row"><div class="hub__step-label">EG-Termine vereinbart</div><div class="hub__step-val">35</div><div class="hub__step-pct">100 %</div></div>
-            <div class="hub__step-row"><div class="hub__step-label">EG geführt</div><div class="hub__step-val">32</div><div class="hub__step-pct">91,4 %</div></div>
-            <div class="hub__step-row"><div class="hub__step-label">AG terminiert</div><div class="hub__step-val">11</div><div class="hub__step-pct">34,4 %</div></div>
-            <div class="hub__step-row"><div class="hub__step-label">AG geführt</div><div class="hub__step-val">10</div><div class="hub__step-pct">90,9 %</div></div>
-            <div class="hub__step-row"><div class="hub__step-label">Abschlüsse</div><div class="hub__step-val" style="color:var(--green)">7</div><div class="hub__step-pct" style="color:var(--green)">63,6 %</div></div>
-          </div>
+              <!-- DASHBOARD -->
+              <div class="hub__board hub__board--dashboard active" data-board="dashboard">
+                <div class="hub__dash-head">
+                  <div>
+                    <div class="hub__dash-title">Kampagnen-Dashboard</div>
+                    <div class="hub__dash-update">Update: 21.05.26 · 14:32</div>
+                  </div>
+                  <div class="hub__dash-tabs"><div class="hub__dash-tab">7 Tage</div><div class="hub__dash-tab active">30 Tage</div><div class="hub__dash-tab">Gesamt</div></div>
+                </div>
+
+                <div class="hub__funnel">
+                  <div class="hub__fcard" data-bar="100">
+                    <div class="hub__fcard-pct">100 %</div>
+                    <div class="hub__fcard-num"><span class="counter" data-to="4500">0</span></div>
+                    <div class="hub__fcard-lbl">Wählversuche</div>
+                    <div class="hub__fcard-bar" style="width:0%"></div>
+                  </div>
+                  <div class="hub__fcard" data-bar="46">
+                    <div class="hub__fcard-pct">45,6 %</div>
+                    <div class="hub__fcard-num"><span class="counter" data-to="2050">0</span></div>
+                    <div class="hub__fcard-lbl">Erreicht</div>
+                    <div class="hub__fcard-bar" style="width:0%"></div>
+                  </div>
+                  <div class="hub__fcard" data-bar="26">
+                    <div class="hub__fcard-pct">26,3 %</div>
+                    <div class="hub__fcard-num"><span class="counter" data-to="540">0</span></div>
+                    <div class="hub__fcard-lbl">Entscheider</div>
+                    <div class="hub__fcard-bar" style="width:0%"></div>
+                  </div>
+                  <div class="hub__fcard" data-bar="6.5">
+                    <div class="hub__fcard-pct">6,5 %</div>
+                    <div class="hub__fcard-num"><span class="counter" data-to="35">0</span></div>
+                    <div class="hub__fcard-lbl">EG-Termine</div>
+                    <div class="hub__fcard-bar" style="width:0%"></div>
+                  </div>
+                </div>
+
+                <div class="hub__metrics">
+                  <div class="hub__metric"><div class="hub__metric-num">91,4 %</div><div class="hub__metric-lbl">Show-Rate</div></div>
+                  <div class="hub__metric"><div class="hub__metric-num">34,4 %</div><div class="hub__metric-lbl">AG-Rate</div></div>
+                  <div class="hub__metric"><div class="hub__metric-num">63,6 %</div><div class="hub__metric-lbl">Close-Rate</div></div>
+                </div>
+
+                <div class="hub__steps">
+                  <div class="hub__step-row"><div class="hub__step-label">EG-Termine vereinbart</div><div class="hub__step-val">35</div><div class="hub__step-pct">100 %</div></div>
+                  <div class="hub__step-row"><div class="hub__step-label">EG geführt</div><div class="hub__step-val">32</div><div class="hub__step-pct">91,4 %</div></div>
+                  <div class="hub__step-row"><div class="hub__step-label">AG terminiert</div><div class="hub__step-val">11</div><div class="hub__step-pct">34,4 %</div></div>
+                  <div class="hub__step-row"><div class="hub__step-label">AG geführt</div><div class="hub__step-val">10</div><div class="hub__step-pct">90,9 %</div></div>
+                  <div class="hub__step-row"><div class="hub__step-label">Abschlüsse</div><div class="hub__step-val" style="color:var(--green)">7</div><div class="hub__step-pct" style="color:var(--green)">63,6 %</div></div>
+                </div>
+              </div>
+
+              <!-- LIVE TRACKING -->
+              <div class="hub__board hub__board--live" data-board="live">
+                <div class="hub__live-head">
+                  <div>
+                    <div class="hub__dash-title">Live Tracking</div>
+                    <div class="hub__dash-update">3 aktive Calls · 12 in Warteschlange</div>
+                  </div>
+                  <div class="hub__live-status">Live</div>
+                </div>
+                <div class="hub__live-calls">
+                  <div class="hub__live-call hub__live-call--active">
+                    <span class="hub__live-call-time">14:31</span>
+                    <div><div class="hub__live-call-name">Daniel Reimer</div><div class="hub__live-call-co">CFO · MedTech Solutions GmbH</div></div>
+                    <span class="hub__live-call-dur">04:12</span>
+                    <span class="hub__live-call-state hub__live-call-state--live">Live</span>
+                  </div>
+                  <div class="hub__live-call hub__live-call--active">
+                    <span class="hub__live-call-time">14:28</span>
+                    <div><div class="hub__live-call-name">Sabine Hofer</div><div class="hub__live-call-co">GF · Werkraum Salzburg</div></div>
+                    <span class="hub__live-call-dur">07:34</span>
+                    <span class="hub__live-call-state hub__live-call-state--live">Live</span>
+                  </div>
+                  <div class="hub__live-call hub__live-call--active">
+                    <span class="hub__live-call-time">14:25</span>
+                    <div><div class="hub__live-call-name">Marcus Brandl</div><div class="hub__live-call-co">Inhaber · Brandl Industriebau</div></div>
+                    <span class="hub__live-call-dur">11:02</span>
+                    <span class="hub__live-call-state hub__live-call-state--live">Live</span>
+                  </div>
+                  <div class="hub__live-call">
+                    <span class="hub__live-call-time">14:20</span>
+                    <div><div class="hub__live-call-name">Andrea Brunner</div><div class="hub__live-call-co">CFO · Brunner Bauträger</div></div>
+                    <span class="hub__live-call-dur">08:46</span>
+                    <span class="hub__live-call-state hub__live-call-state--done">Termin gebucht</span>
+                  </div>
+                  <div class="hub__live-call">
+                    <span class="hub__live-call-time">14:14</span>
+                    <div><div class="hub__live-call-name">Florian Holzer</div><div class="hub__live-call-co">GF · Holzer Consulting</div></div>
+                    <span class="hub__live-call-dur">05:18</span>
+                    <span class="hub__live-call-state hub__live-call-state--done">Follow-up</span>
+                  </div>
+                  <div class="hub__live-call">
+                    <span class="hub__live-call-time">14:09</span>
+                    <div><div class="hub__live-call-name">Thomas Eder</div><div class="hub__live-call-co">CEO · Eder Group</div></div>
+                    <span class="hub__live-call-dur">02:31</span>
+                    <span class="hub__live-call-state hub__live-call-state--done">Nicht erreicht</span>
+                  </div>
+                  <div class="hub__live-call">
+                    <span class="hub__live-call-time">14:35</span>
+                    <div><div class="hub__live-call-name">Petra Kaltenbach</div><div class="hub__live-call-co">CMO · Kaltenbach &amp; Partner</div></div>
+                    <span class="hub__live-call-dur">in 4 Min</span>
+                    <span class="hub__live-call-state hub__live-call-state--queued">Queued</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- AI SALES COACH -->
+              <div class="hub__board hub__board--coach" data-board="coach">
+                <div class="hub__dash-head">
+                  <div>
+                    <div class="hub__dash-title">AI Sales Coach</div>
+                    <div class="hub__dash-update">Auswertung von 32 Calls · letzte 30 Tage</div>
+                  </div>
+                  <div class="hub__dash-tabs"><div class="hub__dash-tab">Du</div><div class="hub__dash-tab active">Team</div></div>
+                </div>
+                <div class="hub__coach-grid">
+                  <div class="hub__coach-card">
+                    <div class="hub__coach-title">Skill-Profil · Florian Holzer</div>
+                    <div class="hub__coach-score-ring">
+                      <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="44" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="8"/>
+                        <circle cx="50" cy="50" r="44" fill="none" stroke="url(#coachg)" stroke-width="8" stroke-linecap="round" stroke-dasharray="276" stroke-dashoffset="65" transform="rotate(-90 50 50)"/>
+                        <defs><linearGradient id="coachg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6BC9FF"/><stop offset="100%" stop-color="#2997ff"/></linearGradient></defs>
+                      </svg>
+                      <span class="hub__coach-score-ring-num">76</span>
+                    </div>
+                    <div class="hub__coach-skill">
+                      <div class="hub__coach-skill-head"><span class="hub__coach-skill-name">Opening</span><span class="hub__coach-skill-val">88 / 100</span></div>
+                      <div class="hub__coach-skill-bar"><span style="width:88%"></span></div>
+                    </div>
+                    <div class="hub__coach-skill">
+                      <div class="hub__coach-skill-head"><span class="hub__coach-skill-name">Bedarfsermittlung</span><span class="hub__coach-skill-val">72 / 100</span></div>
+                      <div class="hub__coach-skill-bar"><span style="width:72%"></span></div>
+                    </div>
+                    <div class="hub__coach-skill">
+                      <div class="hub__coach-skill-head"><span class="hub__coach-skill-name">Einwand-Behandlung</span><span class="hub__coach-skill-val">64 / 100</span></div>
+                      <div class="hub__coach-skill-bar"><span style="width:64%"></span></div>
+                    </div>
+                    <div class="hub__coach-skill">
+                      <div class="hub__coach-skill-head"><span class="hub__coach-skill-name">Closing</span><span class="hub__coach-skill-val">80 / 100</span></div>
+                      <div class="hub__coach-skill-bar"><span style="width:80%"></span></div>
+                    </div>
+                  </div>
+                  <div class="hub__coach-card">
+                    <div class="hub__coach-title">Konkrete Verbesserungen</div>
+                    <div class="hub__coach-tip"><b>Einwand „zu teuer".</b> In 3 von 5 Calls warst du in der Defensive. Versuche stattdessen den Wert-Frame: „Was kostet es dich, wenn die Pipeline weitere 3 Monate steht?"</div>
+                    <div class="hub__coach-tip"><b>Bedarfsermittlung tiefer.</b> Im Schnitt 2,4 Fragen vor dem Angebot. Branchen-Top liegt bei 5. Mehr SPIN-Fragen einbauen.</div>
+                    <div class="hub__coach-tip"><b>Stärke nutzen.</b> Dein Opening ist überdurchschnittlich. Setze die Energie aus den ersten 30 Sek auch nach der Bedarfsermittlung wieder ein.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- BERICHTE -->
+              <div class="hub__board hub__board--berichte" data-board="berichte">
+                <div class="hub__dash-head">
+                  <div>
+                    <div class="hub__dash-title">Berichte</div>
+                    <div class="hub__dash-update">Wöchentlich automatisch zugestellt</div>
+                  </div>
+                  <div class="hub__dash-tabs"><div class="hub__dash-tab active">Aktuell</div><div class="hub__dash-tab">Archiv</div></div>
+                </div>
+                <div class="hub__rep-list">
+                  <div class="hub__rep-item">
+                    <div class="hub__rep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                    <div><div class="hub__rep-title">Wochenbericht KW 21</div><div class="hub__rep-meta">PDF · 24 Seiten · 1,2 MB</div></div>
+                    <span class="hub__rep-date">21.05.26</span>
+                    <span class="hub__rep-dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></span>
+                  </div>
+                  <div class="hub__rep-item">
+                    <div class="hub__rep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                    <div><div class="hub__rep-title">Strategie-Briefing · Mai</div><div class="hub__rep-meta">PDF · 12 Seiten · 0,8 MB</div></div>
+                    <span class="hub__rep-date">15.05.26</span>
+                    <span class="hub__rep-dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></span>
+                  </div>
+                  <div class="hub__rep-item">
+                    <div class="hub__rep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg></div>
+                    <div><div class="hub__rep-title">Quartals-Review Q1 / 2026</div><div class="hub__rep-meta">PDF · 48 Seiten · 3,4 MB</div></div>
+                    <span class="hub__rep-date">02.05.26</span>
+                    <span class="hub__rep-dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></span>
+                  </div>
+                  <div class="hub__rep-item">
+                    <div class="hub__rep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                    <div><div class="hub__rep-title">Funnel-Analyse KW 19+20</div><div class="hub__rep-meta">XLSX · 0,3 MB</div></div>
+                    <span class="hub__rep-date">28.04.26</span>
+                    <span class="hub__rep-dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></span>
+                  </div>
+                  <div class="hub__rep-item">
+                    <div class="hub__rep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                    <div><div class="hub__rep-title">Wochenbericht KW 17</div><div class="hub__rep-meta">PDF · 22 Seiten · 1,1 MB</div></div>
+                    <span class="hub__rep-date">23.04.26</span>
+                    <span class="hub__rep-dl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TRAINING -->
+              <div class="hub__board hub__board--training" data-board="training">
+                <div class="hub__dash-head">
+                  <div>
+                    <div class="hub__dash-title">Training</div>
+                    <div class="hub__dash-update">24 Sessions · Live-Aufzeichnungen + Sparring</div>
+                  </div>
+                  <div class="hub__dash-tabs"><div class="hub__dash-tab active">Neu</div><div class="hub__dash-tab">Alle</div></div>
+                </div>
+                <div class="hub__tr-grid">
+                  <div class="hub__tr-card">
+                    <div class="hub__tr-thumb"><div class="hub__tr-thumb-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg></div><span class="hub__tr-thumb-dur">42:15</span></div>
+                    <div class="hub__tr-cat">CLOSING</div>
+                    <div class="hub__tr-title">Live-Training · Den „zu teuer"-Einwand neu framen</div>
+                    <div class="hub__tr-meta"><span class="hub__tr-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>17.05.26</span><span class="hub__tr-meta-item">Alex K.</span></div>
+                  </div>
+                  <div class="hub__tr-card">
+                    <div class="hub__tr-thumb"><div class="hub__tr-thumb-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg></div><span class="hub__tr-thumb-dur">28:40</span></div>
+                    <div class="hub__tr-cat">DISCOVERY</div>
+                    <div class="hub__tr-title">SPIN-Fragen, die Entscheider zum Reden bringen</div>
+                    <div class="hub__tr-meta"><span class="hub__tr-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>10.05.26</span><span class="hub__tr-meta-item">Alex K.</span></div>
+                  </div>
+                  <div class="hub__tr-card">
+                    <div class="hub__tr-thumb"><div class="hub__tr-thumb-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg></div><span class="hub__tr-thumb-dur">36:18</span></div>
+                    <div class="hub__tr-cat">OPENING</div>
+                    <div class="hub__tr-title">Cold Opening · die ersten 30 Sekunden</div>
+                    <div class="hub__tr-meta"><span class="hub__tr-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>03.05.26</span><span class="hub__tr-meta-item">Alex K.</span></div>
+                  </div>
+                  <div class="hub__tr-card">
+                    <div class="hub__tr-thumb"><div class="hub__tr-thumb-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg></div><span class="hub__tr-thumb-dur">51:02</span></div>
+                    <div class="hub__tr-cat">EXECUTION DAY</div>
+                    <div class="hub__tr-title">Deal-Review · Putz &amp; Stingl Pipeline</div>
+                    <div class="hub__tr-meta"><span class="hub__tr-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>25.04.26</span><span class="hub__tr-meta-item">Alex K.</span></div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- .hub__board-wrap -->
           </div><!-- .hub__main -->
         </div>
       </div>
@@ -3800,7 +4197,7 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=20260521r"></script>
+<script src="assets/js/site.js?v=20260521s"></script>
 <script>
 // Hero MacBook lid-open: triggered on first scroll OR when laptop comes into view.
 // Einmaliges Aufklappen mit 5.2s CSS-Transition (cinematic).
@@ -3887,6 +4284,20 @@
   }
   [calls, rate, aov, close].forEach(el => el.addEventListener('input', calc));
   calc();
+})();
+
+// Hub Board Tab-Switcher (Dashboard / Live / AI Coach / Berichte / Training)
+(function() {
+  const tabs = document.querySelectorAll('#hubTabs .hub__tab');
+  const boards = document.querySelectorAll('.hub__board');
+  if (!tabs.length || !boards.length) return;
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.board;
+      tabs.forEach(t => t.classList.toggle('active', t === tab));
+      boards.forEach(b => b.classList.toggle('active', b.dataset.board === target));
+    });
+  });
 })();
 
 // Dashboard bar fill on scroll
