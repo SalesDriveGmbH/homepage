@@ -1,5 +1,9 @@
-# Beta-Subdomain, NICHT für Suchmaschinen indexieren
-# Wenn die Seite final auf salesdrive.at umzieht, wird dort ein anderer robots.txt verwendet
-
+# SalesDrive — Production Robots
 User-agent: *
-Disallow: /
+Allow: /
+Disallow: /api/
+Disallow: /index.old.html
+Disallow: /index.v2.html
+
+# Sitemap
+Sitemap: https://salesdrive.at/sitemap.xml
