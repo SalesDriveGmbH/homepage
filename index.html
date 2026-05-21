@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=20260521m">
+<link rel="stylesheet" href="assets/css/site.css?v=20260521n">
 <style>
 /* ===== HOME-specific styles ===== */
 
@@ -2030,18 +2030,18 @@
 .tw__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  gap: 10px;
 }
 .tw__card {
   position: relative;
-  padding: 22px 22px 18px;
+  padding: 18px 18px 14px;
   background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.012));
   border: 1px solid rgba(255,255,255,.08);
-  border-radius: 20px;
-  display: flex; flex-direction: column; gap: 14px;
-  transition: transform .55s cubic-bezier(.16,1,.3,1), border-color .35s var(--ease);
+  border-radius: 16px;
+  display: flex; flex-direction: column; gap: 10px;
+  transition: transform .45s cubic-bezier(.16,1,.3,1), border-color .35s var(--ease);
   overflow: hidden;
-  min-height: 220px;
+  min-height: 170px;
 }
 .tw__card::before {
   content: "";
@@ -2049,53 +2049,63 @@
   top: 0; left: 16%; right: 16%; height: 1px;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
 }
-.tw__card:hover { transform: translateY(-4px); border-color: rgba(107,201,255,.28); }
-.tw__quote-mark {
-  position: absolute;
-  top: 14px; right: 18px;
+.tw__card:hover { transform: translateY(-3px); border-color: rgba(107,201,255,.28); }
+.tw__stars { display: flex; gap: 2px; color: #ffd24a; }
+.tw__stars svg { width: 12px; height: 12px; }
+.tw__hl {
   font-family: var(--display);
-  font-size: 70px;
-  line-height: 1;
-  color: rgba(107,201,255,.16);
+  font-size: clamp(20px, 1.8vw, 24px);
   font-weight: 700;
-  pointer-events: none;
-  user-select: none;
+  line-height: 1.15;
+  letter-spacing: -.022em;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.tw__stars { display: flex; gap: 3px; color: #ffd24a; }
-.tw__stars svg { width: 14px; height: 14px; }
+.tw__hl em {
+  background: linear-gradient(105deg, #d6f0e0 0%, #6BC9FF 50%, #2997ff 100%);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  font-style: normal;
+}
 .tw__text {
   font-family: var(--display);
-  font-size: 15px;
-  line-height: 1.5;
-  color: var(--ink);
-  letter-spacing: -.008em;
-  position: relative;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--ink-2);
+  letter-spacing: -.005em;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
-.tw__text b { color: #fff; font-weight: 600; background: linear-gradient(180deg, transparent 60%, rgba(107,201,255,.18) 60%); padding: 0 2px; }
 .tw__author {
   margin-top: auto;
-  display: flex; align-items: center; gap: 12px;
+  display: flex; align-items: center; gap: 9px;
+  padding-top: 6px;
 }
 .tw__author-av {
-  width: 38px; height: 38px;
+  width: 30px; height: 30px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--blue), var(--blue-bright));
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--display); font-weight: 700; font-size: 14px; color: #fff;
+  font-family: var(--display); font-weight: 700; font-size: 12px; color: #fff;
   flex-shrink: 0;
 }
-.tw__author-text { display: flex; flex-direction: column; }
-.tw__author-name { font-family: var(--display); font-weight: 600; font-size: 13px; color: #fff; letter-spacing: -.01em; }
-.tw__author-role { font-size: 11px; color: var(--ink-3); }
+.tw__author-text { display: flex; flex-direction: column; min-width: 0; }
+.tw__author-name { font-family: var(--display); font-weight: 600; font-size: 12px; color: #fff; letter-spacing: -.01em; line-height: 1.2; }
+.tw__author-role { font-size: 10.5px; color: var(--ink-3); line-height: 1.2; }
 .tw__card--featured {
   grid-column: span 2;
   background: linear-gradient(135deg, rgba(41,151,255,.10), rgba(107,201,255,.04));
   border-color: rgba(107,201,255,.22);
 }
-.tw__card--featured .tw__text { font-size: 18px; line-height: 1.5; }
+.tw__card--featured .tw__hl { font-size: clamp(24px, 2.2vw, 30px); }
 @media (max-width: 980px) {
   .tw__grid { grid-template-columns: repeat(2, 1fr); }
   .tw__card--featured { grid-column: span 2; }
+  .tw__hl { white-space: normal; }
 }
 @media (max-width: 600px) {
   .tw__grid { grid-template-columns: 1fr; }
@@ -2198,6 +2208,10 @@
       <li><a href="zertifizierungen.html">Zertifizierungen</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
+    <a class="nav__login" href="https://hub.salesdrive.at" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+      Login
+    </a>
     <a class="nav__cta" href="formular.html">
       Analysegespräch
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
@@ -2740,7 +2754,6 @@
     <div class="tw__grid">
 
       <article class="tw__card tw__card--featured reveal-blur">
-        <span class="tw__quote-mark">"</span>
         <div class="tw__stars">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg>
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg>
@@ -2748,7 +2761,8 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg>
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg>
         </div>
-        <p class="tw__text">SalesDrive ist das einzige Setup, bei dem wir wirklich <b>planbar neue Entscheidergespräche</b> bekommen. Statt Empfehlungen und Hoffnung füllt sich unser Kalender Woche für Woche mit Terminen, in denen Budget und Bedarf bereits geklärt sind.</p>
+        <div class="tw__hl"><em>€&nbsp;342.000</em> mehr Auftrag in 60&nbsp;Tagen</div>
+        <p class="tw__text">Planbar neue Entscheidergespräche statt Empfehlungs-Lotterie. Genau das, was wir gebraucht haben.</p>
         <div class="tw__author">
           <div class="tw__author-av">GZ</div>
           <div class="tw__author-text">
@@ -2759,7 +2773,6 @@
       </article>
 
       <article class="tw__card reveal-blur d-1">
-        <span class="tw__quote-mark">"</span>
         <div class="tw__stars">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg>
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg>
@@ -2767,7 +2780,8 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg>
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg>
         </div>
-        <p class="tw__text">In 60 Tagen <b>16 qualifizierte Abschlussgespräche</b>. Vorher war Akquise bei uns Glückssache.</p>
+        <div class="tw__hl"><em>16 Abschluss</em> ­gespräche in 60&nbsp;Tagen</div>
+        <p class="tw__text">Vorher war Akquise bei uns reine Glückssache. Heute ist sie ein System.</p>
         <div class="tw__author">
           <div class="tw__author-av">JK</div>
           <div class="tw__author-text">
@@ -2778,7 +2792,6 @@
       </article>
 
       <article class="tw__card reveal-blur d-2">
-        <span class="tw__quote-mark">"</span>
         <div class="tw__stars">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg>
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg>
@@ -2786,7 +2799,8 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg>
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg>
         </div>
-        <p class="tw__text">Wir haben mehrere Anbieter probiert. SalesDrive ist der erste, der <b>jeden einzelnen Call dokumentiert</b> und nachvollziehbar liefert.</p>
+        <div class="tw__hl"><em>Jeder Call</em> dokumentiert</div>
+        <p class="tw__text">Mehrere Anbieter durchprobiert. SalesDrive ist der erste, der nachvollziehbar liefert.</p>
         <div class="tw__author">
           <div class="tw__author-av">MR</div>
           <div class="tw__author-text">
@@ -2797,7 +2811,6 @@
       </article>
 
       <article class="tw__card reveal-blur d-1">
-        <span class="tw__quote-mark">"</span>
         <div class="tw__stars">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg>
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg>
@@ -2805,7 +2818,8 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg>
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg>
         </div>
-        <p class="tw__text">Ich kann mich endlich auf das konzentrieren, was ich am besten kann: <b>verkaufen</b>. Den Hörer und die Vorqualifizierung übernimmt SalesDrive.</p>
+        <div class="tw__hl"><em>Ich verkaufe</em> wieder</div>
+        <p class="tw__text">Hörer und Vorqualifizierung übernimmt SalesDrive. Ich mache nur noch das, was ich kann.</p>
         <div class="tw__author">
           <div class="tw__author-av">FH</div>
           <div class="tw__author-text">
@@ -2816,7 +2830,6 @@
       </article>
 
       <article class="tw__card reveal-blur d-2">
-        <span class="tw__quote-mark">"</span>
         <div class="tw__stars">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg>
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg>
@@ -2824,7 +2837,8 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg>
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg>
         </div>
-        <p class="tw__text">Was den Unterschied macht: das <b>Trainings-Setup im Hub</b>. Wir bekommen pro Termin schon das Briefing — und nach jedem Call eine ehrliche Auswertung.</p>
+        <div class="tw__hl"><em>Briefing</em> vor jedem Call</div>
+        <p class="tw__text">Trainings-Hub macht den Unterschied. Ehrliche Auswertung nach jedem Termin.</p>
         <div class="tw__author">
           <div class="tw__author-av">SZ</div>
           <div class="tw__author-text">
@@ -3643,6 +3657,7 @@
         <a href="tel:+436767951018">+43 676 795 10 18</a>
         <a href="#standort">Obere Donaustraße 25<br>1020 Wien</a>
         <a href="formular.html" style="color:var(--blue);margin-top:8px">Analysegespräch buchen →</a>
+        <a href="https://hub.salesdrive.at" target="_blank" rel="noopener" style="color:var(--blue);margin-top:4px">hub.salesdrive.at — Login →</a>
       </div>
       <div class="footer__col">
         <h6>Rechtliches</h6>
@@ -3672,7 +3687,7 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=20260521m"></script>
+<script src="assets/js/site.js?v=20260521n"></script>
 <script>
 // Hero MacBook lid: scroll-bound, langsamer Aufklapp-Effekt.
 // Der Lid braucht ~1.5x Viewport-Höhe Scroll-Distanz zum vollen Öffnen.
