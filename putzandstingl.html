@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/fancy.css">
 <style>
 .case-detail { padding: clamp(110px, 13vw, 160px) 0 clamp(60px, 9vw, 120px); }
 .case-detail__head { text-align: center; margin-bottom: clamp(40px, 6vw, 70px); }
@@ -257,7 +258,7 @@
         <span class="case-detail__industry-dot"></span>
         PR &amp; Kommunikation · Wien
       </div>
-      <h1 class="case-detail__title">
+      <h1 class="case-detail__title word-reveal-soft">
         15 qualifizierte<br><em>Abschlussgespräche</em> in 90 Tagen.
       </h1>
       <p class="case-detail__sub">
@@ -266,15 +267,17 @@
     </div>
 
     <div class="case-detail__stage reveal-blur">
-      <div class="case-detail__device" data-vimeo-id="860681704">
-        <img src="https://vumbnail.com/860681704_large.jpg" alt="Gert Zaunbauer · Putz & Stingl Events" onerror="this.src='https://vumbnail.com/860681704.jpg'" />
-        <button class="case-detail__play" aria-label="Fallstudie abspielen" type="button"><svg viewBox="0 0 24 24"><polygon points="7 4 21 12 7 20 7 4"/></svg></button>
-        <div class="case-detail__person-tag">
-          <div class="case-detail__person-av">GZ</div>
-          <div>
-            <div class="case-detail__person-name">Gert Zaunbauer</div>
-            <div class="case-detail__person-role">Gründer &amp; Geschäftsführer · Putz &amp; Stingl Events</div>
-          </div>
+      <div class="case-detail__device">
+        <iframe src="https://player.vimeo.com/video/860681704?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen loading="lazy" title="Putz &amp; Stingl Events · Case-Statement"></iframe>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin:-22px auto clamp(40px, 6vw, 80px);position:relative;z-index:2;display:flex;justify-content:center;">
+      <div style="display:inline-flex;align-items:center;gap:12px;padding:8px 18px 8px 8px;background:rgba(15,16,22,.95);backdrop-filter:blur(14px);border:1px solid var(--line-2);border-radius:980px;box-shadow:0 14px 40px rgba(0,0,0,.5);">
+        <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-bright));display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:12px;font-weight:600;color:#fff;">GZ</div>
+        <div style="text-align:left;line-height:1.2;">
+          <div style="font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:-.012em;color:var(--ink);">Gert Zaunbauer</div>
+          <div style="font-size:11px;color:var(--ink-3);">Gründer &amp; Geschäftsführer · Putz &amp; Stingl Events</div>
         </div>
       </div>
     </div>
@@ -292,7 +295,93 @@
         <div class="case-detail__step green"><span class="case-detail__step-num">€<span class="counter" data-to="259000">259.000</span></span><div class="case-detail__step-lbl">Auftrags-<br>eingang</div></div>
       </div>
     </div>
+  </div>
+</section>
 
+<!-- MEGA-STAT — eine Zahl füllt den Raum -->
+<section class="megastat">
+  <div class="megastat__inner">
+    <span class="megastat__eye">Das Ergebnis in einer Zahl</span>
+    <div class="megastat__number">€&thinsp;259.000</div>
+    <p class="megastat__caption">
+      Auftragseingang in <b>90 Tagen</b> — <b>9 neue Kunden</b>, <b>16 Abschlussgespräche</b>, <b>null Aufwand</b> für das interne Team von Putz &amp; Stingl.
+    </p>
+  </div>
+</section>
+
+<!-- JOURNEY — was Woche für Woche passierte -->
+<section class="journey">
+  <div class="journey__head">
+    <div class="journey__eye reveal">So lief es ab</div>
+    <h2 class="journey__title reveal d-1">90 Tage, <em>vier Etappen.</em></h2>
+  </div>
+  <div class="journey__rail">
+
+    <div class="journey__milestone">
+      <div class="journey__card">
+        <span class="journey__week">Woche 1</span>
+        <h3 class="journey__h">Kick-off &amp; Setup</h3>
+        <p class="journey__p">Kunden-Brief, Skript-Freigabe, Lookalike-Liste aus den Top-Aufträgen — alles dokumentiert und freigegeben.</p>
+      </div>
+      <span class="journey__node"></span>
+      <div class="journey__visual">
+        <div class="journey__stat">
+          <div class="journey__stat-num">0&thinsp;→&thinsp;1</div>
+          <div class="journey__stat-lbl">Sales-Prozess<br>aufgesetzt</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="journey__milestone">
+      <div class="journey__card">
+        <span class="journey__week">Woche 2–4</span>
+        <h3 class="journey__h">Erste 1.000 Erstansprachen</h3>
+        <p class="journey__p">Der freigegebene Setter ruft. Tägliche Übergaben ins Hub, transparente Termine, klare Sprache.</p>
+      </div>
+      <span class="journey__node"></span>
+      <div class="journey__visual">
+        <div class="journey__stat">
+          <div class="journey__stat-num">1.080</div>
+          <div class="journey__stat-lbl">Entscheider<br>erreicht</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="journey__milestone">
+      <div class="journey__card">
+        <span class="journey__week">Woche 5–8</span>
+        <h3 class="journey__h">Pipeline füllt sich</h3>
+        <p class="journey__p">Ersttermine werden zu Abschlussgesprächen. Erste Aufträge bestätigt. Vertrieb wird kalkulierbar.</p>
+      </div>
+      <span class="journey__node"></span>
+      <div class="journey__visual">
+        <div class="journey__stat">
+          <div class="journey__stat-num">45</div>
+          <div class="journey__stat-lbl">Ersttermine<br>im Kalender</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="journey__milestone">
+      <div class="journey__card">
+        <span class="journey__week">Woche 9–13</span>
+        <h3 class="journey__h">9 Neukunden gewonnen</h3>
+        <p class="journey__p">Aus 16 Abschlussgesprächen werden 9 neue Verträge. Cashflow planbar — und das, ohne dass Gert einmal selbst zum Hörer greifen musste.</p>
+      </div>
+      <span class="journey__node"></span>
+      <div class="journey__visual">
+        <div class="journey__stat">
+          <div class="journey__stat-num green">€&thinsp;259K</div>
+          <div class="journey__stat-lbl">Auftragseingang<br>bestätigt</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="case-detail" style="padding-top:0">
+  <div class="container">
     <div class="case-detail__story">
       <div class="case-detail__block reveal-blur">
         <div class="case-detail__block-eye">Problem</div>
@@ -383,6 +472,7 @@
   </div>
 </footer>
 <script src="assets/js/site.js"></script>
+<script src="assets/js/fancy.js"></script>
 <script>
   // Adapt case-detail device to vimeo handler
   document.querySelectorAll('.case-detail__device').forEach(c => c.classList.add('hero__device'));

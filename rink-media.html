@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/fancy.css">
 <style>
 .case-detail { padding: clamp(110px, 13vw, 160px) 0 clamp(60px, 9vw, 120px); }
 .case-detail__head { text-align: center; margin-bottom: clamp(40px, 6vw, 70px); }
@@ -123,7 +124,7 @@
         <span class="case-detail__industry-dot"></span>
         Filmproduktion · Wien
       </div>
-      <h1 class="case-detail__title">
+      <h1 class="case-detail__title word-reveal-soft">
         67.000 €<br><em>Auftragseingang</em> in 1 Monat.
       </h1>
       <p class="case-detail__sub">
@@ -132,15 +133,17 @@
     </div>
 
     <div class="case-detail__stage reveal-blur">
-      <div class="case-detail__device" data-vimeo-id="1134147007">
-        <img src="https://vumbnail.com/1134147007_large.jpg" alt="Nico Macek · RINK GmbH" onerror="this.src='https://vumbnail.com/1134147007.jpg'" />
-        <button class="case-detail__play" aria-label="Fallstudie abspielen" type="button"><svg viewBox="0 0 24 24"><polygon points="7 4 21 12 7 20 7 4"/></svg></button>
-        <div class="case-detail__person-tag">
-          <div class="case-detail__person-av">NM</div>
-          <div>
-            <div class="case-detail__person-name">Nico Macek</div>
-            <div class="case-detail__person-role">Gründer &amp; Geschäftsführer · RINK GmbH</div>
-          </div>
+      <div class="case-detail__device">
+        <iframe src="https://player.vimeo.com/video/1134147007?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen loading="lazy" title="RINK GmbH · Case-Statement"></iframe>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin:-22px auto clamp(40px, 6vw, 80px);position:relative;z-index:2;display:flex;justify-content:center;">
+      <div style="display:inline-flex;align-items:center;gap:12px;padding:8px 18px 8px 8px;background:rgba(15,16,22,.95);backdrop-filter:blur(14px);border:1px solid var(--line-2);border-radius:980px;box-shadow:0 14px 40px rgba(0,0,0,.5);">
+        <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-bright));display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:12px;font-weight:600;color:#fff;">NM</div>
+        <div style="text-align:left;line-height:1.2;">
+          <div style="font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:-.012em;color:var(--ink);">Nico Macek</div>
+          <div style="font-size:11px;color:var(--ink-3);">Gründer &amp; Geschäftsführer · RINK GmbH</div>
         </div>
       </div>
     </div>
@@ -158,7 +161,93 @@
         <div class="case-detail__step green"><span class="case-detail__step-num">€<span class="counter" data-to="67000">67.000</span></span><div class="case-detail__step-lbl">Auftrags-<br>eingang</div></div>
       </div>
     </div>
+  </div>
+</section>
 
+<!-- MEGA-STAT — eine Zahl füllt den Raum -->
+<section class="megastat">
+  <div class="megastat__inner">
+    <span class="megastat__eye">Das Ergebnis in einer Zahl</span>
+    <div class="megastat__number">€&thinsp;67.000</div>
+    <p class="megastat__caption">
+      Messbarer Auftragseingang in <b>30 Tagen</b> — <b>3 neue Kunden</b>, <b>866 Erstansprachen</b>, das Kreativteam bleibt im Flow.
+    </p>
+  </div>
+</section>
+
+<!-- JOURNEY — was Woche für Woche passierte -->
+<section class="journey">
+  <div class="journey__head">
+    <div class="journey__eye reveal">So lief es ab</div>
+    <h2 class="journey__title reveal d-1">Ein Monat, <em>vier Etappen.</em></h2>
+  </div>
+  <div class="journey__rail">
+
+    <div class="journey__milestone">
+      <div class="journey__card">
+        <span class="journey__week">Woche 1</span>
+        <h3 class="journey__h">Branchen-Skript für Marketing-Entscheider</h3>
+        <p class="journey__p">Onboarding mit Nico, freigegebenes Skript für Buyer-Personas in Film &amp; Kommunikation, ICP-Liste aus den besten RINK-Projekten.</p>
+      </div>
+      <span class="journey__node"></span>
+      <div class="journey__visual">
+        <div class="journey__stat">
+          <div class="journey__stat-num">0&thinsp;→&thinsp;1</div>
+          <div class="journey__stat-lbl">Externer Setter<br>steht bereit</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="journey__milestone">
+      <div class="journey__card">
+        <span class="journey__week">Woche 2</span>
+        <h3 class="journey__h">Erste 200 Calls, erste Termine</h3>
+        <p class="journey__p">Telefonische Erstansprache läuft. Skepsis verfliegt — durch klare Struktur, volle Transparenz im Hub, dokumentierte Übergaben.</p>
+      </div>
+      <span class="journey__node"></span>
+      <div class="journey__visual">
+        <div class="journey__stat">
+          <div class="journey__stat-num">12</div>
+          <div class="journey__stat-lbl">Ersttermine<br>vorqualifiziert</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="journey__milestone">
+      <div class="journey__card">
+        <span class="journey__week">Woche 3</span>
+        <h3 class="journey__h">Erste Abschlussgespräche</h3>
+        <p class="journey__p">Aus Termin wird Closing. Vier echte Entscheider-Gespräche mit klarer Zahlungsbereitschaft — bei null Aufwand für RINKs Kreativ-Team.</p>
+      </div>
+      <span class="journey__node"></span>
+      <div class="journey__visual">
+        <div class="journey__stat">
+          <div class="journey__stat-num">4</div>
+          <div class="journey__stat-lbl">Abschluss-<br>Gespräche</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="journey__milestone">
+      <div class="journey__card">
+        <span class="journey__week">Tag 30</span>
+        <h3 class="journey__h">3 Neukunden, neue Aufträge</h3>
+        <p class="journey__p">Aus 4 Abschlussgesprächen werden 3 unterschriebene Projekte. €67K messbarer Auftragseingang — innerhalb eines Monats.</p>
+      </div>
+      <span class="journey__node"></span>
+      <div class="journey__visual">
+        <div class="journey__stat">
+          <div class="journey__stat-num green">€&thinsp;67K</div>
+          <div class="journey__stat-lbl">Auftragseingang<br>bestätigt</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="case-detail" style="padding-top:0">
+  <div class="container">
     <div class="case-detail__story">
       <div class="case-detail__block reveal-blur">
         <div class="case-detail__block-eye">Problem</div>
@@ -249,5 +338,10 @@
   </div>
 </footer>
 <script src="assets/js/site.js"></script>
+<script src="assets/js/fancy.js"></script>
+<script>
+  // Adapt case-detail device to vimeo handler
+  document.querySelectorAll('.case-detail__device').forEach(c => c.classList.add('hero__device'));
+</script>
 </body>
 </html>

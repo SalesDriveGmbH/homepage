@@ -222,20 +222,21 @@
 .cases { background: var(--bg); padding-bottom: clamp(60px, 9vw, 120px); }
 .case {
   display: grid;
-  grid-template-columns: .8fr 1.2fr;
+  grid-template-columns: 1.05fr 1fr;
   gap: clamp(30px, 5vw, 70px);
   align-items: center;
-  margin-bottom: clamp(24px, 3vw, 40px);
-  padding: clamp(32px, 4.4vw, 60px);
+  margin-bottom: clamp(28px, 3.5vw, 48px);
+  padding: clamp(36px, 5vw, 70px);
   background: linear-gradient(180deg, rgba(255,255,255,.028), rgba(255,255,255,.012));
   border: 1px solid var(--line-2);
-  border-radius: clamp(20px, 2.2vw, 28px);
+  border-radius: clamp(22px, 2.4vw, 32px);
   box-shadow:
     0 40px 100px -40px rgba(0,0,0,.75),
     0 0 0 1px rgba(255,255,255,.03) inset;
   position: relative;
   isolation: isolate;
 }
+.case--reverse { grid-template-columns: 1fr 1.05fr; }
 .case::before {
   content: "";
   position: absolute; inset: 0;
@@ -246,10 +247,15 @@
 }
 .case > * { position: relative; z-index: 1; }
 .case:last-child { margin-bottom: 0; }
-.case--reverse { grid-template-columns: 1.2fr .8fr; }
 .case--reverse .case__media { order: 2; }
-.case__media { position: relative; aspect-ratio: 4 / 5; max-width: 520px; margin: 0 auto; border-radius: var(--r-lg); overflow: hidden; background: #0c0d10; cursor: pointer; isolation: isolate; border: 2px solid var(--line-3); box-shadow: 0 30px 80px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06) inset, 0 60px 160px -40px rgba(41,151,255,.25); transition: transform .5s var(--ease-out), box-shadow .5s var(--ease-out); }
-.case__media:hover { box-shadow: 0 35px 90px -20px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.1) inset, 0 60px 180px -40px rgba(41,151,255,.35); }
+.case__media { position: relative; aspect-ratio: 9 / 16; width: 100%; max-width: 460px; margin: 0 auto; border-radius: var(--r-lg); overflow: hidden; background: #0c0d10; isolation: isolate; border: 2px solid var(--line-3); box-shadow: 0 30px 80px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06) inset, 0 60px 160px -40px rgba(41,151,255,.25); }
+.case__media iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+
+/* Person pill in case body (formerly overlay on video) */
+.case__person { display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 6px; background: rgba(255,255,255,.04); border: 1px solid var(--line-2); border-radius: 980px; align-self: flex-start; }
+.case__person-av { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--blue-bright)); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 11px; font-weight: 600; color: #fff; flex-shrink: 0; }
+.case__person-name { font-family: var(--display); font-weight: 600; font-size: 13px; letter-spacing: -.012em; color: var(--ink); display: block; line-height: 1.15; }
+.case__person-role { font-size: 11px; color: var(--ink-3); display: block; line-height: 1.3; }
 .case__media:hover { transform: translateY(-4px); }
 .case__media img, .case__media iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; transition: transform 1s var(--ease-out); }
 .case__media:hover img { transform: scale(1.04); }
@@ -807,7 +813,7 @@
 
 <!-- CASES — portrait video, uncropped 9:16 -->
 <section class="section cases section--divide" id="cases">
-  <div class="container">
+  <div class="container container--wide">
     <div class="sec-head reveal">
       <div class="section-num"><span class="section-num__num">01</span><span>Echte Kunden · Echte Zahlen</span></div>
       <h2 class="display">Hinter jedem Case<br>steht ein <em>echter Name.</em></h2>
@@ -815,13 +821,14 @@
     </div>
 
     <article class="case reveal-blur">
-      <div class="case__media" data-vimeo-id="860681704">
-        <img src="https://vumbnail.com/860681704.jpg" alt="Gert Zaunbauer" onerror="this.src='assets/photos/leopoldquartier-office.jpg'" />
-        <span class="case__tag">PR &amp; Kommunikation</span>
-        <button class="case__play" aria-label="Fallstudie ansehen" type="button"><svg viewBox="0 0 24 24"><polygon points="7 4 21 12 7 20 7 4"/></svg></button>
-        <div class="case__author"><div class="case__author-av">GZ</div><div><div class="case__author-name">Gert Zaunbauer</div><div class="case__author-role">Gründer · Putz &amp; Stingl Events</div></div></div>
+      <div class="case__media">
+        <iframe src="https://player.vimeo.com/video/860681704?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen loading="lazy" title="Putz &amp; Stingl Events · Case-Statement"></iframe>
       </div>
       <div class="case__body">
+        <div class="case__person">
+          <span class="case__person-av">GZ</span>
+          <span><span class="case__person-name">Gert Zaunbauer</span><span class="case__person-role">Gründer · Putz &amp; Stingl Events · PR &amp; Kommunikation</span></span>
+        </div>
         <h3 class="case__title">15 qualifizierte<br>Abschlussgespräche<br>in 90 Tagen.</h3>
         <div class="case__block"><span class="case__block-label">Problem</span><p class="case__block-text">Hochwertiges Angebot, aber keine planbare Neukundengewinnung. Empfehlungen reichten nicht mehr.</p></div>
         <div class="case__block"><span class="case__block-label">Ergebnis</span><p class="case__block-text">Ein klarer Erstansprache-Prozess brachte regelmäßig qualifizierte Gespräche mit Entscheidern.</p></div>
@@ -837,13 +844,14 @@
     </article>
 
     <article class="case case--reverse reveal-blur">
-      <div class="case__media" data-vimeo-id="1134147007">
-        <img src="https://vumbnail.com/1134147007.jpg" alt="Nico Macek" onerror="this.src='assets/photos/messe-vortrag.jpg'" />
-        <span class="case__tag">Filmproduktion</span>
-        <button class="case__play" aria-label="Fallstudie ansehen" type="button"><svg viewBox="0 0 24 24"><polygon points="7 4 21 12 7 20 7 4"/></svg></button>
-        <div class="case__author"><div class="case__author-av">NM</div><div><div class="case__author-name">Nico Macek</div><div class="case__author-role">Gründer · RINK GmbH</div></div></div>
+      <div class="case__media">
+        <iframe src="https://player.vimeo.com/video/1134147007?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen loading="lazy" title="RINK GmbH · Case-Statement"></iframe>
       </div>
       <div class="case__body">
+        <div class="case__person">
+          <span class="case__person-av">NM</span>
+          <span><span class="case__person-name">Nico Macek</span><span class="case__person-role">Gründer · RINK GmbH · Filmproduktion</span></span>
+        </div>
         <h3 class="case__title">67.000&nbsp;€<br>Auftragseingang<br>in 1 Monat.</h3>
         <div class="case__block"><span class="case__block-label">Problem</span><p class="case__block-text">Akquise blockierte das Kreativteam. Zeitaufwendig, unangenehm und nicht skalierbar.</p></div>
         <div class="case__block"><span class="case__block-label">Ergebnis</span><p class="case__block-text">Komplette Erstansprache ausgelagert. Innerhalb eines Monats messbarer Auftragseingang.</p></div>
@@ -859,13 +867,14 @@
     </article>
 
     <article class="case reveal-blur">
-      <div class="case__media" data-vimeo-id="1108387444">
-        <img src="https://vumbnail.com/1108387444.jpg" alt="Julian Kirfel" onerror="this.src='assets/photos/menschen-im-vertrieb.jpg'" />
-        <span class="case__tag">Backlink Marktplatz &amp; SEO</span>
-        <button class="case__play" aria-label="Fallstudie ansehen" type="button"><svg viewBox="0 0 24 24"><polygon points="7 4 21 12 7 20 7 4"/></svg></button>
-        <div class="case__author"><div class="case__author-av">JK</div><div><div class="case__author-name">Julian Kirfel</div><div class="case__author-role">Gründer · Linkbroker.io</div></div></div>
+      <div class="case__media">
+        <iframe src="https://player.vimeo.com/video/1108387444?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen loading="lazy" title="Linkbroker.io · Case-Statement"></iframe>
       </div>
       <div class="case__body">
+        <div class="case__person">
+          <span class="case__person-av">JK</span>
+          <span><span class="case__person-name">Julian Kirfel</span><span class="case__person-role">Gründer · Linkbroker.io · Backlink Marktplatz &amp; SEO</span></span>
+        </div>
         <h3 class="case__title">342.000&nbsp;€<br>mehr Auftrag<br>in 60 Tagen.</h3>
         <div class="case__block"><span class="case__block-label">Problem</span><p class="case__block-text">Erklärungsbedürftiges Angebot, anspruchsvolle Zielgruppe, fehlende Sales-Kapazitäten.</p></div>
         <div class="case__block"><span class="case__block-label">Ergebnis</span><p class="case__block-text">Strukturierte Erstansprache füllte die Sales-Pipeline und führte zu messbarem Umsatzwachstum.</p></div>
