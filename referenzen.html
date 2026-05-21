@@ -17,18 +17,18 @@
 .cases { background: var(--bg); padding-bottom: clamp(60px, 9vw, 120px); }
 .case {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.05fr 0.95fr;
   grid-template-areas:
-    "body video"
+    "video body"
     "funnel funnel";
-  gap: clamp(28px, 4vw, 50px) clamp(28px, 5vw, 60px);
-  align-items: start;
-  margin-bottom: clamp(28px, 3.5vw, 48px);
-  padding: clamp(36px, 5vw, 70px);
-  background: linear-gradient(180deg, rgba(255,255,255,.028), rgba(255,255,255,.012));
-  border: 1px solid var(--line-2);
-  border-radius: clamp(22px, 2.4vw, 32px);
-  box-shadow: 0 40px 100px -40px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.03) inset;
+  gap: clamp(32px, 4.5vw, 60px) clamp(32px, 5vw, 70px);
+  align-items: center;
+  margin-bottom: clamp(32px, 4vw, 56px);
+  padding: clamp(40px, 5.5vw, 80px);
+  background: linear-gradient(180deg, rgba(255,255,255,.032), rgba(255,255,255,.014));
+  border: 2px solid var(--line-3);
+  border-radius: clamp(24px, 2.8vw, 36px);
+  box-shadow: 0 50px 120px -40px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.04) inset, 0 70px 200px -60px rgba(41,151,255,.18);
   position: relative;
   isolation: isolate;
 }
@@ -40,21 +40,32 @@
   position: relative;
   aspect-ratio: 16 / 9;
   width: 100%;
-  border-radius: var(--r-lg);
+  border-radius: clamp(16px, 1.8vw, 22px);
   overflow: hidden;
   background: #0c0d10;
   isolation: isolate;
   border: 2px solid var(--line-3);
-  box-shadow: 0 30px 80px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06) inset, 0 60px 160px -40px rgba(41,151,255,.25);
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.08) inset, 0 60px 160px -40px rgba(41,151,255,.3);
 }
 .case__media iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
 @media (max-width: 900px) {
-  .case { grid-template-columns: 1fr; grid-template-areas: "body" "video" "funnel"; }
+  .case { grid-template-columns: 1fr; grid-template-areas: "video" "body" "funnel"; }
 }
-.case__person { display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 6px; background: rgba(255,255,255,.04); border: 1px solid var(--line-2); border-radius: 980px; align-self: flex-start; }
+.case__person {
+  position: absolute; z-index: 5;
+  left: 14px; bottom: 14px;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 6px 14px 6px 6px;
+  background: rgba(0,0,0,.62);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 980px;
+  pointer-events: none;
+}
 .case__person-av { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--blue-bright)); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 11px; font-weight: 600; color: #fff; flex-shrink: 0; }
-.case__person-name { font-family: var(--display); font-weight: 600; font-size: 13px; letter-spacing: -.012em; color: var(--ink); display: block; line-height: 1.15; }
-.case__person-role { font-size: 11px; color: var(--ink-3); display: block; line-height: 1.3; }
+.case__person-name { font-family: var(--display); font-weight: 600; font-size: 13px; letter-spacing: -.012em; color: #fff; display: block; line-height: 1.15; }
+.case__person-role { font-size: 11px; color: rgba(255,255,255,.78); display: block; line-height: 1.3; }
 .case__media img, .case__media iframe {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
@@ -395,12 +406,13 @@
     <article class="case reveal-blur">
       <div class="case__media">
         <iframe src="https://player.vimeo.com/video/860681704?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen loading="lazy" title="Putz &amp; Stingl Events · Case-Statement"></iframe>
-      </div>
-      <div class="case__body">
         <div class="case__person">
           <span class="case__person-av">GZ</span>
-          <span><span class="case__person-name">Gert Zaunbauer</span><span class="case__person-role">Gründer · Putz &amp; Stingl Events · PR &amp; Kommunikation</span></span>
+          <span><span class="case__person-name">Gert Zaunbauer</span><span class="case__person-role">Gründer · Putz &amp; Stingl Events</span></span>
         </div>
+      </div>
+      <div class="case__body">
+        <span class="case__industry-pill" style="display:inline-flex;align-items:center;gap:6px;padding:4px 11px 4px 8px;background:rgba(41,151,255,.10);border:1px solid rgba(41,151,255,.22);border-radius:980px;font-size:11px;font-weight:600;color:var(--blue-bright);letter-spacing:.06em;text-transform:uppercase;align-self:flex-start;">PR &amp; Kommunikation</span>
         <h3 class="case__title">15 qualifizierte<br>Abschlussgespräche<br>in 90 Tagen.</h3>
         <div class="case__block"><span class="case__block-label">Problem</span><p class="case__block-text">Hochwertiges Angebot, aber keine planbare Neukundengewinnung. Empfehlungen reichten nicht mehr. Interner Vertrieb hätte Zeit, Fokus und Struktur gekostet.</p></div>
         <div class="case__block"><span class="case__block-label">Ergebnis</span><p class="case__block-text">Ein klarer Erstansprache-Prozess brachte regelmäßig qualifizierte Abschlussgespräche mit Entscheidern und machte den Vertrieb erstmals kalkulierbar.</p></div>
@@ -419,12 +431,13 @@
     <article class="case reveal-blur">
       <div class="case__media">
         <iframe src="https://player.vimeo.com/video/1134147007?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen loading="lazy" title="RINK GmbH · Case-Statement"></iframe>
-      </div>
-      <div class="case__body">
         <div class="case__person">
           <span class="case__person-av">NM</span>
-          <span><span class="case__person-name">Nico Macek</span><span class="case__person-role">Gründer · RINK GmbH · Filmproduktion</span></span>
+          <span><span class="case__person-name">Nico Macek</span><span class="case__person-role">Gründer · RINK GmbH</span></span>
         </div>
+      </div>
+      <div class="case__body">
+        <span class="case__industry-pill" style="display:inline-flex;align-items:center;gap:6px;padding:4px 11px 4px 8px;background:rgba(41,151,255,.10);border:1px solid rgba(41,151,255,.22);border-radius:980px;font-size:11px;font-weight:600;color:var(--blue-bright);letter-spacing:.06em;text-transform:uppercase;align-self:flex-start;">Filmproduktion</span>
         <h3 class="case__title">67.000&nbsp;€<br>Auftragseingang<br>in 1 Monat.</h3>
         <div class="case__block"><span class="case__block-label">Problem</span><p class="case__block-text">Akquise blockierte das Kreativteam: zeitaufwendig, unangenehm und nicht skalierbar. Gleichzeitig bestand Skepsis gegenüber externem Vertrieb.</p></div>
         <div class="case__block"><span class="case__block-label">Ergebnis</span><p class="case__block-text">Die komplette Erstansprache wurde ausgelagert. Innerhalb eines Monats entstanden neue, passende Projekte und messbarer Auftragseingang.</p></div>
@@ -443,12 +456,13 @@
     <article class="case reveal-blur">
       <div class="case__media">
         <iframe src="https://player.vimeo.com/video/1108387444?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen loading="lazy" title="Linkbroker.io · Case-Statement"></iframe>
-      </div>
-      <div class="case__body">
         <div class="case__person">
           <span class="case__person-av">JK</span>
-          <span><span class="case__person-name">Julian Kirfel</span><span class="case__person-role">Gründer · Linkbroker.io (JustScale GmbH) · SEO</span></span>
+          <span><span class="case__person-name">Julian Kirfel</span><span class="case__person-role">Gründer · Linkbroker.io (JustScale)</span></span>
         </div>
+      </div>
+      <div class="case__body">
+        <span class="case__industry-pill" style="display:inline-flex;align-items:center;gap:6px;padding:4px 11px 4px 8px;background:rgba(41,151,255,.10);border:1px solid rgba(41,151,255,.22);border-radius:980px;font-size:11px;font-weight:600;color:var(--blue-bright);letter-spacing:.06em;text-transform:uppercase;align-self:flex-start;">Backlinks &amp; SEO</span>
         <h3 class="case__title">342.000&nbsp;€<br>mehr Auftragseingang<br>in 60 Tagen.</h3>
         <div class="case__block"><span class="case__block-label">Problem</span><p class="case__block-text">Erklärungsbedürftiges Angebot, anspruchsvolle Zielgruppe und fehlende Sales-Kapazitäten. Gute Gespräche entstanden zu selten und nicht systematisch.</p></div>
         <div class="case__block"><span class="case__block-label">Ergebnis</span><p class="case__block-text">Eine strukturierte Erstansprache erzeugte qualifizierte Gespräche auf Augenhöhe, füllte die Sales-Pipeline und führte zu messbarem Umsatzwachstum.</p></div>
