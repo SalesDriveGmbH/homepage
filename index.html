@@ -14,29 +14,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=20260521b">
+<link rel="stylesheet" href="assets/css/site.css?v=20260521c">
 <style>
 /* ===== HOME-specific styles ===== */
 
 /* Section headers — Apple Mint→Steel-Blue gradient (like "Fast runs in the family") */
 .sec-head h2 {
   font-family: var(--display);
-  font-size: clamp(36px, 6.2vw, 80px) !important;
-  font-weight: 600 !important;
-  letter-spacing: -.022em !important;
-  line-height: 1.18 !important;
-  margin-bottom: 22px;
-  background: linear-gradient(105deg, #cee8d8 0%, #a1cad8 38%, #7e98b3 100%) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  color: transparent !important;
-  padding-bottom: .32em !important;
+  font-size: clamp(34px, 5.4vw, 64px) !important;
+  font-weight: 700 !important;
+  letter-spacing: -.026em !important;
+  line-height: 1.06 !important;
+  margin-bottom: 18px;
+  color: #ffffff !important;
 }
 .sec-head h2 em {
-  background: linear-gradient(105deg, #d6f0e0 0%, #6BC9FF 50%, #2997ff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--blue-bright);
   font-style: normal;
 }
 
@@ -50,44 +43,73 @@
 .hero__bg::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 800px 400px at 50% 0%, rgba(41,151,255,.10), transparent 60%); }
 
 .hero__inner { position: relative; z-index: 2; text-align: center; padding: 0 22px; max-width: 1280px; margin: 0 auto; }
+/* Vierless-style eyebrow — small uppercase blue text, no pill */
 .hero__pill {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 5px 12px 5px 8px;
-  background: rgba(255,255,255,.04);
-  border: 1px solid var(--line-2);
-  border-radius: 980px;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--ink-2);
+  display: inline-block;
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--blue-bright);
   margin-bottom: 22px;
-  backdrop-filter: blur(10px);
 }
-.hero__pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 10px var(--blue); animation: pulse 1.6s ease infinite; }
-.hero__pill em { color: var(--blue); }
+.hero__pill-dot { display: none; }
+.hero__pill em { color: var(--blue-bright); font-style: normal; }
 
 .hero__title {
   font-family: var(--display);
-  font-size: clamp(32px, 5.4vw, 68px);
-  font-weight: 600;
-  line-height: 1.14;
-  letter-spacing: -.022em;
+  font-size: clamp(38px, 6.2vw, 78px);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -.028em;
   margin: 0 auto 20px;
-  background: linear-gradient(105deg, #cee8d8 0%, #a1cad8 38%, #7e98b3 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  padding-bottom: .22em;
-  max-width: 1100px;
+  color: #ffffff;
+  max-width: 1080px;
 }
 .hero__title em {
-  background: linear-gradient(105deg, #d6f0e0 0%, #6BC9FF 50%, #2997ff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--blue-bright);
   font-style: normal;
 }
-.hero__sub { font-size: clamp(16px, 1.5vw, 22px); font-weight: 400; line-height: 1.32; letter-spacing: -.018em; color: var(--ink-2); max-width: 760px; margin: 0 auto 28px; }
-.hero__cta-row { display: inline-flex; align-items: center; gap: 22px; flex-wrap: wrap; justify-content: center; }
+.hero__sub { font-size: clamp(16px, 1.4vw, 19px); font-weight: 400; line-height: 1.46; letter-spacing: -.012em; color: var(--ink-2); max-width: 620px; margin: 0 auto 32px; }
+.hero__cta-row { display: inline-flex; align-items: center; gap: 28px; flex-wrap: wrap; justify-content: center; }
+
+/* Trust-score widget next to CTA (Vierless-style) */
+.hero__trustscore {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+}
+.hero__trustscore-stars {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.hero__trustscore-label {
+  display: flex; align-items: center; gap: 6px;
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.hero__trustscore-label svg { width: 14px; height: 14px; color: var(--green); }
+.hero__trustscore-rating {
+  display: flex; gap: 2px;
+}
+.hero__trustscore-rating .star {
+  width: 18px; height: 18px;
+  background: var(--green);
+  display: flex; align-items: center; justify-content: center;
+}
+.hero__trustscore-rating .star svg { width: 12px; height: 12px; color: #fff; }
+.hero__trustscore-meta {
+  font-family: var(--display);
+  font-size: 12px;
+  color: var(--ink-3);
+  line-height: 1.4;
+}
+.hero__trustscore-meta b { color: var(--ink); font-weight: 700; }
 .hero__meta { margin-top: 26px; display: inline-flex; align-items: center; gap: 16px; font-size: 12px; color: var(--ink-3); flex-wrap: wrap; justify-content: center; }
 .hero__meta-sep { width: 3px; height: 3px; border-radius: 50%; background: var(--ink-mute); }
 .hero__meta-item { display: inline-flex; align-items: center; gap: 5px; }
@@ -423,6 +445,165 @@
 .logos__item { height: clamp(30px, 3vw, 44px); flex-shrink: 0; display: flex; align-items: center; }
 .logos__item img { height: 100%; width: auto; filter: brightness(0) invert(1); opacity: .42; transition: opacity .3s ease; }
 .logos__item img:hover { opacity: 1; }
+
+/* ======================================
+   TRANSFORM — Vierless-style services grid
+====================================== */
+.transform { background: var(--bg); padding: clamp(48px, 7vw, 100px) 0; }
+.transform__head {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: end;
+  margin-bottom: clamp(36px, 5vw, 60px);
+}
+.transform__title {
+  font-family: var(--display);
+  font-size: clamp(30px, 4.4vw, 54px);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -.026em;
+  color: #fff;
+  margin: 0;
+}
+.transform__title em { color: var(--blue-bright); font-style: normal; }
+.transform__right { display: flex; flex-direction: column; gap: 22px; }
+.transform__text {
+  font-size: 16px; line-height: 1.55; color: var(--ink-2);
+  max-width: 460px;
+}
+.transform__cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  align-self: flex-start;
+}
+@media (max-width: 880px) {
+  .transform__head { grid-template-columns: 1fr; align-items: start; }
+}
+
+/* 4-card service grid */
+.transform__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.tcard {
+  position: relative;
+  background: linear-gradient(180deg, rgba(255,255,255,.038), rgba(255,255,255,.012));
+  border: 1px solid var(--line-2);
+  border-radius: 22px;
+  padding: 26px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 280px;
+  overflow: hidden;
+  transition: transform .35s var(--ease-out), border-color .25s var(--ease), background .25s var(--ease);
+}
+.tcard:hover { transform: translateY(-4px); border-color: var(--line-3); background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); }
+.tcard__title {
+  font-family: var(--display);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -.022em;
+  color: #fff;
+}
+.tcard__desc { font-size: 14px; line-height: 1.5; color: var(--ink-3); }
+.tcard__visual {
+  margin-top: auto;
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 130px;
+  position: relative;
+}
+/* tcard-specific visuals */
+.tcard__list { list-style: none; padding: 0; margin: 0; width: 100%; display: flex; flex-direction: column; }
+.tcard__list li {
+  display: flex; align-items: center; gap: 11px;
+  padding: 11px 2px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  color: var(--ink);
+  font-weight: 500;
+}
+.tcard__list li:first-child { border-top: 0; }
+.tcard__list-ico {
+  width: 22px; height: 22px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+.tcard__list-ico--blue { background: linear-gradient(135deg, #2997ff, #6BC9FF); color: #fff; }
+.tcard__list-ico--mint { background: linear-gradient(135deg, #30d158, #1cc99a); color: #fff; }
+.tcard__list-ico--purple { background: linear-gradient(135deg, #7c5cff, #b277ff); color: #fff; }
+.tcard__list-ico--amber { background: linear-gradient(135deg, #ffa83a, #ffd166); color: #fff; }
+.tcard__list-ico svg { width: 12px; height: 12px; }
+
+/* "Phone-screen-mock" visual */
+.tcard__phonemock {
+  width: 70%;
+  aspect-ratio: 9/16;
+  background: linear-gradient(180deg, #0d1118, #060709);
+  border: 1px solid var(--line-2);
+  border-radius: 14px;
+  padding: 16px 12px;
+  display: flex; flex-direction: column; gap: 6px;
+  position: relative;
+  box-shadow: 0 20px 50px -20px rgba(41,151,255,.4);
+}
+.tcard__phonemock::before {
+  content: "";
+  position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+  width: 32px; height: 4px; background: #000; border-radius: 999px;
+}
+.tcard__phonemock-row {
+  height: 10px;
+  background: rgba(255,255,255,.08);
+  border-radius: 3px;
+  margin-top: 8px;
+}
+.tcard__phonemock-row.short { width: 60%; }
+.tcard__phonemock-row.accent { background: linear-gradient(90deg, var(--blue), var(--blue-bright)); }
+
+/* "Calendar-mock" visual */
+.tcard__calmock {
+  width: 100%;
+  background: rgba(0,0,0,.4);
+  border: 1px solid var(--line-2);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.tcard__calmock-header { display: flex; justify-content: space-between; align-items: center; font-family: var(--display); font-size: 11px; color: var(--ink-3); }
+.tcard__calmock-slot {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(41,151,255,.08);
+  border-left: 2px solid var(--blue-bright);
+  padding: 7px 9px;
+  border-radius: 5px;
+  font-family: var(--display);
+  font-size: 11px;
+  color: #fff;
+}
+.tcard__calmock-slot.green { background: rgba(48,209,88,.10); border-left-color: var(--green); }
+.tcard__calmock-time { font-weight: 600; opacity: .7; min-width: 38px; }
+
+/* "Wave-graph" visual */
+.tcard__graph {
+  width: 100%;
+  height: 130px;
+  position: relative;
+}
+.tcard__graph svg { width: 100%; height: 100%; }
+
+@media (max-width: 1100px) {
+  .transform__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .transform__grid { grid-template-columns: 1fr; }
+  .tcard { min-height: 240px; }
+}
 
 /* STATEMENT */
 .statement { padding: clamp(80px, 12vw, 160px) 0; text-align: center; position: relative; background: var(--bg); overflow: hidden; }
@@ -765,21 +946,14 @@
 .icp__eye { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
 .icp__title {
   font-family: var(--display);
-  font-size: clamp(36px, 5.4vw, 72px);
-  font-weight: 600;
-  line-height: 1.16;
-  letter-spacing: -.022em;
-  background: linear-gradient(105deg, #cee8d8 0%, #a1cad8 38%, #7e98b3 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  padding-bottom: .32em;
+  font-size: clamp(34px, 5vw, 60px);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -.026em;
+  color: #ffffff;
 }
 .icp__title em {
-  background: linear-gradient(105deg, #d6f0e0 0%, #6BC9FF 50%, #2997ff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--blue-bright);
   font-style: normal;
 }
 .icp__intro { font-size: 16px; line-height: 1.5; color: var(--ink-2); max-width: 560px; }
@@ -1040,22 +1214,15 @@
 .hub__head { position: relative; z-index: 1; }
 .hub__excellence {
   font-family: var(--display);
-  font-size: clamp(36px, 6.2vw, 80px);
-  font-weight: 600;
-  line-height: 1.18;
-  letter-spacing: -.022em;
-  margin-bottom: 28px;
-  background: linear-gradient(105deg, #cee8d8 0%, #a1cad8 38%, #7e98b3 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  padding-bottom: .32em;
+  font-size: clamp(34px, 5.4vw, 64px);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -.026em;
+  margin-bottom: 22px;
+  color: #ffffff;
 }
 .hub__excellence em {
-  background: linear-gradient(105deg, #d6f0e0 0%, #6BC9FF 50%, #2997ff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--blue-bright);
   font-style: normal;
 }
 .hub__stage { position: relative; max-width: 1100px; margin: 0 auto; padding: 0 22px; perspective: 1800px; }
@@ -1233,22 +1400,15 @@
 .final__inner { position: relative; z-index: 1; padding: 0 22px; }
 .final__title {
   font-family: var(--display);
-  font-size: clamp(36px, 6.2vw, 80px);
-  font-weight: 600;
-  line-height: 1.18;
-  letter-spacing: -.022em;
-  margin-bottom: 22px;
-  background: linear-gradient(105deg, #cee8d8 0%, #a1cad8 38%, #7e98b3 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  padding-bottom: .32em;
+  font-size: clamp(34px, 5.4vw, 64px);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -.026em;
+  margin-bottom: 18px;
+  color: #ffffff;
 }
 .final__title em {
-  background: linear-gradient(105deg, #d6f0e0 0%, #6BC9FF 50%, #2997ff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--blue-bright);
   font-style: normal;
 }
 .final__sub { max-width: 660px; margin: 0 auto 32px; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.4; color: var(--ink-2); }
@@ -1291,34 +1451,41 @@
     <div class="orb orb--cyan orb--3 orb-anim-1"></div>
   </div>
   <div class="hero__inner">
-    <div class="hero__pill reveal">
-      <span class="hero__pill-dot"></span>
-      B2B-Akquise · DACH · <em>TÜV-Rheinland zertifiziert</em>
+    <div class="hero__pill">
+      DEINE EXTERNE B2B-AKQUISE
     </div>
     <h1 class="hero__title">
-      Wir rufen deine <em>Wunschkunden</em> an,<br>
-      qualifizieren sie vor und legen dir<br>
-      <em>Abschlussgespräche</em> in deinen Kalender.
+      Wir rufen deine <em>Wunschkunden</em> an<br>
+      und legen dir <em>Abschlussgespräche</em><br>
+      in deinen Kalender.
     </h1>
     <p class="hero__sub reveal d-3">
-      Wir nehmen für dich den Hörer in die Hand, führen Gespräche mit deiner Zielgruppe und qualifizieren Interessenten vor — damit du ausschließlich Abschlussgespräche mit Entscheidern in deinem Kalender hast, die nicht nur Kaufkraft haben, sondern bereit sind, dich direkt zu beauftragen.
+      Wir übernehmen die kalte Erstansprache deiner Wunschkunden — du übernimmst die Abschlussgespräche mit qualifizierten Entscheidern.
     </p>
-    <div class="hero__cta-row reveal d-4">
+    <div class="hero__cta-row">
       <a href="formular.html" class="btn btn--primary btn--lg">
         Analysegespräch sichern
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
-      <a href="#cases" class="btn btn--link">
-        Cases ansehen
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-    <div class="hero__meta reveal d-5">
-      <span class="hero__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>30 Min.</span>
-      <span class="hero__meta-sep"></span>
-      <span class="hero__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/></svg>100 % kostenlos</span>
-      <span class="hero__meta-sep"></span>
-      <span class="hero__meta-item"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>Direkt mit Alex</span>
+      <div class="hero__trustscore">
+        <div class="hero__trustscore-stars">
+          <div class="hero__trustscore-label">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg>
+            ProvenExpert
+          </div>
+          <div class="hero__trustscore-rating">
+            <span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg></span>
+            <span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg></span>
+            <span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg></span>
+            <span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg></span>
+            <span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L9.4 8.6 2 9.27l5.45 5.05L5.82 22 12 18.27 18.18 22l-1.64-7.68L22 9.27l-7.4-.67L12 2z"/></svg></span>
+          </div>
+        </div>
+        <div class="hero__trustscore-meta">
+          Score <b>4,82</b><br>
+          <span>74 Bewertungen</span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1378,6 +1545,93 @@
       <div class="logos__item" aria-hidden="true"><img src="assets/logos/memberspot.png" alt="" /></div>
       <div class="logos__item" aria-hidden="true"><img src="assets/logos/this-is-marketing.png" alt="" /></div>
       <div class="logos__item" aria-hidden="true"><img src="assets/logos/webit.png" alt="" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORM — Vierless-style 4-card service grid -->
+<section class="transform" id="services">
+  <div class="container container--wide">
+    <div class="transform__head reveal">
+      <h2 class="transform__title">
+        Schluss mit Empfehlungs&shy;geschäft.<br>
+        <em>Skalierbare Akquise mit System.</em>
+      </h2>
+      <div class="transform__right">
+        <p class="transform__text">
+          Externe Akquise mit nachweisbaren Ergebnissen bekommst du an jeder Ecke — kalt, generisch, austauschbar. Bei uns ist jeder Anruf TÜV-zertifiziert, jede Kampagne dokumentiert und jeder Lead aufgezeichnet.
+        </p>
+        <a href="formular.html" class="btn btn--primary transform__cta">
+          Jetzt Analysegespräch sichern
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="transform__grid">
+      <!-- Card 1: Sales Calling -->
+      <div class="tcard reveal-blur d-1">
+        <div class="tcard__title">Sales Calling</div>
+        <p class="tcard__desc">Echte Anrufe, echte Menschen. Geschulte SDRs sprechen deine Zielgruppe an — Mo–Fr, 8–18 Uhr.</p>
+        <div class="tcard__visual">
+          <div class="tcard__phonemock">
+            <div class="tcard__phonemock-row short accent"></div>
+            <div class="tcard__phonemock-row"></div>
+            <div class="tcard__phonemock-row short"></div>
+            <div class="tcard__phonemock-row"></div>
+            <div class="tcard__phonemock-row short accent"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: CRM + Stack -->
+      <div class="tcard reveal-blur d-2">
+        <div class="tcard__title">CRM &amp; Tech-Stack</div>
+        <p class="tcard__desc">Wir implementieren und betreiben deinen kompletten Vertriebs-Tech-Stack.</p>
+        <div class="tcard__visual" style="align-items: stretch;">
+          <ul class="tcard__list">
+            <li><span class="tcard__list-ico tcard__list-ico--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></span>Close CRM</li>
+            <li><span class="tcard__list-ico tcard__list-ico--mint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12h18M3 6h18M3 18h18"/></svg></span>Workflows</li>
+            <li><span class="tcard__list-ico tcard__list-ico--purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>Integrationen &amp; API</li>
+            <li><span class="tcard__list-ico tcard__list-ico--amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>Reporting</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 3: AI Auswertung -->
+      <div class="tcard reveal-blur d-3">
+        <div class="tcard__title">AI-Gesprächsanalyse</div>
+        <p class="tcard__desc">Jedes Gespräch wird aufgezeichnet, transkribiert und KI-ausgewertet — auditierbar.</p>
+        <div class="tcard__visual">
+          <div class="tcard__graph">
+            <svg viewBox="0 0 200 130" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="ggrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="rgba(41,151,255,.42)"/>
+                  <stop offset="100%" stop-color="rgba(41,151,255,0)"/>
+                </linearGradient>
+              </defs>
+              <path d="M0,110 L20,85 L40,95 L60,55 L80,72 L100,42 L120,58 L140,30 L160,48 L180,18 L200,32 L200,130 L0,130 Z" fill="url(#ggrad)"/>
+              <path d="M0,110 L20,85 L40,95 L60,55 L80,72 L100,42 L120,58 L140,30 L160,48 L180,18 L200,32" fill="none" stroke="#6BC9FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="180" cy="18" r="4" fill="#fff" stroke="#6BC9FF" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Terminierung -->
+      <div class="tcard reveal-blur d-4">
+        <div class="tcard__title">Live-Terminierung</div>
+        <p class="tcard__desc">Termine landen direkt in deinem Kalender — qualifiziert, nicht warmgeredet.</p>
+        <div class="tcard__visual" style="align-items: stretch;">
+          <div class="tcard__calmock">
+            <div class="tcard__calmock-header"><span>Heute · Mi</span><span>3 Termine</span></div>
+            <div class="tcard__calmock-slot"><span class="tcard__calmock-time">09:15</span>Andrea Brunner</div>
+            <div class="tcard__calmock-slot green"><span class="tcard__calmock-time">11:30</span>Florian Holzer</div>
+            <div class="tcard__calmock-slot"><span class="tcard__calmock-time">14:00</span>Markus Pichler</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -2190,7 +2444,7 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=20260521b"></script>
+<script src="assets/js/site.js?v=20260521c"></script>
 <script>
 // Hero MacBook lid-open: triggered on first scroll OR when laptop comes into view
 (function() {
