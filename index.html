@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=20260521p">
+<link rel="stylesheet" href="assets/css/site.css?v=20260521q">
 <style>
 /* ===== HOME-specific styles ===== */
 
@@ -79,14 +79,40 @@
   max-width: 1100px;
 }
 .hero__title em {
-  background: linear-gradient(105deg, #d6f0e0 0%, #6BC9FF 50%, #2997ff 100%);
+  background: linear-gradient(180deg, #7CD0FF 0%, #2987F0 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   font-style: normal;
 }
 .hero__sub { font-size: clamp(15px, 1.2vw, 18px); font-weight: 400; line-height: 1.5; letter-spacing: -.01em; color: var(--ink-2); max-width: 620px; margin: 0 auto 24px; }
-.hero__cta-row { display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: center; }
+.hero__cta-row { display: inline-flex; align-items: center; gap: 18px; flex-wrap: wrap; justify-content: center; }
+
+/* Plain link with play icon — no border */
+.hero__play-link {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -.008em;
+  color: var(--ink);
+  padding: 8px 4px;
+  transition: color .25s ease, transform .25s var(--ease-out);
+}
+.hero__play-link:hover { color: var(--blue-bright); }
+.hero__play-link:hover .hero__play-icon { background: rgba(107,201,255,.18); border-color: rgba(107,201,255,.5); transform: scale(1.08); }
+.hero__play-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.18);
+  color: var(--ink);
+  transition: background .25s ease, border-color .25s ease, transform .25s var(--ease-out);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.hero__play-icon svg { width: 11px; height: 11px; margin-left: 2px; }
 
 /* Secondary glass-button for hero */
 .btn--secondary {
@@ -483,8 +509,8 @@
 .transform__inner { position: relative; z-index: 1; }
 .transform__head {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: clamp(40px, 6vw, 90px);
+  grid-template-columns: 1.8fr 1fr;
+  gap: clamp(32px, 5vw, 70px);
   align-items: end;
   margin-bottom: clamp(40px, 6vw, 72px);
 }
@@ -499,20 +525,22 @@
 }
 .transform__title {
   font-family: var(--display);
-  font-size: clamp(32px, 4.6vw, 56px);
+  font-size: clamp(26px, 3.6vw, 46px);
   font-weight: 600;
-  line-height: 1.08;
-  letter-spacing: -.024em;
+  line-height: 1.1;
+  letter-spacing: -.022em;
   background: linear-gradient(105deg, #d6f0e0 0%, #b3d8e0 38%, #8aa9c0 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   padding-bottom: .18em;
   margin: 0;
-  max-width: 760px;
+  max-width: 100%;
+  white-space: normal;
+  word-break: keep-all;
 }
 .transform__title em {
-  background: linear-gradient(105deg, #d6f0e0 0%, #6BC9FF 50%, #2997ff 100%);
+  background: linear-gradient(180deg, #7CD0FF 0%, #2987F0 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -2025,6 +2053,72 @@
 }
 .roi__cta-note { font-size: 12px; color: var(--ink-3); }
 
+/* ROI CTA Bar — eigene Sektion unter dem Panel */
+.roi__cta-bar {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(20px, 3vw, 40px);
+  align-items: center;
+  padding: clamp(22px, 3vw, 32px) clamp(24px, 3.5vw, 40px);
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(41,151,255,.08), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.018));
+  border: 1px solid rgba(107,201,255,.22);
+  border-radius: 22px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 30px 80px -30px rgba(41,151,255,.18);
+}
+.roi__cta-bar::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 16%; right: 16%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
+}
+.roi__cta-bar-eye {
+  font-family: var(--display);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--blue-bright);
+  margin-bottom: 8px;
+}
+.roi__cta-bar-title {
+  font-family: var(--display);
+  font-size: clamp(22px, 2.6vw, 32px);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -.022em;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.roi__cta-bar-title em {
+  background: linear-gradient(180deg, #7CD0FF 0%, #2987F0 100%);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  font-style: normal;
+}
+.roi__cta-bar-sub {
+  font-size: 14px; line-height: 1.5;
+  color: var(--ink-2);
+}
+.roi__cta-bar-actions {
+  display: flex; flex-direction: column; gap: 12px;
+  align-items: flex-start;
+}
+.roi__cta-bar-meta {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+  font-family: var(--display);
+  font-size: 11px;
+  color: var(--ink-3);
+}
+.roi__cta-bar-meta span { display: inline-flex; align-items: center; gap: 5px; }
+.roi__cta-bar-meta svg { width: 12px; height: 12px; opacity: .65; }
+.roi__cta-bar-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--ink-mute); padding: 0; }
+@media (max-width: 760px) {
+  .roi__cta-bar { grid-template-columns: 1fr; }
+}
+
 /* ======================================
    TESTIMONIALS WALL
 ====================================== */
@@ -2247,7 +2341,8 @@
         Die kostenlose Analyse sichern
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
-      <a href="#cases" class="btn btn--secondary">
+      <a href="#cases" class="hero__play-link">
+        <span class="hero__play-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg></span>
         Referenz ansehen
       </a>
     </div>
@@ -2332,7 +2427,7 @@
               <span class="roi__field-label">Calls pro Monat</span>
               <span class="roi__field-value" id="roiCallsOut">3.000</span>
             </div>
-            <input id="roiCalls" class="roi__slider" type="range" min="1000" max="5000" step="100" value="3000" />
+            <input id="roiCalls" class="roi__slider" type="range" min="1000" max="5000" step="500" value="3000" />
             <span class="roi__field-hint">Anzahl Outbound-Calls, die wir pro Monat für dich tätigen.</span>
           </div>
 
@@ -2341,7 +2436,7 @@
               <span class="roi__field-label">Kampagnen-Performance</span>
               <span class="roi__field-value"><span id="roiRateOut">2,0</span>&nbsp;% Termin-Quote</span>
             </div>
-            <input id="roiRate" class="roi__slider" type="range" min="1" max="3" step="0.1" value="2" />
+            <input id="roiRate" class="roi__slider" type="range" min="1" max="3" step="0.5" value="2" />
             <div class="roi__scale">
               <span>Schlecht <b>1 %</b></span>
               <span>Mittel <b>2 %</b></span>
@@ -2355,7 +2450,7 @@
               <span class="roi__field-label">Deine Closing-Rate</span>
               <span class="roi__field-value"><span id="roiCloseOut">55</span>&nbsp;%</span>
             </div>
-            <input id="roiClose" class="roi__slider" type="range" min="0" max="100" step="1" value="55" />
+            <input id="roiClose" class="roi__slider" type="range" min="0" max="100" step="5" value="55" />
             <div class="roi__scale">
               <span>0 %</span>
               <span class="roi__scale-bench">Benchmark <b>55 %</b></span>
@@ -2406,12 +2501,27 @@
             <div class="roi__metric-hint">bis sich das Programm refinanziert</div>
           </div>
 
-          <div class="roi__cta">
-            <a href="formular.html" class="btn btn--primary btn--lg">
-              Diese Pipeline jetzt planen
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-            </a>
-            <span class="roi__cta-note">Unverbindliche Diagnose · 30 Min</span>
+        </div>
+      </div>
+
+      <!-- ROI CTA Bar — eigene Sektion unter dem Calculator -->
+      <div class="roi__cta-bar reveal-blur d-2">
+        <div class="roi__cta-bar-text">
+          <div class="roi__cta-bar-eye">Dein nächster Schritt</div>
+          <div class="roi__cta-bar-title">Lass uns über <em>deine</em> Pipeline reden.</div>
+          <div class="roi__cta-bar-sub">30 Minuten Diagnose mit Alexander Király. Keine Demo, kein Pitch.</div>
+        </div>
+        <div class="roi__cta-bar-actions">
+          <a href="formular.html" class="btn btn--primary btn--lg">
+            Kostenloses Analysegespräch sichern
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <div class="roi__cta-bar-meta">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>30 Min</span>
+            <span class="dot"></span>
+            <span>TÜV-zertifiziert</span>
+            <span class="dot"></span>
+            <span>4,82 / 5 · ProvenExpert</span>
           </div>
         </div>
       </div>
@@ -2429,7 +2539,7 @@
         <div>
           <div class="transform__eyebrow">DEIN VERTRIEB. UNSER HANDWERK.</div>
           <h2 class="transform__title">
-            Deine Pipeline ist <em>nicht planbar.</em><br>
+            Deine Pipeline ist <em>planbar.</em><br>
             Empfehlungen reichen nicht mehr.
           </h2>
         </div>
@@ -3690,7 +3800,7 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=20260521p"></script>
+<script src="assets/js/site.js?v=20260521q"></script>
 <script>
 // Hero MacBook lid-open: triggered on first scroll OR when laptop comes into view.
 // Einmaliges Aufklappen mit 5.2s CSS-Transition (cinematic).
