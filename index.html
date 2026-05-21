@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=20260521w">
+<link rel="stylesheet" href="assets/css/site.css?v=20260521x">
 <style>
 /* ===== HOME-specific styles ===== */
 
@@ -2690,6 +2690,260 @@
 @media (max-width: 880px) {
   .compareV2__panel { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   MOBILE — comprehensive responsive pass
+   Breakpoints: 980 (tablet) · 760 (small tablet) · 560 (phone)
+============================================================ */
+
+@media (max-width: 980px) {
+  /* Hero */
+  .hero { padding: clamp(28px, 5vw, 48px) 0 0; }
+  .hero__title { font-size: clamp(28px, 5.5vw, 44px); padding-bottom: .14em; }
+  .hero__stage { max-width: 92%; }
+  .hero__cta-row { gap: 14px; }
+  .hero__seals img { height: 38px; }
+
+  /* Stats: 4 → 2 columns */
+  .stats__grid { grid-template-columns: repeat(2, 1fr); gap: 32px 18px; }
+  .stats__cell::before { display: none; }
+
+  /* Transform / Service cards stack */
+  .transform__head { grid-template-columns: 1fr; gap: 22px; }
+  .transform__grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* ROI Calculator */
+  .roi__panel { grid-template-columns: 1fr; gap: 24px; padding: 22px; }
+  .roi__results { grid-template-columns: repeat(2, 1fr); }
+  .roi__cta-bar { grid-template-columns: 1fr; gap: 18px; text-align: center; }
+  .roi__cta-bar-actions { align-items: center; }
+  .roi__cta-bar-meta { justify-content: center; }
+
+  /* Cases: video + text stack */
+  .case {
+    grid-template-columns: 1fr !important;
+    grid-template-areas: "video" "body" "funnel" !important;
+    padding: 20px;
+    gap: 16px;
+  }
+
+  /* Industries 4 → 2 */
+  .industries__grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* ICP iPhone block */
+  .icp__grid { grid-template-columns: 1fr; gap: 28px; }
+  .icp__phone { order: 2; }
+  .iphone-static { width: 240px; margin: 0 auto; }
+
+  /* Compare 2 cols → 1 */
+  .compare__row { grid-template-columns: 1fr; }
+  .compare__row--head { display: none; }
+  .compare__cell { border-top: 1px solid var(--line); }
+
+  /* Hub: hide sidebar */
+  .hub__body { grid-template-columns: 1fr; }
+  .hub__sidebar { display: none; }
+  .hub__topbar { padding: 10px 14px; }
+  .hub__board-wrap { height: auto; max-height: none; min-height: 480px; padding: 16px; }
+  .hub__board { gap: 10px; }
+  .hub__chart-body { height: 44px; }
+  .hub__funnel { grid-template-columns: repeat(2, 1fr); margin-bottom: 10px; }
+  .hub__metrics { grid-template-columns: 1fr; }
+  .hub__coach-grid { grid-template-columns: 1fr; }
+  .hub__tr-grid { grid-template-columns: 1fr; }
+
+  /* Hub Tabs scrollen horizontal */
+  .hub__tabs {
+    max-width: calc(100% - 32px);
+    margin-left: 16px; margin-right: 16px;
+    justify-content: flex-start;
+  }
+  .hub__tab { font-size: 12px; padding: 8px 11px; }
+
+  /* Hub Decor: nur Glow-Shapes lassen */
+  .hub__decor-phone, .hub__decor-notif, .hub__decor-card { display: none; }
+
+  /* Bonus Stack: 6-col grid → 2 col mit responsive spans */
+  .stack__grid { grid-template-columns: repeat(2, 1fr); }
+  .stack__card--xl, .stack__card--md, .stack__card--sm { grid-column: span 2; }
+  .stack__card { padding: 18px; }
+
+  /* Standort */
+  .standort__grid { grid-template-columns: 1fr; gap: 24px; }
+
+  /* Testimonials */
+  .tw__grid { grid-template-columns: repeat(2, 1fr); }
+  .tw__card--featured { grid-column: span 2; }
+  .tw__hl { white-space: normal; }
+
+  /* Final CTA */
+  .final__sub { font-size: 14px; padding: 0 12px; }
+  .final__meta { font-size: 11px; gap: 10px; }
+
+  /* Compare V2 */
+  .compareV2__panel { grid-template-columns: 1fr; gap: 10px; }
+
+  /* Footer */
+  .footer__grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+
+@media (max-width: 760px) {
+  /* Nav: nur Logo + CTA, Links ausblenden */
+  .nav__inner { padding: 0 12px 0 18px; gap: 10px; }
+  .nav__links { display: none; }
+  .nav__cta { font-size: 11px; padding: 5px 10px; }
+  .nav__brand-logo { height: 18px; }
+
+  /* Hero kompakter */
+  .hero__pill { font-size: 11px; letter-spacing: .12em; margin-bottom: 14px; }
+  .hero__title { font-size: clamp(22px, 6.4vw, 36px); padding-bottom: .12em; max-width: 100%; }
+  .hero__title br { display: none; }   /* lass den Browser umbrechen */
+  .hero__sub { font-size: 14px; line-height: 1.5; margin-bottom: 20px; padding: 0 8px; }
+  .hero__cta-row { flex-direction: column; gap: 12px; width: 100%; padding: 0 16px; }
+  .hero__cta-row .btn { width: 100%; }
+  .hero__play-link { justify-content: center; }
+  .hero__seals { gap: 18px; margin-top: 18px; }
+  .hero__seals img { height: 32px; }
+  .hero__logos { margin: 36px auto 60px; }
+  .hero__logos-track { gap: 28px; animation-duration: 30s; }
+  .hero__logos-item { height: 20px; }
+  .hero__stage { margin-top: 24px; padding: 0 14px; }
+
+  /* Section padding sitewide */
+  .section { padding: 32px 0; }
+  .section--xl { padding: 44px 0; }
+
+  /* Sec-Head */
+  .sec-head h2 { font-size: clamp(24px, 6vw, 38px) !important; line-height: 1.1 !important; padding-bottom: .12em !important; }
+  .sec-head h2 br { display: none; }
+
+  /* Transform: 4 cards → 1 col */
+  .transform__grid { grid-template-columns: 1fr; }
+  .transform__title { font-size: clamp(24px, 6vw, 36px); }
+  .transform__title br { display: none; }
+  .tcard { min-height: auto; padding: 22px; }
+  .tcard__visual { min-height: 130px; }
+
+  /* Stats: 4 → 2 (smaller) */
+  .stats__num { font-size: clamp(28px, 8vw, 44px); }
+
+  /* ROI */
+  .roi__title { font-size: clamp(22px, 5.8vw, 34px); }
+  .roi__inputs { gap: 14px; }
+  .roi__field-value { font-size: 16px; }
+  .roi__results { grid-template-columns: 1fr; }
+  .roi__metric { padding: 14px; }
+  .roi__metric-value { font-size: 22px; }
+  .roi__metric--big .roi__metric-value { font-size: 32px; }
+  .roi__cta-bar { padding: 22px 18px; }
+  .roi__cta-bar-title { font-size: 22px; }
+  .roi__cta-bar .btn { width: 100%; }
+
+  /* Cases */
+  .case__title { font-size: 18px; line-height: 1.3; }
+  .case__funnel { padding: 14px; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .case__step:not(:last-child)::after { display: none; }
+  .case__step.green { grid-column: span 2; }
+  .case__step-num { font-size: 22px; }
+
+  /* Industries 2 → 1 col */
+  .industries__grid { grid-template-columns: 1fr; }
+  .industry { min-height: 200px; padding: 18px 18px 16px; }
+  .industry__art { width: 80%; }
+  .industry__title { font-size: 17px; }
+
+  /* iPhone in ICP — smaller */
+  .iphone-static { width: 200px; }
+
+  /* Hub Tabs etwas kleiner */
+  .hub__tab { font-size: 11px; padding: 7px 9px; gap: 5px; }
+  .hub__tab svg { width: 12px; height: 12px; }
+
+  /* Hub Boards */
+  .hub__board-wrap { min-height: 420px; }
+  .hub__dash-title { font-size: 15px; }
+  .hub__dash-update { font-size: 10px; }
+  .hub__fcard-num { font-size: 18px; }
+  .hub__fcard-pct { font-size: 14px; }
+  .hub__fcard-lbl { font-size: 9px; }
+  .hub__chart-body { height: 36px; }
+  .hub__live-call { grid-template-columns: 1fr; gap: 4px; padding: 10px 12px; }
+  .hub__live-call-dur, .hub__live-call-state { justify-self: start; }
+
+  /* Bonus Stack: 1 col */
+  .stack__grid { grid-template-columns: 1fr; }
+  .stack__card--xl, .stack__card--md, .stack__card--sm { grid-column: span 1; }
+  .stack__title { font-size: 16px; }
+
+  /* Hub header bigger title */
+  .hub__excellence { font-size: clamp(24px, 6.2vw, 38px); }
+  .hub__excellence br { display: none; }
+
+  /* Standort */
+  .standort__title { font-size: clamp(22px, 5.6vw, 34px); }
+  .standort__photo { aspect-ratio: 4/3; }
+
+  /* Testimonials */
+  .tw__grid { grid-template-columns: 1fr; }
+  .tw__card--featured { grid-column: span 1; }
+  .tw__card { min-height: auto; padding: 16px; }
+  .tw__hl { font-size: 18px; }
+  .tw__card--featured .tw__hl { font-size: 22px; }
+
+  /* Final CTA */
+  .final__title { font-size: clamp(24px, 6.2vw, 38px); }
+  .final__title br { display: none; }
+  .final__host { padding: 8px 14px 8px 8px; }
+  .final__host-av { width: 32px; height: 32px; font-size: 12px; }
+  .final__host-name { font-size: 12px; }
+  .final__host-role { font-size: 10px; }
+  .final__meta { flex-direction: column; gap: 6px; }
+  .final__meta .dot { display: none; }
+
+  /* Footer */
+  .footer__grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer__brand p { max-width: 100%; }
+  .footer__trust img { height: 40px; }
+  .footer__bottom { flex-direction: column; gap: 12px; }
+
+  /* Disable expensive film-grain on mobile (perf) */
+  body::before { opacity: .02; }
+}
+
+@media (max-width: 480px) {
+  /* Hero further compact */
+  .hero__title { font-size: clamp(22px, 7.4vw, 30px); }
+  .hero__stage { padding: 0 8px; }
+
+  /* Service cards extra compact */
+  .tcard { padding: 18px 16px 16px; }
+  .tcard__title { font-size: 18px; }
+
+  /* ROI sliders */
+  .roi__field-head { flex-wrap: wrap; gap: 4px; }
+  .roi__scale { font-size: 9px; }
+
+  /* Hub */
+  .hub__tabs { padding: 4px; gap: 2px; }
+  .hub__tab { font-size: 10.5px; padding: 6px 8px; }
+  .hub__tab svg { display: none; }
+  .hub__topbar-left { gap: 8px; }
+  .hub__ws { display: none; }
+
+  /* Cases */
+  .case__funnel { grid-template-columns: 1fr; }
+  .case__step.green { grid-column: span 1; }
+
+  /* Industries */
+  .industry__art { width: 90%; opacity: .18; }
+
+  /* Bonus Stack icon klein */
+  .stack__icon { width: 32px; height: 32px; }
+  .stack__icon svg { width: 16px; height: 16px; }
+
+  /* Container padding */
+  .container, .container--wide, .container--narrow { padding: 0 16px; }
+}
 </style>
 </head>
 <body>
@@ -4486,7 +4740,7 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=20260521w"></script>
+<script src="assets/js/site.js?v=20260521x"></script>
 <script>
 // Hero MacBook lid-open: triggered on first scroll OR when laptop comes into view.
 // Einmaliges Aufklappen mit 5.2s CSS-Transition (cinematic).
