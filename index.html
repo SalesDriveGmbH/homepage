@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=20260521o">
+<link rel="stylesheet" href="assets/css/site.css?v=20260521p">
 <style>
 /* ===== HOME-specific styles ===== */
 
@@ -66,17 +66,17 @@
 
 .hero__title {
   font-family: var(--display);
-  font-size: clamp(24px, 3.4vw, 46px);
+  font-size: clamp(34px, 5.4vw, 68px);
   font-weight: 600;
-  line-height: 1.14;
-  letter-spacing: -.022em;
-  margin: 0 auto 14px;
+  line-height: 1.08;
+  letter-spacing: -.024em;
+  margin: 0 auto 18px;
   background: linear-gradient(105deg, #d6f0e0 0%, #b3d8e0 38%, #8aa9c0 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   padding-bottom: .18em;
-  max-width: 1280px;
+  max-width: 1100px;
 }
 .hero__title em {
   background: linear-gradient(105deg, #d6f0e0 0%, #6BC9FF 50%, #2997ff 100%);
@@ -186,13 +186,16 @@
     0 0 80px rgba(41,151,255,.14),
     0 0 160px rgba(107,201,255,.08);
   transform-origin: 50% 100%;
-  /* Initial state: lid closed (rotated back 100deg). JS sets --lid-deg
-     0deg = open · -100deg = fully closed. Mapped to scroll progress. */
-  --lid-deg: -100deg;
-  transform: perspective(2400px) rotateX(var(--lid-deg));
+  transform: perspective(2400px) rotateX(-100deg);
+  opacity: 0;
+  transition:
+    transform 5.2s cubic-bezier(.22, .82, .28, 1),
+    opacity 1.6s ease-out;
+  will-change: transform, opacity;
+}
+.laptop.is-open .laptop__lid {
+  transform: perspective(2400px) rotateX(0deg);
   opacity: 1;
-  transition: transform .12s linear;
-  will-change: transform;
 }
 /* Top-edge highlight strip. Apple aluminum signature */
 .laptop__lid::before {
@@ -204,7 +207,6 @@
   pointer-events: none;
   z-index: 6;
 }
-/* .laptop.is-open Toggle ersetzt durch scroll-bound --lid-deg in JS */
 .laptop__screen {
   position: relative;
   aspect-ratio: 16 / 10;
@@ -2233,8 +2235,9 @@
       DEINE EXTERNE B2B-AKQUISE
     </div>
     <h1 class="hero__title">
-      Wir rufen deine <em>Wunschkunden</em> an und legen dir<br>
-      <em>Abschlussgespräche</em> in deinen Kalender.
+      Wir rufen deine <em>Wunschkunden</em> an<br>
+      und legen dir <em>Abschlussgespräche</em><br>
+      in deinen Kalender.
     </h1>
     <p class="hero__sub reveal d-3">
       Wir übernehmen die kalte Erstansprache. Du bekommst nur noch vorqualifizierte Abschlussgespräche mit Entscheidern in deinen Kalender.
@@ -3687,40 +3690,35 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=20260521o"></script>
+<script src="assets/js/site.js?v=20260521p"></script>
 <script>
-// Hero MacBook lid: scroll-bound, langsamer Aufklapp-Effekt.
-// Der Lid braucht ~1.5x Viewport-Höhe Scroll-Distanz zum vollen Öffnen.
+// Hero MacBook lid-open: triggered on first scroll OR when laptop comes into view.
+// Einmaliges Aufklappen mit 5.2s CSS-Transition (cinematic).
 (function() {
   const lap = document.getElementById('heroLaptop');
-  const lid = lap ? lap.querySelector('.laptop__lid') : null;
-  if (!lap || !lid) return;
-  const ease = (t) => t < 0.5
-    ? 2 * t * t
-    : 1 - Math.pow(-2 * t + 2, 2) / 2;  // ease-in-out-quad — sanfter Anlauf
-  let raf = null;
-  function update() {
-    raf = null;
-    const rect = lap.getBoundingClientRect();
-    const vh = window.innerHeight || 800;
-    // Start: erst kurz NACHDEM der Laptop ganz im Viewport ist, beginnt das
-    // Öffnen. Ende: nach 1.5x Viewport zusätzlich gescrollt = voll offen.
-    const startAt = vh * 0.25;       // 25 % vor unterem Rand
-    const total = vh * 1.5;          // Scroll-Distanz fürs Öffnen
-    const traveled = startAt - rect.top;
-    let p = traveled / total;
-    if (p < 0) p = 0;
-    if (p > 1) p = 1;
-    const angle = -100 + ease(p) * 100;
-    lid.style.setProperty('--lid-deg', angle.toFixed(2) + 'deg');
+  if (!lap) return;
+  let opened = false;
+  function openLid() {
+    if (opened) return;
+    opened = true;
+    lap.classList.add('is-open');
   }
-  function onScroll() {
-    if (raf) return;
-    raf = requestAnimationFrame(update);
+  function onFirstScroll() {
+    if (window.scrollY > 30) {
+      openLid();
+      window.removeEventListener('scroll', onFirstScroll);
+    }
   }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll, { passive: true });
-  update();
+  window.addEventListener('scroll', onFirstScroll, { passive: true });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && e.intersectionRatio > 0.45) {
+        setTimeout(openLid, 1500);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: [0, 0.45, 0.8] });
+  io.observe(lap);
 })();
 
 // ROI / Pipeline calculator — live numbers + slider fill
