@@ -336,13 +336,12 @@ em { font-style: normal; color: var(--blue); }
   font-family: var(--display);
   font-size: clamp(28px, 4.6vw, 60px);
   font-weight: 700;
-  line-height: 1.14;
+  line-height: 1.2;
   letter-spacing: -.035em;
   margin-bottom: 18px;
-  padding-bottom: .2em;
-  color: var(--ink);
+  color: #ffffff;
 }
-.subhero__title em { background: linear-gradient(180deg, var(--blue-bright), var(--blue)); -webkit-background-clip: text; background-clip: text; color: transparent; font-style: normal; }
+.subhero__title em { color: var(--blue-bright); font-style: normal; }
 .subhero__sub {
   font-size: clamp(16px, 1.4vw, 20px);
   line-height: 1.4;
@@ -358,10 +357,11 @@ em { font-style: normal; color: var(--blue); }
   font-size: clamp(28px, 4.6vw, 60px);
   font-weight: 700;
   letter-spacing: -.035em;
-  line-height: 1.14;
-  padding-bottom: .2em;
+  line-height: 1.2;
   margin-bottom: 16px;
+  color: #ffffff;
 }
+.sec-head h2 em { color: var(--blue-bright); font-style: normal; }
 .sec-head p.lead { max-width: 660px; margin: 0 auto; }
 .section-num {
   display: inline-flex; align-items: center; gap: 8px;

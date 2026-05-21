@@ -12,22 +12,161 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
 <style>
-.legal { padding: clamp(120px, 14vw, 160px) 0 clamp(60px, 9vw, 100px); }
-.legal__inner { max-width: 820px; margin: 0 auto; padding: 0 22px; }
-.legal__head { text-align: center; margin-bottom: clamp(40px, 6vw, 70px); }
-.legal__eye { font-size: 12px; color: var(--blue); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 12px; }
-.legal__title { font-family: var(--display); font-size: clamp(36px, 5vw, 64px); font-weight: 600; letter-spacing: -.04em; line-height: 1.04; }
-.legal h2 { font-family: var(--display); font-size: clamp(20px, 2.2vw, 28px); font-weight: 600; letter-spacing: -.024em; margin: 36px 0 12px; color: var(--ink); }
-.legal h3 { font-family: var(--display); font-size: 17px; font-weight: 600; letter-spacing: -.018em; margin: 24px 0 8px; color: var(--ink); }
-.legal p { color: var(--ink-2); line-height: 1.6; margin-bottom: 12px; font-size: 15px; }
-.legal a { color: var(--blue); }
-.legal a:hover { text-decoration: underline; text-underline-offset: 3px; }
-.legal__card { background: var(--surf); border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(22px, 3vw, 32px); }
-.legal__grid { display: grid; grid-template-columns: 200px 1fr; gap: 14px 22px; }
-@media (max-width: 600px) { .legal__grid { grid-template-columns: 1fr; gap: 4px 0; } .legal__grid > div:nth-child(even) { margin-bottom: 12px; } }
-.legal__grid b { color: var(--ink-mute); font-weight: 500; font-size: 13px; }
-.legal__grid span { color: var(--ink); font-size: 15px; }
-.legal__updated { margin-top: 40px; font-size: 12px; color: var(--ink-mute); text-align: center; }
+/* ================ Legal page layout with sticky sidebar TOC ================ */
+.legal-shell { padding: clamp(110px, 13vw, 160px) 0 clamp(60px, 9vw, 100px); position: relative; }
+.legal-shell::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(900px 500px at 50% 0%, rgba(41,151,255,.08), transparent 60%);
+  pointer-events: none;
+}
+
+.legal-hero { max-width: 1240px; margin: 0 auto clamp(40px, 6vw, 80px); padding: 0 28px; text-align: center; position: relative; z-index: 1; }
+.legal-eye {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 5px 12px 5px 8px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--line-2);
+  border-radius: 980px;
+  font-size: 12px;
+  color: var(--ink-2);
+  margin-bottom: 22px;
+  backdrop-filter: blur(10px);
+}
+.legal-eye-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 10px var(--blue); }
+.legal-title {
+  font-family: var(--display);
+  font-size: clamp(40px, 6.4vw, 80px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -.04em;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+.legal-title em { color: var(--blue-bright); font-style: normal; }
+.legal-intro { font-size: clamp(16px, 1.4vw, 19px); color: var(--ink-2); line-height: 1.5; max-width: 660px; margin: 0 auto; }
+
+.legal-grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: clamp(40px, 5vw, 80px);
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 980px) {
+  .legal-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+
+/* Sidebar */
+.legal-side {
+  position: sticky; top: 70px; align-self: start;
+  background: linear-gradient(180deg, rgba(255,255,255,.028), rgba(255,255,255,.012));
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-lg);
+  padding: 22px 18px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+@media (max-width: 980px) {
+  .legal-side { position: static; max-height: none; }
+}
+.legal-side__label {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--ink-mute);
+  padding: 4px 12px 10px;
+}
+.legal-side__list { display: flex; flex-direction: column; gap: 2px; }
+.legal-side__item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: var(--ink-3);
+  border-radius: 8px;
+  border-left: 2px solid transparent;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.legal-side__item:hover { background: rgba(255,255,255,.04); color: var(--ink); }
+.legal-side__item.is-active {
+  background: rgba(41,151,255,.10);
+  color: var(--blue-bright);
+  border-left-color: var(--blue);
+}
+.legal-side__num { font-family: var(--display); font-weight: 600; font-size: 11px; color: var(--ink-mute); flex-shrink: 0; min-width: 18px; }
+.legal-side__item.is-active .legal-side__num { color: var(--blue); }
+
+.legal-side__divider { height: 1px; background: var(--line); margin: 12px 8px; }
+.legal-side__hint { font-size: 11px; color: var(--ink-mute); padding: 4px 12px; line-height: 1.5; }
+.legal-side__hint a { color: var(--blue); }
+
+/* Main content */
+.legal-main { min-width: 0; }
+.legal-card {
+  background: linear-gradient(180deg, rgba(255,255,255,.028), rgba(255,255,255,.012));
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-lg);
+  padding: clamp(28px, 4vw, 50px);
+  box-shadow: 0 40px 100px -40px rgba(0,0,0,.75);
+}
+.legal-section { scroll-margin-top: 80px; padding: clamp(24px, 3vw, 40px) 0; border-top: 1px solid var(--line); }
+.legal-section:first-of-type { border-top: 0; padding-top: 0; }
+.legal-section h2 {
+  font-family: var(--display);
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 700;
+  letter-spacing: -.026em;
+  line-height: 1.1;
+  color: #ffffff;
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 12px;
+}
+.legal-section h2-num {
+  font-family: var(--display);
+  font-size: 13px; font-weight: 600;
+  color: var(--blue);
+  padding: 4px 10px;
+  background: rgba(41,151,255,.10);
+  border-radius: 980px;
+  letter-spacing: .04em;
+}
+.legal-section p { font-size: 15px; line-height: 1.6; color: var(--ink-2); margin-bottom: 12px; }
+.legal-section a { color: var(--blue); }
+.legal-section a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.legal-kv { display: grid; grid-template-columns: 180px 1fr; gap: 10px 24px; margin: 14px 0; }
+.legal-kv > div:nth-child(odd) { color: var(--ink-mute); font-size: 13px; padding: 8px 0; border-top: 1px solid var(--line); }
+.legal-kv > div:nth-child(odd):first-of-type { border-top: 0; }
+.legal-kv > div:nth-child(even) { color: var(--ink); font-size: 15px; padding: 8px 0; border-top: 1px solid var(--line); }
+.legal-kv > div:nth-child(even):nth-of-type(2) { border-top: 0; }
+.legal-kv b { color: var(--blue-bright); font-weight: 600; }
+@media (max-width: 560px) {
+  .legal-kv { grid-template-columns: 1fr; gap: 0; }
+  .legal-kv > div { padding-bottom: 4px; }
+}
+
+/* Trust strip at bottom — proof of company */
+.legal-trust {
+  max-width: 1240px; margin: clamp(60px, 8vw, 100px) auto 0;
+  padding: 0 28px;
+  position: relative; z-index: 1;
+}
+.legal-trust__head { text-align: center; margin-bottom: 30px; }
+.legal-trust__head-eye { font-size: 11px; color: var(--blue); letter-spacing: .14em; text-transform: uppercase; font-weight: 600; margin-bottom: 10px; }
+.legal-trust__head-title { font-family: var(--display); font-size: clamp(22px, 2.6vw, 32px); font-weight: 700; letter-spacing: -.026em; color: #ffffff; }
+.legal-trust__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.legal-trust__card { background: linear-gradient(180deg, rgba(255,255,255,.028), rgba(255,255,255,.012)); border: 1px solid var(--line-2); border-radius: var(--r-md); padding: 22px; }
+.legal-trust__card-eye { font-size: 11px; color: var(--ink-mute); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 6px; }
+.legal-trust__card-val { font-family: var(--display); font-size: 18px; font-weight: 600; color: #ffffff; letter-spacing: -.02em; line-height: 1.2; }
+.legal-trust__card-sub { font-size: 12px; color: var(--ink-3); margin-top: 4px; }
+.legal-trust__card-sub a { color: var(--blue); }
+
+@media (max-width: 900px) { .legal-trust__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .legal-trust__grid { grid-template-columns: 1fr; } }
+
+.legal-updated { margin-top: 40px; font-size: 12px; color: var(--ink-mute); text-align: center; }
 </style>
 </head>
 <body>
@@ -53,52 +192,114 @@
 <div class="progress" id="progress"></div>
 <div class="nav-spacer"></div>
 
-<section class="legal">
-  <div class="legal__inner">
-    <div class="legal__head reveal">
-      <div class="legal__eye">Rechtliches</div>
-      <h1 class="legal__title">Impressum</h1>
-    </div>
+<section class="legal-shell">
+  <div class="legal-hero reveal">
+    <div class="legal-eye"><span class="legal-eye-dot"></span>Rechtliches · Stand Januar 2026</div>
+    <h1 class="legal-title">Impressum &amp; <em>Transparenz.</em></h1>
+    <p class="legal-intro">Alle gesetzlich erforderlichen Angaben gemäß §&nbsp;5 ECG und §&nbsp;25 MedienG. Plus: das, was du wissen darfst, bevor du mit uns ins Geschäft gehst.</p>
+  </div>
 
-    <div class="legal__card reveal-blur">
-      <h2 style="margin-top:0">Angaben gemäß § 5 ECG, § 25 MedienG</h2>
-      <div class="legal__grid">
-        <div><b>Firma</b></div><div><span>SalesDrive GmbH</span></div>
-        <div><b>Anschrift</b></div><div><span>Obere Donaustraße 25, 1020 Wien, Österreich</span></div>
-        <div><b>Telefon</b></div><div><span><a href="tel:+436767951018">+43 676 795 10 18</a></span></div>
-        <div><b>E-Mail</b></div><div><span><a href="mailto:office@salesdrive.at">office@salesdrive.at</a></span></div>
-        <div><b>Geschäftsführer</b></div><div><span>Alexander Kiraly</span></div>
-        <div><b>Firmenbuchnummer</b></div><div><span>FN 599821s</span></div>
-        <div><b>Firmenbuchgericht</b></div><div><span>Handelsgericht Wien</span></div>
-        <div><b>UID-Nummer</b></div><div><span>ATU79430518</span></div>
-        <div><b>Unternehmensgegenstand</b></div><div><span>Telefonische B2B-Vertriebsdienstleistung. Es werden keine Unternehmensberatungen oder ähnliche Beratungsleistungen erbracht.</span></div>
-        <div><b>Aufsichtsbehörde</b></div><div><span>Magistratisches Bezirksamt für den 2. Bezirk, Wien</span></div>
-        <div><b>Kammer­zugehörigkeit</b></div><div><span>Wirtschaftskammer Wien</span></div>
-        <div><b>Anwendbare Rechtsvorschriften</b></div><div><span>Gewerbeordnung (GewO), abrufbar unter <a href="https://www.ris.bka.gv.at" target="_blank" rel="noopener">ris.bka.gv.at</a></span></div>
+  <div class="legal-grid">
+    <!-- TOC SIDEBAR -->
+    <aside class="legal-side" aria-label="Inhaltsverzeichnis">
+      <div class="legal-side__label">Auf dieser Seite</div>
+      <nav class="legal-side__list" id="legalToc">
+        <a class="legal-side__item is-active" href="#firma" data-toc><span class="legal-side__num">01</span>Firmenangaben</a>
+        <a class="legal-side__item" href="#bank" data-toc><span class="legal-side__num">02</span>Bankverbindung</a>
+        <a class="legal-side__item" href="#streit" data-toc><span class="legal-side__num">03</span>EU-Streitschlichtung</a>
+        <a class="legal-side__item" href="#urheber" data-toc><span class="legal-side__num">04</span>Urheberrecht</a>
+        <a class="legal-side__item" href="#haftung-inhalt" data-toc><span class="legal-side__num">05</span>Haftung für Inhalte</a>
+        <a class="legal-side__item" href="#haftung-links" data-toc><span class="legal-side__num">06</span>Haftung für Links</a>
+      </nav>
+      <div class="legal-side__divider"></div>
+      <div class="legal-side__hint">Fragen? Schreib direkt an <a href="mailto:office@salesdrive.at">office@salesdrive.at</a> — Antwort meist innerhalb einer Stunde, Mo–Fr 8–18 Uhr.</div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="legal-main">
+      <div class="legal-card reveal-blur">
+
+        <section class="legal-section" id="firma">
+          <h2><span class="legal-section__num" style="font-family:var(--display);font-size:13px;font-weight:600;color:var(--blue);padding:4px 10px;background:rgba(41,151,255,.10);border-radius:980px;letter-spacing:.04em">01</span>Angaben gemäß § 5 ECG, § 25 MedienG</h2>
+          <div class="legal-kv">
+            <div>Firma</div><div><b>SalesDrive GmbH</b></div>
+            <div>Anschrift</div><div>Obere Donaustraße 25<br>1020 Wien, Österreich</div>
+            <div>Telefon</div><div><a href="tel:+436767951018">+43 676 795 10 18</a></div>
+            <div>E-Mail</div><div><a href="mailto:office@salesdrive.at">office@salesdrive.at</a></div>
+            <div>Geschäftsführer</div><div>Alexander Kiraly</div>
+            <div>Firmenbuchnummer</div><div><b>FN 599821s</b></div>
+            <div>Firmenbuchgericht</div><div>Handelsgericht Wien</div>
+            <div>UID-Nummer</div><div><b>ATU79430518</b></div>
+            <div>Unternehmens­gegenstand</div><div>Telefonische B2B-Vertriebsdienstleistung. Es werden keine Unternehmens­beratungen oder ähnliche Beratungs­leistungen erbracht.</div>
+            <div>Aufsichtsbehörde</div><div>Magistratisches Bezirksamt für den 2. Bezirk, Wien</div>
+            <div>Kammerzugehörigkeit</div><div>Wirtschaftskammer Wien</div>
+            <div>Anwendbare Vorschriften</div><div>Gewerbeordnung (GewO), abrufbar unter <a href="https://www.ris.bka.gv.at" target="_blank" rel="noopener">ris.bka.gv.at</a></div>
+          </div>
+        </section>
+
+        <section class="legal-section" id="bank">
+          <h2><span style="font-family:var(--display);font-size:13px;font-weight:600;color:var(--blue);padding:4px 10px;background:rgba(41,151,255,.10);border-radius:980px;letter-spacing:.04em">02</span>Bankverbindung</h2>
+          <div class="legal-kv">
+            <div>Bank</div><div>Oberbank AG</div>
+            <div>IBAN</div><div><b>AT42 1500 0046 0104 8855</b></div>
+            <div>BIC</div><div><b>OBKLAT2L</b></div>
+          </div>
+        </section>
+
+        <section class="legal-section" id="streit">
+          <h2><span style="font-family:var(--display);font-size:13px;font-weight:600;color:var(--blue);padding:4px 10px;background:rgba(41,151,255,.10);border-radius:980px;letter-spacing:.04em">03</span>EU-Streitschlichtung</h2>
+          <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">ec.europa.eu/consumers/odr/</a>. Unsere E-Mail-Adresse findest du oben in diesem Impressum.</p>
+          <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+        </section>
+
+        <section class="legal-section" id="urheber">
+          <h2><span style="font-family:var(--display);font-size:13px;font-weight:600;color:var(--blue);padding:4px 10px;background:rgba(41,151,255,.10);border-radius:980px;letter-spacing:.04em">04</span>Urheberrecht</h2>
+          <p>Die Inhalte, Werke und sonstigen Beiträge auf dieser Website unterliegen dem österreichischen und internationalen Urheberrecht. Die Rechte liegen, soweit nicht anders gekennzeichnet, bei der SalesDrive GmbH. Jede Vervielfältigung, Bearbeitung, Verbreitung oder sonstige Verwertung außerhalb der Grenzen des Urheberrechts bedarf der schriftlichen Zustimmung des jeweiligen Autors bzw. der SalesDrive GmbH.</p>
+        </section>
+
+        <section class="legal-section" id="haftung-inhalt">
+          <h2><span style="font-family:var(--display);font-size:13px;font-weight:600;color:var(--blue);padding:4px 10px;background:rgba(41,151,255,.10);border-radius:980px;letter-spacing:.04em">05</span>Haftung für Inhalte</h2>
+          <p>Wir bemühen uns, die Inhalte dieser Website korrekt und aktuell zu halten. Trotz sorgfältiger Prüfung können wir keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität übernehmen. Eine Haftung für Schäden, die direkt oder indirekt aus der Nutzung dieser Website entstehen, ist ausgeschlossen, sofern diese nicht auf Vorsatz oder grober Fahrlässigkeit beruhen.</p>
+        </section>
+
+        <section class="legal-section" id="haftung-links">
+          <h2><span style="font-family:var(--display);font-size:13px;font-weight:600;color:var(--blue);padding:4px 10px;background:rgba(41,151,255,.10);border-radius:980px;letter-spacing:.04em">06</span>Haftung für externe Links</h2>
+          <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter verantwortlich. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden entsprechender Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>
+        </section>
+
+        <div class="legal-updated">Stand: 17. Januar 2026 · zuletzt geprüft durch die Geschäftsführung.</div>
       </div>
+    </main>
+  </div>
 
-      <h2>Bankverbindung</h2>
-      <div class="legal__grid">
-        <div><b>Bank</b></div><div><span>Oberbank AG</span></div>
-        <div><b>IBAN</b></div><div><span>AT42 1500 0046 0104 8855</span></div>
-        <div><b>BIC</b></div><div><span>OBKLAT2L</span></div>
-      </div>
-
-      <h2>EU-Streitschlichtung</h2>
-      <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>. Unsere E-Mail-Adresse findest du oben in diesem Impressum.</p>
-      <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
-
-      <h2>Urheberrecht</h2>
-      <p>Die Inhalte, Werke und sonstigen Beiträge auf dieser Website unterliegen dem österreichischen und internationalen Urheberrecht. Die Rechte liegen, soweit nicht anders gekennzeichnet, bei der SalesDrive GmbH. Jede Vervielfältigung, Bearbeitung, Verbreitung oder sonstige Verwertung außerhalb der Grenzen des Urheberrechts bedarf der schriftlichen Zustimmung des jeweiligen Autors bzw. der SalesDrive GmbH.</p>
-
-      <h2>Haftung für Inhalte</h2>
-      <p>Wir bemühen uns, die Inhalte dieser Website korrekt und aktuell zu halten. Trotz sorgfältiger Prüfung können wir keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität übernehmen. Eine Haftung für Schäden, die direkt oder indirekt aus der Nutzung dieser Website entstehen, ist ausgeschlossen, sofern diese nicht auf Vorsatz oder grober Fahrlässigkeit beruhen.</p>
-
-      <h2>Haftung für externe Links</h2>
-      <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter verantwortlich. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden entsprechender Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>
+  <!-- TRUST STRIP — proof of company -->
+  <div class="legal-trust">
+    <div class="legal-trust__head reveal">
+      <div class="legal-trust__head-eye">Geprüfte Identität</div>
+      <div class="legal-trust__head-title">Verifizierbar in jedem öffentlichen Register.</div>
     </div>
-
-    <div class="legal__updated">Stand: 17. Januar 2026</div>
+    <div class="legal-trust__grid">
+      <div class="legal-trust__card reveal-blur">
+        <div class="legal-trust__card-eye">Firmenbuch</div>
+        <div class="legal-trust__card-val">FN 599821s</div>
+        <div class="legal-trust__card-sub">HG Wien · <a href="https://justizonline.gv.at" target="_blank" rel="noopener">justizonline.gv.at</a></div>
+      </div>
+      <div class="legal-trust__card reveal-blur d-1">
+        <div class="legal-trust__card-eye">UID-Nummer</div>
+        <div class="legal-trust__card-val">ATU79430518</div>
+        <div class="legal-trust__card-sub">Prüfbar im <a href="https://ec.europa.eu/taxation_customs/vies/" target="_blank" rel="noopener">EU-VIES-System</a></div>
+      </div>
+      <div class="legal-trust__card reveal-blur d-2">
+        <div class="legal-trust__card-eye">TÜV Rheinland</div>
+        <div class="legal-trust__card-val">ID 0217466221</div>
+        <div class="legal-trust__card-sub">gültig bis 11.03.2029 · <a href="zertifizierungen.html">Details</a></div>
+      </div>
+      <div class="legal-trust__card reveal-blur d-3">
+        <div class="legal-trust__card-eye">Standort</div>
+        <div class="legal-trust__card-val">1020 Wien</div>
+        <div class="legal-trust__card-sub">Obere Donaustraße 25 · Leopoldquartier</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -116,6 +317,34 @@
     <div class="footer__bottom"><span>© 2026 SalesDrive GmbH · FN 599821s · HG Wien · UID ATU79430518</span><span>Made in Vienna</span></div>
   </div>
 </footer>
+
 <script src="assets/js/site.js"></script>
+<script>
+// ScrollSpy for TOC
+(function() {
+  const tocLinks = document.querySelectorAll('[data-toc]');
+  const sections = Array.from(tocLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  if (!sections.length) return;
+  function update() {
+    const scrollY = window.scrollY + 110;
+    let active = sections[0];
+    sections.forEach(s => {
+      if (s.offsetTop <= scrollY) active = s;
+    });
+    tocLinks.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + active.id));
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+  // Smooth scroll
+  tocLinks.forEach(a => {
+    a.addEventListener('click', (e) => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (!t) return;
+      e.preventDefault();
+      window.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' });
+    });
+  });
+})();
+</script>
 </body>
 </html>

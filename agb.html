@@ -12,22 +12,53 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
 <style>
-.legal { padding: clamp(120px, 14vw, 160px) 0 clamp(60px, 9vw, 100px); }
-.legal__inner { max-width: 820px; margin: 0 auto; padding: 0 22px; }
-.legal__head { text-align: center; margin-bottom: clamp(40px, 6vw, 70px); }
-.legal__eye { font-size: 12px; color: var(--blue); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 12px; }
-.legal__title { font-family: var(--display); font-size: clamp(36px, 5vw, 64px); font-weight: 600; letter-spacing: -.04em; line-height: 1.04; }
-.legal__intro { font-size: 16px; color: var(--ink-2); line-height: 1.55; margin-top: 20px; }
-.legal h2 { font-family: var(--display); font-size: clamp(20px, 2.2vw, 26px); font-weight: 600; letter-spacing: -.024em; margin: 36px 0 12px; color: var(--ink); }
-.legal h2:first-of-type { margin-top: 0; }
-.legal h3 { font-family: var(--display); font-size: 16px; font-weight: 600; letter-spacing: -.018em; margin: 22px 0 8px; color: var(--ink); }
-.legal p, .legal li { color: var(--ink-2); line-height: 1.6; margin-bottom: 12px; font-size: 14px; }
-.legal ul { list-style: disc; padding-left: 22px; margin-bottom: 12px; }
-.legal li { margin-bottom: 6px; }
-.legal a { color: var(--blue); }
-.legal a:hover { text-decoration: underline; text-underline-offset: 3px; }
-.legal__card { background: var(--surf); border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(22px, 3vw, 36px); }
-.legal__updated { margin-top: 40px; font-size: 12px; color: var(--ink-mute); text-align: center; }
+.legal-shell { padding: clamp(110px, 13vw, 160px) 0 clamp(60px, 9vw, 100px); position: relative; }
+.legal-shell::before { content: ""; position: absolute; inset: 0; background: radial-gradient(900px 500px at 50% 0%, rgba(41,151,255,.08), transparent 60%); pointer-events: none; }
+.legal-hero { max-width: 1240px; margin: 0 auto clamp(40px, 6vw, 80px); padding: 0 28px; text-align: center; position: relative; z-index: 1; }
+.legal-eye { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px 5px 8px; background: rgba(255,255,255,.04); border: 1px solid var(--line-2); border-radius: 980px; font-size: 12px; color: var(--ink-2); margin-bottom: 22px; backdrop-filter: blur(10px); }
+.legal-eye-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 10px var(--blue); }
+.legal-title { font-family: var(--display); font-size: clamp(40px, 6.4vw, 80px); font-weight: 700; line-height: 1.05; letter-spacing: -.04em; color: #ffffff; margin-bottom: 16px; }
+.legal-title em { color: var(--blue-bright); font-style: normal; }
+.legal-intro { font-size: clamp(16px, 1.4vw, 19px); color: var(--ink-2); line-height: 1.5; max-width: 660px; margin: 0 auto; }
+.legal-grid { max-width: 1240px; margin: 0 auto; padding: 0 28px; display: grid; grid-template-columns: 260px 1fr; gap: clamp(40px, 5vw, 80px); position: relative; z-index: 1; }
+@media (max-width: 980px) { .legal-grid { grid-template-columns: 1fr; gap: 24px; } }
+.legal-side { position: sticky; top: 70px; align-self: start; background: linear-gradient(180deg, rgba(255,255,255,.028), rgba(255,255,255,.012)); border: 1px solid var(--line-2); border-radius: var(--r-lg); padding: 22px 18px; max-height: calc(100vh - 100px); overflow-y: auto; }
+@media (max-width: 980px) { .legal-side { position: static; max-height: none; } }
+.legal-side__label { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-mute); padding: 4px 12px 10px; }
+.legal-side__list { display: flex; flex-direction: column; gap: 2px; }
+.legal-side__item { display: flex; align-items: center; gap: 10px; padding: 8px 12px; font-size: 13px; color: var(--ink-3); border-radius: 8px; border-left: 2px solid transparent; transition: background .2s ease, color .2s ease, border-color .2s ease; }
+.legal-side__item:hover { background: rgba(255,255,255,.04); color: var(--ink); }
+.legal-side__item.is-active { background: rgba(41,151,255,.10); color: var(--blue-bright); border-left-color: var(--blue); }
+.legal-side__num { font-family: var(--display); font-weight: 600; font-size: 11px; color: var(--ink-mute); flex-shrink: 0; min-width: 24px; }
+.legal-side__item.is-active .legal-side__num { color: var(--blue); }
+.legal-side__divider { height: 1px; background: var(--line); margin: 12px 8px; }
+.legal-side__hint { font-size: 11px; color: var(--ink-mute); padding: 4px 12px; line-height: 1.5; }
+.legal-side__hint a { color: var(--blue); }
+.legal-main { min-width: 0; }
+.legal-card { background: linear-gradient(180deg, rgba(255,255,255,.028), rgba(255,255,255,.012)); border: 1px solid var(--line-2); border-radius: var(--r-lg); padding: clamp(28px, 4vw, 50px); box-shadow: 0 40px 100px -40px rgba(0,0,0,.75); }
+.legal-section { scroll-margin-top: 80px; padding: clamp(24px, 3vw, 40px) 0; border-top: 1px solid var(--line); }
+.legal-section:first-of-type { border-top: 0; padding-top: 0; }
+.legal-section h2 { font-family: var(--display); font-size: clamp(22px, 2.4vw, 30px); font-weight: 700; letter-spacing: -.026em; line-height: 1.1; color: #ffffff; margin-bottom: 14px; display: flex; align-items: center; gap: 12px; }
+.legal-pill { font-family: var(--display); font-size: 13px; font-weight: 600; color: var(--blue); padding: 4px 10px; background: rgba(41,151,255,.10); border-radius: 980px; letter-spacing: .04em; }
+.legal-section p { font-size: 15px; line-height: 1.6; color: var(--ink-2); margin-bottom: 12px; }
+.legal-section ul { list-style: disc; padding-left: 22px; margin-bottom: 12px; }
+.legal-section li { font-size: 15px; line-height: 1.6; color: var(--ink-2); margin-bottom: 6px; }
+.legal-section a { color: var(--blue); }
+.legal-section a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.legal-section b { color: var(--ink); font-weight: 600; }
+.legal-trust { max-width: 1240px; margin: clamp(60px, 8vw, 100px) auto 0; padding: 0 28px; position: relative; z-index: 1; }
+.legal-trust__head { text-align: center; margin-bottom: 30px; }
+.legal-trust__head-eye { font-size: 11px; color: var(--blue); letter-spacing: .14em; text-transform: uppercase; font-weight: 600; margin-bottom: 10px; }
+.legal-trust__head-title { font-family: var(--display); font-size: clamp(22px, 2.6vw, 32px); font-weight: 700; letter-spacing: -.026em; color: #ffffff; }
+.legal-trust__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.legal-trust__card { background: linear-gradient(180deg, rgba(255,255,255,.028), rgba(255,255,255,.012)); border: 1px solid var(--line-2); border-radius: var(--r-md); padding: 22px; }
+.legal-trust__card-eye { font-size: 11px; color: var(--ink-mute); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 6px; }
+.legal-trust__card-val { font-family: var(--display); font-size: 18px; font-weight: 600; color: #ffffff; letter-spacing: -.02em; line-height: 1.2; }
+.legal-trust__card-sub { font-size: 12px; color: var(--ink-3); margin-top: 4px; }
+.legal-trust__card-sub a { color: var(--blue); }
+@media (max-width: 900px) { .legal-trust__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .legal-trust__grid { grid-template-columns: 1fr; } }
+.legal-updated { margin-top: 40px; font-size: 12px; color: var(--ink-mute); text-align: center; }
 </style>
 </head>
 <body>
@@ -44,91 +75,138 @@
       <li><a href="team.html">Team</a></li>
       <li><a href="zertifizierungen.html">Zertifizierungen</a></li>
     </ul>
-    <a class="nav__cta" href="formular.html">
-      Analysegespräch
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-    </a>
+    <a class="nav__cta" href="formular.html">Analysegespräch <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
   </div>
 </nav>
 <div class="progress" id="progress"></div>
 <div class="nav-spacer"></div>
 
-<section class="legal">
-  <div class="legal__inner">
-    <div class="legal__head reveal">
-      <div class="legal__eye">Rechtliches</div>
-      <h1 class="legal__title">Allgemeine Geschäftsbedingungen</h1>
-      <p class="legal__intro">Diese AGB regeln die Vertragsbeziehung zwischen der SalesDrive GmbH und ihren B2B-Kunden. Verträge mit Verbrauchern (Privatpersonen) werden nicht abgeschlossen.</p>
+<section class="legal-shell">
+  <div class="legal-hero reveal">
+    <div class="legal-eye"><span class="legal-eye-dot"></span>Rechtliches · Stand Januar 2026</div>
+    <h1 class="legal-title">Allgemeine <em>Geschäftsbedingungen.</em></h1>
+    <p class="legal-intro">Klar formuliert, schriftlich nachvollziehbar. Verträge ausschließlich mit Unternehmern i.S.d. § 1 UGB. Keine Verträge mit Verbrauchern.</p>
+  </div>
+
+  <div class="legal-grid">
+    <aside class="legal-side" aria-label="Inhaltsverzeichnis">
+      <div class="legal-side__label">§§ Übersicht</div>
+      <nav class="legal-side__list" id="legalToc">
+        <a class="legal-side__item is-active" href="#p1" data-toc><span class="legal-side__num">§ 1</span>Geltungsbereich</a>
+        <a class="legal-side__item" href="#p2" data-toc><span class="legal-side__num">§ 2</span>Vertragsgegenstand</a>
+        <a class="legal-side__item" href="#p3" data-toc><span class="legal-side__num">§ 3</span>Handeln im Auftrag</a>
+        <a class="legal-side__item" href="#p4" data-toc><span class="legal-side__num">§ 4</span>TKG &amp; UWG</a>
+        <a class="legal-side__item" href="#p5" data-toc><span class="legal-side__num">§ 5</span>Haftungsausschluss</a>
+        <a class="legal-side__item" href="#p6" data-toc><span class="legal-side__num">§ 6</span>Mitwirkungspflichten</a>
+        <a class="legal-side__item" href="#p7" data-toc><span class="legal-side__num">§ 7</span>Vergütung</a>
+        <a class="legal-side__item" href="#p8" data-toc><span class="legal-side__num">§ 8</span>Feiertage</a>
+        <a class="legal-side__item" href="#p9" data-toc><span class="legal-side__num">§ 9</span>Nutzungsrechte</a>
+        <a class="legal-side__item" href="#p10" data-toc><span class="legal-side__num">§ 10</span>Referenznennung</a>
+        <a class="legal-side__item" href="#p11" data-toc><span class="legal-side__num">§ 11</span>Haftung</a>
+        <a class="legal-side__item" href="#p12" data-toc><span class="legal-side__num">§ 12</span>Datenschutz</a>
+        <a class="legal-side__item" href="#p13" data-toc><span class="legal-side__num">§ 13</span>Vertraulichkeit</a>
+        <a class="legal-side__item" href="#p14" data-toc><span class="legal-side__num">§ 14</span>Schlussbestimmungen</a>
+      </nav>
+      <div class="legal-side__divider"></div>
+      <div class="legal-side__hint">Fragen zum Vertragsverhältnis? <a href="mailto:office@salesdrive.at">office@salesdrive.at</a> · Mo–Fr 8–18 Uhr</div>
+    </aside>
+
+    <main class="legal-main">
+      <div class="legal-card reveal-blur">
+
+        <section class="legal-section" id="p1"><h2><span class="legal-pill">§ 1</span>Geltungsbereich</h2>
+          <p>Diese Allgemeinen Geschäftsbedingungen (AGB) gelten ausschließlich für Verträge mit Unternehmern i.S.d. § 1 UGB. Verträge mit Verbrauchern werden ausdrücklich nicht abgeschlossen. Abweichende oder ergänzende Bedingungen des Kunden finden keine Anwendung, sofern sie nicht ausdrücklich und schriftlich von SalesDrive anerkannt wurden.</p>
+        </section>
+
+        <section class="legal-section" id="p2"><h2><span class="legal-pill">§ 2</span>Vertragsgegenstand</h2>
+          <p>Vertragsgegenstand sind insbesondere die folgenden Leistungen:</p>
+          <ul>
+            <li>Telefonische Erstansprache (Opening Calls) im Auftrag des Kunden</li>
+            <li>Vorqualifizierung von Leads</li>
+            <li>Vereinbarung von Erst- und Abschlussgesprächen für den Kunden</li>
+            <li>Reporting und Live-Tracking der Kampagnen</li>
+          </ul>
+          <p>SalesDrive erbringt keine Unternehmensberatung, keine Rechts-, Steuer- oder sonstige Fachberatung. Konkrete wirtschaftliche Ergebnisse oder bestimmte Konversionsraten werden nicht zugesichert, sofern dies nicht ausdrücklich schriftlich im Angebot vereinbart wurde.</p>
+        </section>
+
+        <section class="legal-section" id="p3"><h2><span class="legal-pill">§ 3</span>Handeln im Auftrag des Kunden</h2>
+          <p>SalesDrive agiert ausschließlich im Auftrag und auf Weisung des Kunden. Der Kunde bleibt:</p>
+          <ul>
+            <li>rechtlicher Initiator der Kontaktaufnahme</li>
+            <li>Verantwortlicher im Sinne der DSGVO</li>
+            <li>verantwortlich für Inhalte, Briefings und freigegebene Skripte</li>
+          </ul>
+          <p>SalesDrive führt keine eigenständigen Vertragsverhandlungen oder Vertragsabschlüsse im Namen des Kunden.</p>
+        </section>
+
+        <section class="legal-section" id="p4"><h2><span class="legal-pill">§ 4</span>Rechtliche Verantwortung des Kunden (TKG &amp; UWG)</h2>
+          <p>Der Kunde bestätigt, dass die in Auftrag gegebenen Maßnahmen mit dem österreichischen Telekommunikationsgesetz (TKG), dem Gesetz gegen den unlauteren Wettbewerb (UWG), der Datenschutz-Grundverordnung (DSGVO) sowie sämtlichen anderen anwendbaren Rechtsvorschriften in Einklang stehen.</p>
+          <p>SalesDrive übernimmt keine rechtliche Prüfung der Zulässigkeit einzelner Kontaktmaßnahmen. Der Kunde stellt SalesDrive von sämtlichen Ansprüchen Dritter frei, die aus der Durchführung der vom Kunden in Auftrag gegebenen Maßnahmen resultieren.</p>
+        </section>
+
+        <section class="legal-section" id="p5"><h2><span class="legal-pill">§ 5</span>Haftungsausschluss &amp; Freistellung</h2>
+          <p>SalesDrive übernimmt keinerlei Haftung für:</p>
+          <ul>
+            <li>Verwaltungsstrafen, Bußgelder oder Geldstrafen</li>
+            <li>Abmahnungen durch Mitbewerber oder Verbraucherverbände</li>
+            <li>Schadensersatzansprüche Dritter aus der Durchführung der vom Kunden veranlassten Maßnahmen</li>
+          </ul>
+          <p>Der Kunde stellt SalesDrive umfassend von solchen Ansprüchen frei.</p>
+        </section>
+
+        <section class="legal-section" id="p6"><h2><span class="legal-pill">§ 6</span>Mitwirkungspflichten des Kunden</h2>
+          <p>Der Kunde stellt SalesDrive unverzüglich alle benötigten Informationen, Inhalte und Freigaben zur Verfügung. Verzögert der Kunde Mitwirkungspflichten, verlängert sich die Kampagnen-Laufzeit entsprechend, ohne dass dies zu einer Anpassung der Vergütung führt.</p>
+        </section>
+
+        <section class="legal-section" id="p7"><h2><span class="legal-pill">§ 7</span>Vergütung &amp; Zahlungsbedingungen</h2>
+          <p>Die Vergütung ergibt sich aus dem jeweiligen Angebot und ist <b>monatlich im Voraus fällig</b>. Rechnungen sind binnen 14 Tagen ohne Abzug zu begleichen. Bei Zahlungsverzug pausiert SalesDrive die Leistungserbringung mit sofortiger Wirkung bis zum vollständigen Zahlungseingang.</p>
+        </section>
+
+        <section class="legal-section" id="p8"><h2><span class="legal-pill">§ 8</span>Feiertage &amp; Pausierung Kampagne</h2>
+          <p>An gesetzlichen Feiertagen in Österreich, Deutschland und der Schweiz sowie im Zeitraum vom <b>23. Dezember bis 7. Januar</b> findet keine telefonische Erstansprache statt. Die Kampagnen-Laufzeit verlängert sich entsprechend, ohne dass dies zu einer Reduktion der Vergütung führt.</p>
+        </section>
+
+        <section class="legal-section" id="p9"><h2><span class="legal-pill">§ 9</span>Nutzungsrechte</h2>
+          <p>Alle im Rahmen des Projekts erstellten Konzepte, Skripte, Dokumentationen, Datensätze, Listen und Systeme verbleiben im geistigen Eigentum der SalesDrive GmbH. Der Kunde erhält ein nicht übertragbares, internes Nutzungsrecht für die Dauer der Zusammenarbeit und darüber hinaus.</p>
+          <p>Eine Veröffentlichung, Weitergabe an Dritte oder kommerzielle Weiterverwertung ist ohne ausdrückliche schriftliche Zustimmung von SalesDrive nicht gestattet.</p>
+        </section>
+
+        <section class="legal-section" id="p10"><h2><span class="legal-pill">§ 10</span>Referenznennung</h2>
+          <p>SalesDrive ist berechtigt, den Kunden als Referenz auf der eigenen Website und in Verkaufsmaterialien zu nennen, sofern der Kunde dem nicht ausdrücklich schriftlich widerspricht.</p>
+        </section>
+
+        <section class="legal-section" id="p11"><h2><span class="legal-pill">§ 11</span>Haftung</h2>
+          <p>SalesDrive haftet für vorsätzliches oder grob fahrlässiges Verhalten. Bei leichter Fahrlässigkeit haftet SalesDrive nur bei Verletzung wesentlicher Vertragspflichten und beschränkt auf den vertragstypisch vorhersehbaren Schaden. <b>Ein wirtschaftlicher Erfolg wird ausdrücklich nicht geschuldet.</b></p>
+        </section>
+
+        <section class="legal-section" id="p12"><h2><span class="legal-pill">§ 12</span>Datenschutz</h2>
+          <p>Die Datenverarbeitung erfolgt nach den Vorgaben der DSGVO. Mit dem Kunden wird, sofern erforderlich, ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO geschlossen. Details siehe <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+        </section>
+
+        <section class="legal-section" id="p13"><h2><span class="legal-pill">§ 13</span>Vertraulichkeit</h2>
+          <p>Beide Parteien verpflichten sich, sämtliche im Rahmen der Zusammenarbeit erhaltenen Informationen vertraulich zu behandeln. Diese Pflicht besteht auch nach Beendigung der Zusammenarbeit fort.</p>
+        </section>
+
+        <section class="legal-section" id="p14"><h2><span class="legal-pill">§ 14</span>Schlussbestimmungen</h2>
+          <p>Es gilt österreichisches Recht unter Ausschluss der Verweisungsnormen des internationalen Privatrechts sowie unter Ausschluss des UN-Kaufrechts. <b>Gerichtsstand ist Wien.</b> Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen davon unberührt.</p>
+        </section>
+
+        <div class="legal-updated">Stand: Januar 2026</div>
+      </div>
+    </main>
+  </div>
+
+  <div class="legal-trust">
+    <div class="legal-trust__head reveal">
+      <div class="legal-trust__head-eye">Geprüfte Identität</div>
+      <div class="legal-trust__head-title">Verifizierbar in jedem öffentlichen Register.</div>
     </div>
-
-    <div class="legal__card reveal-blur">
-
-      <h2>§ 1 Geltungsbereich</h2>
-      <p>Diese Allgemeinen Geschäftsbedingungen (AGB) gelten ausschließlich für Verträge mit Unternehmern i.S.d. § 1 UGB. Verträge mit Verbrauchern werden ausdrücklich nicht abgeschlossen. Abweichende oder ergänzende Bedingungen des Kunden finden keine Anwendung, sofern sie nicht ausdrücklich und schriftlich von SalesDrive anerkannt wurden.</p>
-
-      <h2>§ 2 Vertragsgegenstand</h2>
-      <p>Vertragsgegenstand sind insbesondere die folgenden Leistungen:</p>
-      <ul>
-        <li>Telefonische Erstansprache (Opening Calls) im Auftrag des Kunden</li>
-        <li>Vorqualifizierung von Leads</li>
-        <li>Vereinbarung von Erst- und Abschlussgesprächen für den Kunden</li>
-        <li>Reporting und Live-Tracking der Kampagnen</li>
-      </ul>
-      <p>SalesDrive erbringt keine Unternehmensberatung, keine Rechts-, Steuer- oder sonstige Fachberatung. Konkrete wirtschaftliche Ergebnisse oder bestimmte Konversionsraten werden nicht zugesichert, sofern dies nicht ausdrücklich schriftlich im Angebot vereinbart wurde.</p>
-
-      <h2>§ 3 Handeln im Auftrag des Kunden</h2>
-      <p>SalesDrive agiert ausschließlich im Auftrag und auf Weisung des Kunden. Der Kunde bleibt:</p>
-      <ul>
-        <li>rechtlicher Initiator der Kontaktaufnahme</li>
-        <li>Verantwortlicher im Sinne der DSGVO</li>
-        <li>verantwortlich für Inhalte, Briefings und freigegebene Skripte</li>
-      </ul>
-      <p>SalesDrive führt keine eigenständigen Vertragsverhandlungen oder Vertragsabschlüsse im Namen des Kunden.</p>
-
-      <h2>§ 4 Rechtliche Verantwortung des Kunden (TKG &amp; UWG)</h2>
-      <p>Der Kunde bestätigt, dass die in Auftrag gegebenen Maßnahmen mit dem österreichischen Telekommunikationsgesetz (TKG), dem Gesetz gegen den unlauteren Wettbewerb (UWG), der Datenschutz-Grundverordnung (DSGVO) sowie sämtlichen anderen anwendbaren Rechtsvorschriften in Einklang stehen.</p>
-      <p>SalesDrive übernimmt keine rechtliche Prüfung der Zulässigkeit einzelner Kontaktmaßnahmen. Der Kunde stellt SalesDrive von sämtlichen Ansprüchen Dritter frei, die aus der Durchführung der vom Kunden in Auftrag gegebenen Maßnahmen resultieren.</p>
-
-      <h2>§ 5 Haftungsausschluss &amp; Freistellung</h2>
-      <p>SalesDrive übernimmt keinerlei Haftung für:</p>
-      <ul>
-        <li>Verwaltungsstrafen, Bußgelder oder Geldstrafen</li>
-        <li>Abmahnungen durch Mitbewerber oder Verbraucherverbände</li>
-        <li>Schadensersatzansprüche Dritter aus der Durchführung der vom Kunden veranlassten Maßnahmen</li>
-      </ul>
-      <p>Der Kunde stellt SalesDrive umfassend von solchen Ansprüchen frei.</p>
-
-      <h2>§ 6 Mitwirkungspflichten des Kunden</h2>
-      <p>Der Kunde stellt SalesDrive unverzüglich alle benötigten Informationen, Inhalte und Freigaben zur Verfügung. Verzögert der Kunde Mitwirkungspflichten, verlängert sich die Kampagnen-Laufzeit entsprechend, ohne dass dies zu einer Anpassung der Vergütung führt.</p>
-
-      <h2>§ 7 Vergütung &amp; Zahlungsbedingungen</h2>
-      <p>Die Vergütung ergibt sich aus dem jeweiligen Angebot und ist monatlich im Voraus fällig. Rechnungen sind binnen 14 Tagen ohne Abzug zu begleichen. Bei Zahlungsverzug pausiert SalesDrive die Leistungserbringung mit sofortiger Wirkung bis zum vollständigen Zahlungseingang.</p>
-
-      <h2>§ 8 Feiertage &amp; Pausierung Kampagne</h2>
-      <p>An gesetzlichen Feiertagen in Österreich, Deutschland und der Schweiz sowie im Zeitraum vom 23. Dezember bis 7. Januar findet keine telefonische Erstansprache statt. Die Kampagnen-Laufzeit verlängert sich entsprechend, ohne dass dies zu einer Reduktion der Vergütung führt.</p>
-
-      <h2>§ 9 Nutzungsrechte</h2>
-      <p>Alle im Rahmen des Projekts erstellten Konzepte, Skripte, Dokumentationen, Datensätze, Listen und Systeme verbleiben im geistigen Eigentum der SalesDrive GmbH. Der Kunde erhält ein nicht übertragbares, internes Nutzungsrecht für die Dauer der Zusammenarbeit und darüber hinaus.</p>
-      <p>Eine Veröffentlichung, Weitergabe an Dritte oder kommerzielle Weiterverwertung ist ohne ausdrückliche schriftliche Zustimmung von SalesDrive nicht gestattet.</p>
-
-      <h2>§ 10 Referenznennung</h2>
-      <p>SalesDrive ist berechtigt, den Kunden als Referenz auf der eigenen Website und in Verkaufsmaterialien zu nennen, sofern der Kunde dem nicht ausdrücklich schriftlich widerspricht.</p>
-
-      <h2>§ 11 Haftung</h2>
-      <p>SalesDrive haftet für vorsätzliches oder grob fahrlässiges Verhalten. Bei leichter Fahrlässigkeit haftet SalesDrive nur bei Verletzung wesentlicher Vertragspflichten und beschränkt auf den vertragstypisch vorhersehbaren Schaden. Ein wirtschaftlicher Erfolg der Kampagne wird ausdrücklich nicht geschuldet.</p>
-
-      <h2>§ 12 Datenschutz</h2>
-      <p>Die Datenverarbeitung erfolgt nach den Vorgaben der DSGVO. Mit dem Kunden wird, sofern erforderlich, ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO geschlossen. Details siehe <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
-
-      <h2>§ 13 Vertraulichkeit</h2>
-      <p>Beide Parteien verpflichten sich, sämtliche im Rahmen der Zusammenarbeit erhaltenen Informationen vertraulich zu behandeln. Diese Pflicht besteht auch nach Beendigung der Zusammenarbeit fort.</p>
-
-      <h2>§ 14 Schlussbestimmungen</h2>
-      <p>Es gilt österreichisches Recht unter Ausschluss der Verweisungsnormen des internationalen Privatrechts sowie unter Ausschluss des UN-Kaufrechts. Gerichtsstand ist Wien. Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen davon unberührt.</p>
-
+    <div class="legal-trust__grid">
+      <div class="legal-trust__card reveal-blur"><div class="legal-trust__card-eye">Firmenbuch</div><div class="legal-trust__card-val">FN 599821s</div><div class="legal-trust__card-sub">HG Wien · <a href="https://justizonline.gv.at" target="_blank" rel="noopener">justizonline.gv.at</a></div></div>
+      <div class="legal-trust__card reveal-blur d-1"><div class="legal-trust__card-eye">UID-Nummer</div><div class="legal-trust__card-val">ATU79430518</div><div class="legal-trust__card-sub">EU-VIES prüfbar</div></div>
+      <div class="legal-trust__card reveal-blur d-2"><div class="legal-trust__card-eye">TÜV Rheinland</div><div class="legal-trust__card-val">ID 0217466221</div><div class="legal-trust__card-sub">gültig bis 11.03.2029</div></div>
+      <div class="legal-trust__card reveal-blur d-3"><div class="legal-trust__card-eye">Standort</div><div class="legal-trust__card-val">1020 Wien</div><div class="legal-trust__card-sub">Obere Donaustraße 25</div></div>
     </div>
-
-    <div class="legal__updated">Stand: Januar 2026</div>
   </div>
 </section>
 
@@ -146,6 +224,30 @@
     <div class="footer__bottom"><span>© 2026 SalesDrive GmbH · FN 599821s · HG Wien · UID ATU79430518</span><span>Made in Vienna</span></div>
   </div>
 </footer>
+
 <script src="assets/js/site.js"></script>
+<script>
+(function() {
+  const tocLinks = document.querySelectorAll('[data-toc]');
+  const sections = Array.from(tocLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  if (!sections.length) return;
+  function update() {
+    const scrollY = window.scrollY + 110;
+    let active = sections[0];
+    sections.forEach(s => { if (s.offsetTop <= scrollY) active = s; });
+    tocLinks.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + active.id));
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+  tocLinks.forEach(a => {
+    a.addEventListener('click', (e) => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (!t) return;
+      e.preventDefault();
+      window.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' });
+    });
+  });
+})();
+</script>
 </body>
 </html>

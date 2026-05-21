@@ -18,27 +18,17 @@
 <style>
 /* ===== HOME-specific styles ===== */
 
-/* Section headers — matched to hero size */
+/* Section headers — pure white, em as solid blue accent */
 .sec-head h2 {
   font-family: var(--display);
   font-size: clamp(28px, 4.6vw, 60px) !important;
   font-weight: 700 !important;
   letter-spacing: -.035em !important;
-  line-height: 1.14 !important;
+  line-height: 1.2 !important;
   margin-bottom: 22px;
-  background: linear-gradient(155deg, #ffffff 0%, #ffffff 38%, #b9bac4 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  padding-bottom: .2em;
+  color: #ffffff !important;
 }
-.sec-head h2 em {
-  background: linear-gradient(155deg, #ffffff 0%, #6BC9FF 55%, #2997ff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-style: normal;
-}
+.sec-head h2 em { color: var(--blue-bright); font-style: normal; }
 
 /* HERO */
 .hero { position: relative; padding: clamp(60px, 9vw, 100px) 0 0; overflow: hidden; isolation: isolate; }
@@ -69,30 +59,18 @@
   font-family: var(--display);
   font-size: clamp(28px, 4.6vw, 60px);
   font-weight: 700;
-  line-height: 1.14;
+  line-height: 1.2;
   letter-spacing: -.035em;
   margin-bottom: 24px;
-  padding-bottom: .2em;
-  color: #fff; /* fallback */
+  color: #ffffff;
   max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
 }
-/* Apply gradient to each word-span individually because background-clip:text
-   doesn't propagate through inline-block children. */
-.hero__title .w {
-  background: linear-gradient(155deg, #ffffff 0%, #ffffff 35%, #b9bac4 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  line-height: inherit;
-}
-.hero__title .w em,
-.hero__title em {
-  background: linear-gradient(155deg, #ffffff 0%, #6BC9FF 55%, #2997ff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.hero__title .w { color: inherit; line-height: inherit; }
+.hero__title em,
+.hero__title .w em {
+  color: var(--blue-bright);
   font-style: normal;
 }
 .hero__sub { font-size: clamp(16px, 1.5vw, 22px); font-weight: 400; line-height: 1.32; letter-spacing: -.018em; color: var(--ink-2); max-width: 760px; margin: 0 auto 28px; }
@@ -210,21 +188,12 @@
   font-family: var(--display);
   font-size: clamp(80px, 16vw, 220px);
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.05;
   letter-spacing: -.058em;
   margin-bottom: 24px;
-  background: linear-gradient(155deg, #ffffff 0%, #ffffff 35%, #b9bac4 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  padding-bottom: .18em;
+  color: #ffffff;
 }
-.statement__num em {
-  background: linear-gradient(155deg, #ffffff 0%, #6BC9FF 55%, #2997ff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
+.statement__num em { color: var(--blue-bright); font-style: normal; }
 .statement__num .unit { font-size: .32em; font-weight: 500; color: var(--ink-3); margin-left: 6px; }
 .statement__sub { max-width: 700px; margin: 0 auto; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.42; color: var(--ink-2); }
 .statement__sub b { color: var(--ink); font-weight: 500; }
@@ -501,22 +470,12 @@
   font-family: var(--display);
   font-size: clamp(28px, 4.6vw, 60px);
   font-weight: 700;
-  line-height: 1.14;
+  line-height: 1.2;
   letter-spacing: -.035em;
   margin-bottom: 28px;
-  background: linear-gradient(155deg, #ffffff 0%, #ffffff 38%, #b9bac4 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  padding-bottom: .2em;
+  color: #ffffff;
 }
-.hub__excellence em {
-  background: linear-gradient(155deg, #ffffff 0%, #6BC9FF 55%, #2997ff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-style: normal;
-}
+.hub__excellence em { color: var(--blue-bright); font-style: normal; }
 .hub__stage { position: relative; max-width: 1100px; margin: 0 auto; padding: 0 22px; perspective: 1800px; }
 .hub__bezel { position: relative; background: linear-gradient(180deg, #1f2026 0%, #0a0b0e 100%); border-radius: clamp(14px, 1.6vw, 22px); padding: 8px; box-shadow: 0 50px 160px -40px rgba(41,151,255,.30), 0 30px 80px -20px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.05) inset; transform-style: preserve-3d; transition: transform .6s var(--ease-out); }
 .hub__screen { position: relative; background: #0c0d10; border-radius: calc(clamp(14px, 1.6vw, 22px) - 8px); overflow: hidden; }
@@ -666,21 +625,12 @@
   font-family: var(--display);
   font-size: clamp(28px, 4.6vw, 60px);
   font-weight: 700;
-  line-height: 1.14;
+  line-height: 1.2;
   letter-spacing: -.035em;
   margin-bottom: 22px;
-  background: linear-gradient(155deg, #ffffff 0%, #ffffff 38%, #b9bac4 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  padding-bottom: .2em;
+  color: #ffffff;
 }
-.final__title em {
-  background: linear-gradient(155deg, #ffffff 0%, #6BC9FF 55%, #2997ff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
+.final__title em { color: var(--blue-bright); font-style: normal; }
 .final__sub { max-width: 660px; margin: 0 auto 32px; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.4; color: var(--ink-2); }
 .final__host { display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; padding: 11px 18px 11px 11px; background: rgba(255,255,255,.04); border: 1px solid var(--line-2); border-radius: 980px; }
 .final__host-av { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--blue-bright)); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-weight: 600; font-size: 13px; color: #fff; }
@@ -1281,8 +1231,8 @@
   <div class="container">
     <div class="stack__head">
       <div class="stack__eye reveal"><span class="stack__eye-dot"></span>Im Programm enthalten · ohne Aufpreis</div>
-      <h2 class="display reveal" style="font-family:var(--display);font-size:clamp(28px, 4.6vw, 60px);font-weight:700;letter-spacing:-.035em;line-height:1.14;background:linear-gradient(155deg,#ffffff 0%,#ffffff 38%,#b9bac4 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.2em">
-        5 Add-ons, die andere extra verkaufen.<br><em style="background:linear-gradient(155deg,#ffffff 0%,#6BC9FF 55%,#2997ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;font-style:normal">Bei uns inkludiert.</em>
+      <h2 class="display reveal" style="font-family:var(--display);font-size:clamp(28px, 4.6vw, 60px);font-weight:700;letter-spacing:-.035em;line-height:1.2;color:#ffffff">
+        5 Add-ons, die andere extra verkaufen.<br><em style="color:var(--blue-bright);font-style:normal">Bei uns inkludiert.</em>
       </h2>
       <p class="stack__sub reveal d-2">
         Du bekommst nicht nur deine Termine. Du bekommst Auswertung, Training und Vor-Ort-Sessions — alles, was deine Closing-Quote nach oben zieht. Standardmäßig im Programm.
