@@ -336,14 +336,14 @@ em { font-style: normal; color: var(--blue); }
   font-family: var(--display);
   font-size: clamp(36px, 6.2vw, 80px);
   font-weight: 600;
-  line-height: 1.06;
-  letter-spacing: -.044em;
+  line-height: 1.18;
+  letter-spacing: -.022em;
   margin-bottom: 18px;
   background: linear-gradient(105deg, #cee8d8 0%, #a1cad8 38%, #7e98b3 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  padding-bottom: .14em;
+  padding-bottom: .32em;
 }
 .subhero__title em {
   background: linear-gradient(105deg, #d6f0e0 0%, #6BC9FF 50%, #2997ff 100%);
@@ -366,14 +366,14 @@ em { font-style: normal; color: var(--blue); }
   font-family: var(--display);
   font-size: clamp(36px, 6.2vw, 80px);
   font-weight: 600;
-  letter-spacing: -.044em;
-  line-height: 1.06;
+  letter-spacing: -.022em;
+  line-height: 1.18;
   margin-bottom: 16px;
   background: linear-gradient(105deg, #cee8d8 0%, #a1cad8 38%, #7e98b3 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  padding-bottom: .14em;
+  padding-bottom: .32em;
 }
 .sec-head h2 em {
   background: linear-gradient(105deg, #d6f0e0 0%, #6BC9FF 50%, #2997ff 100%);
