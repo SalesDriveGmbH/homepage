@@ -18,17 +18,27 @@
 <style>
 /* ===== HOME-specific styles ===== */
 
-/* Section headers — pure white, em as solid blue accent */
+/* Section headers — Apple Mint→Steel-Blue gradient (like "Fast runs in the family") */
 .sec-head h2 {
   font-family: var(--display);
-  font-size: clamp(28px, 4.6vw, 60px) !important;
-  font-weight: 700 !important;
-  letter-spacing: -.035em !important;
-  line-height: 1.2 !important;
+  font-size: clamp(36px, 6.2vw, 80px) !important;
+  font-weight: 600 !important;
+  letter-spacing: -.044em !important;
+  line-height: 1.06 !important;
   margin-bottom: 22px;
-  color: #ffffff !important;
+  background: linear-gradient(105deg, #cee8d8 0%, #a1cad8 38%, #7e98b3 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  padding-bottom: .14em;
 }
-.sec-head h2 em { color: var(--blue-bright); font-style: normal; }
+.sec-head h2 em {
+  background: linear-gradient(105deg, #d6f0e0 0%, #6BC9FF 50%, #2997ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-style: normal;
+}
 
 /* HERO */
 .hero { position: relative; padding: clamp(60px, 9vw, 100px) 0 0; overflow: hidden; isolation: isolate; }
@@ -57,20 +67,33 @@
 
 .hero__title {
   font-family: var(--display);
-  font-size: clamp(28px, 4.6vw, 60px);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -.035em;
+  font-size: clamp(36px, 6.2vw, 80px);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -.044em;
   margin-bottom: 24px;
-  color: #ffffff;
+  background: linear-gradient(105deg, #cee8d8 0%, #a1cad8 38%, #7e98b3 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: .14em;
   max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
 }
-.hero__title .w { color: inherit; line-height: inherit; }
+.hero__title .w {
+  background: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: inherit;
+}
 .hero__title em,
 .hero__title .w em {
-  color: var(--blue-bright);
+  background: linear-gradient(105deg, #d6f0e0 0%, #6BC9FF 50%, #2997ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   font-style: normal;
 }
 .hero__sub { font-size: clamp(16px, 1.5vw, 22px); font-weight: 400; line-height: 1.32; letter-spacing: -.018em; color: var(--ink-2); max-width: 760px; margin: 0 auto 28px; }
@@ -723,6 +746,176 @@
 .filter__text b { color: var(--ink); font-weight: 600; }
 @media (max-width: 900px) { .filter__grid { grid-template-columns: 1fr; } }
 
+/* ICP — Voraussetzungen + iPhone mockup */
+.icp { background: var(--bg); position: relative; overflow: hidden; }
+.icp__grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(40px, 6vw, 90px);
+  align-items: center;
+}
+.icp__copy { display: flex; flex-direction: column; gap: 18px; }
+.icp__eye { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
+.icp__title {
+  font-family: var(--display);
+  font-size: clamp(36px, 5.6vw, 76px);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -.044em;
+  background: linear-gradient(105deg, #cee8d8 0%, #a1cad8 38%, #7e98b3 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: .12em;
+}
+.icp__title em {
+  background: linear-gradient(105deg, #d6f0e0 0%, #6BC9FF 50%, #2997ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-style: normal;
+}
+.icp__intro { font-size: 16px; line-height: 1.5; color: var(--ink-2); max-width: 560px; }
+.icp__intro b { color: var(--ink); font-weight: 600; }
+.icp__bullets { display: flex; flex-direction: column; gap: 22px; margin-top: 14px; }
+.icp__bullet { display: grid; grid-template-columns: 48px 1fr; gap: 16px; align-items: start; }
+.icp__bullet-icon { width: 44px; height: 44px; color: var(--blue-bright); display: flex; align-items: center; justify-content: center; background: rgba(41,151,255,.10); border: 1px solid rgba(41,151,255,.22); border-radius: 12px; flex-shrink: 0; }
+.icp__bullet-icon svg { width: 22px; height: 22px; }
+.icp__bullet h4 { font-family: var(--display); font-size: 17px; font-weight: 600; letter-spacing: -.02em; color: var(--ink); margin-bottom: 4px; }
+.icp__bullet p { font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+
+/* iPhone — bigger, more detailed for ICP section */
+.icp__phone { display: flex; justify-content: center; }
+.iphone-static {
+  width: clamp(260px, 24vw, 360px);
+  filter: drop-shadow(0 40px 70px rgba(0,0,0,.7)) drop-shadow(0 0 60px rgba(41,151,255,.18));
+  transform: rotate(2deg);
+}
+.iphone-static__bezel {
+  background: linear-gradient(180deg, #2a2b30 0%, #1a1b1f 50%, #0c0d10 100%);
+  border-radius: 44px;
+  padding: 10px;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.08) inset,
+    0 0 0 2px rgba(0,0,0,.7);
+}
+.iphone-static__screen {
+  position: relative;
+  background: #000;
+  border-radius: 34px;
+  aspect-ratio: 9 / 19.5;
+  overflow: hidden;
+  padding: 40px 16px 0;
+}
+.iphone-static__bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(60% 50% at 50% 30%, rgba(41,151,255,.4), transparent 70%),
+    linear-gradient(180deg, #0a0f1c 0%, #050810 100%);
+  z-index: 0;
+}
+.iphone-static__notch {
+  position: absolute;
+  top: 12px; left: 50%;
+  transform: translateX(-50%);
+  width: 90px; height: 26px;
+  background: #000;
+  border-radius: 999px;
+  z-index: 3;
+}
+.iphone-static__statusbar {
+  position: absolute; top: 12px;
+  left: 22px; right: 22px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--display);
+  color: #fff;
+  z-index: 3;
+  font-size: 13px;
+}
+.iphone-static__time { font-weight: 600; letter-spacing: -.01em; }
+.iphone-static__icons { display: flex; gap: 4px; align-items: center; }
+.iphone-static__icons svg { width: 14px; height: 11px; }
+.iphone-static__5g { font-size: 10px; font-weight: 600; letter-spacing: .04em; }
+.iphone-static__lock-time {
+  position: relative; z-index: 2;
+  text-align: center;
+  margin-top: 26px;
+  margin-bottom: 14px;
+  color: #fff;
+}
+.iphone-static__lock-date {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  text-shadow: 0 1px 8px rgba(0,0,0,.4);
+}
+.iphone-static__lock-clock {
+  font-family: var(--display);
+  font-size: clamp(52px, 5vw, 76px);
+  font-weight: 200;
+  letter-spacing: -.04em;
+  line-height: 1;
+  text-shadow: 0 2px 14px rgba(0,0,0,.4);
+}
+.iphone-static__notifs {
+  position: relative; z-index: 2;
+  padding: 18px 4px 24px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.iphone-static__notif {
+  background: rgba(40,40,42,.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 10px 12px;
+  display: flex; gap: 10px;
+  align-items: flex-start;
+  opacity: 0;
+  animation: notif-slide-in .7s cubic-bezier(.16,1,.3,1) forwards;
+}
+.iphone-static__notif:nth-child(2) { animation-delay: .25s; }
+.iphone-static__notif:nth-child(3) { animation-delay: 1.1s; }
+@keyframes notif-slide-in {
+  from { opacity: 0; transform: translateY(-14px) scale(.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.iphone-static__notif-icon {
+  width: 26px; height: 26px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--blue-deep), var(--blue));
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+.iphone-static__notif-icon svg { width: 14px; height: 14px; }
+.iphone-static__notif-body { min-width: 0; flex: 1; }
+.iphone-static__notif-app {
+  display: flex; justify-content: space-between;
+  font-size: 9px;
+  color: rgba(255,255,255,.55);
+  letter-spacing: .08em;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.iphone-static__notif-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+.iphone-static__notif-text {
+  font-size: 10px;
+  color: rgba(255,255,255,.78);
+  line-height: 1.35;
+}
+
+@media (max-width: 980px) {
+  .icp__grid { grid-template-columns: 1fr; }
+  .icp__phone { order: 2; }
+  .iphone-static { transform: rotate(0deg); margin: 0 auto; }
+}
+
 /* INDUSTRIES */
 .industries { background: var(--bg); }
 .industries__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
@@ -784,14 +977,24 @@
 .hub__head { position: relative; z-index: 1; }
 .hub__excellence {
   font-family: var(--display);
-  font-size: clamp(28px, 4.6vw, 60px);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -.035em;
+  font-size: clamp(36px, 6.2vw, 80px);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -.044em;
   margin-bottom: 28px;
-  color: #ffffff;
+  background: linear-gradient(105deg, #cee8d8 0%, #a1cad8 38%, #7e98b3 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: .14em;
 }
-.hub__excellence em { color: var(--blue-bright); font-style: normal; }
+.hub__excellence em {
+  background: linear-gradient(105deg, #d6f0e0 0%, #6BC9FF 50%, #2997ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-style: normal;
+}
 .hub__stage { position: relative; max-width: 1100px; margin: 0 auto; padding: 0 22px; perspective: 1800px; }
 .hub__bezel { position: relative; background: linear-gradient(180deg, #1f2026 0%, #0a0b0e 100%); border-radius: clamp(14px, 1.6vw, 22px); padding: 8px; box-shadow: 0 50px 160px -40px rgba(41,151,255,.30), 0 30px 80px -20px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.05) inset; transform-style: preserve-3d; transition: transform .6s var(--ease-out); }
 .hub__screen { position: relative; background: #0c0d10; border-radius: calc(clamp(14px, 1.6vw, 22px) - 8px); overflow: hidden; }
@@ -967,14 +1170,24 @@
 .final__inner { position: relative; z-index: 1; padding: 0 22px; }
 .final__title {
   font-family: var(--display);
-  font-size: clamp(28px, 4.6vw, 60px);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -.035em;
+  font-size: clamp(36px, 6.2vw, 80px);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -.044em;
   margin-bottom: 22px;
-  color: #ffffff;
+  background: linear-gradient(105deg, #cee8d8 0%, #a1cad8 38%, #7e98b3 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: .14em;
 }
-.final__title em { color: var(--blue-bright); font-style: normal; }
+.final__title em {
+  background: linear-gradient(105deg, #d6f0e0 0%, #6BC9FF 50%, #2997ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-style: normal;
+}
 .final__sub { max-width: 660px; margin: 0 auto 32px; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.4; color: var(--ink-2); }
 .final__host { display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; padding: 11px 18px 11px 11px; background: rgba(255,255,255,.04); border: 1px solid var(--line-2); border-radius: 980px; }
 .final__host-av { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--blue-bright)); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-weight: 600; font-size: 13px; color: #fff; }
@@ -1058,35 +1271,6 @@
       <div class="laptop__base"></div>
     </div>
 
-    <!-- iPhone with incoming Calendly push notifications -->
-    <div class="iphone" aria-hidden="true">
-      <div class="iphone__bezel">
-        <div class="iphone__screen">
-          <div class="iphone__notch"></div>
-          <div class="iphone__time">22:34</div>
-          <div class="iphone__status">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 17h2v3H2zm4-3h2v6H6zm4-3h2v9h-2zm4-3h2v12h-2zm4-3h2v15h-2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 18h14v3H5z" opacity=".4"/><rect x="3" y="9" width="18" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="5" y="11" width="12" height="6" rx="1" fill="currentColor"/></svg>
-          </div>
-          <div class="iphone__notif">
-            <div class="iphone__notif-icon">C</div>
-            <div class="iphone__notif-body">
-              <div class="iphone__notif-app"><span>Calendly</span><span>22:34</span></div>
-              <div class="iphone__notif-title">Neues Strategiegespräch</div>
-              <div class="iphone__notif-text">Florian Holzer · morgen 08:30</div>
-            </div>
-          </div>
-          <div class="iphone__notif">
-            <div class="iphone__notif-icon">C</div>
-            <div class="iphone__notif-body">
-              <div class="iphone__notif-app"><span>Calendly</span><span>23:42</span></div>
-              <div class="iphone__notif-title">Neues Strategiegespräch</div>
-              <div class="iphone__notif-text">Andrea Brunner · morgen 11:15</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 
   <div class="hero__seals">
@@ -1337,6 +1521,117 @@
           <div class="filter__item"><span class="filter__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span class="filter__text"><b>B2C / Endkunden</b> ansprechen willst.</span></div>
           <div class="filter__item"><span class="filter__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span class="filter__text"><b>Über 200 Mitarbeiter</b> hast — zu komplex für unsere Arbeitsweise.</span></div>
           <div class="filter__item"><span class="filter__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span class="filter__text"><b>Kundenwert unter 5.000 €</b> hast.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ICP — Voraussetzungen + iPhone -->
+<section class="section icp section--divide" id="voraussetzungen">
+  <div class="container">
+    <div class="icp__grid">
+      <div class="icp__copy">
+        <span class="icp__eye reveal">Unsere Voraussetzungen</span>
+        <h2 class="icp__title reveal d-1">Ist SalesDrive für dich<br><em>das Richtige?</em></h2>
+        <p class="icp__intro reveal d-2">
+          SalesDrive ist <b>kein Callcenter</b> und keine „Terminmaschine" für jedes Business — wir arbeiten ausschließlich mit B2B-Anbietern, bei denen die Neukundengewinnung wirklich skalierbar ist.
+        </p>
+        <p class="icp__intro reveal d-3">
+          Du machst mindestens 1 Million € Jahresumsatz und dein Kundenwert liegt über 5.000 €? Dann bist du bei uns richtig. Wir machen seit Jahren ausschließlich <b>telefonische Erstansprachen</b> und liefern qualifizierte Abschlussgespräche mit Entscheidern.
+        </p>
+
+        <div class="icp__bullets">
+          <div class="icp__bullet reveal-blur">
+            <div class="icp__bullet-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"/></svg>
+            </div>
+            <div>
+              <h4>Qualität der Mitarbeiter</h4>
+              <p>Jeder Mitarbeiter durchläuft eine intensive Einarbeitung — telefonieren dürfen nur geprüfte Top-Performer.</p>
+            </div>
+          </div>
+
+          <div class="icp__bullet reveal-blur d-1">
+            <div class="icp__bullet-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h4>Kontrolle &amp; Freigaben</h4>
+              <p>Messaging, Zielgruppe und Leitfäden werden abgestimmt — keine Kommunikation ohne Freigabe.</p>
+            </div>
+          </div>
+
+          <div class="icp__bullet reveal-blur d-2">
+            <div class="icp__bullet-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 6v6c0 5 3.8 9.5 9 10 5.2-.5 9-5 9-10V6l-9-4z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <div>
+              <h4>Schutz der Marke</h4>
+              <p>Tonalität, Werte und No-Go's sind definiert — professionell, sympathisch, markenkonform.</p>
+            </div>
+          </div>
+
+          <div class="icp__bullet reveal-blur d-3">
+            <div class="icp__bullet-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9M14 17H5M5 7l5 5-5 5M14 12h6"/></svg>
+            </div>
+            <div>
+              <h4>Branchen-Erfahrung</h4>
+              <p>Wir konzentrieren uns ausschließlich auf Branchen, in denen wir seit Jahren messbar performen.</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="formular.html" class="btn btn--primary btn--lg reveal d-4" style="margin-top:8px;align-self:flex-start">
+          Analysegespräch vereinbaren
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="icp__phone reveal-blur d-1">
+        <div class="iphone-static">
+          <div class="iphone-static__bezel">
+            <div class="iphone-static__screen">
+              <div class="iphone-static__notch"></div>
+              <div class="iphone-static__bg"></div>
+              <div class="iphone-static__statusbar">
+                <span class="iphone-static__time">08:58</span>
+                <span class="iphone-static__icons">
+                  <svg viewBox="0 0 18 12" fill="currentColor"><path d="M1 9h2v3H1zm4-2h2v5H5zm4-2h2v7H9zm4-2h2v9h-2zm4-2h2v11h-2z"/></svg>
+                  <span class="iphone-static__5g">5G</span>
+                  <svg viewBox="0 0 26 12" fill="none" stroke="currentColor" stroke-width="1"><rect x="1" y="2" width="22" height="8" rx="2"/><rect x="3" y="4" width="14" height="4" fill="currentColor"/><rect x="24" y="4" width="1.5" height="4" fill="currentColor"/></svg>
+                </span>
+              </div>
+              <div class="iphone-static__lock-time">
+                <div class="iphone-static__lock-date">Donnerstag, 21. Mai</div>
+                <div class="iphone-static__lock-clock">08:58</div>
+              </div>
+
+              <div class="iphone-static__notifs">
+                <div class="iphone-static__notif">
+                  <div class="iphone-static__notif-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  </div>
+                  <div class="iphone-static__notif-body">
+                    <div class="iphone-static__notif-app"><span>CALENDLY</span><span>jetzt</span></div>
+                    <div class="iphone-static__notif-title">Neues Ereignis: Analysegespräch · 11:15</div>
+                    <div class="iphone-static__notif-text">Andrea Brunner hat ein Analysegespräch gebucht. Heute um 11:15 Uhr (Europe/Vienna).</div>
+                  </div>
+                </div>
+                <div class="iphone-static__notif">
+                  <div class="iphone-static__notif-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  </div>
+                  <div class="iphone-static__notif-body">
+                    <div class="iphone-static__notif-app"><span>CALENDLY</span><span>vor 1 Min.</span></div>
+                    <div class="iphone-static__notif-title">Neues Ereignis: Strategiegespräch · 08:30</div>
+                    <div class="iphone-static__notif-text">Florian Holzer hat ein Strategiegespräch gebucht. Heute um 08:30 Uhr (Europe/Vienna).</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
