@@ -93,7 +93,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="assets/css/site.css?v=20260522f">
+<link rel="stylesheet" href="assets/css/site.css?v=20260522g">
 <link rel="stylesheet" href="assets/css/mobile.css">
 <style>
 /* ===== HOME-specific styles ===== */
@@ -137,30 +137,30 @@
   opacity: 0;
   background: #000;
   animation: storyIn 2s ease-out 1.0s forwards;
-  --story-tone: rgba(255,255,255,.22);
+  --story-tone: rgba(255,255,255,.32);
 }
-@keyframes storyIn { to { opacity: .32; } }
+@keyframes storyIn { to { opacity: .42; } }
 
-/* ───────── Phone: 120px, slidet von ausserhalb links rein, ringt im 9s-Loop ───────── */
+/* ───────── Phone: 240px (doppelt), slidet von ausserhalb links rein, ringt im 9s-Loop ───────── */
 .story-phone {
   position: absolute;
-  left: 3%; top: 42%;
-  width: 120px; height: 120px;
+  left: 2%; top: 36%;
+  width: 240px; height: 240px;
   border-radius: 50%;
   background: transparent;
-  border: 1px solid var(--story-tone);
+  border: 1.5px solid var(--story-tone);
   display: flex; align-items: center; justify-content: center;
   color: var(--story-tone);
-  transform: translateX(-220px);
+  transform: translateX(-320px);
   opacity: 0;
   animation:
-    phoneSlideIn 1.6s cubic-bezier(.22,.82,.28,1) 1.0s forwards,
+    phoneSlideIn 1.8s cubic-bezier(.22,.82,.28,1) 1.0s forwards,
     phoneRing 9s ease-in-out 3s infinite;
   transform-origin: center;
 }
-.story-phone svg { width: 48px; height: 48px; stroke-width: 1.4; }
+.story-phone svg { width: 96px; height: 96px; stroke-width: 1.3; }
 @keyframes phoneSlideIn {
-  from { transform: translateX(-220px); opacity: 0; }
+  from { transform: translateX(-320px); opacity: 0; }
   to   { transform: translateX(0); opacity: 1; }
 }
 @keyframes phoneRing {
@@ -175,7 +175,7 @@
 /* ───────── Schallwellen: pulsieren synchron mit Klingeln (9s-Loop) ───────── */
 .story-waves {
   position: absolute;
-  left: calc(3% + 60px); top: calc(42% + 60px);
+  left: calc(2% + 120px); top: calc(36% + 120px);
   opacity: 0;
   animation: wavesEnter 1.4s ease-out 1.8s forwards;
 }
@@ -183,9 +183,9 @@
 .story-waves span {
   position: absolute;
   left: 0; top: 0;
-  width: 120px; height: 120px;
+  width: 240px; height: 240px;
   border-radius: 50%;
-  border: 1px solid var(--story-tone);
+  border: 1.5px solid var(--story-tone);
   transform: translate(-50%, -50%) scale(0);
   animation: waveOut 9s ease-out 3s infinite;
 }
@@ -283,44 +283,44 @@
 .story-bars span:nth-child(23) { animation-delay: 4.10s; }
 .story-bars span:nth-child(24) { animation-delay: 4.15s; }
 
-/* ───────── Termin: kommt von ausserhalb rechts rein, sobald Voice ankommt ───────── */
+/* ───────── Termin: doppelt so gross, kommt von ausserhalb rechts rein ───────── */
 .story-appt {
   position: absolute;
-  right: 5%; top: 42%;
+  right: 4%; top: 40%;
   background: transparent;
-  border: 1px solid var(--story-tone);
-  border-radius: 10px;
-  padding: 8px 11px 8px 8px;
-  display: flex; gap: 8px; align-items: center;
+  border: 1.5px solid var(--story-tone);
+  border-radius: 16px;
+  padding: 16px 22px 16px 16px;
+  display: flex; gap: 16px; align-items: center;
   font-family: var(--display);
   opacity: 0;
-  transform: translateX(80px);
+  transform: translateX(140px);
   animation: apptSlide 9s cubic-bezier(.34,1.56,.64,1) 3s infinite;
 }
 .story-appt-ico {
-  width: 22px; height: 22px;
+  width: 44px; height: 44px;
   border-radius: 50%;
   background: transparent;
-  border: 1px solid var(--story-tone);
+  border: 1.5px solid var(--story-tone);
   display: flex; align-items: center; justify-content: center;
   color: var(--story-tone);
   flex-shrink: 0;
 }
-.story-appt-ico svg { width: 11px; height: 11px; stroke-width: 2.4; }
-.story-appt-text { display: flex; flex-direction: column; }
+.story-appt-ico svg { width: 22px; height: 22px; stroke-width: 2.4; }
+.story-appt-text { display: flex; flex-direction: column; gap: 2px; }
 .story-appt-eye {
-  font-size: 8.5px; font-weight: 700;
-  letter-spacing: .12em; text-transform: uppercase;
+  font-size: 13px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
   color: var(--story-tone);
 }
-.story-appt-label { font-size: 11px; color: rgba(255,255,255,.55); font-weight: 500; letter-spacing: -.005em; line-height: 1.2; }
+.story-appt-label { font-size: 18px; color: rgba(255,255,255,.7); font-weight: 600; letter-spacing: -.012em; line-height: 1.2; }
 @keyframes apptSlide {
-  0%, 40%   { opacity: 0; transform: translateX(120px) scale(.85); filter: blur(4px); }
-  46%       { opacity: 1; transform: translateX(-4px) scale(1.04); filter: blur(0); }
+  0%, 40%   { opacity: 0; transform: translateX(180px) scale(.85); filter: blur(4px); }
+  46%       { opacity: 1; transform: translateX(-6px) scale(1.04); filter: blur(0); }
   50%       { opacity: 1; transform: translateX(0) scale(1); }
   88%       { opacity: 1; transform: translateX(0) scale(1); filter: blur(0); }
-  95%       { opacity: 0; transform: translateX(40px) scale(.95); filter: blur(2px); }
-  100%      { opacity: 0; transform: translateX(80px); }
+  95%       { opacity: 0; transform: translateX(60px) scale(.95); filter: blur(2px); }
+  100%      { opacity: 0; transform: translateX(140px); }
 }
 
 @media (max-width: 1180px) {
@@ -5402,7 +5402,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
 </a>
 
-<script src="assets/js/site.js?v=20260522f"></script>
+<script src="assets/js/site.js?v=20260522g"></script>
 <script>
 // Hero MacBook lid-open: triggered on first scroll OR when laptop comes into view.
 // Einmaliges Aufklappen mit 5.2s CSS-Transition (cinematic).
