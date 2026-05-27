@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<title>Lohnt sich · Pipeline-Rechner · SalesDrive</title>
+<meta name="description" content="Rechne live durch, was SalesDrive für deine Pipeline bedeutet. Calls pro Monat, Termin-Quote, Closing-Rate und Auftragswert — Ergebnis in 90-Tage-Pipeline." />
+<link rel="canonical" href="https://salesdrive.at/lohnt-sich" />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="de_AT" />
+<meta property="og:site_name" content="SalesDrive" />
+<meta property="og:title" content="Lohnt sich · Pipeline-Rechner · SalesDrive" />
+<meta property="og:description" content="Rechne live durch, was SalesDrive für deine Pipeline bedeutet." />
+<meta property="og:url" content="https://salesdrive.at/lohnt-sich" />
+<meta property="og:image" content="https://salesdrive.at/assets/brand/og-image.jpg" />
+
+<meta name="theme-color" content="#000000" />
+<link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css?v=20260522i">
+
+<style>
+.subhero { padding: clamp(60px, 9vw, 110px) 0 clamp(28px, 4vw, 48px); text-align: center; position: relative; overflow: hidden; }
+.subhero::before { content: ""; position: absolute; left: 50%; top: 40%; transform: translate(-50%, -50%); width: 900px; height: 500px; background: radial-gradient(50% 50% at 50% 50%, rgba(41,151,255,.10), transparent 70%); pointer-events: none; }
+.subhero__inner { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 0 22px; }
+.subhero__eye { font-family: var(--display); font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--blue-bright); margin-bottom: 16px; display: inline-block; }
+.subhero__title { font-family: var(--display); font-size: clamp(36px, 5.4vw, 64px); font-weight: 600; line-height: 1.05; letter-spacing: -.026em; background: linear-gradient(105deg, #d6f0e0 0%, #b3d8e0 38%, #8aa9c0 100%); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: .18em; margin-bottom: 14px; }
+.subhero__title em { background: linear-gradient(180deg, #7CD0FF 0%, #2987F0 100%); -webkit-background-clip: text; background-clip: text; color: transparent; font-style: normal; }
+.subhero__sub { font-size: clamp(16px, 1.4vw, 19px); line-height: 1.55; color: var(--ink-2); max-width: 620px; margin: 0 auto; }
+
+/* ROI Rechner Styles (gleicher Container wie index) */
+.roi { padding: clamp(40px, 6vw, 80px) 0; position: relative; }
+.roi__panel { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(20px, 3vw, 36px); background: radial-gradient(120% 80% at 50% 0%, rgba(41,151,255,.05), transparent 60%), linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.012)); border: 1px solid rgba(255,255,255,.10); border-radius: 28px; padding: clamp(24px, 3.5vw, 42px); box-shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 40px 100px -30px rgba(0,0,0,.7); position: relative; overflow: hidden; }
+.roi__panel::before { content: ""; position: absolute; top: 0; left: 16%; right: 16%; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent); }
+@media (max-width: 900px) { .roi__panel { grid-template-columns: 1fr; } }
+.roi__inputs { display: flex; flex-direction: column; gap: 18px; }
+.roi__field { display: flex; flex-direction: column; gap: 8px; }
+.roi__field-head { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--display); }
+.roi__field-label { font-size: 13px; font-weight: 600; color: var(--ink); letter-spacing: -.01em; }
+.roi__field-value { font-family: var(--display); font-size: 19px; font-weight: 700; color: var(--blue-bright); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.roi__field-hint { font-size: 11px; color: var(--ink-3); margin-top: -2px; }
+.roi__scale { display: flex; justify-content: space-between; margin-top: 2px; font-family: var(--display); font-size: 10px; letter-spacing: .04em; color: var(--ink-mute); text-transform: uppercase; }
+.roi__scale b { color: var(--ink); font-weight: 700; letter-spacing: -.01em; }
+.roi__scale-bench b { color: var(--blue-bright); }
+.roi__slider { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; background: linear-gradient(90deg, var(--blue-bright) 0%, var(--blue-bright) var(--fill, 50%), rgba(255,255,255,.08) var(--fill, 50%), rgba(255,255,255,.08) 100%); border-radius: 999px; outline: none; cursor: pointer; }
+.roi__slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(180deg, #ffffff, #d6e8f5); border: 1px solid rgba(0,0,0,.25); box-shadow: 0 4px 12px rgba(41,151,255,.4), 0 0 0 3px rgba(41,151,255,.18); cursor: grab; }
+.roi__slider::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 1px solid rgba(0,0,0,.25); box-shadow: 0 4px 12px rgba(41,151,255,.4), 0 0 0 3px rgba(41,151,255,.18); cursor: grab; }
+.roi__results { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.roi__metric { position: relative; padding: 18px; background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.10); border-radius: 16px; overflow: hidden; }
+.roi__metric--big { grid-column: 1 / -1; }
+.roi__metric-label { font-family: var(--display); font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px; }
+.roi__metric-value { font-family: var(--display); font-size: clamp(26px, 3.5vw, 38px); font-weight: 700; color: #fff; letter-spacing: -.028em; line-height: 1; font-variant-numeric: tabular-nums; }
+.roi__metric--big .roi__metric-value { font-size: clamp(36px, 5vw, 56px); background: linear-gradient(105deg, #d6f0e0 0%, #6BC9FF 50%, #2997ff 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.roi__metric-hint { font-size: 11px; color: var(--ink-3); margin-top: 6px; line-height: 1.4; }
+.roi__metric--big .roi__metric-hint { font-size: 12px; }
+.roi__metric-bar { margin-top: 10px; height: 4px; background: rgba(255,255,255,.06); border-radius: 2px; overflow: hidden; }
+.roi__metric-bar-fill { height: 100%; background: linear-gradient(90deg, var(--blue), var(--blue-bright)); border-radius: 2px; width: var(--w, 0%); transition: width .4s var(--ease-out); }
+
+.roi__cta-bar { margin-top: 22px; display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(20px, 3vw, 40px); align-items: center; padding: clamp(22px, 3vw, 32px) clamp(24px, 3.5vw, 40px); background: radial-gradient(120% 80% at 50% 0%, rgba(41,151,255,.08), transparent 60%), linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.018)); border: 1px solid rgba(107,201,255,.22); border-radius: 22px; }
+.roi__cta-bar-eye { font-family: var(--display); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--blue-bright); margin-bottom: 8px; }
+.roi__cta-bar-title { font-family: var(--display); font-size: clamp(22px, 2.6vw, 32px); font-weight: 600; line-height: 1.12; letter-spacing: -.022em; color: #fff; margin-bottom: 6px; }
+.roi__cta-bar-title em { background: linear-gradient(180deg, #7CD0FF 0%, #2987F0 100%); -webkit-background-clip: text; background-clip: text; color: transparent; font-style: normal; }
+.roi__cta-bar-sub { font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+.roi__cta-bar-actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+@media (max-width: 760px) { .roi__cta-bar { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="siteNav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="/" aria-label="SalesDrive"><img class="nav__brand-logo" src="/assets/brand/salesdrive-logo.png" alt="SalesDrive"></a>
+    <ul class="nav__links">
+      <li><a href="/#cases">Cases</a></li>
+      <li><a href="/referenzen">Referenzen</a></li>
+      <li><a href="/blog">Journal</a></li>
+      <li><a href="/team">Team</a></li>
+      <li><a href="/zertifizierungen">Zertifizierungen</a></li>
+    </ul>
+    <a class="nav__cta" href="/formular"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>Analyse</a>
+  </div>
+</nav>
+<div class="nav-spacer"></div>
+
+<section class="subhero">
+  <div class="subhero__inner">
+    <div class="subhero__eye">Pipeline · Live berechnet</div>
+    <h1 class="subhero__title">Lohnt sich. <em>Schwarz auf weiß.</em></h1>
+    <p class="subhero__sub">Stell die vier Hebel ein, die deinen Vertrieb steuern. Wir rechnen dir Termine, Pipeline und Auftragseingang in Echtzeit. Keine Pauschalversprechen — deine Zahlen.</p>
+  </div>
+</section>
+
+<section class="roi">
+  <div class="container container--wide">
+    <div class="roi__panel">
+      <div class="roi__inputs">
+        <div class="roi__field">
+          <div class="roi__field-head"><span class="roi__field-label">Calls pro Monat</span><span class="roi__field-value" id="roiCallsOut">3.000</span></div>
+          <input id="roiCalls" class="roi__slider" type="range" min="1000" max="5000" step="500" value="3000" />
+          <span class="roi__field-hint">Anzahl Outbound-Calls, die wir pro Monat für dich tätigen.</span>
+        </div>
+        <div class="roi__field">
+          <div class="roi__field-head"><span class="roi__field-label">Kampagnen-Performance</span><span class="roi__field-value"><span id="roiRateOut">2,0</span>&nbsp;% Termin-Quote</span></div>
+          <input id="roiRate" class="roi__slider" type="range" min="1" max="3" step="0.5" value="2" />
+          <div class="roi__scale"><span>Schlecht <b>1 %</b></span><span>Mittel <b>2 %</b></span><span>Top <b>3 %</b></span></div>
+          <span class="roi__field-hint">Anteil der Calls, die zu einem Erstgespräch werden. Branchen-Range: 1–3 %.</span>
+        </div>
+        <div class="roi__field">
+          <div class="roi__field-head"><span class="roi__field-label">Deine Closing-Rate</span><span class="roi__field-value"><span id="roiCloseOut">55</span>&nbsp;%</span></div>
+          <input id="roiClose" class="roi__slider" type="range" min="0" max="100" step="5" value="55" />
+          <div class="roi__scale"><span>0 %</span><span class="roi__scale-bench">Benchmark <b>55 %</b></span><span>100 %</span></div>
+          <span class="roi__field-hint">Anteil deiner Erstgespräche, aus denen ein Auftrag wird. Benchmark unserer Mandanten: 55 %.</span>
+        </div>
+        <div class="roi__field">
+          <div class="roi__field-head"><span class="roi__field-label">Auftragswert</span><span class="roi__field-value">€&nbsp;<span id="roiAovOut">25.000</span></span></div>
+          <input id="roiAov" class="roi__slider" type="range" min="2500" max="150000" step="500" value="25000" />
+          <span class="roi__field-hint">Durchschnittlicher Auftragswert eines neuen Kunden bei dir.</span>
+        </div>
+      </div>
+
+      <div class="roi__results">
+        <div class="roi__metric roi__metric--big">
+          <div class="roi__metric-label">Pipeline · 90 Tage</div>
+          <div class="roi__metric-value" id="roiPipelineOut">€ 2.475.000</div>
+          <div class="roi__metric-hint">Bei aktuell eingestellten Hebeln, hochgerechnet auf ein Quartal.</div>
+          <div class="roi__metric-bar"><span class="roi__metric-bar-fill" id="roiPipelineBar"></span></div>
+        </div>
+        <div class="roi__metric"><div class="roi__metric-label">Erstgespräche / Monat</div><div class="roi__metric-value" id="roiApptsOut">60</div><div class="roi__metric-hint">vorqualifiziert, im Kalender</div></div>
+        <div class="roi__metric"><div class="roi__metric-label">Neukunden / Monat</div><div class="roi__metric-value" id="roiCustOut">33</div><div class="roi__metric-hint">aus den Terminen geclosed</div></div>
+        <div class="roi__metric"><div class="roi__metric-label">Auftragseingang / Monat</div><div class="roi__metric-value" id="roiRevOut">€ 825.000</div><div class="roi__metric-hint">durchschnittlich, bei den eingestellten Werten</div></div>
+        <div class="roi__metric"><div class="roi__metric-label">Pay-back</div><div class="roi__metric-value" id="roiPaybackOut">&lt; 1 Monat</div><div class="roi__metric-hint">bis sich das Programm refinanziert</div></div>
+      </div>
+    </div>
+
+    <div class="roi__cta-bar">
+      <div>
+        <div class="roi__cta-bar-eye">Dein nächster Schritt</div>
+        <div class="roi__cta-bar-title">Lass uns über <em>deine</em> Pipeline reden.</div>
+        <div class="roi__cta-bar-sub">30 Minuten Diagnose mit Alexander Király. Keine Demo, kein Pitch.</div>
+      </div>
+      <div class="roi__cta-bar-actions">
+        <a href="/formular" class="btn btn--primary btn--lg">Kostenloses Analysegespräch sichern<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand"><img class="footer__brand-logo" src="/assets/brand/salesdrive-logo.png" alt="SalesDrive"><p>Direkter Draht zur Geschäftsführung. Mo–Fr 8–18 Uhr.</p></div>
+      <div class="footer__col"><h6>Plattform</h6><a href="/#cases">Cases</a><a href="/referenzen">Referenzen</a><a href="/blog">Journal</a><a href="/lohnt-sich">Lohnt sich</a><a href="/team">Team</a></div>
+      <div class="footer__col"><h6>Vertrauen</h6><a href="/zertifizierungen">Zertifizierungen</a><a href="/tuev">TÜV</a><a href="/buero">Büro Wien</a></div>
+      <div class="footer__col"><h6>Rechtliches</h6><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a><a href="/agb">AGB</a><a href="/karriere">Karriere</a></div>
+    </div>
+    <div class="footer__bottom"><span>© 2026 SalesDrive GmbH · Wien</span><span>Made in Vienna</span></div>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js?v=20260522i"></script>
+<script>
+(function() {
+  const $ = (id) => document.getElementById(id);
+  const calls = $('roiCalls'), rate = $('roiRate'), aov = $('roiAov'), close = $('roiClose');
+  if (!calls || !rate || !aov || !close) return;
+  const fmtInt = new Intl.NumberFormat('de-AT', { maximumFractionDigits: 0 });
+  const fmtMoney = (n) => '€ ' + fmtInt.format(Math.round(n));
+  function paintFill(input) { const min = +input.min, max = +input.max, val = +input.value; input.style.setProperty('--fill', ((val-min)/(max-min))*100 + '%'); }
+  function calc() {
+    const c = +calls.value, r = +rate.value/100, a = +aov.value, cl = +close.value/100;
+    const apptsMonth = c * r, custMonth = apptsMonth * cl, revMonth = custMonth * a, pipeline90 = revMonth * 3;
+    const programCost = 6500;
+    let payback;
+    if (revMonth >= programCost * 6) payback = '< 1 Woche';
+    else if (revMonth >= programCost) payback = '< 1 Monat';
+    else if (revMonth >= programCost * 0.5) payback = '≈ 2 Monate';
+    else payback = '> 3 Monate';
+    $('roiCallsOut').textContent = fmtInt.format(c);
+    $('roiRateOut').textContent = (r*100).toFixed(1).replace('.', ',');
+    $('roiAovOut').textContent = fmtInt.format(a);
+    $('roiCloseOut').textContent = Math.round(cl*100);
+    $('roiApptsOut').textContent = fmtInt.format(Math.round(apptsMonth));
+    $('roiCustOut').textContent = fmtInt.format(Math.round(custMonth));
+    $('roiRevOut').textContent = fmtMoney(revMonth);
+    $('roiPipelineOut').textContent = fmtMoney(pipeline90);
+    $('roiPaybackOut').textContent = payback;
+    $('roiPipelineBar').style.setProperty('--w', Math.min(100, (pipeline90/5_000_000)*100) + '%');
+    paintFill(calls); paintFill(rate); paintFill(aov); paintFill(close);
+  }
+  [calls, rate, aov, close].forEach(el => el.addEventListener('input', calc));
+  calc();
+})();
+</script>
+</body>
+</html>

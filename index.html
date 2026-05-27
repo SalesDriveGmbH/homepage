@@ -198,7 +198,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="assets/css/site.css?v=20260522i">
+<link rel="stylesheet" href="assets/css/site.css?v=20260522j">
 <link rel="stylesheet" href="assets/css/mobile.css">
 <style>
 /* ===== HOME-specific styles ===== */
@@ -3833,126 +3833,6 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   </div>
 </section>
 
-<!-- ROI / PIPELINE-RECHNER -->
-<section class="section roi section--divide" id="rechner">
-  <div class="container container--wide">
-    <div class="roi__inner">
-
-      <div class="roi__head reveal">
-        <div class="roi__eye">DEIN POTENZIAL · LIVE BERECHNET</div>
-        <h2 class="roi__title">Wie sieht <em>deine Pipeline</em> in 90 Tagen aus?</h2>
-        <p class="roi__sub">Stell die drei Hebel ein, die deinen Vertrieb steuern. Wir rechnen dir Termine, Pipeline und Auftragseingang in Echtzeit.</p>
-      </div>
-
-      <div class="roi__panel reveal-blur d-1">
-        <div class="roi__inputs">
-          <div class="roi__field">
-            <div class="roi__field-head">
-              <span class="roi__field-label">Calls pro Monat</span>
-              <span class="roi__field-value" id="roiCallsOut">3.000</span>
-            </div>
-            <input id="roiCalls" class="roi__slider" type="range" min="1000" max="5000" step="500" value="3000" />
-            <span class="roi__field-hint">Anzahl Outbound-Calls, die wir pro Monat für dich tätigen.</span>
-          </div>
-
-          <div class="roi__field">
-            <div class="roi__field-head">
-              <span class="roi__field-label">Kampagnen-Performance</span>
-              <span class="roi__field-value"><span id="roiRateOut">2,0</span>&nbsp;% Termin-Quote</span>
-            </div>
-            <input id="roiRate" class="roi__slider" type="range" min="1" max="3" step="0.5" value="2" />
-            <div class="roi__scale">
-              <span>Schlecht <b>1 %</b></span>
-              <span>Mittel <b>2 %</b></span>
-              <span>Top <b>3 %</b></span>
-            </div>
-            <span class="roi__field-hint">Anteil der Calls, die zu einem Erstgespräch werden. Branchen-Range: 1–3 %.</span>
-          </div>
-
-          <div class="roi__field">
-            <div class="roi__field-head">
-              <span class="roi__field-label">Deine Closing-Rate</span>
-              <span class="roi__field-value"><span id="roiCloseOut">55</span>&nbsp;%</span>
-            </div>
-            <input id="roiClose" class="roi__slider" type="range" min="0" max="100" step="5" value="55" />
-            <div class="roi__scale">
-              <span>0 %</span>
-              <span class="roi__scale-bench">Benchmark <b>55 %</b></span>
-              <span>100 %</span>
-            </div>
-            <span class="roi__field-hint">Anteil deiner Erstgespräche, aus denen ein Auftrag wird. Benchmark unserer Mandanten: 55 %.</span>
-          </div>
-
-          <div class="roi__field">
-            <div class="roi__field-head">
-              <span class="roi__field-label">Auftragswert</span>
-              <span class="roi__field-value">€&nbsp;<span id="roiAovOut">25.000</span></span>
-            </div>
-            <input id="roiAov" class="roi__slider" type="range" min="2500" max="150000" step="500" value="25000" />
-            <span class="roi__field-hint">Durchschnittlicher Auftragswert eines neuen Kunden bei dir.</span>
-          </div>
-        </div>
-
-        <div class="roi__results">
-          <div class="roi__metric roi__metric--big">
-            <div class="roi__metric-label">Pipeline · 90 Tage</div>
-            <div class="roi__metric-value" id="roiPipelineOut">€ 4.875.000</div>
-            <div class="roi__metric-hint">Bei aktuell eingestellten Hebeln, hochgerechnet auf ein Quartal</div>
-            <div class="roi__metric-bar"><span class="roi__metric-bar-fill" id="roiPipelineBar"></span></div>
-          </div>
-
-          <div class="roi__metric">
-            <div class="roi__metric-label">Erstgespräche / Monat</div>
-            <div class="roi__metric-value" id="roiApptsOut">60</div>
-            <div class="roi__metric-hint">vorqualifiziert, im Kalender</div>
-          </div>
-
-          <div class="roi__metric">
-            <div class="roi__metric-label">Neukunden / Monat</div>
-            <div class="roi__metric-value" id="roiCustOut">17</div>
-            <div class="roi__metric-hint">aus den Terminen geclosed</div>
-          </div>
-
-          <div class="roi__metric">
-            <div class="roi__metric-label">Auftragseingang / Monat</div>
-            <div class="roi__metric-value" id="roiRevOut">€ 425.000</div>
-            <div class="roi__metric-hint">durchschnittlich, bei den eingestellten Werten</div>
-          </div>
-
-          <div class="roi__metric">
-            <div class="roi__metric-label">Pay-back</div>
-            <div class="roi__metric-value" id="roiPaybackOut">&lt; 1 Monat</div>
-            <div class="roi__metric-hint">bis sich das Programm refinanziert</div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- ROI CTA Bar — eigene Sektion unter dem Calculator -->
-      <div class="roi__cta-bar reveal-blur d-2">
-        <div class="roi__cta-bar-text">
-          <div class="roi__cta-bar-eye">Dein nächster Schritt</div>
-          <div class="roi__cta-bar-title">Lass uns über <em>deine</em> Pipeline reden.</div>
-          <div class="roi__cta-bar-sub">30 Minuten Diagnose mit Alexander Király. Keine Demo, kein Pitch.</div>
-        </div>
-        <div class="roi__cta-bar-actions">
-          <a href="formular.html" class="btn btn--primary btn--lg">
-            Kostenloses Analysegespräch sichern
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </a>
-          <div class="roi__cta-bar-meta">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>30 Min</span>
-            <span class="dot"></span>
-            <span>TÜV-zertifiziert</span>
-            <span class="dot"></span>
-            <span>4,82 / 5 · ProvenExpert</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <!-- LOGOS -->
 <!-- TRANSFORM. Vierless-style 4-card service grid -->
@@ -5508,7 +5388,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
 </a>
 
-<script src="assets/js/site.js?v=20260522i"></script>
+<script src="assets/js/site.js?v=20260522j"></script>
 <script>
 // Hero MacBook lid-open: triggered on first scroll OR when laptop comes into view.
 // Einmaliges Aufklappen mit 5.2s CSS-Transition (cinematic).
