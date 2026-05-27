@@ -200,7 +200,7 @@ em { font-style: normal; color: var(--blue); }
   border-color: rgba(255,255,255,.12);
 }
 .nav__brand { display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0; color: var(--ink); text-decoration: none; }
-.nav__brand-logo { height: 22px; width: auto; max-height: 22px; display: block; flex-shrink: 0; }
+.nav__brand-logo { height: 28px; width: auto; max-height: 28px; display: block; flex-shrink: 0; }
 .nav__brand-icon { width: 22px; height: 22px; display: block; flex-shrink: 0; }
 .nav__brand-text { font-family: var(--display); font-size: 18px; font-weight: 700; letter-spacing: -.024em; line-height: 1; }
 .nav__brand-text .s { color: var(--ink); }
@@ -381,6 +381,9 @@ em { font-style: normal; color: var(--blue); }
 }
 .word-reveal.in > .w { transform: translateY(0); opacity: 1; }
 
+/* Word-reveal-soft: fix for gradient-text elements (background-clip: text) — child <span class="w"> must inherit background so the gradient stays visible */
+.word-reveal-soft .w { background: inherit; -webkit-background-clip: text; background-clip: text; color: inherit; }
+
 /* Ambient orbs */
 .orb {
   position: absolute;
@@ -499,13 +502,15 @@ em { font-style: normal; color: var(--blue); }
 
 /* FOOTER */
 .footer {
-  background: #0d0e11;
+  background: #0a0b0d;
   color: var(--ink-3);
-  padding: clamp(36px, 4.5vw, 56px) 0 24px;
+  padding: clamp(56px, 7vw, 88px) 0 28px;
   font-size: 12px;
-  border-top: 1px solid var(--line-2);
+  border-top: 1px solid rgba(255,255,255,.10);
   position: relative;
   overflow: hidden;
+  margin-top: clamp(60px, 8vw, 100px);
+  box-shadow: 0 -1px 0 rgba(255,255,255,.04);
 }
 .footer::before {
   content: "";
@@ -514,8 +519,14 @@ em { font-style: normal; color: var(--blue); }
   transform: translateX(-50%);
   width: min(900px, 90%);
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--line-3) 50%, transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.20) 50%, transparent);
 }
+/* Clean variant: no brand column, equal 4-col grid, no top border on grid */
+.footer--clean .footer__grid { grid-template-columns: repeat(4, 1fr); padding-top: 0; border-top: 0; }
+.footer--clean .footer__col h6 { color: #fff; }
+.footer__top-logo { display: flex; justify-content: center; margin-bottom: clamp(36px, 4.5vw, 52px); padding-bottom: clamp(32px, 4vw, 44px); border-bottom: 1px solid rgba(255,255,255,.06); }
+.footer__top-logo img { height: 32px; width: auto; opacity: .95; transition: opacity .2s ease; }
+.footer__top-logo a:hover img { opacity: 1; }
 
 /* Big tagline on top of footer */
 .footer__tagline {
@@ -611,7 +622,11 @@ em { font-style: normal; color: var(--blue); }
 
 @media (max-width: 880px) {
   .footer__grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+  .footer--clean .footer__grid { grid-template-columns: 1fr 1fr; gap: 28px; }
   .footer__bottom { flex-direction: column; gap: 8px; align-items: flex-start; }
+}
+@media (max-width: 520px) {
+  .footer--clean .footer__grid { grid-template-columns: 1fr; gap: 24px; }
 }
 
 /* ======== FINAL CTA — host pill ======== */

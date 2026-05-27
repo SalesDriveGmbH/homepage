@@ -108,36 +108,35 @@
 </head>
 <body>
 
-<nav class="nav" id="nav">
+<nav class="nav" id="siteNav">
   <div class="nav__inner">
-    <a class="nav__brand" href="/" aria-label="SalesDrive">
-      <svg class="nav__brand-icon" viewBox="0 0 200 200" aria-hidden="true">
-        <defs><linearGradient id="ndg" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0%" stop-color="#7CD0FF"/><stop offset="100%" stop-color="#2987F0"/></linearGradient></defs>
-        <circle cx="78" cy="132" r="42" fill="none" stroke="url(#ndg)" stroke-width="26"/>
-        <rect x="109" y="60" width="26" height="112" fill="url(#ndg)"/>
-        <polygon points="82,60 122,18 162,60" fill="url(#ndg)"/>
-      </svg>
-      <span class="nav__brand-text"><span class="s">Sales</span><span class="d">drive</span></span>
-    </a>
+    <a class="nav__brand" href="/" aria-label="SalesDrive"><img class="nav__brand-logo" src="/assets/brand/salesdrive-logo.png" alt="SalesDrive"></a>
     <ul class="nav__links">
-      <li><a href="index.html#cases">Cases</a></li>
-      <li><a href="referenzen.html">Referenzen</a></li>
-      <li><a href="index.html#mechanik">Ablauf</a></li>
-      <li><a href="team.html" class="is-current">Team</a></li>
-      <li><a href="zertifizierungen.html">Zertifizierungen</a></li>
-      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="/#cases">Cases</a></li>
+      <li class="nav__dd">
+        <a href="/branchen">Branchen<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:10px;height:10px;margin-left:4px;display:inline-block;vertical-align:middle"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <div class="nav__dd-menu">
+          <a href="/branchen/marken-pr">Marken- &amp; PR-Agenturen</a>
+          <a href="/branchen/film-events">Film, Video &amp; Events</a>
+          <a href="/branchen/software-industrie">Software, SaaS &amp; Industrie</a>
+          <a href="/branchen/personalberatung">Personalberatung</a>
+          <a href="/branchen/werbetechnik-print">Werbetechnik &amp; Print</a>
+        </div>
+      </li>
+      <li><a href="/referenzen">Referenzen</a></li>
+      <li><a href="/blog">Journal</a></li>
+      <li><a href="/zertifizierungen">Zertifizierungen</a></li>
     </ul>
     <a class="nav__login" href="https://hub.salesdrive.at" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
       Login
     </a>
-    <a class="nav__cta" href="formular.html">
+    <a class="nav__cta" href="/formular">
       Analysegespräch
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
     </a>
   </div>
 </nav>
-<div class="progress" id="progress"></div>
 <div class="nav-spacer"></div>
 
 <section class="subhero">
@@ -246,71 +245,51 @@
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
+<!-- ════════════ UNIFIED FOOTER ════════════ -->
+<!-- ════════════ UNIFIED FOOTER ════════════ -->
+<footer class="footer footer--clean">
   <div class="container">
-
-    <!-- TAGLINE -->
-    <div class="footer__tagline">
-      <img class="footer__brand-logo" src="/assets/brand/salesdrive-logo.png" alt="SalesDrive">
-      <h3 class="footer__tagline-headline">Wir telefonieren.<br><em>Du verkaufst.</em></h3>
-      <p class="footer__tagline-sub">B2B-Kaltakquise für Premium-Anbieter im DACH-Raum. TÜV-Rheinland zertifiziert. Wien. Seit 2023.</p>
+    <div class="footer__top-logo">
+      <a href="/" aria-label="SalesDrive"><img src="/assets/brand/salesdrive-logo.png" alt="SalesDrive"></a>
     </div>
-
-    <!-- LINKS GRID -->
     <div class="footer__grid">
-      <div class="footer__brand">
-        <p>Direkter Draht zur Geschäftsführung. Mo–Fr 8–18 Uhr. Kein Account-Pool, keine Warteschleife, keine Setter zwischen euch.</p>
-        <div class="footer__trust">
-          <img src="assets/trust/tuv-rheinland.png" alt="TÜV Rheinland zertifiziert" />
-          <img src="assets/trust/provenexpert-badges.jpg" alt="ProvenExpert · 4,82 / 5" />
-        </div>
-        <div class="footer__socials">
-          <a href="https://www.facebook.com/salesdrivegmbh" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.55V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg></a>
-          <a href="https://www.instagram.com/salesdrive.at/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-          <a href="https://www.youtube.com/@SalesDriveGmbH" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.2 0 12 0 12s0 3.8.5 5.8A3 3 0 0 0 2.6 19.9c2 .6 9.4.6 9.4.6s7.4 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.8 24 12 24 12s0-3.8-.5-5.8zM9.5 15.5v-7l6.5 3.5-6.5 3.5z"/></svg></a>
-          <a href="https://www.linkedin.com/company/lehner-consulting/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></a>
-        </div>
-      </div>
       <div class="footer__col">
         <h6>Plattform</h6>
-        <a href="index.html#cases">Cases</a>
-        <a href="referenzen.html">Referenzen</a>
-        <a href="index.html#mechanik">Ablauf</a>
-        <a href="zertifizierungen.html">Zertifizierungen</a>
-        <a href="team.html">Team</a>
-        <a href="index.html#faq">FAQ</a>
+        <a href="/#cases">Cases</a>
+        <a href="/branchen">Branchen</a>
+        <a href="/referenzen">Referenzen</a>
+        <a href="/blog">Journal</a>
+        <a href="/lohnt-sich">Lohnt sich</a>
+      </div>
+      <div class="footer__col">
+        <h6>Vertrauen</h6>
+        <a href="/zertifizierungen">Zertifizierungen</a>
+        <a href="/tuev">TÜV Rheinland</a>
+        <a href="/buero">Büro Wien</a>
+        <a href="/team">Team</a>
+        <a href="/karriere">Karriere</a>
       </div>
       <div class="footer__col">
         <h6>Kontakt</h6>
         <a href="mailto:office@salesdrive.at">office@salesdrive.at</a>
         <a href="tel:+436767951018">+43 676 795 10 18</a>
-        <a href="index.html#standort">Obere Donaustraße 25<br>1020 Wien</a>
-        <a href="formular.html" style="color:var(--blue);margin-top:8px">Analysegespräch buchen →</a>
-        <a href="https://hub.salesdrive.at" target="_blank" rel="noopener" style="color:var(--blue);margin-top:4px">hub.salesdrive.at — Login →</a>
+        <a href="/buero">Obere Donaustraße 25, 1020 Wien</a>
+        <a href="https://hub.salesdrive.at" target="_blank" rel="noopener">hub.salesdrive.at — Login →</a>
       </div>
       <div class="footer__col">
         <h6>Rechtliches</h6>
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
-        <a href="agb.html">AGB</a>
+        <a href="/impressum">Impressum</a>
+        <a href="/datenschutz">Datenschutz</a>
+        <a href="/agb">AGB</a>
+        <a href="/formular">Analysegespräch</a>
       </div>
     </div>
-
-    <!-- DISCLAIMER -->
     <div class="footer__disclaimer">
-      This website is not part of the Facebook website or Facebook Inc. Furthermore, this website is not supported by Facebook in any way. Facebook is a trademark of Facebook, Inc. We use Google remarketing pixels/cookies on this website to re-engage with our website visitors and ensure that we can reach them with relevant news and information in the future. Google serves our ads on third-party websites on the internet to communicate our message and reach the right people who have shown interest in our information in the past. Es werden keine Unternehmensberatungen oder ähnliche Beratungsleistungen erbracht.
+      This website is not part of the Facebook website or Facebook Inc. Furthermore, this website is not supported by Facebook in any way. Facebook is a trademark of Facebook, Inc. Es werden keine Unternehmensberatungen oder ähnliche Beratungsleistungen erbracht.
     </div>
-
     <div class="footer__bottom">
       <div class="footer__bottom-meta">
-        <span>© 2026 SalesDrive GmbH</span>
-        <span>·</span>
-        <strong>FN 599821s</strong>
-        <span>·</span>
-        <strong>HG Wien</strong>
-        <span>·</span>
-        <strong>UID ATU79430518</strong>
+        <span>© 2026 SalesDrive GmbH</span><span>·</span><strong>FN 599821s</strong><span>·</span><strong>HG Wien</strong><span>·</span><strong>UID ATU79430518</strong>
       </div>
       <span>Made in Vienna</span>
     </div>

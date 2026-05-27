@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css?v=20260522j">
+<link rel="stylesheet" href="/assets/css/site.css?v=20260522s">
 
 <script type="application/ld+json">
 {
@@ -95,30 +95,35 @@
     <a class="nav__brand" href="/" aria-label="SalesDrive"><img class="nav__brand-logo" src="/assets/brand/salesdrive-logo.png" alt="SalesDrive"></a>
     <ul class="nav__links">
       <li><a href="/#cases">Cases</a></li>
-      <li class="nav__dd"><a href="/branchen" class="is-current">Branchen</a>
+      <li class="nav__dd">
+        <a href="/branchen">Branchen<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:10px;height:10px;margin-left:4px;display:inline-block;vertical-align:middle"><polyline points="6 9 12 15 18 9"/></svg></a>
         <div class="nav__dd-menu">
-          <a href="/branchen/markenagenturen">Markenagenturen</a>
-          <a href="/branchen/filmproduktion">Filmproduktion &amp; 3D</a>
-          <a href="/branchen/industrielle-kommunikation">Industrielle Kommunikation</a>
-          <a href="/branchen/software-saas">Software &amp; SaaS</a>
+          <a href="/branchen/marken-pr">Marken- &amp; PR-Agenturen</a>
+          <a href="/branchen/film-events">Film, Video &amp; Events</a>
+          <a href="/branchen/software-industrie">Software, SaaS &amp; Industrie</a>
+          <a href="/branchen/personalberatung">Personalberatung</a>
           <a href="/branchen/werbetechnik-print">Werbetechnik &amp; Print</a>
-          <a href="/branchen/personalberatung">Personalberatungen</a>
-          <a href="/branchen/pr-kommunikation">PR &amp; Kommunikation</a>
-          <a href="/branchen/eventagenturen">Eventagenturen</a>
         </div>
       </li>
       <li><a href="/referenzen">Referenzen</a></li>
       <li><a href="/blog">Journal</a></li>
       <li><a href="/zertifizierungen">Zertifizierungen</a></li>
     </ul>
-    <a class="nav__cta" href="/formular"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>Analyse</a>
+    <a class="nav__login" href="https://hub.salesdrive.at" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+      Login
+    </a>
+    <a class="nav__cta" href="/formular">
+      Analysegespräch
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
   </div>
 </nav>
 <div class="nav-spacer"></div>
 
 <section class="subhero">
   <div class="subhero__inner">
-    <div class="subhero__eye">8 Branchen · DACH</div>
+    <div class="subhero__eye">5 Branchen-Cluster · DACH</div>
     <h1 class="subhero__title">Wir kennen <em>deine Sprache.</em></h1>
     <p class="subhero__sub">Branchenspezifische B2B-Akquise. Wir gehen nur in Bereiche, in denen wir seit Jahren messbar performen und die Entscheider-Sprache beherrschen.</p>
   </div>
@@ -126,62 +131,41 @@
 
 <section class="page">
   <div class="container container--wide">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
-      <a href="/branchen/markenagenturen" style="position:relative;display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012));border:1px solid rgba(255,255,255,.10);border-radius:22px;padding:22px;min-height:200px;text-decoration:none;color:inherit;transition:transform .5s cubic-bezier(.16,1,.3,1),border-color .3s ease;overflow:hidden">
-        <span style="position:absolute;top:0;left:16%;right:16%;height:1px;background:linear-gradient(90deg,transparent,rgba(200, 140, 175,.4),transparent)"></span>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+      <a href="/branchen/marken-pr" style="position:relative;display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012));border:1px solid rgba(255,255,255,.10);border-radius:22px;padding:24px;min-height:220px;text-decoration:none;color:inherit;transition:transform .5s cubic-bezier(.16,1,.3,1),border-color .3s ease;overflow:hidden">
+        <span style="position:absolute;top:0;left:16%;right:16%;height:1px;background:linear-gradient(90deg,transparent,rgba(200, 140, 175,.45),transparent)"></span>
         <span style="position:absolute;right:-10px;bottom:-10px;width:80%;aspect-ratio:1/1;color:rgb(200, 140, 175);opacity:.16;pointer-events:none"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><circle cx="50" cy="50" r="32"/><circle cx="50" cy="50" r="18"/><path d="M35 65 L65 35"/><circle cx="50" cy="50" r="3" fill="currentColor"/></svg></span>
-        <span style="position:relative;font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgb(200, 140, 175);margin-bottom:6px">01 · Branding</span>
-        <h2 style="position:relative;font-family:var(--display);font-size:18px;font-weight:600;letter-spacing:-.018em;line-height:1.18;color:#fff;margin-bottom:6px">Markenagenturen</h2>
-        <p style="position:relative;font-size:12.5px;line-height:1.45;color:var(--ink-2);margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.06)">brandtouch · KleinSTARK · creanovo</p>
+        <span style="position:relative;font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgb(200, 140, 175);margin-bottom:8px">01 · Kreativ</span>
+        <h2 style="position:relative;font-family:var(--display);font-size:19px;font-weight:600;letter-spacing:-.018em;line-height:1.18;color:#fff;margin-bottom:6px">Marken- &amp; PR-Agenturen</h2>
+        <p style="position:relative;font-size:13px;line-height:1.45;color:var(--ink-2);margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.06)">KleinSTARK · This is Marketing</p>
       </a>
-      <a href="/branchen/filmproduktion" style="position:relative;display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012));border:1px solid rgba(255,255,255,.10);border-radius:22px;padding:22px;min-height:200px;text-decoration:none;color:inherit;transition:transform .5s cubic-bezier(.16,1,.3,1),border-color .3s ease;overflow:hidden">
-        <span style="position:absolute;top:0;left:16%;right:16%;height:1px;background:linear-gradient(90deg,transparent,rgba(220, 170, 125,.4),transparent)"></span>
+      <a href="/branchen/film-events" style="position:relative;display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012));border:1px solid rgba(255,255,255,.10);border-radius:22px;padding:24px;min-height:220px;text-decoration:none;color:inherit;transition:transform .5s cubic-bezier(.16,1,.3,1),border-color .3s ease;overflow:hidden">
+        <span style="position:absolute;top:0;left:16%;right:16%;height:1px;background:linear-gradient(90deg,transparent,rgba(220, 170, 125,.45),transparent)"></span>
         <span style="position:absolute;right:-10px;bottom:-10px;width:80%;aspect-ratio:1/1;color:rgb(220, 170, 125);opacity:.16;pointer-events:none"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><circle cx="50" cy="50" r="34"/><circle cx="50" cy="50" r="6" fill="currentColor"/><circle cx="50" cy="22" r="6"/><circle cx="78" cy="50" r="6"/><circle cx="50" cy="78" r="6"/><circle cx="22" cy="50" r="6"/></svg></span>
-        <span style="position:relative;font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgb(220, 170, 125);margin-bottom:6px">02 · Visual</span>
-        <h2 style="position:relative;font-family:var(--display);font-size:18px;font-weight:600;letter-spacing:-.018em;line-height:1.18;color:#fff;margin-bottom:6px">Filmproduktion & 3D</h2>
-        <p style="position:relative;font-size:12.5px;line-height:1.45;color:var(--ink-2);margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.06)">tecmotion · RINK · Marc Anton</p>
+        <span style="position:relative;font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgb(220, 170, 125);margin-bottom:8px">02 · Production</span>
+        <h2 style="position:relative;font-family:var(--display);font-size:19px;font-weight:600;letter-spacing:-.018em;line-height:1.18;color:#fff;margin-bottom:6px">Film, Video &amp; Events</h2>
+        <p style="position:relative;font-size:13px;line-height:1.45;color:var(--ink-2);margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.06)">RINK Media · Highbryd Media</p>
       </a>
-      <a href="/branchen/industrielle-kommunikation" style="position:relative;display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012));border:1px solid rgba(255,255,255,.10);border-radius:22px;padding:22px;min-height:200px;text-decoration:none;color:inherit;transition:transform .5s cubic-bezier(.16,1,.3,1),border-color .3s ease;overflow:hidden">
-        <span style="position:absolute;top:0;left:16%;right:16%;height:1px;background:linear-gradient(90deg,transparent,rgba(145, 185, 210,.4),transparent)"></span>
-        <span style="position:absolute;right:-10px;bottom:-10px;width:80%;aspect-ratio:1/1;color:rgb(145, 185, 210);opacity:.16;pointer-events:none"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><path d="M50 18 L54 28 L64 26 L62 36 L72 40 L66 48 L72 56 L62 60 L64 70 L54 68 L50 78 L46 68 L36 70 L38 60 L28 56 L34 48 L28 40 L38 36 L36 26 L46 28 Z"/><circle cx="50" cy="48" r="12"/><circle cx="50" cy="48" r="4" fill="currentColor"/></svg></span>
-        <span style="position:relative;font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgb(145, 185, 210);margin-bottom:6px">03 · Industrie</span>
-        <h2 style="position:relative;font-family:var(--display);font-size:18px;font-weight:600;letter-spacing:-.018em;line-height:1.18;color:#fff;margin-bottom:6px">Industrielle Kommunikation</h2>
-        <p style="position:relative;font-size:12.5px;line-height:1.45;color:var(--ink-2);margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.06)">dieEntwickler · SATIAMO · signTEK</p>
+      <a href="/branchen/software-industrie" style="position:relative;display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012));border:1px solid rgba(255,255,255,.10);border-radius:22px;padding:24px;min-height:220px;text-decoration:none;color:inherit;transition:transform .5s cubic-bezier(.16,1,.3,1),border-color .3s ease;overflow:hidden">
+        <span style="position:absolute;top:0;left:16%;right:16%;height:1px;background:linear-gradient(90deg,transparent,rgba(135, 175, 215,.45),transparent)"></span>
+        <span style="position:absolute;right:-10px;bottom:-10px;width:80%;aspect-ratio:1/1;color:rgb(135, 175, 215);opacity:.16;pointer-events:none"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><polyline points="30,30 14,50 30,70"/><polyline points="70,30 86,50 70,70"/><line x1="58" y1="22" x2="42" y2="78"/></svg></span>
+        <span style="position:relative;font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgb(135, 175, 215);margin-bottom:8px">03 · Tech</span>
+        <h2 style="position:relative;font-family:var(--display);font-size:19px;font-weight:600;letter-spacing:-.018em;line-height:1.18;color:#fff;margin-bottom:6px">Software, SaaS &amp; Industrie</h2>
+        <p style="position:relative;font-size:13px;line-height:1.45;color:var(--ink-2);margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.06)">Memberspot · Webit · CoreStad</p>
       </a>
-      <a href="/branchen/software-saas" style="position:relative;display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012));border:1px solid rgba(255,255,255,.10);border-radius:22px;padding:22px;min-height:200px;text-decoration:none;color:inherit;transition:transform .5s cubic-bezier(.16,1,.3,1),border-color .3s ease;overflow:hidden">
-        <span style="position:absolute;top:0;left:16%;right:16%;height:1px;background:linear-gradient(90deg,transparent,rgba(130, 170, 215,.4),transparent)"></span>
-        <span style="position:absolute;right:-10px;bottom:-10px;width:80%;aspect-ratio:1/1;color:rgb(130, 170, 215);opacity:.16;pointer-events:none"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><polyline points="30,30 14,50 30,70"/><polyline points="70,30 86,50 70,70"/><line x1="58" y1="22" x2="42" y2="78"/></svg></span>
-        <span style="position:relative;font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgb(130, 170, 215);margin-bottom:6px">04 · Software</span>
-        <h2 style="position:relative;font-family:var(--display);font-size:18px;font-weight:600;letter-spacing:-.018em;line-height:1.18;color:#fff;margin-bottom:6px">Software & SaaS</h2>
-        <p style="position:relative;font-size:12.5px;line-height:1.45;color:var(--ink-2);margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.06)">Memberspot · 1Tool · netzreich</p>
+      <a href="/branchen/personalberatung" style="position:relative;display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012));border:1px solid rgba(255,255,255,.10);border-radius:22px;padding:24px;min-height:220px;text-decoration:none;color:inherit;transition:transform .5s cubic-bezier(.16,1,.3,1),border-color .3s ease;overflow:hidden">
+        <span style="position:absolute;top:0;left:16%;right:16%;height:1px;background:linear-gradient(90deg,transparent,rgba(175, 195, 145,.45),transparent)"></span>
+        <span style="position:absolute;right:-10px;bottom:-10px;width:80%;aspect-ratio:1/1;color:rgb(175, 195, 145);opacity:.16;pointer-events:none"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><circle cx="36" cy="36" r="11"/><circle cx="68" cy="40" r="9"/><path d="M16 78 C 16 64, 26 56, 36 56 C 46 56, 56 64, 56 78"/><path d="M52 78 C 52 66, 60 60, 68 60 C 76 60, 84 66, 84 78"/></svg></span>
+        <span style="position:relative;font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgb(175, 195, 145);margin-bottom:8px">04 · People</span>
+        <h2 style="position:relative;font-family:var(--display);font-size:19px;font-weight:600;letter-spacing:-.018em;line-height:1.18;color:#fff;margin-bottom:6px">Personalberatung</h2>
+        <p style="position:relative;font-size:13px;line-height:1.45;color:var(--ink-2);margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.06)">Z-Management · Menschen im Vertrieb</p>
       </a>
-      <a href="/branchen/werbetechnik-print" style="position:relative;display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012));border:1px solid rgba(255,255,255,.10);border-radius:22px;padding:22px;min-height:200px;text-decoration:none;color:inherit;transition:transform .5s cubic-bezier(.16,1,.3,1),border-color .3s ease;overflow:hidden">
-        <span style="position:absolute;top:0;left:16%;right:16%;height:1px;background:linear-gradient(90deg,transparent,rgba(140, 190, 150,.4),transparent)"></span>
-        <span style="position:absolute;right:-10px;bottom:-10px;width:80%;aspect-ratio:1/1;color:rgb(140, 190, 150);opacity:.16;pointer-events:none"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><rect x="18" y="22" width="64" height="42" rx="4"/><line x1="50" y1="64" x2="50" y2="84"/><line x1="38" y1="84" x2="62" y2="84"/><line x1="28" y1="34" x2="72" y2="34"/><line x1="28" y1="44" x2="58" y2="44"/></svg></span>
-        <span style="position:relative;font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgb(140, 190, 150);margin-bottom:6px">05 · Print</span>
-        <h2 style="position:relative;font-family:var(--display);font-size:18px;font-weight:600;letter-spacing:-.018em;line-height:1.18;color:#fff;margin-bottom:6px">Werbetechnik & Print</h2>
-        <p style="position:relative;font-size:12.5px;line-height:1.45;color:var(--ink-2);margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.06)">Digilight · hano · Leibing</p>
-      </a>
-      <a href="/branchen/personalberatung" style="position:relative;display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012));border:1px solid rgba(255,255,255,.10);border-radius:22px;padding:22px;min-height:200px;text-decoration:none;color:inherit;transition:transform .5s cubic-bezier(.16,1,.3,1),border-color .3s ease;overflow:hidden">
-        <span style="position:absolute;top:0;left:16%;right:16%;height:1px;background:linear-gradient(90deg,transparent,rgba(175, 155, 210,.4),transparent)"></span>
-        <span style="position:absolute;right:-10px;bottom:-10px;width:80%;aspect-ratio:1/1;color:rgb(175, 155, 210);opacity:.16;pointer-events:none"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><circle cx="36" cy="36" r="11"/><circle cx="68" cy="40" r="9"/><path d="M16 78 C 16 64, 26 56, 36 56 C 46 56, 56 64, 56 78"/><path d="M52 78 C 52 66, 60 60, 68 60 C 76 60, 84 66, 84 78"/></svg></span>
-        <span style="position:relative;font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgb(175, 155, 210);margin-bottom:6px">06 · Recruiting</span>
-        <h2 style="position:relative;font-family:var(--display);font-size:18px;font-weight:600;letter-spacing:-.018em;line-height:1.18;color:#fff;margin-bottom:6px">Personalberatungen</h2>
-        <p style="position:relative;font-size:12.5px;line-height:1.45;color:var(--ink-2);margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.06)">Z-Management · RN Personal</p>
-      </a>
-      <a href="/branchen/pr-kommunikation" style="position:relative;display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012));border:1px solid rgba(255,255,255,.10);border-radius:22px;padding:22px;min-height:200px;text-decoration:none;color:inherit;transition:transform .5s cubic-bezier(.16,1,.3,1),border-color .3s ease;overflow:hidden">
-        <span style="position:absolute;top:0;left:16%;right:16%;height:1px;background:linear-gradient(90deg,transparent,rgba(210, 150, 150,.4),transparent)"></span>
-        <span style="position:absolute;right:-10px;bottom:-10px;width:80%;aspect-ratio:1/1;color:rgb(210, 150, 150);opacity:.16;pointer-events:none"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><path d="M22 44 L22 64 L34 64 L66 80 L66 28 L34 44 Z"/><path d="M70 38 C 78 42, 78 66, 70 70"/><path d="M78 30 C 90 38, 90 70, 78 78"/></svg></span>
-        <span style="position:relative;font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgb(210, 150, 150);margin-bottom:6px">07 · Public Relations</span>
-        <h2 style="position:relative;font-family:var(--display);font-size:18px;font-weight:600;letter-spacing:-.018em;line-height:1.18;color:#fff;margin-bottom:6px">PR & Kommunikation</h2>
-        <p style="position:relative;font-size:12.5px;line-height:1.45;color:var(--ink-2);margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.06)">Putz & Stingl · Riba · W/PRO</p>
-      </a>
-      <a href="/branchen/eventagenturen" style="position:relative;display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012));border:1px solid rgba(255,255,255,.10);border-radius:22px;padding:22px;min-height:200px;text-decoration:none;color:inherit;transition:transform .5s cubic-bezier(.16,1,.3,1),border-color .3s ease;overflow:hidden">
-        <span style="position:absolute;top:0;left:16%;right:16%;height:1px;background:linear-gradient(90deg,transparent,rgba(215, 195, 145,.4),transparent)"></span>
-        <span style="position:absolute;right:-10px;bottom:-10px;width:80%;aspect-ratio:1/1;color:rgb(215, 195, 145);opacity:.16;pointer-events:none"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><path d="M30 80 L70 80 L78 90 L22 90 Z"/><line x1="50" y1="80" x2="50" y2="60"/><circle cx="50" cy="52" r="8"/><path d="M28 16 L36 30"/><path d="M50 12 L50 28"/><path d="M72 16 L64 30"/></svg></span>
-        <span style="position:relative;font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgb(215, 195, 145);margin-bottom:6px">08 · Events</span>
-        <h2 style="position:relative;font-family:var(--display);font-size:18px;font-weight:600;letter-spacing:-.018em;line-height:1.18;color:#fff;margin-bottom:6px">Eventagenturen</h2>
-        <p style="position:relative;font-size:12.5px;line-height:1.45;color:var(--ink-2);margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.06)">eVisions · Putz & Stingl Events</p>
+      <a href="/branchen/werbetechnik-print" style="position:relative;display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012));border:1px solid rgba(255,255,255,.10);border-radius:22px;padding:24px;min-height:220px;text-decoration:none;color:inherit;transition:transform .5s cubic-bezier(.16,1,.3,1),border-color .3s ease;overflow:hidden">
+        <span style="position:absolute;top:0;left:16%;right:16%;height:1px;background:linear-gradient(90deg,transparent,rgba(190, 165, 145,.45),transparent)"></span>
+        <span style="position:absolute;right:-10px;bottom:-10px;width:80%;aspect-ratio:1/1;color:rgb(190, 165, 145);opacity:.16;pointer-events:none"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><rect x="18" y="22" width="64" height="42" rx="4"/><line x1="50" y1="64" x2="50" y2="84"/><line x1="38" y1="84" x2="62" y2="84"/><line x1="28" y1="34" x2="72" y2="34"/><line x1="28" y1="44" x2="58" y2="44"/></svg></span>
+        <span style="position:relative;font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgb(190, 165, 145);margin-bottom:8px">05 · Handwerk</span>
+        <h2 style="position:relative;font-family:var(--display);font-size:19px;font-weight:600;letter-spacing:-.018em;line-height:1.18;color:#fff;margin-bottom:6px">Werbetechnik &amp; Print</h2>
+        <p style="position:relative;font-size:13px;line-height:1.45;color:var(--ink-2);margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.06)">Hano Einbauküchen</p>
       </a>
     </div>
 
@@ -193,19 +177,58 @@
   </div>
 </section>
 
-<footer class="footer">
+<!-- ════════════ UNIFIED FOOTER ════════════ -->
+<!-- ════════════ UNIFIED FOOTER ════════════ -->
+<footer class="footer footer--clean">
   <div class="container">
-    <div class="footer__grid">
-      <div class="footer__brand"><img class="footer__brand-logo" src="/assets/brand/salesdrive-logo.png" alt="SalesDrive"><p>Direkter Draht zur Geschäftsführung. Mo–Fr 8–18 Uhr.</p></div>
-      <div class="footer__col"><h6>Plattform</h6><a href="/#cases">Cases</a><a href="/branchen">Branchen</a><a href="/referenzen">Referenzen</a><a href="/blog">Journal</a><a href="/lohnt-sich">Lohnt sich</a></div>
-      <div class="footer__col"><h6>Vertrauen</h6><a href="/zertifizierungen">Zertifizierungen</a><a href="/tuev">TÜV</a><a href="/buero">Büro Wien</a><a href="/team">Team</a></div>
-      <div class="footer__col"><h6>Rechtliches</h6><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a><a href="/agb">AGB</a><a href="/karriere">Karriere</a></div>
+    <div class="footer__top-logo">
+      <a href="/" aria-label="SalesDrive"><img src="/assets/brand/salesdrive-logo.png" alt="SalesDrive"></a>
     </div>
-    <div class="footer__bottom"><span>© 2026 SalesDrive GmbH · Wien</span><span>Made in Vienna</span></div>
+    <div class="footer__grid">
+      <div class="footer__col">
+        <h6>Plattform</h6>
+        <a href="/#cases">Cases</a>
+        <a href="/branchen">Branchen</a>
+        <a href="/referenzen">Referenzen</a>
+        <a href="/blog">Journal</a>
+        <a href="/lohnt-sich">Lohnt sich</a>
+      </div>
+      <div class="footer__col">
+        <h6>Vertrauen</h6>
+        <a href="/zertifizierungen">Zertifizierungen</a>
+        <a href="/tuev">TÜV Rheinland</a>
+        <a href="/buero">Büro Wien</a>
+        <a href="/team">Team</a>
+        <a href="/karriere">Karriere</a>
+      </div>
+      <div class="footer__col">
+        <h6>Kontakt</h6>
+        <a href="mailto:office@salesdrive.at">office@salesdrive.at</a>
+        <a href="tel:+436767951018">+43 676 795 10 18</a>
+        <a href="/buero">Obere Donaustraße 25, 1020 Wien</a>
+        <a href="https://hub.salesdrive.at" target="_blank" rel="noopener">hub.salesdrive.at — Login →</a>
+      </div>
+      <div class="footer__col">
+        <h6>Rechtliches</h6>
+        <a href="/impressum">Impressum</a>
+        <a href="/datenschutz">Datenschutz</a>
+        <a href="/agb">AGB</a>
+        <a href="/formular">Analysegespräch</a>
+      </div>
+    </div>
+    <div class="footer__disclaimer">
+      This website is not part of the Facebook website or Facebook Inc. Furthermore, this website is not supported by Facebook in any way. Facebook is a trademark of Facebook, Inc. Es werden keine Unternehmensberatungen oder ähnliche Beratungsleistungen erbracht.
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__bottom-meta">
+        <span>© 2026 SalesDrive GmbH</span><span>·</span><strong>FN 599821s</strong><span>·</span><strong>HG Wien</strong><span>·</span><strong>UID ATU79430518</strong>
+      </div>
+      <span>Made in Vienna</span>
+    </div>
   </div>
 </footer>
 
-<script src="/assets/js/site.js?v=20260522j"></script>
+<script src="/assets/js/site.js?v=20260522s"></script>
 
 <style>
 @media (max-width: 1000px) { .container > div[style*="grid-template-columns:repeat(4,1fr)"] { grid-template-columns: repeat(2, 1fr) !important; } }
