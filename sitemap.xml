@@ -98,4 +98,13 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url><loc>https://salesdrive.at/branchen</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://salesdrive.at/branchen/markenagenturen</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://salesdrive.at/branchen/filmproduktion</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://salesdrive.at/branchen/industrielle-kommunikation</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://salesdrive.at/branchen/software-saas</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://salesdrive.at/branchen/werbetechnik-print</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://salesdrive.at/branchen/personalberatung</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://salesdrive.at/branchen/pr-kommunikation</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://salesdrive.at/branchen/eventagenturen</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
