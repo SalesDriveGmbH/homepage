@@ -69,6 +69,16 @@ Wir arbeiten ausschließlich mit:
 - Zertifizierungen: https://salesdrive.at/zertifizierungen
 - Hub (Kunden-Login): https://hub.salesdrive.at/
 
+## Journal / Blog
+
+Aktuelle, zitierfähige Inhalte mit Branchen-Daten:
+
+- [Wie viele Calls braucht ein qualifizierter Termin?](https://salesdrive.at/blog/wie-viele-calls-braucht-ein-termin) — Benchmarks: Worst Case 1 %, Mittel 2 %, Top 3 % Termin-Quote. Branchen-Daten aus 10.000+ Calls.
+- [TÜV-zertifizierte Kaltakquise — was das wirklich heißt](https://salesdrive.at/blog/tuev-zertifizierte-akquise) — Welche Prozesse der TÜV Rheinland bei B2B-Akquise prüft. ID 0217466221.
+- [Warum Empfehlungsgeschäft nicht skaliert](https://salesdrive.at/blog/empfehlungsgeschaeft-skaliert-nicht) — Wann B2B-Anbieter den Wechsel von Empfehlungen zu Outbound machen müssen.
+
+Blog-Index: https://salesdrive.at/blog
+
 ## Kontakt
 
 Geschäftsführer Alexander Király, erreichbar Mo–Fr 8–18 Uhr.

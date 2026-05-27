@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<title>Journal · Insights aus der B2B-Akquise · SalesDrive</title>
+<meta name="description" content="Dokumentierte Erkenntnisse aus 10.000+ Outbound-Calls. Branchen-Benchmarks, Sales-Coaching-Methoden, Closing-Frameworks. Aus der Praxis von SalesDrive Wien." />
+<meta name="keywords" content="B2B Akquise Blog, Cold Calling Tipps, Sales Coaching, Vertriebs-Benchmarks, Lead Generation, DACH B2B" />
+<link rel="canonical" href="https://salesdrive.at/blog" />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="de_AT" />
+<meta property="og:site_name" content="SalesDrive" />
+<meta property="og:title" content="SalesDrive Journal · Insights aus der B2B-Akquise" />
+<meta property="og:description" content="Dokumentierte Erkenntnisse aus 10.000+ Outbound-Calls. Aus der Praxis von SalesDrive Wien." />
+<meta property="og:url" content="https://salesdrive.at/blog" />
+<meta property="og:image" content="https://salesdrive.at/assets/brand/og-image.jpg" />
+
+<meta name="theme-color" content="#000000" />
+<link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css?v=20260522h">
+
+<!-- Schema.org Blog -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": "https://salesdrive.at/blog#blog",
+  "name": "SalesDrive Journal",
+  "description": "Insights aus 10.000+ dokumentierten B2B-Akquise-Calls. Branchen-Benchmarks, Sales-Frameworks, Closing-Methoden.",
+  "url": "https://salesdrive.at/blog",
+  "publisher": {
+    "@type": "Organization",
+    "name": "SalesDrive GmbH",
+    "logo": {"@type": "ImageObject", "url": "https://salesdrive.at/assets/brand/salesdrive-logo.png"}
+  },
+  "inLanguage": "de-AT"
+}
+</script>
+
+<style>
+.blog-hero { padding: clamp(60px, 9vw, 110px) 0 clamp(32px, 5vw, 56px); text-align: center; position: relative; overflow: hidden; }
+.blog-hero::before {
+  content: "";
+  position: absolute; left: 50%; top: 40%;
+  transform: translate(-50%, -50%);
+  width: 900px; height: 500px;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(41,151,255,.10), transparent 70%);
+  pointer-events: none;
+}
+.blog-hero__inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 0 22px; }
+.blog-hero__eye {
+  font-family: var(--display);
+  font-size: 13px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--blue-bright);
+  margin-bottom: 18px; display: inline-block;
+}
+.blog-hero__title {
+  font-family: var(--display);
+  font-size: clamp(36px, 5.4vw, 64px);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -.026em;
+  background: linear-gradient(105deg, #d6f0e0 0%, #b3d8e0 38%, #8aa9c0 100%);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  padding-bottom: .18em;
+  margin-bottom: 16px;
+}
+.blog-hero__title em {
+  background: linear-gradient(180deg, #7CD0FF 0%, #2987F0 100%);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent; font-style: normal;
+}
+.blog-hero__sub { font-size: clamp(16px, 1.4vw, 19px); line-height: 1.55; color: var(--ink-2); max-width: 620px; margin: 0 auto; }
+
+.blog-list { padding: clamp(40px, 5vw, 80px) 0; }
+.blog-list__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 980px) { .blog-list__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .blog-list__grid { grid-template-columns: 1fr; } }
+
+.blog-card {
+  position: relative;
+  display: flex; flex-direction: column;
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.012));
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 18px;
+  padding: 24px 22px 22px;
+  overflow: hidden;
+  transition: transform .5s cubic-bezier(.16,1,.3,1), border-color .3s var(--ease);
+  text-decoration: none;
+  color: inherit;
+  min-height: 280px;
+}
+.blog-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 16%; right: 16%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+}
+.blog-card:hover { transform: translateY(-4px); border-color: rgba(107,201,255,.28); }
+.blog-card__cat {
+  display: inline-flex; align-items: center;
+  font-family: var(--display);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--blue-bright);
+  margin-bottom: 14px;
+}
+.blog-card__title {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -.018em;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.blog-card__excerpt {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  flex-grow: 1;
+}
+.blog-card__meta {
+  display: flex; align-items: center; gap: 12px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,.06);
+  font-family: var(--display); font-size: 11px;
+  color: var(--ink-3);
+}
+.blog-card__meta span { display: inline-flex; align-items: center; gap: 4px; }
+.blog-card__meta svg { width: 11px; height: 11px; opacity: .65; }
+.blog-card__meta-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--ink-mute); padding: 0; }
+
+.blog-cta {
+  text-align: center;
+  padding: clamp(40px, 6vw, 80px) 22px;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(41,151,255,.08), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.012));
+  border: 1px solid rgba(107,201,255,.22);
+  border-radius: 24px;
+  margin-top: clamp(40px, 5vw, 60px);
+  position: relative;
+}
+.blog-cta::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 16%; right: 16%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+}
+.blog-cta__title {
+  font-family: var(--display);
+  font-size: clamp(24px, 3.4vw, 36px);
+  font-weight: 600; letter-spacing: -.024em;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 14px;
+}
+.blog-cta__title em {
+  background: linear-gradient(180deg, #7CD0FF 0%, #2987F0 100%);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent; font-style: normal;
+}
+.blog-cta__sub { font-size: 15px; color: var(--ink-2); margin-bottom: 24px; max-width: 540px; margin-left: auto; margin-right: auto; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="siteNav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="/" aria-label="SalesDrive">
+      <img class="nav__brand-logo" src="/assets/brand/salesdrive-logo.png" alt="SalesDrive">
+    </a>
+    <ul class="nav__links">
+      <li><a href="/#cases">Cases</a></li>
+      <li><a href="/referenzen">Referenzen</a></li>
+      <li><a href="/blog" class="is-current">Journal</a></li>
+      <li><a href="/team">Team</a></li>
+      <li><a href="/zertifizierungen">Zertifizierungen</a></li>
+    </ul>
+    <a class="nav__cta" href="/formular">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      Analyse
+    </a>
+  </div>
+</nav>
+<div class="nav-spacer"></div>
+
+<section class="blog-hero">
+  <div class="blog-hero__inner">
+    <div class="blog-hero__eye">SalesDrive Journal</div>
+    <h1 class="blog-hero__title">Insights aus<br><em>10.000+ Calls.</em></h1>
+    <p class="blog-hero__sub">Dokumentierte Erkenntnisse aus echten Outbound-Kampagnen. Branchen-Benchmarks, Sales-Coaching-Methoden, Closing-Frameworks. Keine Theorie, nur Praxis.</p>
+  </div>
+</section>
+
+<section class="blog-list">
+  <div class="container container--wide">
+    <div class="blog-list__grid">
+
+      <a href="/blog/wie-viele-calls-braucht-ein-termin" class="blog-card">
+        <span class="blog-card__cat">Benchmarks</span>
+        <h2 class="blog-card__title">Wie viele Calls braucht ein qualifizierter Termin?</h2>
+        <p class="blog-card__excerpt">Branchen-Benchmarks aus 10.000+ Outbound-Calls. Worst Case 1 %, Best Case 3 %. Was unsere besten Kampagnen anders machen.</p>
+        <div class="blog-card__meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>8 Min Lesezeit</span>
+          <span class="blog-card__meta-dot"></span>
+          <span>Mai 2026</span>
+        </div>
+      </a>
+
+      <a href="/blog/tuev-zertifizierte-akquise" class="blog-card">
+        <span class="blog-card__cat">Methode</span>
+        <h2 class="blog-card__title">TÜV-zertifizierte Kaltakquise — was das wirklich heißt</h2>
+        <p class="blog-card__excerpt">Warum SalesDrive als erste B2B-Akquise-Agentur im DACH-Raum TÜV-Rheinland-zertifiziert ist. Welche Prozesse geprüft werden. Was du als Mandant davon hast.</p>
+        <div class="blog-card__meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>6 Min Lesezeit</span>
+          <span class="blog-card__meta-dot"></span>
+          <span>Mai 2026</span>
+        </div>
+      </a>
+
+      <a href="/blog/empfehlungsgeschaeft-skaliert-nicht" class="blog-card">
+        <span class="blog-card__cat">Strategie</span>
+        <h2 class="blog-card__title">Warum Empfehlungsgeschäft nicht skaliert</h2>
+        <p class="blog-card__excerpt">Empfehlungen sind das wertvollste Asset im B2B. Aber sie sind unplanbar. Was du tun musst, wenn dein Vertrieb über Bauchgefühl hinauswachsen soll.</p>
+        <div class="blog-card__meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>7 Min Lesezeit</span>
+          <span class="blog-card__meta-dot"></span>
+          <span>Mai 2026</span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="blog-cta">
+      <h2 class="blog-cta__title">Du willst <em>deine</em> Zahlen sehen?</h2>
+      <p class="blog-cta__sub">30 Minuten Diagnose mit Geschäftsführer Alexander Király. Wir rechnen dir live durch, wie deine Pipeline mit unserem Setup aussehen würde.</p>
+      <a href="/formular" class="btn btn--primary btn--lg">
+        Kostenloses Analysegespräch sichern
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img class="footer__brand-logo" src="/assets/brand/salesdrive-logo.png" alt="SalesDrive">
+        <p>Direkter Draht zur Geschäftsführung. Mo–Fr 8–18 Uhr. TÜV-Rheinland zertifiziert.</p>
+      </div>
+      <div class="footer__col">
+        <h6>Plattform</h6>
+        <a href="/#cases">Cases</a>
+        <a href="/referenzen">Referenzen</a>
+        <a href="/blog">Journal</a>
+        <a href="/team">Team</a>
+      </div>
+      <div class="footer__col">
+        <h6>Vertrauen</h6>
+        <a href="/zertifizierungen">Zertifizierungen</a>
+        <a href="https://hub.salesdrive.at" target="_blank" rel="noopener">Live Hub</a>
+      </div>
+      <div class="footer__col">
+        <h6>Rechtliches</h6>
+        <a href="/impressum">Impressum</a>
+        <a href="/datenschutz">Datenschutz</a>
+        <a href="/agb">AGB</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 SalesDrive GmbH · Wien</span>
+      <span>Made in Vienna</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/site.js?v=20260522h"></script>
+</body>
+</html>
