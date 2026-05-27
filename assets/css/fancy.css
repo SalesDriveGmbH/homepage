@@ -440,13 +440,14 @@
 .statbar__num {
   font-family: var(--display);
   font-size: clamp(28px, 4vw, 56px);
-  font-weight: 700; letter-spacing: -.035em;
+  font-weight: 500; letter-spacing: -.038em;
   background: linear-gradient(180deg, #ffffff 0%, #b9bac4 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   line-height: 1;
   display: block;
+  font-variant-numeric: tabular-nums;
 }
 .statbar__num.blue {
   background: linear-gradient(180deg, #ffffff 0%, #6BC9FF 60%, #2997ff 100%);
