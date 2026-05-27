@@ -44,56 +44,161 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<!-- Schema.org JSON-LD: Organization + Service + AggregateRating + FAQ -->
+<!-- Schema.org JSON-LD: vollständiger Graph für maximale AI-Sichtbarkeit -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": ["Organization", "ProfessionalService", "LocalBusiness"],
       "@id": "https://salesdrive.at/#org",
       "name": "SalesDrive GmbH",
+      "alternateName": "SalesDrive",
       "url": "https://salesdrive.at/",
-      "logo": "https://salesdrive.at/assets/brand/salesdrive-logo.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://salesdrive.at/assets/brand/salesdrive-logo.png",
+        "width": 442,
+        "height": 132
+      },
       "image": "https://salesdrive.at/assets/brand/og-image.jpg",
-      "description": "B2B-Akquise-Agentur in Wien. Wir rufen Wunschkunden an und liefern qualifizierte Abschlussgespräche in den Kalender.",
-      "address": {"@type": "PostalAddress","addressLocality": "Wien","addressCountry": "AT"},
-      "founder": {"@type": "Person","name": "Alexander Király"},
-      "areaServed": ["AT","DE","CH"],
+      "description": "TÜV-Rheinland-zertifizierte B2B-Akquise-Agentur in Wien. Wir führen Outbound-Telefonate für Premium-Anbieter im DACH-Raum und liefern qualifizierte Abschlussgespräche mit Entscheidern direkt in den Kalender.",
+      "slogan": "Wir rufen deine Wunschkunden an und legen dir Abschlussgespräche in deinen Kalender.",
+      "foundingDate": "2023",
+      "founder": {"@id": "https://salesdrive.at/#alex"},
+      "employee": {"@id": "https://salesdrive.at/#alex"},
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Leopoldquartier",
+        "addressLocality": "Wien",
+        "addressRegion": "Wien",
+        "addressCountry": "AT"
+      },
+      "areaServed": [
+        {"@type": "Country", "name": "Österreich"},
+        {"@type": "Country", "name": "Deutschland"},
+        {"@type": "Country", "name": "Schweiz"}
+      ],
+      "knowsAbout": ["B2B-Akquise", "Cold Calling", "Outbound Sales", "Lead Generation", "Vertriebsoptimierung", "Sales Coaching", "Terminvereinbarung", "B2B Sales DACH"],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Zertifizierung",
+          "name": "TÜV Rheinland Zertifizierung (ID 0217466221)",
+          "recognizedBy": {"@type": "Organization", "name": "TÜV Rheinland"}
+        }
+      ],
+      "aggregateRating": {"@id": "https://salesdrive.at/#rating"},
       "sameAs": [
         "https://www.linkedin.com/company/lehner-consulting/",
         "https://www.instagram.com/salesdrive.at/",
         "https://www.facebook.com/salesdrivegmbh",
-        "https://www.youtube.com/@SalesDriveGmbH"
-      ]
+        "https://www.youtube.com/@SalesDriveGmbH",
+        "https://www.provenexpert.com/salesdrive/"
+      ],
+      "makesOffer": [{"@id": "https://salesdrive.at/#service"}]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://salesdrive.at/#alex",
+      "name": "Alexander Király",
+      "jobTitle": "Geschäftsführer",
+      "worksFor": {"@id": "https://salesdrive.at/#org"},
+      "knowsAbout": ["B2B-Vertrieb", "Cold Calling", "Sales-Coaching", "Lead-Qualifizierung"]
     },
     {
       "@type": "Service",
       "@id": "https://salesdrive.at/#service",
       "name": "B2B-Outbound-Akquise",
+      "serviceType": "B2B Cold Calling und Lead-Qualifizierung",
       "provider": {"@id": "https://salesdrive.at/#org"},
-      "areaServed": ["AT","DE","CH"],
-      "description": "Qualifizierte Erstgespräche mit Entscheidern. Wir telefonieren, qualifizieren vor, legen Abschlussgespräche in deinen Kalender."
+      "areaServed": ["AT", "DE", "CH"],
+      "description": "Vollständig betreute B2B-Telefonakquise. Wir übernehmen Listengenerierung, Opening, Erstanruf und Vorqualifizierung. Qualifizierte Abschlussgespräche landen direkt im Kalender des Kunden.",
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "B2B-Anbieter mit ≥ 1 Mio. € Jahresumsatz, Kundenwert ≥ 5.000 €, maximal 200 Mitarbeiter"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Im Programm enthalten",
+        "itemListElement": [
+          {"@type": "Offer", "name": "Auswertung jedes Strategiegesprächs", "description": "KI-Analyse jedes geführten Calls nach 21 Qualitätskriterien"},
+          {"@type": "Offer", "name": "Persönliches Trainingsprofil", "description": "Individuelle Skill-Map mit gezielten Übungen"},
+          {"@type": "Offer", "name": "Wöchentliches Live-Training", "description": "Jeden Freitag mit Alex Király"},
+          {"@type": "Offer", "name": "Deal Execution Days Wien", "description": "2-Tages-Intensiv-Sessions im HQ Leopoldquartier"},
+          {"@type": "Offer", "name": "1:1 Sales Sparring", "description": "Direkter Draht zur Geschäftsführung"}
+        ]
+      }
     },
     {
       "@type": "AggregateRating",
+      "@id": "https://salesdrive.at/#rating",
       "itemReviewed": {"@id": "https://salesdrive.at/#org"},
       "ratingValue": "4.82",
       "bestRating": "5",
-      "reviewCount": "74"
+      "worstRating": "1",
+      "reviewCount": "74",
+      "ratingCount": "74"
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {"@id": "https://salesdrive.at/#service"},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "author": {"@type": "Person", "name": "Gert Zaunbauer", "jobTitle": "Gründer", "worksFor": {"@type": "Organization", "name": "Putz & Stingl Events"}},
+      "reviewBody": "342.000 € mehr Auftrag in 60 Tagen. Planbar neue Entscheidergespräche statt Empfehlungs-Lotterie."
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {"@id": "https://salesdrive.at/#service"},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "author": {"@type": "Person", "name": "Julian Kirfl", "jobTitle": "Geschäftsführer", "worksFor": {"@type": "Organization", "name": "Linkbroker"}},
+      "reviewBody": "16 Abschlussgespräche in 60 Tagen. Vorher war Akquise bei uns reine Glückssache."
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {"@id": "https://salesdrive.at/#service"},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "author": {"@type": "Person", "name": "Marc Rink", "jobTitle": "Inhaber", "worksFor": {"@type": "Organization", "name": "RINK Media"}},
+      "reviewBody": "Jeder Call dokumentiert. SalesDrive ist der erste Anbieter, der nachvollziehbar liefert."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://salesdrive.at/#website",
+      "url": "https://salesdrive.at/",
+      "name": "SalesDrive",
+      "publisher": {"@id": "https://salesdrive.at/#org"},
+      "inLanguage": "de-AT",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://salesdrive.at/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     },
     {
       "@type": "FAQPage",
+      "@id": "https://salesdrive.at/#faq",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".faq__q", "summary", ".faq__body"]
+      },
       "mainEntity": [
-        {"@type": "Question","name": "Wie läuft die Zusammenarbeit grundsätzlich ab?","acceptedAnswer": {"@type": "Answer","text": "In drei Phasen. Phase 1 Analyse (5-7 Werktage): Kick-Off, Digital Trust Audit. Phase 2 Aufbau (7-10 Werktage): Listengenerierung, Opening, Einwand-Behandlung. Phase 3 Akquise startet spätestens in Woche 4."}},
-        {"@type": "Question","name": "Was unterscheidet euch von anderen Anbietern?","acceptedAnswer": {"@type": "Answer","text": "TÜV Rheinland zertifiziert. ProvenExpert auditiert mit 4,82/5. SalesDrive Hub mit auditierbarer Live-Doku. Direkter Kontakt zur Geschäftsführung."}},
-        {"@type": "Question","name": "Welche Ergebnisse kann ich erwarten?","acceptedAnswer": {"@type": "Answer","text": "Als Richtwert: in 90 Tagen typischerweise 15 bis 25 qualifizierte Abschlussgespräche."}}
+        {"@type": "Question","name": "Wie läuft die Zusammenarbeit grundsätzlich ab?","acceptedAnswer": {"@type": "Answer","text": "In drei Phasen. Phase 1 Analyse (5-7 Werktage): Kick-Off, Digital Trust Audit. Phase 2 Aufbau (7-10 Werktage): Listengenerierung, Opening, Einwand-Behandlung. Phase 3 Akquise startet spätestens in Woche 4. Wir telefonieren Mo bis Fr 8 bis 18 Uhr, du übernimmst die qualifizierten Abschlussgespräche."}},
+        {"@type": "Question","name": "Was unterscheidet SalesDrive von anderen Anbietern?","acceptedAnswer": {"@type": "Answer","text": "Vier Punkte. Erstens TÜV-Rheinland-Zertifizierung. Zweitens ProvenExpert auditiert mit 4,82 von 5. Drittens SalesDrive Hub mit auditierbarer Live-Dokumentation jedes Anrufs. Viertens direkter Kontakt zur Geschäftsführung statt Account-Pool oder Setter."}},
+        {"@type": "Question","name": "Welche Ergebnisse kann ich erwarten?","acceptedAnswer": {"@type": "Answer","text": "Als Richtwert: in 90 Tagen typischerweise 15 bis 25 qualifizierte Abschlussgespräche. Die Branchen-Termin-Quote liegt zwischen 1 und 3 Prozent. Die Closing-Rate unserer Mandanten liegt im Schnitt bei 55 Prozent. Bei Top-Cases sind Deals von 24.000 bis 342.000 Euro entstanden."}},
+        {"@type": "Question","name": "Für welche Unternehmen ist SalesDrive geeignet?","acceptedAnswer": {"@type": "Answer","text": "Für B2B-Anbieter mit mindestens 1 Million Euro Jahresumsatz, einem durchschnittlichen Kundenwert ab 5.000 Euro und maximal 200 Mitarbeitern. Premium-Positionierung vorausgesetzt. Branchen: Markenagenturen, Filmproduktion, Industrie, Software und SaaS, Werbetechnik, Personalberatung, PR und Eventagenturen."}},
+        {"@type": "Question","name": "Was kostet ein Analysegespräch?","acceptedAnswer": {"@type": "Answer","text": "Das 30-Minuten-Analysegespräch ist kostenlos und unverbindlich. Du sprichst direkt mit Geschäftsführer Alexander Király. Es ist keine Demo und kein Pitch, sondern eine Diagnose: Wir schauen, ob deine Pipeline-Lücke zu unserem Setup passt."}}
       ]
     }
   ]
 }
 </script>
-<link rel="stylesheet" href="assets/css/site.css?v=20260522g">
+<link rel="stylesheet" href="assets/css/site.css?v=20260522h">
 <link rel="stylesheet" href="assets/css/mobile.css">
 <style>
 /* ===== HOME-specific styles ===== */
@@ -5402,7 +5507,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
 </a>
 
-<script src="assets/js/site.js?v=20260522g"></script>
+<script src="assets/js/site.js?v=20260522h"></script>
 <script>
 // Hero MacBook lid-open: triggered on first scroll OR when laptop comes into view.
 // Einmaliges Aufklappen mit 5.2s CSS-Transition (cinematic).
