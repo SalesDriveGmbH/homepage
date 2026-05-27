@@ -419,7 +419,7 @@
 /* === Animated Stat Bar (Referenzen Hero) =================== */
 .statbar {
   position: relative;
-  padding: clamp(30px, 4vw, 50px) 0;
+  padding: clamp(22px, 3vw, 36px) 0;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   background: linear-gradient(180deg, rgba(255,255,255,.02), transparent);

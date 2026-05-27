@@ -403,7 +403,7 @@ em { font-style: normal; color: var(--blue); }
 /* SUB-PAGE HERO (smaller than home hero) */
 .subhero {
   position: relative;
-  padding: clamp(120px, 14vw, 180px) 0 clamp(50px, 8vw, 90px);
+  padding: clamp(70px, 9vw, 110px) 0 clamp(36px, 5vw, 60px);
   text-align: center;
   overflow: hidden;
   isolation: isolate;
@@ -430,10 +430,10 @@ em { font-style: normal; color: var(--blue); }
 .subhero__eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 10px var(--blue); }
 .subhero__title {
   font-family: var(--display);
-  font-size: clamp(34px, 5.2vw, 64px);
-  font-weight: 500;
+  font-size: clamp(34px, 5.4vw, 68px);
+  font-weight: 600;
   line-height: 1.08;
-  letter-spacing: -.028em;
+  letter-spacing: -.024em;
   margin-bottom: 14px;
   background: linear-gradient(105deg, #d6f0e0 0%, #b3d8e0 38%, #8aa9c0 100%);
   -webkit-background-clip: text;
