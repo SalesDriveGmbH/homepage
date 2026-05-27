@@ -301,22 +301,18 @@
         </div>
       </div>
 
-      <!-- STEP 4: Concern -->
+      <!-- STEP 4: Quelle -->
       <div class="fstep" data-step="4">
         <div class="field">
-          <label class="field__label" for="anliegen">Worum geht es konkret?</label>
-          <p class="field__hint">Optional. Hilft uns, das Gespräch vorzubereiten.</p>
-          <textarea class="field__textarea" id="anliegen" name="anliegen" placeholder="z.B. 'Wir wollen unseren Pool an Marketing-Agenturen ausbauen' oder 'Aktuell hängt unsere Akquise an mir, das blockiert Geschäftsführung'"></textarea>
-        </div>
-        <div class="field">
           <label class="field__label" for="quelle">Wie bist du auf uns aufmerksam geworden?</label>
-          <select class="field__select" id="quelle" name="quelle">
-            <option value="">Auswählen …</option>
+          <select class="field__select" id="quelle" name="quelle" required>
+            <option value="" disabled selected>Bitte auswählen …</option>
             <option>Empfehlung</option>
             <option>Google / Suche</option>
+            <option>KI-Suche (ChatGPT, Perplexity, Gemini, Claude)</option>
             <option>LinkedIn</option>
-            <option>Messe / Event</option>
             <option>YouTube / Podcast</option>
+            <option>Messe / Event</option>
             <option>Anders</option>
           </select>
         </div>
@@ -342,7 +338,7 @@
           <p style="color:var(--ink-3);font-size:14px">30 Minuten · direkt mit Alexander Kiraly · per Telefon oder Video</p>
         </div>
         <div class="calendly-wrap">
-          <div class="calendly-inline-widget" data-url="https://calendly.com/salesdrive/analysegesprach-klon?hide_event_type_details=0&hide_gdpr_banner=1&background_color=15161c&text_color=f5f5f7&primary_color=2997ff" id="calendlyEmbed"></div>
+          <div class="calendly-inline-widget" data-url="https://calendly.com/salesdrive/analysegespraech?hide_event_type_details=1&hide_gdpr_banner=1&background_color=15161c&text_color=f5f5f7&primary_color=2997ff" id="calendlyEmbed"></div>
         </div>
       </div>
     </form>
@@ -476,7 +472,6 @@
       email: form.elements.email.value.trim(),
       telefon: form.elements.telefon.value.trim(),
       position: form.elements.position.value,
-      anliegen: form.elements.anliegen.value.trim(),
       quelle: form.elements.quelle.value,
       page: location.href,
       ts: new Date().toISOString()
@@ -500,7 +495,7 @@
 
     // Prefill Calendly via URL params
     setTimeout(() => {
-      const url = new URL('https://calendly.com/salesdrive/analysegesprach-klon');
+      const url = new URL('https://calendly.com/salesdrive/analysegespraech');
       url.searchParams.set('name', data.vorname + ' ' + data.nachname);
       url.searchParams.set('email', data.email);
       url.searchParams.set('a1', data.firma);
