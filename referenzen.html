@@ -239,7 +239,7 @@
 .sizzle__device:hover .sizzle__poster { transform: scale(1.03); filter: brightness(.85); }
 .sizzle__device::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,.55) 100%);
+  background: radial-gradient(60% 60% at 50% 50%, rgba(0,0,0,.35) 0%, rgba(0,0,0,.15) 100%);
   pointer-events: none;
 }
 .sizzle__play {
@@ -419,18 +419,14 @@
   </div>
 </section>
 
-<!-- SIZZLE. lazy intro video — Play-Button vor Load -->
+<!-- SIZZLE. lazy intro video — nur Play-Button vor Load -->
 <section class="sizzle">
   <div class="sizzle__stage reveal-blur">
     <div class="sizzle__device" data-vimeo="1157996306" role="button" tabindex="0" aria-label="SalesDrive Vorstellung abspielen">
-      <img class="sizzle__poster" src="https://vumbnail.com/1157996306.jpg" alt="" loading="lazy" decoding="async">
+      <img class="sizzle__poster" src="/assets/photos/sizzle-thumb.jpg" alt="SalesDrive Vorstellung" decoding="async" fetchpriority="high">
       <button class="sizzle__play" aria-label="Video abspielen" type="button">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
       </button>
-      <div class="sizzle__caption">
-        <span class="sizzle__caption-title">SalesDrive · Vorstellung</span>
-        <span class="sizzle__caption-meta">1 Min</span>
-      </div>
     </div>
   </div>
 </section>
