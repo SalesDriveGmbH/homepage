@@ -848,6 +848,27 @@ body::before{opacity:.7}
 .fcard:hover .fico{transform:translateY(-3px) scale(1.08)}
 </style>
 <style id="v5simpl">.deck-kpis{grid-template-columns:repeat(3,1fr) !important}@media(max-width:740px){.deck-kpis{grid-template-columns:1fr !important}}.bring span{font-size:11px;line-height:1.25}.deck-fore .s{max-width:240px;margin:0 auto}</style>
+<style id="v5hero3">
+/* Pill kleiner */
+.hpill{padding:7px 16px !important;margin-bottom:26px !important}
+.hpill .mono{font-size:11px !important;letter-spacing:.14em !important}
+
+/* Headline: höhere Zeilenhöhe, nichts abgeschnitten */
+.hero h1{line-height:1.14 !important;padding-bottom:.1em !important}
+.hero h1 br{display:inline !important}
+
+/* Video: schöner Premium-Rahmen */
+.vframe{border:1px solid rgba(255,255,255,.10) !important;box-shadow:0 40px 90px -46px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.04) inset, 0 0 0 6px rgba(255,255,255,.02) !important}
+.vframe::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:linear-gradient(150deg,rgba(255,255,255,.55),rgba(255,255,255,.06) 38%,rgba(120,160,255,.28) 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;z-index:5;pointer-events:none}
+
+/* Stat-Cards: dezenter (weniger blau), grafisch schöner */
+.hstat{background:linear-gradient(180deg,#101218,#0a0b0f) !important;border:1px solid rgba(255,255,255,.1) !important;border-radius:18px !important;padding:32px 18px 18px !important;position:relative;overflow:hidden}
+.hstat::before{content:"";position:absolute;top:0;left:18px;right:18px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent)}
+.hstat-n{color:#f3f4f6 !important;font-weight:800 !important}
+.hstat:first-child .hstat-n{color:#f3f4f6 !important}
+.hstat-l{color:var(--ink-3) !important;font-family:var(--mono);font-size:10.5px !important;letter-spacing:.08em;text-transform:uppercase}
+.hstat:hover{border-color:rgba(255,255,255,.18) !important;transition:border-color .3s}
+</style>
 </head>
 <body>
 
@@ -872,7 +893,7 @@ body::before{opacity:.7}
 <!-- HERO -->
 <header class="hero">
     <div class="wrap">
-    <div class="hpill rv"><span class="hpill-dot"></span><span class="mono">Externe B2B-Akquise · Die Nr. 1 Vertriebs-Plattform im DACH-Raum</span></div>
+    <div class="hpill rv"><span class="hpill-dot"></span><span class="mono">Nr. 1 B2B Outbound Agentur</span></div>
     <h1 class="rv">Wir rufen deine Wunschkunden an und legen<br>dir <span class="em">Abschlussgespräche</span> in deinen Kalender.</h1>
     <p class="hsub rv">Wir übernehmen die kalte Erstansprache. Du bekommst nur noch vorqualifizierte Abschlussgespräche mit Entscheidern. In der <b>kostenlosen 30-Minuten-Analyse</b> zeigen wir dir das komplette System.</p>
 
