@@ -798,6 +798,55 @@ body::before{opacity:.7}
 .svcard::before{content:"";position:absolute;top:-40%;right:-20%;width:60%;height:120%;background:radial-gradient(circle,rgba(59,130,255,.10),transparent 70%);opacity:0;transition:opacity .4s;pointer-events:none}
 .svcard:hover::before{opacity:1}
 </style>
+<style id="v5uni">
+/* ===== Headlines: überall gleiche Dicke, KEINE Sonderwörter ===== */
+.hero h1,.sec-h h2,.final h2{font-weight:700 !important}
+.hero h1 .em,.sec-h h2 .em,.final h2 .em{font-family:var(--sans) !important;font-style:normal !important;font-weight:700 !important;background:none !important;-webkit-text-fill-color:inherit !important;color:inherit !important;text-shadow:none !important}
+
+/* ===== Hero: Buttons kleiner + 2. Button, Badges direkt darunter ===== */
+.hbtns{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hcta{width:auto !important;margin-top:0 !important;padding:15px 26px !important;font-size:15px !important;border-radius:14px !important}
+.hcta2{display:inline-flex;align-items:center;justify-content:center;padding:15px 24px;border-radius:14px;font-size:15px;font-weight:600;color:var(--ink);border:1px solid var(--rule-2);background:rgba(255,255,255,.02);transition:.25s}
+.hcta2:hover{border-color:#fff;background:rgba(255,255,255,.05);transform:translateY(-2px)}
+.hbadges{margin-top:24px !important;padding-top:24px;border-top:1px solid var(--rule)}
+
+/* ===== Branchen: Farben dezenter ===== */
+.brc-bg{opacity:.06 !important}
+.brc:hover .brc-bg{opacity:.14 !important}
+.brc-ic{background:color-mix(in srgb,var(--c) 9%,transparent) !important}
+.brc:hover{border-color:color-mix(in srgb,var(--c) 38%,transparent) !important;background:linear-gradient(180deg,color-mix(in srgb,var(--c) 5%,transparent),transparent) !important}
+
+/* ===== Klartext-Tabelle grafischer ===== */
+.ktab{box-shadow:0 40px 90px -54px rgba(0,0,0,.85)}
+.ktab-head,.ktab-row{padding:16px 22px}
+.ktab-row:nth-child(even){background:rgba(255,255,255,.012)}
+.kt-y{background:rgba(52,211,153,.08) !important;border:1px solid rgba(52,211,153,.18);border-radius:10px;padding:9px 13px !important;font-weight:600;color:#dff5ea !important}
+.kt-n{background:rgba(240,121,106,.06) !important;border:1px solid rgba(240,121,106,.14);border-radius:10px;padding:9px 13px !important;color:var(--ink-2) !important}
+.kt-c{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3) !important}
+
+/* ===== Testimonials komplett neu (jeweils schöner Rahmen) ===== */
+#stimmen .quotes{grid-template-columns:repeat(3,1fr);gap:18px}
+.qt{background:radial-gradient(120% 90% at 50% 0%,rgba(59,130,255,.05),transparent 55%),linear-gradient(180deg,#10131a,#0a0b10) !important;border:1px solid rgba(255,255,255,.13) !important;border-radius:24px !important;padding:34px 30px !important;position:relative;overflow:hidden;box-shadow:0 36px 70px -42px rgba(0,0,0,.9),0 1px 0 rgba(255,255,255,.04) inset !important;display:flex;flex-direction:column}
+.qt::after{content:"" !important;position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#3b82ff,transparent 60%)}
+.qt::before{content:"\201C" !important;position:absolute;top:12px;right:26px;font-family:Georgia,serif;font-size:80px;line-height:1;color:rgba(255,255,255,.06)}
+.qt .st{color:#ffc94a !important;font-size:15px !important;letter-spacing:3px;margin-bottom:18px}
+.qt p{font-size:16.5px !important;font-family:var(--sans) !important;font-style:normal !important;color:#eef0f2 !important;line-height:1.55 !important;letter-spacing:-.01em;flex:1;position:relative;z-index:1}
+.qt .who{margin-top:24px !important;padding-top:20px !important;border-top:1px solid rgba(255,255,255,.1) !important;display:flex;align-items:center;gap:12px}
+.qt .av{width:44px !important;height:44px !important;border-radius:50% !important;background:linear-gradient(135deg,#4a9bff,#1452ff) !important;color:#fff !important;font-weight:700 !important;font-size:15px !important;box-shadow:0 10px 22px -8px rgba(59,130,255,.6)}
+.qt .who b{font-size:14.5px !important}.qt .who span{font-size:12.5px !important;color:var(--ink-3) !important}
+.qt:hover{border-color:rgba(59,130,255,.42) !important;transform:translateY(-5px);transition:transform .45s cubic-bezier(.16,1,.3,1),border-color .3s}
+
+/* ===== Ablauf: noch mehr WOW ===== */
+.ffill{background:linear-gradient(90deg,rgba(255,255,255,.35),#ffffff) !important;background-size:220% 100% !important;animation:railShine 2.6s linear infinite}
+@keyframes railShine{to{background-position:-220% 0}}
+.fcard{padding:30px 22px 26px !important;border-radius:22px;border:1px solid transparent;transition:background .4s,border-color .4s,transform .5s cubic-bezier(.16,1,.3,1)}
+.fcard:hover{background:linear-gradient(180deg,rgba(255,255,255,.035),transparent);border-color:rgba(255,255,255,.1);transform:translateY(-4px)}
+.fnum.lit{animation:numPop .55s cubic-bezier(.16,1,.3,1)}
+@keyframes numPop{0%{transform:scale(.9)}55%{transform:scale(1.16)}100%{transform:scale(1.08)}}
+.fnum.lit::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);animation:numRing 2.2s ease-out infinite}
+@keyframes numRing{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.5);opacity:0}}
+.fcard:hover .fico{transform:translateY(-3px) scale(1.08)}
+</style>
 </head>
 <body>
 
@@ -834,8 +883,10 @@ body::before{opacity:.7}
           <li><span class="hck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span><div><b>Planbare Pipeline.</b> Vorqualifizierte Entscheidergespräche, Woche für Woche.</div></li>
           <li><span class="hck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span><div><b>Direkt mit Alexander.</b> Geschäftsführer zu Geschäftsführer, auf Augenhöhe.</div></li>
         </ul>
-        <a href="/formular" class="hcta">Kostenlose Analyse sichern<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-        <div class="hmeta mono"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>30 Min</span><i></i><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/></svg>100 % kostenlos</span><i></i><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>sofort verfügbar</span></div>
+        <div class="hbtns">
+          <a href="/formular" class="hcta">Kostenlose Analyse sichern<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a href="#cases" class="hcta2">Referenzen ansehen</a>
+        </div>
         <div class="hbadges">
           <a href="https://www.tuv.com" target="_blank" rel="noopener"><img src="/assets/trust/tuv-rheinland.png" alt="TÜV Rheinland zertifiziert"></a>
           <div class="htp"><div class="trustpilot-widget" data-locale="de-DE" data-template-id="5419b732fbfb950b10de65e5" data-businessunit-id="6824f66b7d7d518b035be9fe" data-style-height="30px" data-style-width="100%" data-token="6c10c584-b7c5-4f1f-9e52-269566a2af4f"><a href="https://de.trustpilot.com/review/salesdrive.at" target="_blank" rel="noopener">Trustpilot</a></div></div>
@@ -1237,7 +1288,7 @@ body::before{opacity:.7}
 <section class="final">
   <div class="wrap">
     <span class="mono rv">Jetzt kostenlos Analysegespräch sichern</span>
-    <h2 class="rv" style="margin-top:24px">Wir telefonieren. <span class="em">Du verkaufst.</span></h2>
+    <h2 class="rv" style="margin-top:24px">Wir telefonieren.<br><span class="em">Du verkaufst.</span></h2>
     <p class="rv">Du sprichst direkt mit Alexander Király. Geschäftsführer zu Geschäftsführer, auf Augenhöhe. In 30 Minuten klären wir, ob deine Pipeline-Lücke zu unserem Setup passt. Keine Demo. Eine Diagnose.</p>
     <div class="rv"><a href="/formular" class="btn btn-primary">Kostenloses Analysegespräch sichern<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
     <div class="final-host rv"><span class="av">AK</span><div style="text-align:left"><b>Alexander Király</b> · Geschäftsführer · SalesDrive GmbH<br>30 Minuten · 100 % kostenlos</div></div>
