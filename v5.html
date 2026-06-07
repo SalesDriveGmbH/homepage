@@ -847,6 +847,7 @@ body::before{opacity:.7}
 @keyframes numRing{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.5);opacity:0}}
 .fcard:hover .fico{transform:translateY(-3px) scale(1.08)}
 </style>
+<style id="v5simpl">.deck-kpis{grid-template-columns:repeat(3,1fr) !important}@media(max-width:740px){.deck-kpis{grid-template-columns:1fr !important}}.bring span{font-size:11px;line-height:1.25}.deck-fore .s{max-width:240px;margin:0 auto}</style>
 </head>
 <body>
 
@@ -1022,8 +1023,8 @@ body::before{opacity:.7}
           </svg>
           <div class="bchart-tip">
             <div class="bt-date">Heute · Live</div>
-            <div class="bt-row"><span class="bt-sw"></span>Wählversuche<b>3.284</b></div>
-            <div class="bt-row"><span class="bt-sw bt-sw2"></span>EG-Termine<b>31</b></div>
+            <div class="bt-row"><span class="bt-sw"></span>Gespräche<b>3.284</b></div>
+            <div class="bt-row"><span class="bt-sw bt-sw2"></span>Termine<b>31</b></div>
           </div>
         </div>
         <div class="bA-txt">
@@ -1045,11 +1046,11 @@ body::before{opacity:.7}
 
       <!-- C: Quoten Rings -->
       <article class="bcard bC">
-        <div class="bcard-h"><h3>Starke Quoten</h3><p>Show-Rate, Closing und AG-Rate aus laufenden Kampagnen.</p></div>
+        <div class="bcard-h"><h3>Starke Quoten</h3><p>Wie viele Leads zum Termin erscheinen und abschließen — aus laufenden Kampagnen.</p></div>
         <div class="brings">
-          <div class="bring"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="6"/><circle class="bring-fg" style="--off:17" cx="36" cy="36" r="30" fill="none" stroke="#34d399" stroke-width="6" stroke-linecap="round" stroke-dasharray="188" stroke-dashoffset="188" transform="rotate(-90 36 36)"/></svg><b>92<i>%</i></b><span>Show-Rate</span></div>
-          <div class="bring"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="6"/><circle class="bring-fg" style="--off:71" cx="36" cy="36" r="30" fill="none" stroke="#3b82ff" stroke-width="6" stroke-linecap="round" stroke-dasharray="188" stroke-dashoffset="188" transform="rotate(-90 36 36)"/></svg><b>62<i>%</i></b><span>Close-Rate</span></div>
-          <div class="bring"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="6"/><circle class="bring-fg" style="--off:92" cx="36" cy="36" r="30" fill="none" stroke="#ffd24a" stroke-width="6" stroke-linecap="round" stroke-dasharray="188" stroke-dashoffset="188" transform="rotate(-90 36 36)"/></svg><b>51<i>%</i></b><span>AG-Rate</span></div>
+          <div class="bring"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="6"/><circle class="bring-fg" style="--off:17" cx="36" cy="36" r="30" fill="none" stroke="#34d399" stroke-width="6" stroke-linecap="round" stroke-dasharray="188" stroke-dashoffset="188" transform="rotate(-90 36 36)"/></svg><b>92<i>%</i></b><span>erscheinen zum Termin</span></div>
+          <div class="bring"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="6"/><circle class="bring-fg" style="--off:71" cx="36" cy="36" r="30" fill="none" stroke="#3b82ff" stroke-width="6" stroke-linecap="round" stroke-dasharray="188" stroke-dashoffset="188" transform="rotate(-90 36 36)"/></svg><b>62<i>%</i></b><span>Abschlussquote</span></div>
+          <div class="bring"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="6"/><circle class="bring-fg" style="--off:92" cx="36" cy="36" r="30" fill="none" stroke="#ffd24a" stroke-width="6" stroke-linecap="round" stroke-dasharray="188" stroke-dashoffset="188" transform="rotate(-90 36 36)"/></svg><b>51<i>%</i></b><span>Auftragsquote</span></div>
         </div>
       </article>
 
@@ -1100,26 +1101,25 @@ body::before{opacity:.7}
     <div class="deck rv" id="deckCard">
       <div class="deck-bar">
         <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap"><span class="deck-live"><i></i>Live Tracking</span><b>Lukas GmbH</b><span class="st">Stand 04.06.2026</span><span class="deck-demo">Demo</span></div>
-        <span class="st">Paket B · Tag 35 / 61</span>
+        <span class="st">Kampagne läuft · Tag 35</span>
       </div>
       <div class="deck-kpis">
-        <div class="dk"><div class="l">Wählversuche</div><div class="n"><span data-c="3284" data-sep>0</span></div><div class="d down">↘ 3 %</div></div>
-        <div class="dk"><div class="l">EG-Termine</div><div class="n"><span data-c="31">0</span></div><div class="d down">↘ 22 %</div></div>
-        <div class="dk"><div class="l">Abschlüsse</div><div class="n"><span data-c="8">0</span></div><div class="d up">Close-Rate 62 %</div></div>
-        <div class="dk"><div class="l">Pipeline-Wert</div><div class="n">€ <span data-c="20800" data-sep>0</span></div><div class="d up">8 offene Gespräche</div></div>
+        <div class="dk"><div class="l">Termine im Kalender</div><div class="n"><span data-c="31">0</span></div><div class="d up">diesen Monat gebucht</div></div>
+        <div class="dk"><div class="l">Abschlussgespräche</div><div class="n"><span data-c="8">0</span></div><div class="d up">bereits geführt</div></div>
+        <div class="dk"><div class="l">Pipeline-Wert</div><div class="n">€ <span data-c="20800" data-sep>0</span></div><div class="d up">in Verhandlung</div></div>
       </div>
       <div class="deck-grid">
         <div class="deck-card">
-          <div class="ch"><span class="t">Kampagnen-Funnel · Gesamt</span><span class="t">Conv. 0,9 %</span></div>
-          <div class="fn"><span class="fl">Wählversuche</span><span class="fb"><i data-w="100"></i></span><span class="fv">3.284</span></div>
+          <div class="ch"><span class="t">Was aus den Anrufen wird</span></div>
+          <div class="fn"><span class="fl">Angerufen</span><span class="fb"><i data-w="100"></i></span><span class="fv">3.284</span></div>
           <div class="fn"><span class="fl">Erreicht</span><span class="fb"><i data-w="40"></i></span><span class="fv">1.314</span></div>
-          <div class="fn"><span class="fl">Entscheider</span><span class="fb"><i data-w="18"></i></span><span class="fv">591</span></div>
-          <div class="fn"><span class="fl">EG-Termine</span><span class="fb"><i data-w="5"></i></span><span class="fv">31</span></div>
+          <div class="fn"><span class="fl">Mit Entscheider</span><span class="fb"><i data-w="18"></i></span><span class="fv">591</span></div>
+          <div class="fn"><span class="fl">Termin gebucht</span><span class="fb"><i data-w="5"></i></span><span class="fv">31</span></div>
         </div>
         <div class="deck-card deck-fore">
-          <span class="l">Forecast · Umsatz · auf Kurs 120 %</span>
+          <span class="l">Prognostizierter Umsatz</span>
           <div class="big">€ <span data-c="87698" data-sep>0</span></div>
-          <span class="s">Wählversuche 4.000 → EG 38 → Strategie 19 → Abschlüsse 6</span>
+          <span class="s">aus den gebuchten Terminen dieser Kampagne</span>
         </div>
       </div>
     </div>
