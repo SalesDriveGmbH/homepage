@@ -1792,8 +1792,29 @@ nav{
 .bento-tile--lg .bento-ov h4{font-size:clamp(18px,2vw,24px)}
 @media(max-width:860px){.bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}.bento-tile--lg{grid-column:span 2;grid-row:span 1}.bento-tile--wide{grid-column:span 2}}
 @media(max-width:520px){.bento{grid-template-columns:1fr}.bento-tile--lg,.bento-tile--wide{grid-column:span 1}}
+
+/* ===== Hero left-align + larger (equipe-style) ===== */
+.hero h1{max-width:14ch}
+.hero p.lead{font-size:18px}
+/* Trust row (real logos + Trustpilot) */
+.hero-trust{display:flex;align-items:center;gap:22px;margin-top:30px;flex-wrap:wrap}
+.ht-seal img{height:50px;width:auto;display:block;opacity:.92;transition:.25s}
+.ht-seal:hover img{opacity:1}
+.ht-pe img{height:46px;width:auto;display:block;border-radius:6px;opacity:.95;transition:.25s}
+.ht-pe:hover img{opacity:1}
+.ht-tp{min-width:150px;max-width:190px}
+.ht-tp .trustpilot-widget{width:100%!important}
+/* Stat cards peeking under the video */
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:-26px;padding:0 6px;position:relative;z-index:0}
+.hs{padding:30px 18px 16px;border-radius:14px;background:linear-gradient(180deg,var(--bg-card),#0a0d12);border:1px solid var(--line2);display:flex;flex-direction:column;gap:4px;box-shadow:0 24px 50px -30px rgba(0,0,0,.8)}
+.hs-l{font-size:11.5px;color:var(--muted)}
+.hs-n{font-size:clamp(20px,2.2vw,26px);font-weight:800;letter-spacing:-.025em;color:var(--text)}
+.hs:nth-child(1) .hs-n{color:var(--teal)}
+@media(max-width:980px){.hero-stats{margin-top:14px}.hero-trust{gap:16px}}
+@media(max-width:520px){.hero-stats{grid-template-columns:1fr}.ht-seal img{height:42px}.ht-pe img{height:40px}}
 </style>
 
+<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
 </head>
 <body>
 <!-- ═══════════ NAV ═══════════ -->
@@ -1828,15 +1849,18 @@ nav{
           <a href="/formular" class="btn btn-primary">Kostenlose Analyse sichern <span class="arrow">→</span></a>
           <a href="#cases" class="btn btn-ghost">Referenz ansehen</a>
         </div>
-        <div class="hero-meta">
-          <span>TÜV Rheinland zertifiziert</span>
-          <span>ProvenExpert 4,82 / 5</span>
-          <span>Über 1,3 Mio. Anrufe geführt</span>
-          <span>Aus Wien, für DACH</span>
+        <div class="hero-trust">
+          <a href="https://www.tuv.com" target="_blank" rel="noopener" class="ht-seal" aria-label="TÜV Rheinland zertifiziert"><img src="/assets/trust/tuv-rheinland.png" alt="TÜV Rheinland zertifiziert · ID 0217466221" loading="lazy"></a>
+          <a href="https://www.provenexpert.com/salesdrive-gmbh/" target="_blank" rel="noopener" class="ht-pe" aria-label="ProvenExpert 4,82 / 5"><img src="/assets/trust/provenexpert-badges.jpg" alt="ProvenExpert · 4,82 / 5 · 74 Bewertungen" loading="lazy"></a>
+          <div class="ht-tp">
+            <div class="trustpilot-widget" data-locale="de-DE" data-template-id="5419b732fbfb950b10de65e5" data-businessunit-id="6824f66b7d7d518b035be9fe" data-style-height="24px" data-style-width="100%" data-token="6c10c584-b7c5-4f1f-9e52-269566a2af4f">
+              <a href="https://de.trustpilot.com/review/salesdrive.at" target="_blank" rel="noopener">Trustpilot</a>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Laptop video mock -->
+      <!-- Laptop video mock + stat cards (equipe-style) -->
       <div class="hero-mock">
         <div class="float f1">
           <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><path d="M5 12l5 5 9-11"/></svg></div>
@@ -1856,6 +1880,11 @@ nav{
             </div>
           </div>
           <div class="laptop-base"></div>
+        </div>
+        <div class="hero-stats">
+          <div class="hs"><span class="hs-l">Anrufe geführt</span><span class="hs-n">1,3 Mio.+</span></div>
+          <div class="hs"><span class="hs-l">Abschlussgespräche</span><span class="hs-n">10.230+</span></div>
+          <div class="hs"><span class="hs-l">Kundenumsatz</span><span class="hs-n">€ 83 Mio.</span></div>
         </div>
       </div>
     </div>
