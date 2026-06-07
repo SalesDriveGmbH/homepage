@@ -727,6 +727,77 @@ body::before{opacity:.7}
 .hstat:first-child .hstat-n{color:var(--accent)}
 @media(max-width:560px){.hstats{margin-top:-22px;gap:8px}.hstat{padding:28px 12px 14px}}
 </style>
+<style id="v5big">
+/* ===== Headlines größer + Apple-Sans (einheitlich) ===== */
+.sec-h h2{font-size:clamp(36px,5.6vw,72px) !important;letter-spacing:-.04em !important;line-height:1.0 !important;font-weight:700 !important}
+.sec-h .lead{font-size:clamp(17px,1.5vw,21px) !important}
+#stimmen .sec-h h2,.final h2{font-family:var(--sans) !important;font-style:normal !important;font-weight:700 !important}
+#stimmen .sec-h h2 .em,.final h2 .em{font-family:var(--sans) !important;font-style:normal !important;background:none !important;-webkit-text-fill-color:#9cc2ff !important;color:#9cc2ff !important}
+.final h2{font-size:clamp(46px,7.4vw,104px) !important;letter-spacing:-.045em !important;line-height:.98 !important}
+/* Hero headline ein paar % größer */
+.hero h1{font-size:clamp(30px,4.3vw,62px) !important;line-height:1.06 !important}
+
+/* ===== FAQ zentriert ===== */
+.faq{margin-left:auto !important;margin-right:auto !important}
+#faq .sec-h{margin-bottom:clamp(32px,4vw,56px)}
+
+/* ===== Ablauf premium (weiß/glas statt hässlichem Blau) ===== */
+.frail{background:rgba(255,255,255,.08) !important}
+.ffill{background:linear-gradient(90deg,rgba(255,255,255,.45),#dbe7ff) !important;box-shadow:0 0 14px rgba(255,255,255,.35) !important}
+.fdot{background:#fff !important;box-shadow:0 0 0 5px rgba(255,255,255,.14),0 0 18px rgba(255,255,255,.7) !important}
+.fnum{background:linear-gradient(180deg,#15171e,#0c0d12) !important;border-color:rgba(255,255,255,.16) !important;color:rgba(255,255,255,.5) !important}
+.fnum.lit{background:#fff !important;color:#06070b !important;border-color:#fff !important;box-shadow:0 0 0 8px rgba(255,255,255,.08),0 18px 44px -12px rgba(255,255,255,.35) !important;transform:scale(1.08)}
+.fico{background:rgba(255,255,255,.05) !important;color:#dbe7ff !important;border:1px solid rgba(255,255,255,.08)}
+.fcard:hover .fico{background:#fff !important;color:#06070b !important}
+.ft{color:#dbe7ff !important;border-color:rgba(255,255,255,.18) !important;background:rgba(255,255,255,.04) !important}
+
+/* ===== Testimonials komplett neu ===== */
+.quotes{gap:18px}
+.qt{background:linear-gradient(180deg,#101218,#0a0b10) !important;border:1px solid rgba(255,255,255,.12) !important;border-radius:24px !important;padding:34px 30px !important;position:relative;overflow:hidden;box-shadow:0 30px 64px -38px rgba(0,0,0,.85),0 1px 0 rgba(255,255,255,.03) inset !important}
+.qt::after{content:"";position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(180deg,#3b82ff,transparent)}
+.qt::before{content:"\201C";position:absolute;top:10px;right:24px;font-family:Georgia,serif;font-size:72px;line-height:1;color:rgba(59,130,255,.16)}
+.qt p{font-size:16.5px !important;font-family:var(--sans) !important;font-style:normal !important;color:#eef0f2 !important;line-height:1.5 !important;letter-spacing:-.01em;position:relative;z-index:1}
+.qt .who{margin-top:24px !important;padding-top:18px !important;border-top:1px solid rgba(255,255,255,.1) !important}
+.qt .av{width:42px !important;height:42px !important;background:linear-gradient(135deg,#3b82ff,#1452ff) !important;color:#fff !important;font-size:14px !important;box-shadow:0 8px 20px -8px rgba(59,130,255,.6)}
+.qt:hover{border-color:rgba(59,130,255,.4) !important;transform:translateY(-4px)}
+
+/* ===== Branchen: Hintergrund-Icon + Farbe pro Karte ===== */
+.brc{position:relative;overflow:hidden}
+.brc-bg{position:absolute;right:-18px;bottom:-22px;width:130px;height:130px;color:var(--c);opacity:.10;pointer-events:none;transition:opacity .35s,transform .5s cubic-bezier(.16,1,.3,1)}
+.brc:hover .brc-bg{opacity:.22;transform:scale(1.08) rotate(-4deg)}
+.brc-ic{color:var(--c) !important;background:color-mix(in srgb,var(--c) 14%,transparent) !important}
+.brc:hover{border-color:color-mix(in srgb,var(--c) 50%,transparent) !important;background:linear-gradient(180deg,color-mix(in srgb,var(--c) 8%,transparent),transparent) !important}
+.brc:hover .brc-ic{background:var(--c) !important;color:#06070b !important}
+.brc h4,.brc p,.brc-ex{position:relative;z-index:1}
+
+/* ===== Klartext Tabelle ===== */
+.ktab{max-width:900px;margin:0 auto;border:1px solid var(--rule-2);border-radius:20px;overflow:hidden;background:linear-gradient(180deg,#0e0f14,#0a0b0e)}
+.ktab-head,.ktab-row{display:grid;grid-template-columns:1.1fr 1.3fr 1.3fr;gap:14px;padding:18px 24px;align-items:center}
+.ktab-head{background:rgba(255,255,255,.03);border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.kh-yes{color:#34d399}.kh-no{color:#f0796a}
+.ktab-row{border-top:1px solid var(--rule);font-size:15px;transition:background .2s}
+.ktab-row:hover{background:rgba(255,255,255,.02)}
+.kt-c{color:var(--ink-2);font-weight:600}
+.kt-y{color:#dff5ea;display:flex;align-items:center;gap:9px}.kt-y::before{content:"✓";color:#34d399;font-weight:700;flex:0 0 auto}
+.kt-n{color:var(--ink-3);display:flex;align-items:center;gap:9px}.kt-n::before{content:"✕";color:#f0796a;flex:0 0 auto}
+@media(max-width:680px){.ktab-head{display:none}.ktab-row{grid-template-columns:1fr;gap:6px;padding:16px 18px}.kt-c{font-size:13px;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;font-family:var(--mono)}}
+
+/* ===== Dashboard interaktiver ===== */
+.deck .dk,.deck .dcard,.dk{transition:border-color .25s,transform .35s cubic-bezier(.16,1,.3,1),background .25s}
+.deck .dk:hover,.deck-card:hover{border-color:rgba(59,130,255,.4) !important;transform:translateY(-3px);background:rgba(59,130,255,.04)}
+.seg span,.deck-top .seg span{cursor:pointer;transition:.2s}
+.seg span:hover{color:#fff}
+.fn .fb i,.fn .fbar i{transition:width 1.1s cubic-bezier(.2,.7,.2,1),filter .3s}
+.dcard:hover .fb i{filter:brightness(1.2)}
+
+/* ===== Bento + Services WOW-Boost ===== */
+.bcard,.svcard{box-shadow:0 30px 70px -44px rgba(0,0,0,.8)}
+.bcard::after{content:"";position:absolute;inset:0;border-radius:24px;padding:1px;background:linear-gradient(160deg,rgba(59,130,255,.35),transparent 42%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .35s;pointer-events:none}
+.bcard:hover::after{opacity:1}
+.svcard{position:relative;overflow:hidden}
+.svcard::before{content:"";position:absolute;top:-40%;right:-20%;width:60%;height:120%;background:radial-gradient(circle,rgba(59,130,255,.10),transparent 70%);opacity:0;transition:opacity .4s;pointer-events:none}
+.svcard:hover::before{opacity:1}
+</style>
 </head>
 <body>
 
@@ -767,7 +838,6 @@ body::before{opacity:.7}
         <div class="hmeta mono"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>30 Min</span><i></i><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/></svg>100 % kostenlos</span><i></i><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>sofort verfügbar</span></div>
         <div class="hbadges">
           <a href="https://www.tuv.com" target="_blank" rel="noopener"><img src="/assets/trust/tuv-rheinland.png" alt="TÜV Rheinland zertifiziert"></a>
-          <a href="https://www.provenexpert.com/salesdrive-gmbh/" target="_blank" rel="noopener"><img src="/assets/trust/provenexpert-badges.jpg" alt="ProvenExpert 4,82 / 5"></a>
           <div class="htp"><div class="trustpilot-widget" data-locale="de-DE" data-template-id="5419b732fbfb950b10de65e5" data-businessunit-id="6824f66b7d7d518b035be9fe" data-style-height="30px" data-style-width="100%" data-token="6c10c584-b7c5-4f1f-9e52-269566a2af4f"><a href="https://de.trustpilot.com/review/salesdrive.at" target="_blank" rel="noopener">Trustpilot</a></div></div>
         </div>
       </div>
@@ -1113,12 +1183,15 @@ body::before{opacity:.7}
   <div class="wrap">
     <div class="sec-h rv">
       <span class="sec-num">06 — Klartext</span>
-      <div><h2>Wir sagen Nein, damit du ein echtes Ja bekommst.</h2><p class="lead">Wir nehmen nicht jeden Kunden. Wenn du zu uns passt, gehen wir die Extrameile.</p></div>
+      <div><h2>Passt SalesDrive zu dir?</h2><p class="lead">Wir arbeiten nicht mit jedem. Wenn es passt, gehen wir die Extrameile. Wenn nicht, sagen wir es dir ehrlich am Telefon.</p></div>
     </div>
-    <div class="klar rv">
-      <div class="kc yes"><h4>Für dich, wenn</h4><ul><li>Über <b>1 Mio. € Jahresumsatz</b>, bereit in Wachstum zu investieren</li><li>Kundenwert <b>ab 5.000 €</b>, idealerweise 10.000 €+</li><li><b>B2B</b> an Entscheider in der DACH-Region</li><li>Marge über <b>25 %</b></li></ul></div>
-      <div class="kc give"><h4>Wir liefern dir</h4><ul><li><b>Lookalike-Liste</b> deiner besten Kunden per AI</li><li>Geschulte <b>SalesAgents</b> in deinem Namen</li><li>Qualifizierte <b>Erstgespräche</b> mit vorgeklärtem Bedarf</li><li><b>Hub</b> mit Live-Tracking + Sparring mit Alexander</li></ul></div>
-      <div class="kc no"><h4>Wir lehnen ab, wenn</h4><ul><li>Unter 1 Mio. € Jahresumsatz</li><li>Coaching oder Kurse ohne Umsetzung</li><li>B2C oder Endkundenvertrieb</li><li>Kundenwert unter 5.000 €</li></ul></div>
+    <div class="ktab rv">
+      <div class="ktab-head"><span></span><span class="kh-yes">Passt zu dir</span><span class="kh-no">Passt nicht</span></div>
+      <div class="ktab-row"><span class="kt-c">Jahresumsatz</span><span class="kt-y">über 1 Mio. €</span><span class="kt-n">unter 1 Mio. €</span></div>
+      <div class="ktab-row"><span class="kt-c">Kundenwert</span><span class="kt-y">ab 5.000 €, ideal 10.000 €+</span><span class="kt-n">unter 5.000 €</span></div>
+      <div class="ktab-row"><span class="kt-c">Vertrieb</span><span class="kt-y">B2B an Entscheider · DACH</span><span class="kt-n">B2C / Endkunden</span></div>
+      <div class="ktab-row"><span class="kt-c">Geschäftsmodell</span><span class="kt-y">operative Umsetzung</span><span class="kt-n">Coaching ohne Umsetzung</span></div>
+      <div class="ktab-row"><span class="kt-c">Marge</span><span class="kt-y">über 25 %</span><span class="kt-n">zu dünn für Wachstum</span></div>
     </div>
   </div>
 </section>
@@ -1131,14 +1204,14 @@ body::before{opacity:.7}
       <div><h2>Acht Branchen, in denen wir jedes Skript kennen.</h2><p class="lead">Wir sind keine Generalisten. Wir kennen Tonalität, Einwände und Entscheider in unseren Branchen.</p></div>
     </div>
     <div class="brgrid rv">
-      <a class="brc" href="/branchen/marken-pr"><span class="brc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></span><h4>Markenagenturen</h4><p>Branding · Corporate Design · Identity</p><span class="brc-ex">brandtouch · KleinSTARK · creanovo</span></a>
-      <a class="brc" href="/branchen/film-events"><span class="brc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5v14M17 5v14M3 9h4M3 14h4M17 9h4M17 14h4"/></svg></span><h4>Filmproduktion &amp; 3D</h4><p>Unternehmensfilme · Animationen · VR</p><span class="brc-ex">tecmotion · RINK · Marc Anton</span></a>
-      <a class="brc" href="/branchen/software-industrie"><span class="brc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l6 3V9l6 3V6l6 3v12z"/></svg></span><h4>Industrielle Kommunikation</h4><p>Hardware · Sensorik · B2B-Komponenten</p><span class="brc-ex">dieEntwickler · SATIAMO · signTEK</span></a>
-      <a class="brc" href="/branchen/software-industrie"><span class="brc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 8 4 12 8 16"/><polyline points="16 8 20 12 16 16"/><line x1="13" y1="6" x2="11" y2="18"/></svg></span><h4>Software &amp; SaaS</h4><p>B2B-Plattformen · Tools für Vertrieb &amp; HR</p><span class="brc-ex">Memberspot · 1Tool · netzreich</span></a>
-      <a class="brc" href="/branchen/werbetechnik-print"><span class="brc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="6"/><path d="M6 18H4a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7"/></svg></span><h4>Werbetechnik &amp; Print</h4><p>Außenwerbung · Beschilderung · Einbau</p><span class="brc-ex">Digilight · hano · Leibing</span></a>
-      <a class="brc" href="/branchen/personalberatung"><span class="brc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><path d="M16 8a3 3 0 0 1 0 6M19 20c0-2-1-3.5-3-4.5"/></svg></span><h4>Personalberatungen</h4><p>Headhunter · Recruiting · HR-Consulting</p><span class="brc-ex">Z-Management · RN Personal</span></a>
-      <a class="brc" href="/branchen/marken-pr"><span class="brc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg></span><h4>PR &amp; Kommunikation</h4><p>Pressearbeit · Public Affairs · Krisen</p><span class="brc-ex">Putz &amp; Stingl · Riba · W/PRO</span></a>
-      <a class="brc" href="/branchen/film-events"><span class="brc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16l-2-3H6z"/><path d="M12 17v-4"/><circle cx="12" cy="9" r="3"/><path d="M6 5l1 2M12 3v3M18 5l-1 2"/></svg></span><h4>Eventagenturen</h4><p>Konferenzen · Messen · Live-Events</p><span class="brc-ex">eVisions · Putz &amp; Stingl Events</span></a>
+      <a class="brc" style="--c:#e06aa8" href="/branchen/marken-pr"><svg class="brc-bg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg><span class="brc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></span><h4>Markenagenturen</h4><p>Branding · Corporate Design · Identity</p><span class="brc-ex">brandtouch · KleinSTARK · creanovo</span></a>
+      <a class="brc" style="--c:#e0a33e" href="/branchen/film-events"><svg class="brc-bg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5v14M17 5v14M3 9h4M3 14h4M17 9h4M17 14h4"/></svg><span class="brc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5v14M17 5v14M3 9h4M3 14h4M17 9h4M17 14h4"/></svg></span><h4>Filmproduktion &amp; 3D</h4><p>Unternehmensfilme · Animationen · VR</p><span class="brc-ex">tecmotion · RINK · Marc Anton</span></a>
+      <a class="brc" style="--c:#6b9bd1" href="/branchen/software-industrie"><svg class="brc-bg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V9l6 3V9l6 3V6l6 3v12z"/></svg><span class="brc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l6 3V9l6 3V6l6 3v12z"/></svg></span><h4>Industrielle Kommunikation</h4><p>Hardware · Sensorik · B2B-Komponenten</p><span class="brc-ex">dieEntwickler · SATIAMO · signTEK</span></a>
+      <a class="brc" style="--c:#3b82ff" href="/branchen/software-industrie"><svg class="brc-bg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="8 8 4 12 8 16"/><polyline points="16 8 20 12 16 16"/><line x1="13" y1="6" x2="11" y2="18"/></svg><span class="brc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="8 8 4 12 8 16"/><polyline points="16 8 20 12 16 16"/><line x1="13" y1="6" x2="11" y2="18"/></svg></span><h4>Software &amp; SaaS</h4><p>B2B-Plattformen · Tools für Vertrieb &amp; HR</p><span class="brc-ex">Memberspot · 1Tool · netzreich</span></a>
+      <a class="brc" style="--c:#34d399" href="/branchen/werbetechnik-print"><svg class="brc-bg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3" width="12" height="6"/><path d="M6 18H4a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7"/></svg><span class="brc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="6"/><path d="M6 18H4a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7"/></svg></span><h4>Werbetechnik &amp; Print</h4><p>Außenwerbung · Beschilderung · Einbau</p><span class="brc-ex">Digilight · hano · Leibing</span></a>
+      <a class="brc" style="--c:#a78bf5" href="/branchen/personalberatung"><svg class="brc-bg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><path d="M16 8a3 3 0 0 1 0 6M19 20c0-2-1-3.5-3-4.5"/></svg><span class="brc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><path d="M16 8a3 3 0 0 1 0 6M19 20c0-2-1-3.5-3-4.5"/></svg></span><h4>Personalberatungen</h4><p>Headhunter · Recruiting · HR-Consulting</p><span class="brc-ex">Z-Management · RN Personal</span></a>
+      <a class="brc" style="--c:#f2786c" href="/branchen/marken-pr"><svg class="brc-bg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg><span class="brc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg></span><h4>PR &amp; Kommunikation</h4><p>Pressearbeit · Public Affairs · Krisen</p><span class="brc-ex">Putz &amp; Stingl · Riba · W/PRO</span></a>
+      <a class="brc" style="--c:#2dd4bf" href="/branchen/film-events"><svg class="brc-bg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16l-2-3H6z"/><path d="M12 17v-4"/><circle cx="12" cy="9" r="3"/><path d="M6 5l1 2M12 3v3M18 5l-1 2"/></svg><span class="brc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16l-2-3H6z"/><path d="M12 17v-4"/><circle cx="12" cy="9" r="3"/><path d="M6 5l1 2M12 3v3M18 5l-1 2"/></svg></span><h4>Eventagenturen</h4><p>Konferenzen · Messen · Live-Events</p><span class="brc-ex">eVisions · Putz &amp; Stingl Events</span></a>
     </div>
   </div>
 </section>
