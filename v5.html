@@ -905,6 +905,78 @@ body::before{opacity:.7}
 /* Pill cleaner */
 .hpill{background:rgba(255,255,255,.03) !important;border-color:rgba(255,255,255,.1) !important}
 </style>
+<style id="v5seq">
+/* ════════ Vertikale Timeline (Ablauf) ════════ */
+.vtl{position:relative;max-width:860px;margin:clamp(40px,5vw,64px) auto 0;padding-left:6px}
+.vtl-rail{position:absolute;left:31px;top:40px;bottom:60px;width:2px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden;z-index:0}
+.vtl-fill{position:absolute;top:0;left:0;width:100%;height:0;background:linear-gradient(180deg,#5b9bff,#2680ff);box-shadow:0 0 16px rgba(59,130,255,.7);transition:height .12s linear}
+.vtl-step{position:relative;z-index:1;display:grid;grid-template-columns:64px 1fr;gap:clamp(20px,2.6vw,34px);align-items:start;padding-bottom:clamp(26px,3.4vw,46px)}
+.vtl-step:last-child{padding-bottom:0}
+.vtl-node{position:relative;width:64px;height:64px}
+.vtl-node .fnum{position:absolute;top:-2px;right:-2px;z-index:2;width:26px;height:26px;min-width:0;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--ink-2);background:#0c0d12;border:1px solid var(--rule-2);margin:0;box-shadow:none;letter-spacing:0}
+.vtl-ic{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;color:var(--ink-3);background:linear-gradient(180deg,#101218,#0a0b0e);border:1px solid var(--rule-2);transition:.5s cubic-bezier(.16,1,.3,1)}
+.vtl-ic svg{width:26px;height:26px}
+.vtl-step.lit .vtl-ic{color:#fff;border-color:rgba(59,130,255,.6);background:radial-gradient(120% 120% at 50% 30%,rgba(59,130,255,.32),rgba(59,130,255,.05));box-shadow:0 0 40px -6px rgba(59,130,255,.7),0 0 0 5px rgba(59,130,255,.06)}
+.vtl-step.lit .fnum{color:#fff;border-color:rgba(59,130,255,.7);background:#1a48b8 !important}
+.vtl-card{background:linear-gradient(180deg,#0e0f15,#0a0b0e);border:1px solid var(--rule);border-radius:22px;padding:clamp(22px,2.5vw,30px) clamp(22px,2.6vw,32px);transition:border-color .4s,transform .5s cubic-bezier(.16,1,.3,1)}
+.vtl-card:hover{border-color:rgba(59,130,255,.3);transform:translateX(4px)}
+.vtl-eye{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.vtl-card h3{font-size:clamp(20px,2.2vw,27px);font-weight:700;letter-spacing:-.025em;margin:11px 0 13px}
+.vtl-card p{font-size:15px;color:var(--ink-2);line-height:1.62;max-width:60ch}
+.vtl-time{display:inline-flex;align-items:center;gap:9px;margin-top:20px;padding:8px 15px;border:1px solid var(--rule-2);border-radius:999px;font-size:12.5px;color:var(--ink-2);background:rgba(255,255,255,.02)}
+.vtl-time svg{width:14px;height:14px;color:var(--accent)}
+
+/* ════════ Voraussetzungen + iPhone ════════ */
+#voraussetzungen{padding:clamp(70px,9vw,120px) 0}
+.vor-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(40px,6vw,90px);align-items:center}
+.vor-eye{font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.vor-h{font-size:clamp(30px,4vw,52px);line-height:1.04;letter-spacing:-.035em;font-weight:700;margin:16px 0 20px;background:linear-gradient(180deg,#fff,#b9c2d0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.vor-copy>p{font-size:16px;color:var(--ink-2);line-height:1.65;max-width:54ch;margin-bottom:14px}
+.vor-copy>p b{color:var(--ink);font-weight:600}
+.vor-feats{list-style:none;display:flex;flex-direction:column;gap:18px;margin:28px 0 30px}
+.vor-feats li{display:flex;gap:16px;align-items:flex-start}
+.vor-ic{flex:0 0 auto;width:44px;height:44px;border-radius:13px;display:grid;place-items:center;color:var(--accent);background:radial-gradient(120% 120% at 50% 25%,rgba(59,130,255,.16),transparent),linear-gradient(180deg,#101218,#0b0c10);border:1px solid rgba(59,130,255,.26);box-shadow:0 10px 26px -14px rgba(59,130,255,.5)}
+.vor-ic svg{width:21px;height:21px}
+.vor-feats h4{font-size:16px;font-weight:650;margin-bottom:4px;letter-spacing:-.01em}
+.vor-feats p{font-size:14px;color:var(--ink-2);line-height:1.5;max-width:42ch}
+.vor-copy .hcta{display:inline-flex;width:auto}
+
+/* iPhone */
+.vor-phone{position:relative;display:flex;justify-content:center}
+.vor-phone::before{content:"";position:absolute;width:78%;aspect-ratio:1;left:50%;top:46%;transform:translate(-50%,-50%);z-index:0;border-radius:50%;background:radial-gradient(circle,rgba(59,130,255,.4),transparent 64%);filter:blur(60px);animation:breathe 6s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.55}50%{opacity:.85}}
+.iphone{position:relative;z-index:1;width:300px;max-width:84vw;aspect-ratio:9/19.2;border-radius:46px;padding:56px 14px 22px;overflow:hidden;
+  background:linear-gradient(170deg,#0c1018 0%,#070a10 55%,#0a0d14 100%);
+  box-shadow:0 0 0 10px #0a0a0c,0 0 0 11px rgba(255,255,255,.08),0 60px 120px -45px rgba(0,0,0,.9),0 0 90px -30px rgba(59,130,255,.4);
+  animation:phonefloat 7s ease-in-out infinite}
+@keyframes phonefloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-12px) rotate(-.4deg)}}
+.iph-notch{position:absolute;top:15px;left:50%;transform:translateX(-50%);width:96px;height:26px;background:#000;border-radius:999px;z-index:3}
+.iph-time{position:absolute;top:19px;left:26px;font-size:13px;font-weight:600;color:#fff;z-index:3}
+.iph-sig{position:absolute;top:19px;right:26px;font-size:11px;font-weight:700;color:#fff;letter-spacing:.04em;z-index:3}
+.iph-date{text-align:center;color:rgba(255,255,255,.92);font-size:14px;font-weight:500;margin-top:6px}
+.iph-clock{text-align:center;font-size:66px;font-weight:300;color:#fff;letter-spacing:-.02em;line-height:1;margin:2px 0 26px;font-variant-numeric:tabular-nums}
+.iph-notif{background:rgba(38,40,47,.66);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:13px 15px;margin:11px 4px;opacity:0;transform:translateY(14px) scale(.96);box-shadow:0 14px 30px -16px rgba(0,0,0,.7)}
+.vor-phone.in .iph-notif{animation:notifin .7s cubic-bezier(.16,1,.3,1) forwards}
+.vor-phone.in .iph-notif:nth-of-type(2){animation-delay:.5s}
+.vor-phone.in .iph-notif:nth-of-type(3){animation-delay:.95s}
+@keyframes notifin{to{opacity:1;transform:translateY(0) scale(1)}}
+.iph-nh{display:flex;align-items:center;gap:7px;font-size:10.5px;font-weight:700;letter-spacing:.06em;color:rgba(255,255,255,.62);margin-bottom:6px}
+.iph-app{width:17px;height:17px;border-radius:5px;background:linear-gradient(135deg,#2e86ff,#0b3bd6);box-shadow:0 2px 6px -2px rgba(46,134,255,.8)}
+.iph-ago{margin-left:auto;font-weight:500;letter-spacing:.02em;color:rgba(255,255,255,.4)}
+.iph-notif b{display:block;font-size:13.5px;color:#fff;font-weight:600;margin-bottom:3px}
+.iph-notif span{display:block;font-size:12px;color:rgba(255,255,255,.6);line-height:1.4}
+
+@media(max-width:900px){
+  .vor-grid{grid-template-columns:1fr;gap:46px}
+  .vor-phone{order:-1}
+  .vtl-card p{max-width:none}
+}
+@media(max-width:560px){
+  .vtl-step{grid-template-columns:52px 1fr;gap:16px}
+  .vtl-node,.vtl-ic{width:52px;height:52px}.vtl-ic svg{width:22px;height:22px}
+  .vtl-rail{left:25px}
+}
+</style>
 </head>
 <body>
 
@@ -1266,12 +1338,66 @@ body::before{opacity:.7}
       <span class="sec-num">05 — Ablauf</span>
       <div><h2>Drei Schritte. Zwei Stunden Aufwand für dich.</h2><p class="lead">Wir übernehmen das Setup, wir führen die Calls, du führst die warmen Abschlussgespräche.</p></div>
     </div>
-    <div class="flow2 rv" id="flow">
-      <div class="frail"><div class="ffill" id="flowFill"><span class="fdot"></span></div></div>
-      <div class="fcards">
-        <div class="fcard"><div class="fnum">01</div><span class="fico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 8 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H2a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 3.6 8a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H8a1.65 1.65 0 0 0 1-1.51V2a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V8a1.65 1.65 0 0 0 1.51 1H22a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span><h3>Setup übernehmen wir</h3><p>Im Kick-Off lernen wir Angebot, Zielgruppe und Prozess kennen, definieren ein No-Brainer-Angebot und richten das technische Setup komplett ein.</p><span class="ft">Dein Aufwand · 60 Minuten</span></div>
-        <div class="fcard"><div class="fnum">02</div><span class="fico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><h3>Die Calls führen wir</h3><p>Nach deinem Go starten wir. Wir führen die Erstansprachen, qualifizieren vor und buchen Abschlussgespräche mit Briefing, Bedarf und Budget in deinen Kalender.</p><span class="ft">Dein Aufwand · 60 Minuten Freigabe</span></div>
-        <div class="fcard"><div class="fnum">03</div><span class="fico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><h3>Du führst die Abschlüsse</h3><p>Du führst die Abschlussgespräche mit vorqualifizierten Leads, bekommst vorab alle Notizen und ein bewährtes Gesprächs-Framework und gibst kurzes Feedback.</p><span class="ft">60–90 Minuten pro Termin</span></div>
+    <div class="vtl rv" id="flow">
+      <div class="vtl-rail"><div class="vtl-fill" id="flowFill"></div></div>
+      <div class="vtl-step">
+        <div class="vtl-node"><div class="fnum">01</div><span class="vtl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span></div>
+        <div class="vtl-card">
+          <span class="vtl-eye">Das Setup übernehmen wir</span>
+          <h3>Im Kick-Off bereiten wir alles vor.</h3>
+          <p>Wir lernen Angebot, Zielgruppe und Vertriebsprozess kennen, definieren ein No-Brainer-Offer, generieren mit AI hochqualitative Datensätze und richten das technische Setup komplett für dich ein.</p>
+          <span class="vtl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Dein Zeitaufwand · 60 Minuten</span>
+        </div>
+      </div>
+      <div class="vtl-step">
+        <div class="vtl-node"><div class="fnum">02</div><span class="vtl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span></div>
+        <div class="vtl-card">
+          <span class="vtl-eye">Diese Gespräche führen wir</span>
+          <h3>Nach deiner Freigabe legen wir los.</h3>
+          <p>Zwei Wochen nach dem Kick-Off besprechen wir das Kampagnenkonzept; dein Go löst den Start aus. Danach führen wir die Erstansprachen, qualifizieren vor und buchen Abschlussgespräche in deinen Kalender.</p>
+          <span class="vtl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Dein Zeitaufwand · 60 Minuten Freigabe</span>
+        </div>
+      </div>
+      <div class="vtl-step">
+        <div class="vtl-node"><div class="fnum">03</div><span class="vtl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span></div>
+        <div class="vtl-card">
+          <span class="vtl-eye">Das ist deine Aufgabe</span>
+          <h3>Du führst die Abschlussgespräche.</h3>
+          <p>Du führst die Verkaufsgespräche mit vorqualifizierten Leads, erhältst vorab alle Gesprächsnotizen und ein bewährtes Gesprächs-Framework. Nach jedem Call gibst du kurzes Feedback, damit wir die Kampagne laufend verbessern.</p>
+          <span class="vtl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>60–90 Minuten pro Termin</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- VORAUSSETZUNGEN -->
+<section id="voraussetzungen">
+  <div class="wrap">
+    <div class="vor-grid rv">
+      <div class="vor-copy">
+        <span class="vor-eye">Unsere Voraussetzungen</span>
+        <h2 class="vor-h">Ist SalesDrive für dich das Richtige?</h2>
+        <p>SalesDrive ist <b>kein Callcenter</b> und keine „Terminmaschine" für jedes Business. Wir arbeiten ausschließlich mit B2B-Anbietern, bei denen die Neukundengewinnung wirklich skalierbar ist.</p>
+        <p>Du machst mindestens <b>1 Million € Jahresumsatz</b> und dein Kundenwert liegt über 5.000 €? Dann bist du bei uns richtig. Wir machen seit Jahren ausschließlich <b>telefonische Erstansprachen</b> und liefern qualifizierte Abschlussgespräche mit Entscheidern.</p>
+        <ul class="vor-feats">
+          <li><span class="vor-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><path d="M21 16a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 2zM3 16a2 2 0 0 0 2 2h1v-5H5a2 2 0 0 0-2 2z"/></svg></span><div><h4>Qualität der Mitarbeiter</h4><p>Jeder Mitarbeiter durchläuft eine intensive Einarbeitung. Telefonieren dürfen nur geprüfte Top-Performer.</p></div></li>
+          <li><span class="vor-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><h4>Kontrolle &amp; Freigaben</h4><p>Messaging, Zielgruppe und Leitfäden werden abgestimmt. Keine Kommunikation ohne deine Freigabe.</p></div></li>
+          <li><span class="vor-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/></svg></span><div><h4>Schutz der Marke</h4><p>Tonalität, Werte und No-Gos sind definiert. Professionell, sympathisch, markenkonform.</p></div></li>
+          <li><span class="vor-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h7"/></svg></span><div><h4>Branchen-Erfahrung</h4><p>Wir konzentrieren uns ausschließlich auf Branchen, in denen wir seit Jahren messbar performen.</p></div></li>
+        </ul>
+        <a class="hcta" href="/formular" style="margin-top:8px">Analysegespräch vereinbaren<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="vor-phone rv">
+        <div class="iphone">
+          <span class="iph-notch"></span>
+          <span class="iph-time">08:58</span><span class="iph-sig">5G</span>
+          <div class="iph-date">Donnerstag, 21. Mai</div>
+          <div class="iph-clock">08:58</div>
+          <div class="iph-notif"><div class="iph-nh"><span class="iph-app"></span>CALENDLY<span class="iph-ago">vor 1 Min.</span></div><b>Neues Ereignis: Strategiegespräch</b><span>Andrea Brunner · CFO hat ein Strategiegespräch gebucht. Mi, 21. Mai · 11:15.</span></div>
+          <div class="iph-notif"><div class="iph-nh"><span class="iph-app"></span>CALENDLY<span class="iph-ago">vor 3 Std.</span></div><b>Neues Ereignis: Strategiegespräch</b><span>Florian Holzer · GF hat ein Strategiegespräch gebucht. Do, 22. Mai · 08:30.</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -1406,12 +1532,12 @@ var dk=document.getElementById('deckCard'); if(dk)io.observe(dk);
 (function(){
   var flow=document.getElementById('flow'),fill=document.getElementById('flowFill');
   if(!flow||!fill)return;
-  var nums=flow.querySelectorAll('.fnum');
+  var nums=flow.querySelectorAll('.vtl-step');
   function upd(){
     var r=flow.getBoundingClientRect(),vh=window.innerHeight;
     var p=(vh*0.82 - r.top)/(r.height*0.85); p=Math.max(0,Math.min(1,p));
-    fill.style.width=(p*100)+'%';
-    nums.forEach(function(n,i){ if(p>=(i+0.4)/nums.length) n.classList.add('lit'); else n.classList.remove('lit'); });
+    fill.style.height=(p*100)+'%';
+    nums.forEach(function(n,i){ if(p>=(i+0.25)/nums.length) n.classList.add('lit'); else n.classList.remove('lit'); });
   }
   window.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
 })();
