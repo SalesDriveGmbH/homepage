@@ -484,6 +484,45 @@ footer{background:#0a0a0e;color:#b7b7b1;border-top:1px solid var(--rule)}
 @media(max-width:980px){.brgrid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.brgrid{grid-template-columns:1fr}}
 </style>
+<style id="v5svc">
+.svc2{display:grid !important;grid-template-columns:1fr 1fr;gap:16px}
+.svcard{display:flex !important;flex-direction:column;grid-template-columns:none !important;padding:clamp(26px,2.6vw,38px) !important;gap:0}
+.svc-top{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.svc-top .svc-n{display:inline-grid;place-items:center;width:34px;height:26px;border:1px solid rgba(59,130,255,.4);border-radius:7px;color:var(--accent);font-family:var(--mono);font-size:12px;background:rgba(59,130,255,.06)}
+.svc-lbl{color:var(--muted);font-size:11px;letter-spacing:.18em}
+.svcard h3{font-size:clamp(24px,2.6vw,32px);font-weight:700;letter-spacing:-.03em;line-height:1.04;margin-bottom:14px}
+.svcard>p{font-size:15px;color:var(--ink-2);line-height:1.6}
+.svc-stats{display:flex;gap:40px;margin:22px 0 24px}
+.svc-stats b{display:block;font-size:clamp(22px,2.4vw,30px);font-weight:700;letter-spacing:-.025em}
+.svc-stats span{font-size:12.5px;color:var(--muted)}
+.svc-mock{margin-top:auto;padding:16px 18px;border:1px solid var(--rule);border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,.018),rgba(0,0,0,.2))}
+.mk-h{display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.mk-live{display:inline-flex;align-items:center;gap:6px;color:#34d399;font-weight:600}
+.mk-live i{width:6px;height:6px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399;animation:dotpulse 1.6s infinite}
+.mk-call{display:flex;align-items:center;gap:12px}
+.mk-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#1452ff);display:grid;place-items:center;font-weight:700;font-size:13px;color:#fff;flex:0 0 auto}
+.mk-call-t{flex:1}.mk-call-t b{display:block;font-size:14px}.mk-call-t span{font-size:12.5px;color:var(--muted)}
+.mk-time{color:var(--ink-2);font-size:13px}
+.mk-list{list-style:none;display:flex;flex-direction:column;gap:13px}
+.mk-list li{display:flex;align-items:center;gap:11px;font-size:14px;color:var(--ink)}
+.mk-ck{width:18px;height:18px;flex:0 0 auto;color:#34d399}.mk-ck svg{width:18px;height:18px}
+.mk-st{margin-left:auto;color:#34d399;font-size:11px;letter-spacing:.06em}
+.mk-audit{display:flex;align-items:center;gap:18px}
+.mk-ring{position:relative;width:84px;height:84px;flex:0 0 auto}.mk-ring svg{width:84px;height:84px}
+.svc2.in .mk-ring-fg{stroke-dashoffset:9 !important;transition:stroke-dashoffset 1.5s cubic-bezier(.2,.7,.2,1) .3s}
+.mk-ring-n{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.mk-ring-n b{font-size:23px;font-weight:800;color:#34d399;line-height:1}.mk-ring-n span{font-size:9px;color:var(--ink-3);letter-spacing:.06em}
+.mk-dialog{flex:1;display:flex;flex-direction:column;gap:8px}
+.mk-q,.mk-a{font-size:12.5px;padding:9px 12px;border-radius:10px;line-height:1.35}
+.mk-q{background:rgba(255,255,255,.04);color:var(--ink-2);border:1px solid var(--rule)}
+.mk-a{background:rgba(59,130,255,.1);color:#cfe0ff;border:1px solid rgba(59,130,255,.25);align-self:flex-end}
+.mk-appt{display:flex;align-items:center;gap:14px;padding:11px 0;border-top:1px solid var(--rule)}
+.mk-appt:first-of-type{border-top:0}
+.mk-appt-t{color:var(--accent);font-size:12px;flex:0 0 auto}
+.mk-appt-b{flex:1}.mk-appt-b b{display:block;font-size:13.5px}.mk-appt-b span{font-size:12px;color:var(--muted)}
+.mk-dot{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399;flex:0 0 auto}
+@media(max-width:860px){.svc2{grid-template-columns:1fr !important}}
+</style>
 </head>
 <body>
 
@@ -580,21 +619,53 @@ footer{background:#0a0a0e;color:#b7b7b1;border-top:1px solid var(--rule)}
       </div>
     </div>
     <div class="svc2 rv">
+      <!-- 01 OUTBOUND -->
       <article class="svcard">
-        <div class="svc-body"><span class="svc-n">/ 01</span><h3>Outbound</h3><p>Montag bis Freitag, 8–18 Uhr. Deutschsprachige Sales-Profis sprechen deine Wunschkunden an. Kein Callcenter im Ausland, kein Skript-Roboter.</p><div class="svc-tags"><span>Geschulte Profis</span><span>Deutschsprachig</span><span>8–18 Uhr</span></div></div>
-        <div class="svc-vis"><div class="viz"><div class="viz-h"><span class="viz-live"><i></i>Live-Call</span><span>Daniel R. → CFO</span></div><div class="viz-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="viz-f"><span>04:12</span><span class="ok">BANT ✓</span></div></div></div>
+        <div class="svc-top"><span class="svc-n">01</span><span class="svc-lbl mono">Outbound</span></div>
+        <h3>Geschulte Profis am Hörer.</h3>
+        <p>Montag bis Freitag, 8 bis 18 Uhr. Deutschsprachige Sales-Profis sprechen deine Wunschkunden an. Kein Callcenter im Ausland, kein Skript-Roboter.</p>
+        <div class="svc-stats"><div><b>200+</b><span>Calls pro Woche</span></div><div><b>50 Std.</b><span>Training pro Agent</span></div></div>
+        <div class="svc-mock">
+          <div class="mk-h"><span class="mono">Outbound Call</span><span class="mk-live"><i></i>Live</span></div>
+          <div class="mk-call"><span class="mk-av">DR</span><div class="mk-call-t"><b>Daniel R.</b><span>spricht mit CFO</span></div><span class="mk-time mono">04:12</span></div>
+        </div>
       </article>
-      <article class="svcard rev">
-        <div class="svc-body"><span class="svc-n">/ 02</span><h3>Tech-Stack</h3><p>Du musst kein CRM, keine Workflows und keine Integrationen aufbauen. Wir bringen alles mit. Du siehst nur die Termine.</p><div class="svc-tags"><span>Close CRM</span><span>Kalender</span><span>Live-Reporting</span></div></div>
-        <div class="svc-vis"><div class="viz"><div class="viz-h"><span>Integriert</span><span class="ok">verbunden</span></div><div class="viz-stack"><div class="vz">Close CRM</div><div class="vz">Calendly</div><div class="vz">API</div><div class="vz">Reporting</div><div class="vz">Reminders</div><div class="vz on">+ 12 Tools</div></div></div></div>
-      </article>
+      <!-- 02 STACK -->
       <article class="svcard">
-        <div class="svc-body"><span class="svc-n">/ 03</span><h3>Audit</h3><p>Jeder Call wird protokolliert und ist im Live-Hub einsehbar. Jedes Gespräch wird nach 21 Qualitätskriterien bewertet. Vollständig auditierbar, TÜV-geprüft.</p><div class="svc-tags"><span>21 Kriterien</span><span>100 % protokolliert</span><span>TÜV-geprüft</span></div></div>
-        <div class="svc-vis"><div class="viz viz-audit"><div class="viz-score"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="33" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="7"/><circle class="ring-fg" cx="40" cy="40" r="33" fill="none" stroke="#3b82ff" stroke-width="7" stroke-linecap="round" stroke-dasharray="207" stroke-dashoffset="207" transform="rotate(-90 40 40)"/></svg><div class="viz-score-n"><b>96</b><span>Score</span></div></div><div class="viz-checks"><div class="ck">Discovery ✓</div><div class="ck">Einwand-Handling ✓</div><div class="ck">Next Step fixiert ✓</div><div class="ck mut">21 Qualitätskriterien</div></div></div></div>
+        <div class="svc-top"><span class="svc-n">02</span><span class="svc-lbl mono">Stack</span></div>
+        <h3>Wir bringen den Tech-Stack.</h3>
+        <p>Du musst kein CRM, keine Workflows und keine Integrationen aufbauen. Wir bringen alles mit. Du siehst nur die Termine.</p>
+        <div class="svc-stats"><div><b>12+</b><span>Tools integriert</span></div><div><b>0 €</b><span>Setup-Kosten</span></div></div>
+        <div class="svc-mock"><ul class="mk-list">
+          <li><span class="mk-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span>Close CRM<span class="mk-st mono">verbunden</span></li>
+          <li><span class="mk-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span>Calendly &amp; Reminders<span class="mk-st mono">aktiv</span></li>
+          <li><span class="mk-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span>Integrationen &amp; API<span class="mk-st mono">live</span></li>
+          <li><span class="mk-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span>Live-Reporting<span class="mk-st mono">aktiv</span></li>
+        </ul></div>
       </article>
-      <article class="svcard rev">
-        <div class="svc-body"><span class="svc-n">/ 04</span><h3>Kalender</h3><p>Nur vorqualifizierte Entscheider, direkt in deinem Kalender, mit Briefing, Bedarf und Budget. Du führst nur noch die Abschlussgespräche.</p><div class="svc-tags"><span>Mit Briefing</span><span>Bedarf geklärt</span><span>Budget geklärt</span></div></div>
-        <div class="svc-vis"><div class="viz"><div class="viz-h"><span>Diese Woche</span><span class="ok">3 Termine</span></div><div class="viz-cal"><span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span class="d">12</span><span class="d b">13</span><span class="d">14</span><span class="d b">15</span><span class="d b">16</span></div><div class="viz-slot"><b>10:30</b> CFO · MedTech GmbH</div><div class="viz-slot"><b>14:00</b> GF · Werkraum Salzburg</div></div></div>
+      <!-- 03 AUDIT -->
+      <article class="svcard">
+        <div class="svc-top"><span class="svc-n">03</span><span class="svc-lbl mono">Audit</span></div>
+        <h3>Jedes Gespräch. Nachvollziehbar.</h3>
+        <p>Jeder Call wird protokolliert und ist im Live-Hub einsehbar. Jedes Gespräch wird nach 21 Qualitätskriterien bewertet. Vollständig auditierbar, TÜV-geprüft.</p>
+        <div class="svc-stats"><div><b>21</b><span>Qualitätskriterien</span></div><div><b>100 %</b><span>protokolliert</span></div></div>
+        <div class="svc-mock mk-audit">
+          <div class="mk-ring"><svg viewBox="0 0 84 84"><circle cx="42" cy="42" r="34" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="7"/><circle class="mk-ring-fg" cx="42" cy="42" r="34" fill="none" stroke="#34d399" stroke-width="7" stroke-linecap="round" stroke-dasharray="214" stroke-dashoffset="214" transform="rotate(-90 42 42)"/></svg><div class="mk-ring-n"><b>96</b><span>von 100</span></div></div>
+          <div class="mk-dialog"><div class="mk-q">Geht es eher um Budget oder Kapazität?</div><div class="mk-a">Budget steht. Wir brauchen Geschwindigkeit.</div></div>
+        </div>
+      </article>
+      <!-- 04 CALENDAR -->
+      <article class="svcard">
+        <div class="svc-top"><span class="svc-n">04</span><span class="svc-lbl mono">Calendar</span></div>
+        <h3>Termine direkt im Kalender.</h3>
+        <p>Nur vorqualifizierte Entscheider, direkt in deinem Kalender, mit Briefing, Bedarf und Budget. Du führst nur noch die Abschlussgespräche.</p>
+        <div class="svc-stats"><div><b>3 bis 5</b><span>Termine pro Woche</span></div><div><b>&lt; 8 %</b><span>No-Show (Schnitt 28 %)</span></div></div>
+        <div class="svc-mock">
+          <div class="mk-h mono"><span>Heute · 3 Termine</span><span>Vorqualifiziert</span></div>
+          <div class="mk-appt"><span class="mk-appt-t mono">09:30</span><div class="mk-appt-b"><b>Geschäftsführer · SaaS</b><span>Briefing &amp; Budget liegen vor</span></div><i class="mk-dot"></i></div>
+          <div class="mk-appt"><span class="mk-appt-t mono">13:00</span><div class="mk-appt-b"><b>Marketingleiter · Industrie</b><span>Bedarf vorgeklärt</span></div><i class="mk-dot"></i></div>
+          <div class="mk-appt"><span class="mk-appt-t mono">16:15</span><div class="mk-appt-b"><b>Inhaber · Agentur</b><span>Entscheider, Kaufkraft bestätigt</span></div><i class="mk-dot"></i></div>
+        </div>
       </article>
     </div>
   </div>
