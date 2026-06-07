@@ -415,7 +415,7 @@ footer{background:#0a0a0e;color:#b7b7b1;border-top:1px solid var(--rule)}
 .vframe img{object-position:center 32% !important;object-fit:cover}
 .htp{min-width:150px;max-width:180px;display:flex;align-items:center}
 .htp .trustpilot-widget{width:100% !important;filter:brightness(1.1)}
-@media(max-width:900px){.hero h1{font-size:clamp(30px,8vw,46px) !important}.hero h1 br{display:none}}
+@media(max-width:900px){.hero h1{font-size:clamp(30px,8vw,46px) !important}.hero h1 br{display:inline}}
 </style>
 <style id="v5parts">
 /* ===== Services with graphics ===== */
@@ -522,6 +522,53 @@ footer{background:#0a0a0e;color:#b7b7b1;border-top:1px solid var(--rule)}
 .mk-appt-b{flex:1}.mk-appt-b b{display:block;font-size:13.5px}.mk-appt-b span{font-size:12px;color:var(--muted)}
 .mk-dot{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399;flex:0 0 auto}
 @media(max-width:860px){.svc2{grid-template-columns:1fr !important}}
+</style>
+<style id="v5center">
+/* Case video posters (Vimeo thumbnails) */
+.cvid-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.92}
+.cvid:hover .cvid-poster{opacity:1;transition:opacity .3s}
+.cvid::after{z-index:1}.cvid-play,.cvid-tag{z-index:2}
+
+/* ===== Sektionen zentriert (Hero bleibt links) ===== */
+.sec-h{display:block !important;text-align:center;max-width:860px;margin-left:auto;margin-right:auto;position:relative}
+.sec-h>div{margin:0 auto}
+.sec-h .lead{grid-column:auto;margin:18px auto 0 !important;text-align:center}
+.sec-h h2{margin-left:auto;margin-right:auto}
+/* sec-num as centered chip */
+.sec-num{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border:1px solid var(--rule-2);border-radius:999px;background:rgba(255,255,255,.02);margin-bottom:22px;padding-top:7px}
+.sec-h.in .sec-num::before{vertical-align:baseline}
+/* soft glow behind each heading — wow */
+.sec-h::before{content:"";position:absolute;left:50%;top:30%;transform:translate(-50%,-50%);width:min(620px,90%);height:300px;background:radial-gradient(50% 50% at 50% 50%,rgba(59,130,255,.13),transparent 70%);filter:blur(50px);z-index:-1;pointer-events:none;opacity:0;transition:opacity 1.2s ease}
+.sec-h.in::before{opacity:1}
+
+/* center final CTA host text */
+.final-host{text-align:center}
+
+/* ===== Headline immer 2 Zeilen ===== */
+.hero h1{text-wrap:balance}
+.hero h1 br{display:inline !important}
+
+/* ===== MOBILE Feinschliff ===== */
+@media(max-width:900px){
+  .hero{padding-top:30px}
+  .hero h1{font-size:clamp(28px,7.4vw,46px) !important;line-height:1.08 !important}
+  .hpill .mono{font-size:10px;letter-spacing:.1em}
+  .hsplit{margin-top:30px}
+  .hbadges{gap:16px}.hbadges img{height:40px}
+  .sec-h h2{font-size:clamp(28px,8vw,42px) !important}
+  section{padding:clamp(60px,12vw,90px) 0}
+}
+@media(max-width:560px){
+  .wrap{padding:0 18px}
+  .hero h1{font-size:clamp(25px,8.4vw,38px) !important}
+  .svc-stats{gap:26px}
+  .case-fn{gap:16px}
+  .hcta{font-size:15px;padding:17px}
+  .hmeta{gap:8px;font-size:10px}
+  .vframe{border-radius:16px}
+  .ticker .ti{padding:16px 22px}
+  .deck-grid,.dgrid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -722,7 +769,7 @@ footer{background:#0a0a0e;color:#b7b7b1;border-top:1px solid var(--rule)}
     </div>
 
     <div class="case rv">
-      <div class="cvid" data-vimeo="860681704" role="button" tabindex="0" aria-label="Case Putz & Stingl">
+      <div class="cvid" data-vimeo="860681704" role="button" tabindex="0" aria-label="Case Putz & Stingl"><img class="cvid-poster" src="/assets/video-thumbs/860681704.jpg" alt="" decoding="async">
         <button class="cvid-play" type="button" aria-label="Video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
         <span class="cvid-tag">Video-Statement</span>
       </div>
@@ -741,7 +788,7 @@ footer{background:#0a0a0e;color:#b7b7b1;border-top:1px solid var(--rule)}
     </div>
 
     <div class="case rv">
-      <div class="cvid" data-vimeo="1134147007" role="button" tabindex="0" aria-label="Case RINK">
+      <div class="cvid" data-vimeo="1134147007" role="button" tabindex="0" aria-label="Case RINK"><img class="cvid-poster" src="/assets/video-thumbs/1134147007.jpg" alt="" decoding="async">
         <button class="cvid-play" type="button" aria-label="Video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
         <span class="cvid-tag">Video-Statement</span>
       </div>
@@ -760,7 +807,7 @@ footer{background:#0a0a0e;color:#b7b7b1;border-top:1px solid var(--rule)}
     </div>
 
     <div class="case rv">
-      <div class="cvid" data-vimeo="1108387444" role="button" tabindex="0" aria-label="Case Linkbroker">
+      <div class="cvid" data-vimeo="1108387444" role="button" tabindex="0" aria-label="Case Linkbroker"><img class="cvid-poster" src="/assets/video-thumbs/1108387444.jpg" alt="" decoding="async">
         <button class="cvid-play" type="button" aria-label="Video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
         <span class="cvid-tag">Video-Statement</span>
       </div>
