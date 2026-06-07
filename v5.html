@@ -635,6 +635,88 @@ body::before{opacity:.7}
 .htp{flex-basis:100%;max-width:230px;min-width:200px;margin-top:4px}
 .htp .trustpilot-widget{filter:brightness(1.35) contrast(1.05);min-height:30px}
 </style>
+<style id="v5bento">
+/* ════════ BENTO · Im Programm enthalten ════════ */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;grid-template-areas:"A A A A" "B B D D" "C C D D" "E F G H"}
+.bcard{position:relative;overflow:hidden;background:linear-gradient(180deg,#0e0f15,#0a0b0e);border:1px solid var(--rule);border-radius:24px;padding:clamp(22px,2.4vw,32px);transition:border-color .3s,transform .5s cubic-bezier(.16,1,.3,1)}
+.bcard:hover{border-color:rgba(59,130,255,.32);transform:translateY(-3px)}
+.bA{grid-area:A;display:grid;grid-template-columns:1.05fr 1fr;gap:34px;align-items:center}
+.bB{grid-area:B}.bC{grid-area:C}.bD{grid-area:D;display:flex;flex-direction:column}
+.bcard-h h3,.bA-txt h3,.bD .bcard-h h3{font-size:clamp(20px,2.1vw,27px);font-weight:700;letter-spacing:-.025em;margin-bottom:10px}
+.bcard-h p,.bA-grid p{color:var(--ink-2)}
+.bcard-h p{font-size:14.5px;line-height:1.55}
+
+/* A chart */
+.bA-chart{position:relative;height:200px}
+.bchart{width:100%;height:100%;display:block;overflow:visible}
+.bchart .bar{opacity:0}.bento.in .bchart .bar{opacity:1;transition:opacity 1.4s ease .4s}
+.bchart .ln{stroke-dasharray:1000;stroke-dashoffset:1000}.bento.in .bchart .ln1{stroke-dashoffset:0;transition:stroke-dashoffset 1.8s cubic-bezier(.3,.7,.2,1)}.bento.in .bchart .ln2{stroke-dashoffset:0;transition:stroke-dashoffset 1.8s cubic-bezier(.3,.7,.2,1) .2s}
+.bchart .bdot{opacity:0}.bento.in .bchart .bdot{opacity:1;transition:opacity .4s 1.2s}
+.bchart-tip{position:absolute;top:8px;left:30%;background:rgba(16,18,24,.92);border:1px solid var(--rule-2);border-radius:12px;padding:12px 14px;font-size:12px;backdrop-filter:blur(8px);box-shadow:0 20px 40px -20px rgba(0,0,0,.8)}
+.bt-date{font-weight:700;margin-bottom:8px;font-size:11px;color:var(--ink-2)}
+.bt-row{display:flex;align-items:center;gap:8px;color:var(--ink-2);margin-top:5px}
+.bt-row b{margin-left:auto;color:#fff;font-variant-numeric:tabular-nums}
+.bt-sw{width:11px;height:11px;border-radius:3px;background:#3b82ff}.bt-sw2{background:rgba(255,255,255,.4)}
+/* A points 2x2 */
+.bA-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px 26px;margin-top:6px}
+.bA-grid h5{font-size:15px;font-weight:700;margin-bottom:5px}
+.bA-grid p{font-size:13.5px;line-height:1.45}
+
+/* B chips */
+.bchips{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.bchips span{font-size:12.5px;padding:8px 13px;border:1px solid var(--rule-2);border-radius:10px;color:var(--ink-2);background:rgba(255,255,255,.025);animation:floaty 5s ease-in-out infinite}
+.bchips span:nth-child(2n){animation-delay:.6s}.bchips span:nth-child(3n){animation-delay:1.1s}.bchips span:nth-child(4n){animation-delay:1.7s}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.bchips span:nth-child(3),.bchips span:nth-child(6){color:var(--accent);border-color:rgba(59,130,255,.4);background:rgba(59,130,255,.08)}
+
+/* C rings */
+.brings{display:flex;justify-content:space-around;gap:14px;margin-top:22px;text-align:center}
+.bring{position:relative}
+.bring svg{width:72px;height:72px}
+.bring-fg{stroke-dashoffset:188}.bento.in .bring-fg{stroke-dashoffset:var(--off);transition:stroke-dashoffset 1.4s cubic-bezier(.2,.7,.2,1) .3s}
+.bring b{position:absolute;top:26px;left:0;right:0;font-size:17px;font-weight:800}.bring b i{font-size:10px;font-style:normal;color:var(--ink-3)}
+.bring span{display:block;font-size:11.5px;color:var(--ink-2);margin-top:8px}
+
+/* D markenkonform */
+.bD-vis{margin-top:auto;display:flex;flex-direction:column;gap:11px;position:relative;padding-top:18px}
+.bd-line{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--ink-2)}
+.bd-dot{width:18px;height:18px;border-radius:50%;background:rgba(52,211,153,.16);color:#34d399;display:grid;place-items:center;font-size:11px}
+.bd-dot.ok::before{content:"✓"}
+.bd-script{margin-top:8px;padding:14px 16px;border:1px solid var(--rule);border-radius:12px;background:rgba(255,255,255,.02);font-size:13.5px;color:var(--ink);font-style:italic;position:relative}
+.bd-cursor{display:inline-block;width:2px;height:14px;background:var(--accent);margin-left:2px;vertical-align:middle;animation:blink 1.05s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.bd-stamp{align-self:flex-end;margin-top:4px;font-size:11px;font-weight:700;color:#34d399;border:1px solid rgba(52,211,153,.3);background:rgba(52,211,153,.08);padding:5px 12px;border-radius:999px;transform:rotate(-3deg)}
+
+/* small cards */
+.bsm{grid-area:auto;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;min-height:200px;padding-bottom:26px}
+.bcard.bsm:nth-of-type(5){grid-area:E}.bcard.bsm:nth-of-type(6){grid-area:F}.bcard.bsm:nth-of-type(7){grid-area:G}.bcard.bsm:nth-of-type(8){grid-area:H}
+.bsm-vis{flex:1;display:grid;place-items:center;width:100%}
+.bsm h4{font-size:16px;font-weight:600;letter-spacing:-.01em}
+.bsm-int{display:flex;align-items:center;gap:10px}
+.it{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;font-weight:800;font-size:18px;color:#fff;box-shadow:0 10px 24px -12px rgba(0,0,0,.7)}
+.it1{background:linear-gradient(135deg,#1d6fff,#0b3bd6)}.it2{background:#0e0f14;border:1px solid var(--rule-2);color:var(--accent)}.it2 svg{width:22px;height:22px}
+.it-plus{color:var(--accent);font-size:18px;font-weight:700;animation:floaty 3s ease-in-out infinite}
+.chip-sq{width:96px;height:96px;border-radius:16px;border:1px solid var(--rule-2);background:radial-gradient(120% 120% at 50% 0,rgba(59,130,255,.12),transparent),linear-gradient(180deg,#101218,#0a0b0f);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;box-shadow:0 0 26px -6px rgba(59,130,255,.4)}
+.chip-sq .mono{font-size:11px;color:var(--accent);letter-spacing:.08em}.chip-sq small{font-size:10px;color:var(--ink-3)}
+.hours-box{text-align:center;font-size:13px;color:var(--ink-2);border:1px solid rgba(59,130,255,.3);border-radius:12px;padding:14px 22px;background:rgba(59,130,255,.05)}.hours-box b{font-size:19px;color:#fff}
+.tuv-badge{width:84px;height:84px;border-radius:50%;border:2px solid var(--accent);display:grid;place-items:center;text-align:center;box-shadow:0 0 26px -8px rgba(59,130,255,.5)}
+.tuv-badge span{font-weight:800;font-size:16px;color:#fff;line-height:1}.tuv-badge i{display:block;font-style:normal;font-size:9px;color:var(--ink-3);letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
+
+/* stagger reveal */
+.bento.in .bcard{animation:rise .8s cubic-bezier(.16,1,.3,1) both}
+.bento.in .bcard:nth-child(2){animation-delay:.06s}.bento.in .bcard:nth-child(3){animation-delay:.12s}.bento.in .bcard:nth-child(4){animation-delay:.18s}
+.bento.in .bcard:nth-child(5){animation-delay:.24s}.bento.in .bcard:nth-child(6){animation-delay:.30s}.bento.in .bcard:nth-child(7){animation-delay:.36s}.bento.in .bcard:nth-child(8){animation-delay:.42s}
+
+@media(max-width:920px){
+  .bento{grid-template-columns:1fr 1fr;grid-template-areas:"A A" "B B" "C D" "E F" "G H"}
+  .bA{grid-template-columns:1fr;gap:24px}
+}
+@media(max-width:560px){
+  .bento{grid-template-columns:1fr;grid-template-areas:"A" "B" "C" "D" "E" "F" "G" "H"}
+  .bA-grid{grid-template-columns:1fr 1fr}.bsm{min-height:170px}
+}
+</style>
+
 </head>
 <body>
 
@@ -779,6 +861,92 @@ body::before{opacity:.7}
           <div class="mk-appt"><span class="mk-appt-t mono">16:15</span><div class="mk-appt-b"><b>Inhaber · Agentur</b><span>Entscheider, Kaufkraft bestätigt</span></div><i class="mk-dot"></i></div>
         </div>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- BENTO: Im Programm enthalten -->
+<section id="programm">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <span class="sec-num">Inklusive · ohne Aufpreis</span>
+      <div><h2>Mehr als nur Termine.</h2><p class="lead">Du bekommst Auswertung, Transparenz und Training. Alles, was deine Closing-Quote nach oben zieht — im Programm enthalten.</p></div>
+    </div>
+    <div class="bento rv">
+
+      <!-- A: Live-Tracking + Chart + 4 Punkte -->
+      <article class="bcard bA">
+        <div class="bA-chart">
+          <svg class="bchart" viewBox="0 0 480 220" preserveAspectRatio="none">
+            <defs><linearGradient id="bfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(59,130,255,.28)"/><stop offset="1" stop-color="rgba(59,130,255,0)"/></linearGradient></defs>
+            <path class="bar" fill="url(#bfill)" d="M0,150 L48,120 L96,60 L144,95 L192,45 L240,110 L288,55 L336,40 L384,100 L432,55 L480,75 V220 H0 Z"/>
+            <path class="ln ln1" fill="none" stroke="#3b82ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M0,150 L48,120 L96,60 L144,95 L192,45 L240,110 L288,55 L336,40 L384,100 L432,55 L480,75"/>
+            <path class="ln ln2" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M0,175 L48,165 L96,150 L144,160 L192,140 L240,168 L288,150 L336,138 L384,170 L432,150 L480,160"/>
+            <circle class="bdot" cx="192" cy="45" r="4" fill="#3b82ff"/><circle class="bdot" cx="336" cy="40" r="4" fill="#3b82ff"/>
+          </svg>
+          <div class="bchart-tip">
+            <div class="bt-date">Heute · Live</div>
+            <div class="bt-row"><span class="bt-sw"></span>Wählversuche<b>3.284</b></div>
+            <div class="bt-row"><span class="bt-sw bt-sw2"></span>EG-Termine<b>31</b></div>
+          </div>
+        </div>
+        <div class="bA-txt">
+          <h3>Live-Tracking jeder Kampagne</h3>
+          <div class="bA-grid">
+            <div><h5>Protokolliert</h5><p>Jeder Call im Live-Hub einsehbar.</p></div>
+            <div><h5>21 Qualitätskriterien</h5><p>Jedes Gespräch wird bewertet.</p></div>
+            <div><h5>TÜV-zertifiziert</h5><p>Geprüfte Prozesse, jährliches Re-Audit.</p></div>
+            <div><h5>Direkter Draht</h5><p>Geschäftsführung statt Account-Pool.</p></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- B: Komplettes Setup (Chips) -->
+      <article class="bcard bB">
+        <div class="bcard-h"><h3>Komplettes Setup</h3><p>Lookalike-Liste, Skripte, CRM und Reporting — wir bringen alles mit. Du siehst nur die Termine.</p></div>
+        <div class="bchips" aria-hidden="true"><span>Lookalike-Liste</span><span>Skripte</span><span>Close CRM</span><span>Kalender</span><span>Briefings</span><span>Reporting</span><span>Training</span><span>API</span></div>
+      </article>
+
+      <!-- C: Quoten Rings -->
+      <article class="bcard bC">
+        <div class="bcard-h"><h3>Starke Quoten</h3><p>Show-Rate, Closing und AG-Rate aus laufenden Kampagnen.</p></div>
+        <div class="brings">
+          <div class="bring"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="6"/><circle class="bring-fg" style="--off:17" cx="36" cy="36" r="30" fill="none" stroke="#34d399" stroke-width="6" stroke-linecap="round" stroke-dasharray="188" stroke-dashoffset="188" transform="rotate(-90 36 36)"/></svg><b>92<i>%</i></b><span>Show-Rate</span></div>
+          <div class="bring"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="6"/><circle class="bring-fg" style="--off:71" cx="36" cy="36" r="30" fill="none" stroke="#3b82ff" stroke-width="6" stroke-linecap="round" stroke-dasharray="188" stroke-dashoffset="188" transform="rotate(-90 36 36)"/></svg><b>62<i>%</i></b><span>Close-Rate</span></div>
+          <div class="bring"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="6"/><circle class="bring-fg" style="--off:92" cx="36" cy="36" r="30" fill="none" stroke="#ffd24a" stroke-width="6" stroke-linecap="round" stroke-dasharray="188" stroke-dashoffset="188" transform="rotate(-90 36 36)"/></svg><b>51<i>%</i></b><span>AG-Rate</span></div>
+        </div>
+      </article>
+
+      <!-- D: Markenkonform (hoch) -->
+      <article class="bcard bD">
+        <div class="bcard-h"><h3>Markenkonform — ohne Risiko</h3><p>Jedes Wort vor dem ersten Anruf von dir freigegeben. Deine Tonalität, dein Wertekanon, deine No-Gos.</p></div>
+        <div class="bD-vis">
+          <div class="bd-line"><span class="bd-dot ok"></span>Tonalität freigegeben</div>
+          <div class="bd-line"><span class="bd-dot ok"></span>Wertekanon definiert</div>
+          <div class="bd-line"><span class="bd-dot ok"></span>No-Gos schriftlich fixiert</div>
+          <div class="bd-script">„Guten Tag Herr Müller, ich rufe an, weil …"<span class="bd-cursor"></span></div>
+          <div class="bd-stamp">Freigegeben ✓</div>
+        </div>
+      </article>
+
+      <!-- E–H klein -->
+      <article class="bcard bsm">
+        <div class="bsm-vis bsm-int"><span class="it it1">C</span><span class="it-plus">+</span><span class="it it2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span></div>
+        <h4>Perfekt integriert</h4>
+      </article>
+      <article class="bcard bsm">
+        <div class="bsm-vis bsm-chip"><div class="chip-sq"><span class="mono">SalesDrive</span><small>v3.2</small></div></div>
+        <h4>Skaliert mit dir</h4>
+      </article>
+      <article class="bcard bsm">
+        <div class="bsm-vis bsm-hours"><div class="hours-box">Mo–Fr<br><b>8–18 Uhr</b></div></div>
+        <h4>Immer erreichbar</h4>
+      </article>
+      <article class="bcard bsm">
+        <div class="bsm-vis bsm-tuv"><div class="tuv-badge"><span>TÜV</span><i>geprüft</i></div></div>
+        <h4>Sicher &amp; konform</h4>
+      </article>
+
     </div>
   </div>
 </section>
