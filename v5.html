@@ -408,6 +408,15 @@ footer{background:#0a0a0e;color:#b7b7b1;border-top:1px solid var(--rule)}
 @media(max-width:900px){.hsplit{grid-template-columns:1fr;gap:34px}.hright{order:-1}.hcta{font-size:16px;padding:18px}}
 </style>
 
+<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+<style id="v5fix">
+.hero h1{max-width:none !important;font-size:clamp(34px,5vw,72px) !important;line-height:1.07 !important}
+.hero h1 .em{font-family:var(--sans) !important;font-style:normal !important}
+.vframe img{object-position:center 32% !important;object-fit:cover}
+.htp{min-width:150px;max-width:180px;display:flex;align-items:center}
+.htp .trustpilot-widget{width:100% !important;filter:brightness(1.1)}
+@media(max-width:900px){.hero h1{font-size:clamp(30px,8vw,46px) !important}.hero h1 br{display:none}}
+</style>
 </head>
 <body>
 
@@ -433,7 +442,7 @@ footer{background:#0a0a0e;color:#b7b7b1;border-top:1px solid var(--rule)}
 <header class="hero">
     <div class="wrap">
     <div class="hpill rv"><span class="hpill-dot"></span><span class="mono">Externe B2B-Akquise · Die Nr. 1 Vertriebs-Plattform im DACH-Raum</span></div>
-    <h1 class="rv">Wir rufen deine Wunschkunden an und legen dir <span class="em">Abschlussgespräche</span> in deinen Kalender.</h1>
+    <h1 class="rv">Wir rufen deine Wunschkunden an und legen dir<br><span class="em">Abschlussgespräche</span> in deinen Kalender.</h1>
     <p class="hsub rv">Wir übernehmen die kalte Erstansprache. Du bekommst nur noch vorqualifizierte Abschlussgespräche mit Entscheidern. In der <b>kostenlosen 30-Minuten-Analyse</b> zeigen wir dir das komplette System.</p>
 
     <div class="hsplit">
@@ -449,6 +458,7 @@ footer{background:#0a0a0e;color:#b7b7b1;border-top:1px solid var(--rule)}
         <div class="hbadges">
           <a href="https://www.tuv.com" target="_blank" rel="noopener"><img src="/assets/trust/tuv-rheinland.png" alt="TÜV Rheinland zertifiziert"></a>
           <a href="https://www.provenexpert.com/salesdrive-gmbh/" target="_blank" rel="noopener"><img src="/assets/trust/provenexpert-badges.jpg" alt="ProvenExpert 4,82 / 5"></a>
+          <div class="htp"><div class="trustpilot-widget" data-locale="de-DE" data-template-id="5419b732fbfb950b10de65e5" data-businessunit-id="6824f66b7d7d518b035be9fe" data-style-height="24px" data-style-width="100%" data-token="6c10c584-b7c5-4f1f-9e52-269566a2af4f"><a href="https://de.trustpilot.com/review/salesdrive.at" target="_blank" rel="noopener">Trustpilot</a></div></div>
         </div>
       </div>
       <!-- RIGHT: framed video -->
@@ -457,7 +467,7 @@ footer{background:#0a0a0e;color:#b7b7b1;border-top:1px solid var(--rule)}
           <img src="/assets/photos/alex-headset-portrait.jpg" alt="SalesDrive Vorstellung" decoding="async">
           <span class="vframe-glow"></span>
           <button class="vid-play" type="button" aria-label="Video abspielen"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
-          <span class="vid-cap">SalesDrive · Vorstellung · 1 Min</span>
+          <span class="vid-cap">SalesDrive · Vorstellung · 2 Min</span>
         </div>
       </div>
     </div>
