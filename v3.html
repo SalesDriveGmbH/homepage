@@ -251,6 +251,120 @@ footer{background:var(--ink);color:#cfcdc4;padding:clamp(60px,7vw,90px) 0 40px}
   .br{grid-template-columns:auto 1fr auto;gap:14px}
 }
 </style>
+<style id="v3dark">
+/* ════════════ V3 · BLACK + NEXT-LEVEL MOTION ════════════ */
+:root{
+  --paper:#07070a; --paper-2:#0d0e12; --ink:#f3f3f1; --ink-2:#b7b7b1; --muted:#7e7d76;
+  --rule:rgba(255,255,255,.09); --rule-2:rgba(255,255,255,.16); --card:#0e0f14;
+  --accent:#3b82ff; --accent-deep:#1452ff; --accent-soft:rgba(59,130,255,.10);
+}
+body{background:var(--paper);color:var(--ink)}
+/* Continuous animated mesh + grain backdrop */
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(900px 700px at 12% -8%,rgba(59,130,255,.16),transparent 60%),
+    radial-gradient(820px 620px at 92% 8%,rgba(59,130,255,.10),transparent 60%),
+    radial-gradient(700px 700px at 50% 120%,rgba(59,130,255,.08),transparent 60%);
+  background-size:200% 200%;animation:mesh 22s ease-in-out infinite}
+@keyframes mesh{0%,100%{background-position:0% 0%,100% 0%,50% 100%}50%{background-position:30% 20%,70% 10%,50% 80%}}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+nav{background:rgba(7,7,10,.7)}
+.brand img{filter:brightness(0) invert(1)}
+.nav-cta{border-color:var(--rule-2);color:var(--ink)}
+.nav-cta:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* Buttons: white primary on black, accent hover */
+.btn-primary{background:#fff;color:#06070b}
+.btn-primary:hover{background:var(--accent);color:#fff;box-shadow:0 18px 50px -14px rgba(59,130,255,.7)}
+.btn-ghost{border-color:var(--rule-2);color:var(--ink)}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.05)}
+
+/* clients logos on dark */
+.clients img{filter:grayscale(1) brightness(1.7) contrast(.9);opacity:.5}
+.clients img:hover{filter:brightness(1.7);opacity:1}
+
+/* cards/quotes/klar bg on dark */
+.qt{background:var(--card)}
+.kc{background:var(--card);border-color:var(--rule)}
+.kc.give{background:var(--accent-soft);border-color:rgba(59,130,255,.4)}
+.case-c .av,.qt .av,.final-host .av{background:#fff;color:#06070b}
+
+/* FOOTER dark distinct */
+footer{background:#0a0a0e;color:#b7b7b1;border-top:1px solid var(--rule)}
+.foot-col a,.foot-bot,.foot-brand p{color:#9a9990}
+.foot-soc a{color:#b7b7b1}
+
+/* ─────────── HEADLINE SHIMMER (continuous) ─────────── */
+.hero h1,.sec-h h2,.final h2{
+  background:linear-gradient(100deg,#ffffff 0%,#cfd9ff 28%,#ffffff 48%,#a9c2ff 70%,#ffffff 100%);
+  background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  animation:shimmer 7s linear infinite}
+@keyframes shimmer{to{background-position:220% center}}
+.em{ -webkit-text-fill-color:initial;color:var(--accent);background:none}
+
+/* ─────────── ROTATING ACCENT RING behind video ─────────── */
+.vid{position:relative}
+.vid::before{content:"";position:absolute;width:min(620px,80%);aspect-ratio:1;left:50%;top:42%;transform:translate(-50%,-50%);z-index:-1;border-radius:50%;
+  background:conic-gradient(from 0deg,transparent 0deg,rgba(59,130,255,.5) 90deg,transparent 200deg,rgba(59,130,255,.3) 300deg,transparent 360deg);
+  filter:blur(60px);opacity:.5;animation:spin 18s linear infinite}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+
+/* ─────────── ROTATING SEAL badge ─────────── */
+.seal{position:relative;width:118px;height:118px;flex:0 0 auto}
+.seal svg{width:100%;height:100%;animation:spin 16s linear infinite}
+.seal svg text{font-family:var(--mono);font-size:8.5px;letter-spacing:.32em;fill:var(--muted);text-transform:uppercase}
+.seal .seal-c{position:absolute;inset:0;display:grid;place-items:center}
+.seal .seal-c b{font-size:20px;font-weight:800;letter-spacing:-.03em;background:linear-gradient(180deg,#fff,var(--accent));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.seal .seal-c span{font-family:var(--mono);font-size:8px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;display:block;text-align:center;margin-top:2px}
+.hero-side{align-items:flex-start}
+
+/* ─────────── LIVE WAVE in deck ─────────── */
+.deck::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);background-size:50% 100%;animation:scanline 3.4s linear infinite;opacity:.7}
+@keyframes scanline{0%{background-position:-50% 0}100%{background-position:150% 0}}
+.deck-fore .big{animation:glowpulse 3s ease-in-out infinite}
+@keyframes glowpulse{0%,100%{text-shadow:0 0 0 rgba(59,130,255,0)}50%{text-shadow:0 0 36px rgba(59,130,255,.55)}}
+.fn .fb i{position:relative;overflow:hidden}
+.fn .fb i::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);transform:translateX(-100%);animation:sweep 2.6s ease-in-out infinite}
+@keyframes sweep{0%{transform:translateX(-100%)}60%,100%{transform:translateX(200%)}}
+
+/* ─────────── ENTRANCE: clip + blur, staggered ─────────── */
+.rv{opacity:0;transform:translateY(36px) scale(.985);filter:blur(8px);
+  transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1),filter .9s ease}
+.rv.in{opacity:1;transform:none;filter:blur(0)}
+.svc-row,.case,.qt,.stp,.kc,.br,.ti{transition:transform .5s cubic-bezier(.16,1,.3,1),background .3s,padding .3s,border-color .3s}
+/* stagger children of revealed groups */
+.svc.in .svc-row,.steps.in .stp,.klar.in .kc,.brs.in .br,.quotes.in .qt{animation:rise .8s cubic-bezier(.16,1,.3,1) both}
+.svc.in .svc-row:nth-child(2),.steps.in .stp:nth-child(2),.klar.in .kc:nth-child(2),.brs.in .br:nth-child(2),.quotes.in .qt:nth-child(2){animation-delay:.08s}
+.svc.in .svc-row:nth-child(3),.steps.in .stp:nth-child(3),.klar.in .kc:nth-child(3),.brs.in .br:nth-child(3),.quotes.in .qt:nth-child(3){animation-delay:.16s}
+.svc.in .svc-row:nth-child(4),.brs.in .br:nth-child(4),.quotes.in .qt:nth-child(4){animation-delay:.24s}
+.brs.in .br:nth-child(5),.quotes.in .qt:nth-child(5){animation-delay:.32s}
+.quotes.in .qt:nth-child(6){animation-delay:.40s}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+/* ─────────── pulsing accent dot + eyebrow line draw ─────────── */
+.hero-eye .dot{animation:dotpulse 2.4s ease-in-out infinite}
+@keyframes dotpulse{0%,100%{box-shadow:0 0 0 4px var(--accent-soft)}50%{box-shadow:0 0 0 9px rgba(59,130,255,.04)}}
+.sec-num{position:relative;padding-left:0}
+.sec-h.in .sec-num::before{content:"";display:inline-block;width:0;height:1px;background:var(--accent);vertical-align:middle;margin-right:8px;animation:lineDraw .7s ease forwards .2s}
+@keyframes lineDraw{to{width:26px}}
+
+/* ticker hover-pause for control */
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ti b{background:linear-gradient(180deg,#fff,#9ab4ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* magnetic hover lift on interactive cards */
+.svc-row:hover,.br:hover{transform:translateX(6px)}
+.case:hover .cvid,.vid-frame:hover{transform:translateY(-4px);transition:transform .5s cubic-bezier(.16,1,.3,1)}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important}
+  .rv{opacity:1;transform:none;filter:none}
+  .hero h1,.sec-h h2,.final h2{-webkit-text-fill-color:#fff;color:#fff}
+}
+</style>
+
 </head>
 <body>
 
@@ -291,6 +405,10 @@ footer{background:var(--ink);color:#cfcdc4;padding:clamp(60px,7vw,90px) 0 40px}
           <a href="https://www.provenexpert.com/salesdrive-gmbh/" target="_blank" rel="noopener"><img src="/assets/trust/provenexpert-badges.jpg" alt="ProvenExpert 4,82 / 5" style="border-radius:6px"></a>
         </div>
         <p class="mono">TÜV-zertifiziert in Verkaufspsychologie · ID 0217466221 · ProvenExpert 4,82 / 5 · 74 Bewertungen</p>
+        <div class="seal" aria-hidden="true">
+          <svg viewBox="0 0 120 120"><defs><path id="sc" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs><text><textPath href="#sc" startOffset="0">TÜV RHEINLAND · ZERTIFIZIERT · VERKAUFSPSYCHOLOGIE · </textPath></text></svg>
+          <span class="seal-c"><b>21</b><span>Kriterien</span></span>
+        </div>
       </div>
     </div>
 
