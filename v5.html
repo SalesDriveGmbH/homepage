@@ -570,6 +570,48 @@ footer{background:#0a0a0e;color:#b7b7b1;border-top:1px solid var(--rule)}
   .deck-grid,.dgrid{grid-template-columns:1fr}
 }
 </style>
+<style id="v5final">
+/* 1) LOGO sichtbar (kein invert-Weißblock) */
+.brand img,.nav-in img,.foot-brand img,nav .brand img{filter:none !important}
+
+/* 2) Headline: 2 Zeilen, einheitliche Schrift & Farbe (kein Sonder-Wort) */
+.hero h1{font-size:clamp(28px,3.9vw,56px) !important;line-height:1.08 !important;letter-spacing:-.035em !important;max-width:none}
+.hero h1 .em{font-family:var(--sans) !important;font-style:normal !important;background:none !important;-webkit-text-fill-color:#cfe0ff !important;color:#cfe0ff !important}
+.hero h1 br{display:inline !important}
+
+/* 3) Ticker frei (ohne Rahmen) */
+.ticker{border:0 !important;margin-top:clamp(40px,6vw,80px)}
+.ticker .ti{border:0 !important;padding:14px 40px}
+.ticker-track{-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+
+/* 4) Testimonials stärker eingerahmt */
+.quotes{gap:16px}
+.qt{background:linear-gradient(180deg,#101319,#0a0b10) !important;border:1px solid rgba(255,255,255,.14) !important;border-radius:20px !important;box-shadow:0 30px 60px -36px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.02) inset !important;transition:border-color .3s,transform .4s cubic-bezier(.16,1,.3,1)}
+.qt:hover{border-color:rgba(59,130,255,.4) !important;transform:translateY(-3px)}
+
+/* 5) Serif-Headings: Resultate + Final */
+#stimmen .sec-h h2,.final h2{font-family:'Newsreader',Georgia,serif !important;font-weight:500 !important;letter-spacing:-.012em !important;line-height:1.04 !important}
+#stimmen .sec-h h2 .em,.final h2 .em{font-family:'Newsreader',Georgia,serif !important;font-style:italic !important}
+
+/* 6) NEUE ABLAUF-GRAFIK (flow2) */
+.flow2{position:relative;padding-top:6px}
+.frail{position:absolute;top:38px;left:17%;right:17%;height:3px;background:rgba(255,255,255,.1);border-radius:3px;z-index:0}
+.ffill{position:relative;height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,#1452ff,#5b9bff);box-shadow:0 0 16px rgba(59,130,255,.7);transition:width .12s linear}
+.fdot{position:absolute;right:-8px;top:50%;transform:translateY(-50%);width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 0 0 5px rgba(59,130,255,.3),0 0 18px rgba(59,130,255,.95)}
+.fcards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;position:relative;z-index:1}
+.fcard{text-align:center;padding:0 14px;display:flex;flex-direction:column;align-items:center}
+.fnum{width:66px;height:66px;border-radius:50%;display:grid;place-items:center;font-size:23px;font-weight:800;letter-spacing:-.02em;color:var(--ink-3);background:#0a0b11;border:2px solid var(--rule-2);position:relative;z-index:2;transition:.5s cubic-bezier(.16,1,.3,1);margin-bottom:20px}
+.fnum.lit{color:#fff;border-color:var(--accent);background:linear-gradient(180deg,#1452ff,#0b2e9e);box-shadow:0 0 0 7px rgba(59,130,255,.12),0 16px 36px -10px rgba(59,130,255,.7);transform:scale(1.08)}
+.fico{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;color:var(--accent);background:rgba(59,130,255,.1);margin-bottom:16px;transition:.4s}
+.fcard:hover .fico{background:var(--accent);color:#02122e;transform:rotate(-6deg) scale(1.06)}
+.fico svg{width:23px;height:23px}
+.fcard h3{font-size:clamp(19px,2vw,25px);font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
+.fcard p{font-size:14.5px;color:var(--ink-2);line-height:1.6;max-width:36ch;margin:0 auto}
+.ft{display:inline-block;margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--accent);padding:6px 12px;border:1px solid rgba(59,130,255,.3);border-radius:999px;background:rgba(59,130,255,.05)}
+.flow2.in .fcard{animation:rise .8s cubic-bezier(.16,1,.3,1) both}
+.flow2.in .fcard:nth-child(2){animation-delay:.14s}.flow2.in .fcard:nth-child(3){animation-delay:.28s}
+@media(max-width:820px){.frail{display:none}.fcards{grid-template-columns:1fr;gap:30px}.fnum{margin-bottom:14px}}
+</style>
 </head>
 <body>
 
@@ -595,7 +637,7 @@ footer{background:#0a0a0e;color:#b7b7b1;border-top:1px solid var(--rule)}
 <header class="hero">
     <div class="wrap">
     <div class="hpill rv"><span class="hpill-dot"></span><span class="mono">Externe B2B-Akquise · Die Nr. 1 Vertriebs-Plattform im DACH-Raum</span></div>
-    <h1 class="rv">Wir rufen deine Wunschkunden an und legen dir<br><span class="em">Abschlussgespräche</span> in deinen Kalender.</h1>
+    <h1 class="rv">Wir rufen deine Wunschkunden an und legen<br>dir <span class="em">Abschlussgespräche</span> in deinen Kalender.</h1>
     <p class="hsub rv">Wir übernehmen die kalte Erstansprache. Du bekommst nur noch vorqualifizierte Abschlussgespräche mit Entscheidern. In der <b>kostenlosen 30-Minuten-Analyse</b> zeigen wir dir das komplette System.</p>
 
     <div class="hsplit">
@@ -771,7 +813,6 @@ footer{background:#0a0a0e;color:#b7b7b1;border-top:1px solid var(--rule)}
     <div class="case rv">
       <div class="cvid" data-vimeo="860681704" role="button" tabindex="0" aria-label="Case Putz & Stingl"><img class="cvid-poster" src="/assets/video-thumbs/860681704.jpg" alt="" decoding="async">
         <button class="cvid-play" type="button" aria-label="Video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
-        <span class="cvid-tag">Video-Statement</span>
       </div>
       <div class="case-c">
         <span class="ctag">PR &amp; Kommunikation</span>
@@ -790,7 +831,6 @@ footer{background:#0a0a0e;color:#b7b7b1;border-top:1px solid var(--rule)}
     <div class="case rv">
       <div class="cvid" data-vimeo="1134147007" role="button" tabindex="0" aria-label="Case RINK"><img class="cvid-poster" src="/assets/video-thumbs/1134147007.jpg" alt="" decoding="async">
         <button class="cvid-play" type="button" aria-label="Video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
-        <span class="cvid-tag">Video-Statement</span>
       </div>
       <div class="case-c">
         <span class="ctag">Filmproduktion</span>
@@ -809,7 +849,6 @@ footer{background:#0a0a0e;color:#b7b7b1;border-top:1px solid var(--rule)}
     <div class="case rv">
       <div class="cvid" data-vimeo="1108387444" role="button" tabindex="0" aria-label="Case Linkbroker"><img class="cvid-poster" src="/assets/video-thumbs/1108387444.jpg" alt="" decoding="async">
         <button class="cvid-play" type="button" aria-label="Video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
-        <span class="cvid-tag">Video-Statement</span>
       </div>
       <div class="case-c">
         <span class="ctag">Backlink-Marktplatz &amp; SEO</span>
@@ -852,12 +891,12 @@ footer{background:#0a0a0e;color:#b7b7b1;border-top:1px solid var(--rule)}
       <span class="sec-num">05 — Ablauf</span>
       <div><h2>Drei Schritte. Zwei Stunden Aufwand für dich.</h2><p class="lead">Wir übernehmen das Setup, wir führen die Calls, du führst die warmen Abschlussgespräche.</p></div>
     </div>
-    <div class="flow rv" id="flow">
-      <div class="flow-rail"><div class="flow-fill" id="flowFill"></div></div>
-      <div class="flow-steps">
-        <div class="fstep"><div class="fnum">01</div><h3>Setup übernehmen wir</h3><p>Im Kick-Off lernen wir Angebot, Zielgruppe und Prozess kennen, definieren ein No-Brainer-Angebot, generieren mit AI hochqualitative Datensätze und richten das technische Setup komplett ein.</p><span class="t">Dein Aufwand: 60 Minuten</span></div>
-        <div class="fstep"><div class="fnum">02</div><h3>Die Calls führen wir</h3><p>Nach deinem Go starten wir. Wir führen die Erstansprachen, qualifizieren vor und buchen Abschlussgespräche mit Briefing, Bedarf und Budget in deinen Kalender.</p><span class="t">Dein Aufwand: 60 Minuten Freigabe</span></div>
-        <div class="fstep"><div class="fnum">03</div><h3>Du führst die Abschlüsse</h3><p>Du führst die Abschlussgespräche mit vorqualifizierten Leads, bekommst vorab alle Notizen und ein bewährtes Gesprächs-Framework und gibst kurzes Feedback.</p><span class="t">60–90 Min pro Termin</span></div>
+    <div class="flow2 rv" id="flow">
+      <div class="frail"><div class="ffill" id="flowFill"><span class="fdot"></span></div></div>
+      <div class="fcards">
+        <div class="fcard"><div class="fnum">01</div><span class="fico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 8 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H2a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 3.6 8a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H8a1.65 1.65 0 0 0 1-1.51V2a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V8a1.65 1.65 0 0 0 1.51 1H22a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span><h3>Setup übernehmen wir</h3><p>Im Kick-Off lernen wir Angebot, Zielgruppe und Prozess kennen, definieren ein No-Brainer-Angebot und richten das technische Setup komplett ein.</p><span class="ft">Dein Aufwand · 60 Minuten</span></div>
+        <div class="fcard"><div class="fnum">02</div><span class="fico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><h3>Die Calls führen wir</h3><p>Nach deinem Go starten wir. Wir führen die Erstansprachen, qualifizieren vor und buchen Abschlussgespräche mit Briefing, Bedarf und Budget in deinen Kalender.</p><span class="ft">Dein Aufwand · 60 Minuten Freigabe</span></div>
+        <div class="fcard"><div class="fnum">03</div><span class="fico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><h3>Du führst die Abschlüsse</h3><p>Du führst die Abschlussgespräche mit vorqualifizierten Leads, bekommst vorab alle Notizen und ein bewährtes Gesprächs-Framework und gibst kurzes Feedback.</p><span class="ft">60–90 Minuten pro Termin</span></div>
       </div>
     </div>
   </div>
