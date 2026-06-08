@@ -1640,7 +1640,22 @@ nav{background:linear-gradient(180deg,rgba(10,11,15,.82),rgba(10,11,15,.62)) !im
 @media(prefers-reduced-motion:reduce){.lw-track{animation:none}}
 .seal-strip{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;align-items:center;margin-top:34px}.seal-strip a{display:block;line-height:0}.seal-strip img{height:104px;width:auto;border-radius:12px;background:#fff;box-shadow:0 18px 44px -28px rgba(0,0,0,.3);border:1px solid var(--rule);transition:transform .3s,box-shadow .3s}.seal-strip a:hover img{transform:translateY(-4px);box-shadow:0 30px 60px -30px rgba(0,0,0,.38)}@media(max-width:560px){.seal-strip img{height:78px}}
 @media(max-width:640px){.lw-track{gap:40px}.logowall{gap:24px}.lw-cell{transform:scale(.82)}}
-</style><style id="tmlinks">.tm figcaption{display:flex;flex-direction:column}.tm-links{display:flex;gap:12px;margin-top:10px}.tm-links a{color:#9a9aa0;display:inline-flex;transition:color .2s,transform .2s}.tm-links a:hover{color:#0a66ff;transform:translateY(-2px)}.tm-links svg{width:17px;height:17px;display:block}</style></head>
+</style><style id="tmlinks">.tm figcaption{display:flex;flex-direction:column}.tm-links{display:flex;gap:12px;margin-top:10px}.tm-links a{color:#9a9aa0;display:inline-flex;transition:color .2s,transform .2s}.tm-links a:hover{color:#0a66ff;transform:translateY(-2px)}.tm-links svg{width:17px;height:17px;display:block}</style><style id="tcardcss">
+#stimmen .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+#stimmen .tcard{position:relative;background:#fff;border:1px solid var(--rule);border-radius:20px;padding:26px 26px 24px;box-shadow:0 18px 44px -34px rgba(0,0,0,.25);transition:transform .35s,box-shadow .35s;display:flex;flex-direction:column}
+#stimmen .tcard:hover{transform:translateY(-5px);box-shadow:0 36px 70px -40px rgba(0,0,0,.34);border-color:rgba(10,102,255,.25)}
+#stimmen .tcard-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;min-height:24px}
+#stimmen .tcard .stars{color:#f5a623;font-size:14px;letter-spacing:2px}
+#stimmen .tchip{font-size:12px;font-weight:700;color:#0a7d3b;background:#e8f7ef;border:1px solid rgba(16,163,74,.28);padding:5px 11px;border-radius:999px;white-space:nowrap}
+#stimmen .tcard blockquote{font-size:15.5px;line-height:1.62;color:#33373f;margin:0 0 20px;flex:1}
+#stimmen .tcard figcaption{display:flex;align-items:center;gap:13px;margin-top:auto}
+#stimmen .tav{width:52px;height:52px;border-radius:50%;object-fit:cover;flex:0 0 auto;box-shadow:0 0 0 2px #fff,0 0 0 4px rgba(10,102,255,.22),0 8px 18px -8px rgba(0,0,0,.4)}
+#stimmen .tav-i{width:52px;height:52px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;font-weight:700;color:#fff;background:linear-gradient(135deg,#0a66ff,#0a3fd0);font-size:16px;box-shadow:0 0 0 2px #fff,0 0 0 4px rgba(10,102,255,.22),0 8px 18px -8px rgba(0,0,0,.4)}
+#stimmen .tcard figcaption b{display:block;font-size:15px;color:var(--ink)}
+#stimmen .tcard figcaption span{font-size:12.5px;color:var(--muted)}
+@media(max-width:900px){#stimmen .tgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){#stimmen .tgrid{grid-template-columns:1fr}}
+</style></head>
 <body>
 
 <!-- NAV -->
@@ -2137,13 +2152,13 @@ header.hero::before{content:"";position:absolute;top:-80px;right:-60px;width:60%
       <span class="sec-num">04 · Stimmen</span>
       <div><h2>Resultate, die für sich sprechen.</h2><p class="lead">Echte Geschäftsführer, echte Programme.</p></div>
     </div>
-    <div class="quotes rv">
-      <div class="qt"><div class="stars">★★★★★</div><p>„342.000 € mehr Auftragseingang in 60 Tagen. Planbar neue Entscheidergespräche statt Empfehlungs-Lotterie."</p><div class="who"><span class="av">JK</span><div><b>Julian Kirfel</b><span>Gründer · Linkbroker</span></div></div></div>
-      <div class="qt"><div class="stars">★★★★★</div><p>„16 Abschlussgespräche in 90 Tagen. Vorher war Akquise reine Glückssache, heute ist sie ein System."</p><div class="who"><span class="av">GZ</span><div><b>Gert Zaunbauer</b><span>Putz &amp; Stingl Events</span></div></div></div>
-      <div class="qt"><div class="stars">★★★★★</div><p>„Jeder Call dokumentiert. Mehrere Anbieter durchprobiert, SalesDrive ist der erste, der nachvollziehbar liefert."</p><div class="who"><span class="av">RM</span><div><b>Raphael Matschi</b><span>Geschäftsführer · RINK</span></div></div></div>
-      <div class="qt"><div class="stars">★★★★★</div><p>„Ich verkaufe wieder. Hörer und Vorqualifizierung übernimmt SalesDrive, ich mache nur noch, was ich kann."</p><div class="who"><span class="av">FH</span><div><b>Florian Holzer</b><span>Geschäftsführer · KleinSTARK</span></div></div></div>
-      <div class="qt"><div class="stars">★★★★★</div><p>„Endlich ein Partner, der mich versteht und zuverlässig die Neukundenakquise bis zum Abschlusstermin übernimmt."</p><div class="who"><span class="av">CZ</span><div><b>Christian Züger</b><span>Geschäftsführer · Z-Management</span></div></div></div>
-      <div class="qt"><div class="stars">★★★★★</div><p>„SalesDrive arbeitet extrem strukturiert und professionell. Der klare Plan hat einen spürbaren Unterschied gemacht."</p><div class="who"><span class="av">PN</span><div><b>Philipp Nitschmann</b><span>R.N. Personalagentur</span></div></div></div>
+    <div class="tgrid rv">
+      <figure class="tcard rv"><div class="tcard-top"><div class="stars">★★★★★</div><span class="tchip">+342.000 € · 60 Tage</span></div><blockquote>„Planbar neue Entscheidergespräche statt Empfehlungs-Lotterie. Endlich ein System, das nachvollziehbar liefert."</blockquote><figcaption><img class="tav" src="/assets/testimonials/julian.jpg" alt="Julian Kirfel" loading="lazy"><div><b>Julian Kirfel</b><span>Gründer · Linkbroker</span></div></figcaption></figure>
+      <figure class="tcard rv"><div class="tcard-top"><div class="stars">★★★★★</div><span class="tchip">+259.000 € · 90 Tage</span></div><blockquote>„Vorher war Akquise reine Glückssache, heute ist sie ein System. 16 Abschlussgespräche in 90 Tagen."</blockquote><figcaption><img class="tav" src="/assets/testimonials/gert.jpg" alt="Gert Zaunbauer" loading="lazy"><div><b>Gert Zaunbauer</b><span>Putz &amp; Stingl Events</span></div></figcaption></figure>
+      <figure class="tcard rv"><div class="tcard-top"><div class="stars">★★★★★</div><span class="tchip">+67.000 € · 1 Monat</span></div><blockquote>„Jeder Call dokumentiert. Mehrere Anbieter durchprobiert, SalesDrive ist der erste, der nachvollziehbar liefert."</blockquote><figcaption><img class="tav" src="/assets/testimonials/raphael.jpg" alt="Raphael Matschi" loading="lazy"><div><b>Raphael Matschi</b><span>Geschäftsführer · RINK</span></div></figcaption></figure>
+      <figure class="tcard rv"><div class="tcard-top"><div class="stars">★★★★★</div></div><blockquote>„Endlich ein Partner, der mich versteht und zuverlässig die Neukundenakquise bis zum Abschlusstermin übernimmt."</blockquote><figcaption><img class="tav" src="/assets/testimonials/christian.jpg" alt="Christian Züger" loading="lazy"><div><b>Christian Züger</b><span>Geschäftsführer · Z-Management</span></div></figcaption></figure>
+      <figure class="tcard rv"><div class="tcard-top"><div class="stars">★★★★★</div></div><blockquote>„SalesDrive arbeitet extrem strukturiert und professionell. Der klare Plan hat einen spürbaren Unterschied gemacht."</blockquote><figcaption><img class="tav" src="/assets/testimonials/philipp.jpg" alt="Philipp Nitschmann" loading="lazy"><div><b>Philipp Nitschmann</b><span>R.N. Personalagentur</span></div></figcaption></figure>
+      <figure class="tcard rv"><div class="tcard-top"><div class="stars">★★★★★</div></div><blockquote>„Ich verkaufe wieder. Hörer und Vorqualifizierung übernimmt SalesDrive, ich mache nur noch, was ich kann."</blockquote><figcaption><span class="tav-i">FH</span><div><b>Florian Holzer</b><span>Geschäftsführer · KleinSTARK</span></div></figcaption></figure>
     </div>
   </div>
 </section>

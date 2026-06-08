@@ -201,7 +201,7 @@
 .testimonial__quote { font-size: 13px; line-height: 1.5; color: var(--ink-2); font-style: italic; }
 .testimonial__quote::before { content: "„"; color: var(--blue); font-size: 22px; font-family: var(--display); line-height: 0; margin-right: 3px; }
 .testimonial__person { display: flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); }
-.testimonial__av { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--surf-3), var(--surf)); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 10px; font-weight: 600; color: var(--blue); border: 1px solid var(--line-2); flex-shrink: 0; }
+.testimonial__av{width:50px;height:50px;border-radius:50%;object-fit:cover;flex-shrink:0;border:0;box-shadow:0 0 0 2px #fff,0 0 0 4px rgba(10,102,255,.18),0 8px 16px -8px rgba(0,0,0,.3)}
 .testimonial__name { font-family: var(--display); font-size: 12px; font-weight: 600; letter-spacing: -.012em; color: var(--ink); line-height: 1.2; }
 .testimonial__role { font-size: 10px; color: var(--ink-3); line-height: 1.2; }
 .testimonial__site { color: var(--blue); font-size: 10px; }
@@ -594,7 +594,7 @@
       <div class="testimonial reveal-blur">
         <p class="testimonial__quote">SalesDrive arbeitet extrem strukturiert und professionell. Der klare Plan und die saubere Umsetzung haben einen spürbaren Unterschied gemacht. So stellt man sich verlässliche Vertriebsunterstützung vor."</p>
         <div class="testimonial__person">
-          <div class="testimonial__av">PN</div>
+          <img class="testimonial__av" src="/assets/testimonials/philipp.jpg" alt="Philipp Nitschmann" loading="lazy">
           <div>
             <div class="testimonial__name">Philipp Nitschmann, MAS</div>
             <div class="testimonial__role">Gründer · R. N. Personalagentur GmbH</div>
@@ -605,7 +605,7 @@
       <div class="testimonial reveal-blur d-1">
         <p class="testimonial__quote">SalesDrive hat unsere Promotionkampagne vollständig Done4You umgesetzt und damit die Basis für skalierbare, rentable Umsätze geschaffen. Durch klare Prozesse und automatisierte Abläufe konnten wir neue Aufträge gewinnen und deutlich wachsen. mit spürbar weniger operativem Aufwand."</p>
         <div class="testimonial__person">
-          <div class="testimonial__av">LS</div>
+          <img class="testimonial__av" src="/assets/testimonials/lea.jpg" alt="Lea Süss" loading="lazy">
           <div>
             <div class="testimonial__name">Lea Süss</div>
             <div class="testimonial__role">Gründerin · Süss Media</div>
@@ -616,7 +616,7 @@
       <div class="testimonial reveal-blur d-2">
         <p class="testimonial__quote">Seit der Zusammenarbeit mit SalesDrive haben wir unseren bislang höchsten Monatsumsatz erzielt. Entscheidend dafür war die klare Struktur, das enge Sparring und die Möglichkeit, den Vertriebsprozess gemeinsam weiterzuentwickeln statt starren Vorgaben zu folgen."</p>
         <div class="testimonial__person">
-          <div class="testimonial__av">HG</div>
+          <img class="testimonial__av" src="/assets/testimonials/hermann.jpg" alt="Hermann Germayer" loading="lazy">
           <div>
             <div class="testimonial__name">Hermann Germayer</div>
             <div class="testimonial__role">Betriebsleiter · Highbryd Media GmbH</div>
@@ -627,7 +627,7 @@
       <div class="testimonial reveal-blur">
         <p class="testimonial__quote">Mit der SalesDrive GmbH habe ich nach langer Suche endlich einen Partner gefunden, der mich wirklich versteht und zuverlässig die Neukundenakquise bis zum Abschlusstermin übernimmt. Ich kann Sales Drive von Herzen weiterempfehlen."</p>
         <div class="testimonial__person">
-          <div class="testimonial__av">CZ</div>
+          <img class="testimonial__av" src="/assets/testimonials/christian.jpg" alt="Christian Züger" loading="lazy">
           <div>
             <div class="testimonial__name">Christian Züger</div>
             <div class="testimonial__role">Geschäftsführer · Z-Management AG</div>
@@ -638,7 +638,7 @@
       <div class="testimonial reveal-blur d-1">
         <p class="testimonial__quote">SalesDrive hat bei uns eine echte Lücke geschlossen. Nach der Corona-Zeit war unsere Kundengewinnung intern nicht mehr lösbar. Mein größter Gewinn: Ich schlafe besser, weil ich weiß, dass unsere Akquise in den besten Händen ist."</p>
         <div class="testimonial__person">
-          <div class="testimonial__av">GZ</div>
+          <img class="testimonial__av" src="/assets/testimonials/gert.jpg" alt="Gert Zaunbauer" loading="lazy">
           <div>
             <div class="testimonial__name">Gert Zaunbauer</div>
             <div class="testimonial__role">Geschäftsführer · Putz &amp; Stingl Events</div>
@@ -649,7 +649,7 @@
       <div class="testimonial reveal-blur d-2">
         <p class="testimonial__quote">Schon in der zweiten Woche hatten wir das erste Abschlussgespräch und in der dritten Woche ein bestätigtes Angebot. schneller, als wir es erwartet hätten. Besonders beeindruckt hat uns der direkte Kontakt mit Alexander, was für kurze Wege und sehr persönliche Betreuung sorgt."</p>
         <div class="testimonial__person">
-          <div class="testimonial__av">JK</div>
+          <img class="testimonial__av" src="/assets/testimonials/julian.jpg" alt="Julian Kirfel" loading="lazy">
           <div>
             <div class="testimonial__name">Julian Kirfel</div>
             <div class="testimonial__role">Geschäftsführer · JustScale GmbH</div>
@@ -660,7 +660,7 @@
       <div class="testimonial reveal-blur">
         <p class="testimonial__quote">Wir sind mit Skepsis gestartet, doch SalesDrive hat diese schnell genommen. durch klare Struktur, volle Transparenz und die vollständige Übernahme der telefonischen Erstansprache. Seit der Zusammenarbeit entstehen messbare Umsätze, neue Aufträge und spürbares Wachstum."</p>
         <div class="testimonial__person">
-          <div class="testimonial__av">RM</div>
+          <img class="testimonial__av" src="/assets/testimonials/raphael.jpg" alt="Raphael Matschi" loading="lazy">
           <div>
             <div class="testimonial__name">Raphael Matschi</div>
             <div class="testimonial__role">Geschäftsführer · RINK GmbH</div>
