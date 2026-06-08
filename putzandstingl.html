@@ -1,555 +1,86 @@
-<!doctype html>
-<html lang="de">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-<title>Case Putz &amp; Stingl Events · 15 Abschlussgespräche in 90 Tagen · SalesDrive</title>
-<meta name="description" content="Wie SalesDrive für Putz & Stingl Events in 90 Tagen 15 qualifizierte Abschlussgespräche und 259.000 € Auftragseingang generiert hat. PR &amp; Kommunikation Case." />
-<link rel="canonical" href="https://salesdrive.at/putzandstingl" />
-<meta property="og:type" content="website" />
-<meta property="og:locale" content="de_AT" />
-<meta property="og:site_name" content="SalesDrive" />
-<meta property="og:title" content="Case Putz & Stingl Events · SalesDrive" />
-<meta property="og:description" content="15 qualifizierte Abschlussgespräche und 259.000 € Auftragseingang in 90 Tagen." />
-<meta property="og:url" content="https://salesdrive.at/putzandstingl" />
-<meta property="og:image" content="https://salesdrive.at/assets/brand/og-image.jpg" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Case Putz & Stingl Events · SalesDrive" />
-<meta name="twitter:description" content="15 qualifizierte Abschlussgespräche und 259.000 € Auftragseingang in 90 Tagen." />
-<meta name="twitter:image" content="https://salesdrive.at/assets/brand/og-image.jpg" />
-<meta name="theme-color" content="#000000" />
-<link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css">
-<link rel="stylesheet" href="assets/css/fancy.css">
-<link rel="stylesheet" href="assets/css/mobile.css">
-<style>
-.case-detail { padding: clamp(110px, 13vw, 160px) 0 clamp(60px, 9vw, 120px); }
-.case-detail__head { text-align: center; margin-bottom: clamp(40px, 6vw, 70px); }
-.case-detail__breadcrumb {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 12px; color: var(--ink-3); margin-bottom: 18px;
-}
-.case-detail__breadcrumb a { color: var(--blue); }
-.case-detail__breadcrumb svg { width: 11px; height: 11px; opacity: .6; }
-
-.case-detail__industry {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 5px 12px 5px 8px;
-  background: rgba(255,255,255,.04);
-  border: 1px solid var(--line-2);
-  border-radius: 980px;
-  font-size: 12px;
-  color: var(--ink-2);
-  margin-bottom: 22px;
-}
-.case-detail__industry-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 10px var(--blue); }
-
-.case-detail__title {
-  font-family: var(--display);
-  font-size: clamp(28px, 4.6vw, 60px);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -.035em;
-  max-width: 1000px;
-  margin: 0 auto 22px;
-  color: #ffffff;
-}
-.case-detail__title em { color: var(--blue-bright); font-style: normal; }
-.case-detail__sub {
-  max-width: 700px; margin: 0 auto;
-  font-size: clamp(16px, 1.5vw, 21px);
-  line-height: 1.42;
-  color: var(--ink-2);
-}
-
-/* Big video. cinematic 16:9 */
-.case-detail__stage {
-  max-width: 1100px;
-  margin: 0 auto clamp(50px, 7vw, 90px);
-  perspective: 1500px;
-}
-.case-detail__device {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  border-radius: clamp(14px, 1.6vw, 22px);
-  overflow: hidden;
-  background: #0a0a0e;
-  cursor: pointer;
-  isolation: isolate;
-  box-shadow:
-    0 40px 130px -30px rgba(0,0,0,.9),
-    0 0 0 1px rgba(255,255,255,.06) inset,
-    0 60px 220px -60px rgba(41,151,255,.45);
-}
-.case-detail__device img,
-.case-detail__device iframe {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  border: 0;
-}
-.case-detail__device::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,.55) 100%);
-  pointer-events: none;
-}
-.case-detail__play {
-  position: absolute; left: 50%; top: 50%;
-  transform: translate(-50%, -50%);
-  width: clamp(64px, 6vw, 88px); height: clamp(64px, 6vw, 88px);
-  border-radius: 50%;
-  background: rgba(255,255,255,.95);
-  display: flex; align-items: center; justify-content: center;
-  z-index: 2;
-  transition: transform .25s var(--ease-out);
-  box-shadow: 0 16px 50px rgba(0,0,0,.5);
-}
-.case-detail__play::before { content: ""; position: absolute; inset: -8px; border-radius: 50%; border: 1px solid rgba(255,255,255,.3); animation: cd-ring 2.4s ease-out infinite; }
-@keyframes cd-ring { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.6); opacity: 0; } }
-.case-detail__device:hover .case-detail__play { transform: translate(-50%, -50%) scale(1.08); }
-.case-detail__play svg { width: 32%; height: 32%; fill: #000; margin-left: 8%; }
-
-.case-detail__person-tag {
-  position: absolute; left: 22px; bottom: 22px; z-index: 2;
-  display: flex; align-items: center; gap: 12px;
-  background: rgba(0,0,0,.55);
-  backdrop-filter: blur(14px);
-  border-radius: 980px;
-  padding: 8px 18px 8px 8px;
-  color: #fff;
-}
-.case-detail__person-av {
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--blue), var(--blue-bright));
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--display); font-size: 12px; font-weight: 600;
-}
-.case-detail__person-name { font-family: var(--display); font-weight: 600; font-size: 14px; letter-spacing: -.012em; }
-.case-detail__person-role { font-size: 11px; opacity: .8; }
-
-/* Funnel. big, central */
-.case-detail__funnel {
-  max-width: 1100px;
-  margin: 0 auto clamp(50px, 7vw, 90px);
-  padding: clamp(32px, 4vw, 50px);
-  background: linear-gradient(180deg, rgba(255,255,255,.028), rgba(255,255,255,.012));
-  border: 1px solid var(--line-2);
-  border-radius: clamp(20px, 2.2vw, 28px);
-  box-shadow: 0 40px 100px -40px rgba(0,0,0,.75);
-  position: relative;
-}
-.case-detail__funnel-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: clamp(20px, 3vw, 32px); }
-.case-detail__funnel-eye { font-size: 11px; color: var(--blue); letter-spacing: .14em; text-transform: uppercase; font-weight: 600; }
-.case-detail__funnel-period { font-size: 12px; color: var(--ink-3); padding: 4px 12px; background: rgba(255,255,255,.04); border: 1px solid var(--line-2); border-radius: 980px; }
-.case-detail__funnel-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(14px, 2vw, 24px); }
-.case-detail__step { text-align: center; }
-.case-detail__step-num { font-family: var(--display); font-size: clamp(28px, 4vw, 52px); font-weight: 700; letter-spacing: -.035em; color: var(--ink); line-height: 1; display: block; margin-bottom: 8px; }
-.case-detail__step.green .case-detail__step-num { background: linear-gradient(180deg, #4dff9c, var(--green)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.case-detail__step-lbl { font-size: 12px; color: var(--ink-3); line-height: 1.35; }
-@media (max-width: 760px) { .case-detail__funnel-grid { grid-template-columns: repeat(2, 1fr); } }
-
-/* Story sections */
-.case-detail__story {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(20px, 3vw, 40px);
-  max-width: 1100px;
-  margin: 0 auto clamp(50px, 7vw, 90px);
-}
-.case-detail__block {
-  background: linear-gradient(180deg, rgba(255,255,255,.028), rgba(255,255,255,.012));
-  border: 1px solid var(--line-2);
-  border-radius: clamp(16px, 2vw, 22px);
-  padding: clamp(28px, 3.5vw, 40px);
-}
-.case-detail__block-eye { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
-.case-detail__block-title { font-family: var(--display); font-size: clamp(22px, 2.6vw, 32px); font-weight: 600; letter-spacing: -.026em; margin-bottom: 12px; line-height: 1.1; }
-.case-detail__block-text { font-size: 15px; line-height: 1.55; color: var(--ink-2); }
-.case-detail__block-text b { color: var(--ink); font-weight: 600; }
-@media (max-width: 800px) { .case-detail__story { grid-template-columns: 1fr; } }
-
-/* Quote */
-.case-detail__quote {
-  max-width: 920px;
-  margin: 0 auto clamp(50px, 7vw, 90px);
-  text-align: center;
-}
-.case-detail__quote-mark { font-family: var(--display); font-size: 80px; color: var(--blue); line-height: .6; opacity: .6; }
-.case-detail__quote-text {
-  font-family: var(--display);
-  font-size: clamp(20px, 2.4vw, 32px);
-  font-weight: 500;
-  line-height: 1.32;
-  letter-spacing: -.022em;
-  color: var(--ink);
-  margin: 8px auto 24px;
-  max-width: 800px;
-}
-.case-detail__quote-person { display: inline-flex; align-items: center; gap: 12px; padding: 8px 18px 8px 8px; background: rgba(255,255,255,.04); border: 1px solid var(--line-2); border-radius: 980px; }
-.case-detail__quote-av { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--blue), var(--blue-bright)); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 12px; font-weight: 600; color: #fff; }
-.case-detail__quote-name { font-family: var(--display); font-weight: 600; font-size: 14px; letter-spacing: -.012em; text-align: left; }
-.case-detail__quote-role { font-size: 11px; color: var(--ink-3); text-align: left; }
-
-/* External link */
-.case-detail__visit {
-  text-align: center;
-  margin-bottom: clamp(60px, 8vw, 100px);
-}
-
-/* Other cases */
-.other-cases { padding: clamp(60px, 9vw, 120px) 0; background: var(--bg); border-top: 1px solid var(--line); }
-.other-cases__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-.other-cases__card {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  background: var(--surf);
-  border: 1px solid var(--line);
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
-  isolation: isolate;
-  transition: transform .5s var(--ease-out), border-color .3s var(--ease);
-}
-.other-cases__card:hover { transform: translateY(-4px); border-color: var(--line-3); }
-.other-cases__card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(.55); transition: filter .3s ease, transform .9s var(--ease-out); }
-.other-cases__card:hover img { filter: brightness(.7); transform: scale(1.04); }
-.other-cases__card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.3) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,.85) 100%); }
-.other-cases__content { position: absolute; left: 22px; right: 22px; bottom: 22px; z-index: 2; color: #fff; }
-.other-cases__eye { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; opacity: .8; color: var(--blue-bright); margin-bottom: 4px; }
-.other-cases__title { font-family: var(--display); font-size: clamp(18px, 2vw, 24px); font-weight: 600; letter-spacing: -.022em; line-height: 1.15; }
-@media (max-width: 760px) { .other-cases__grid { grid-template-columns: 1fr; } }
-
-/* Final */
-.final { position: relative; padding: clamp(80px, 12vw, 160px) 0; text-align: center; overflow: hidden; background: var(--bg); border-top: 1px solid var(--line); }
-.final::before { content: ""; position: absolute; inset: 0; background: radial-gradient(1000px 600px at 50% 50%, rgba(41,151,255,.16), transparent 60%); pointer-events: none; }
-.final__inner { position: relative; z-index: 1; padding: 0 22px; }
-.final__title { font-family: var(--display); font-size: clamp(32px, 5.4vw, 72px); font-weight: 700; line-height: 1.02; letter-spacing: -.045em; margin-bottom: 18px; background: linear-gradient(155deg, #ffffff 0%, #ffffff 38%, #b9bac4 100%); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: .05em; }
-.final__title em { background: linear-gradient(155deg, #ffffff 0%, #6BC9FF 55%, #2997ff 100%); -webkit-background-clip: text; background-clip: text; color: transparent; font-style: normal; }
-.final__sub { max-width: 640px; margin: 0 auto 32px; font-size: 16px; line-height: 1.4; color: var(--ink-2); }
-</style>
-</head>
-<body>
-
-<nav class="nav" id="siteNav">
-  <div class="nav__inner">
-    <a class="nav__brand" href="/" aria-label="SalesDrive"><img class="nav__brand-logo" src="/assets/brand/salesdrive-logo.png" alt="SalesDrive"></a>
-    <ul class="nav__links">
-      <li><a href="/#cases">Cases</a></li>
-      <li class="nav__dd">
-        <a href="/branchen">Branchen<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:10px;height:10px;margin-left:4px;display:inline-block;vertical-align:middle"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <div class="nav__dd-menu">
-          <a href="/branchen/marken-pr">Marken- &amp; PR-Agenturen</a>
-          <a href="/branchen/film-events">Film, Video &amp; Events</a>
-          <a href="/branchen/software-industrie">Software, SaaS &amp; Industrie</a>
-          <a href="/branchen/personalberatung">Personalberatung</a>
-          <a href="/branchen/werbetechnik-print">Werbetechnik &amp; Print</a>
-        </div>
-      </li>
-      <li><a href="/referenzen">Referenzen</a></li>
-      <li><a href="/blog">Journal</a></li>
-      <li><a href="/zertifizierungen">Zertifizierungen</a></li>
-    </ul>
-    <a class="nav__login" href="https://hub.salesdrive.at" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
-      Login
-    </a>
-    <a class="nav__cta" href="/formular">
-      Analysegespräch
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-    </a>
-  </div>
-</nav>
-<div class="nav-spacer"></div>
-
-<section class="case-detail">
-  <div class="container">
-    <div class="case-detail__head reveal">
-      <div class="case-detail__breadcrumb">
-        <a href="referenzen.html">Referenzen</a>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        <span>Putz &amp; Stingl Events</span>
-      </div>
-      <div class="case-detail__industry">
-        <span class="case-detail__industry-dot"></span>
-        PR &amp; Kommunikation · Wien
-      </div>
-      <h1 class="case-detail__title">
-        15 qualifizierte<br><em>Abschlussgespräche</em> in 90 Tagen.
-      </h1>
-      <p class="case-detail__sub">
-        Wie wir für Putz &amp; Stingl Events nach Corona einen planbaren Vertriebsprozess aufgebaut haben. mit <b>3.200 Erstansprachen</b>, dokumentierter Pipeline und <b>259.000 € bestätigtem Auftragseingang</b>.
-      </p>
-    </div>
-
-    <div class="case-detail__stage reveal-blur">
-      <div class="case-detail__device">
-        <iframe src="https://player.vimeo.com/video/860681704?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" allowfullscreen loading="lazy" title="Putz &amp; Stingl Events · Case-Statement"></iframe>
-      </div>
-    </div>
-
-    <div style="text-align:center;margin:-22px auto clamp(40px, 6vw, 80px);position:relative;z-index:2;display:flex;justify-content:center;">
-      <div style="display:inline-flex;align-items:center;gap:12px;padding:8px 18px 8px 8px;background:rgba(15,16,22,.95);backdrop-filter:blur(14px);border:1px solid var(--line-2);border-radius:980px;box-shadow:0 14px 40px rgba(0,0,0,.5);">
-        <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-bright));display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:12px;font-weight:600;color:#fff;">GZ</div>
-        <div style="text-align:left;line-height:1.2;">
-          <div style="font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:-.012em;color:var(--ink);">Gert Zaunbauer</div>
-          <div style="font-size:11px;color:var(--ink-3);">Gründer &amp; Geschäftsführer · Putz &amp; Stingl Events</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="case-detail__funnel reveal-blur">
-      <div class="case-detail__funnel-head">
-        <span class="case-detail__funnel-eye">Funnel · End-to-End</span>
-        <span class="case-detail__funnel-period">Betrachtungszeitraum: 3 Monate</span>
-      </div>
-      <div class="case-detail__funnel-grid">
-        <div class="case-detail__step"><span class="case-detail__step-num"><span class="counter" data-to="3200">3.200</span></span><div class="case-detail__step-lbl">Erstansprachen<br>per Telefon</div></div>
-        <div class="case-detail__step"><span class="case-detail__step-num"><span class="counter" data-to="45">45</span></span><div class="case-detail__step-lbl">Ersttermine<br>generiert</div></div>
-        <div class="case-detail__step"><span class="case-detail__step-num"><span class="counter" data-to="16">16</span></span><div class="case-detail__step-lbl">Abschluss-<br>Gespräche</div></div>
-        <div class="case-detail__step"><span class="case-detail__step-num"><span class="counter" data-to="9">9</span></span><div class="case-detail__step-lbl">Neukunden<br>gewonnen</div></div>
-        <div class="case-detail__step green"><span class="case-detail__step-num">€<span class="counter" data-to="259000">259.000</span></span><div class="case-detail__step-lbl">Auftrags-<br>eingang</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MEGA-STAT. eine Zahl füllt den Raum -->
-<section class="megastat">
-  <div class="megastat__inner">
-    <span class="megastat__eye">Das Ergebnis in einer Zahl</span>
-    <div class="megastat__number">€&thinsp;259.000</div>
-    <p class="megastat__caption">
-      Auftragseingang in <b>90 Tagen</b>. <b>9 neue Kunden</b>, <b>16 Abschlussgespräche</b>, <b>null Aufwand</b> für das interne Team von Putz &amp; Stingl.
-    </p>
-  </div>
-</section>
-
-<!-- JOURNEY. was Woche für Woche passierte -->
-<section class="journey">
-  <div class="journey__head">
-    <div class="journey__eye reveal">So lief es ab</div>
-    <h2 class="journey__title reveal d-1">90 Tage, <em>vier Etappen.</em></h2>
-  </div>
-  <div class="journey__rail">
-
-    <div class="journey__milestone">
-      <div class="journey__card">
-        <span class="journey__week">Woche 1</span>
-        <h3 class="journey__h">Kick-off &amp; Setup</h3>
-        <p class="journey__p">Kunden-Brief, Skript-Freigabe, Lookalike-Liste aus den Top-Aufträgen. alles dokumentiert und freigegeben.</p>
-      </div>
-      <span class="journey__node"></span>
-      <div class="journey__visual">
-        <div class="journey__stat">
-          <div class="journey__stat-num">0&thinsp;→&thinsp;1</div>
-          <div class="journey__stat-lbl">Sales-Prozess<br>aufgesetzt</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="journey__milestone">
-      <div class="journey__card">
-        <span class="journey__week">Woche 2–4</span>
-        <h3 class="journey__h">Erste 1.000 Erstansprachen</h3>
-        <p class="journey__p">Der freigegebene Setter ruft. Tägliche Übergaben ins Hub, transparente Termine, klare Sprache.</p>
-      </div>
-      <span class="journey__node"></span>
-      <div class="journey__visual">
-        <div class="journey__stat">
-          <div class="journey__stat-num">1.080</div>
-          <div class="journey__stat-lbl">Entscheider<br>erreicht</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="journey__milestone">
-      <div class="journey__card">
-        <span class="journey__week">Woche 5–8</span>
-        <h3 class="journey__h">Pipeline füllt sich</h3>
-        <p class="journey__p">Ersttermine werden zu Abschlussgesprächen. Erste Aufträge bestätigt. Vertrieb wird kalkulierbar.</p>
-      </div>
-      <span class="journey__node"></span>
-      <div class="journey__visual">
-        <div class="journey__stat">
-          <div class="journey__stat-num">45</div>
-          <div class="journey__stat-lbl">Ersttermine<br>im Kalender</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="journey__milestone">
-      <div class="journey__card">
-        <span class="journey__week">Woche 9–13</span>
-        <h3 class="journey__h">9 Neukunden gewonnen</h3>
-        <p class="journey__p">Aus 16 Abschlussgesprächen werden 9 neue Verträge. Cashflow planbar. und das, ohne dass Gert einmal selbst zum Hörer greifen musste.</p>
-      </div>
-      <span class="journey__node"></span>
-      <div class="journey__visual">
-        <div class="journey__stat">
-          <div class="journey__stat-num green">€&thinsp;259K</div>
-          <div class="journey__stat-lbl">Auftragseingang<br>bestätigt</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section class="case-detail" style="padding-top:0">
-  <div class="container">
-    <div class="case-detail__story">
-      <div class="case-detail__block reveal-blur">
-        <div class="case-detail__block-eye">Problem</div>
-        <div class="case-detail__block-title">Empfehlungen reichten nach Corona nicht mehr.</div>
-        <p class="case-detail__block-text">Putz &amp; Stingl Events bietet hochwertige PR- und Kommunikations-Dienstleistungen, aber nach der Corona-Zeit war die Neukundengewinnung intern nicht mehr lösbar. Der Vertrieb war zeitintensiv, unangenehm und vor allem: <b>nicht planbar</b>. Empfehlungen kamen sporadisch, ein interner Setter hätte Zeit, Fokus und Strukturen gekostet, die das Kerngeschäft nicht hergab.</p>
-      </div>
-      <div class="case-detail__block reveal-blur d-1">
-        <div class="case-detail__block-eye">Lösung &amp; Ergebnis</div>
-        <div class="case-detail__block-title">Klarer Erstansprache-Prozess, vorqualifizierte Gespräche.</div>
-        <p class="case-detail__block-text">SalesDrive übernahm die <b>komplette telefonische Erstansprache</b> mit einem freigegebenen Skript und einer aus den Top-Aufträgen abgeleiteten Lookalike-Liste. <b>16 Abschlussgespräche</b> mit Entscheidern in 90 Tagen, <b>9 gewonnene Neukunden</b> und <b>259.000 € Auftragseingang</b>. und das, ohne dass Gert oder sein Team einmal selbst zum Hörer greifen mussten.</p>
-      </div>
-    </div>
-
-    <div class="case-detail__quote reveal-blur">
-      <div class="case-detail__quote-mark">„</div>
-      <p class="case-detail__quote-text">
-        Mein größter Gewinn: Ich schlafe besser, weil ich weiß, dass unsere Akquise in den besten Händen ist und zuverlässig funktioniert.
-      </p>
-      <div class="case-detail__quote-person">
-        <div class="case-detail__quote-av">GZ</div>
-        <div>
-          <div class="case-detail__quote-name">Gert Zaunbauer</div>
-          <div class="case-detail__quote-role">Geschäftsführer · Putz &amp; Stingl Events</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="case-detail__visit">
-      <a href="https://putzstingl.at" target="_blank" rel="noopener" class="btn btn--ghost btn--lg">
-        Putz &amp; Stingl besuchen. putzstingl.at
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="other-cases">
-  <div class="container">
-    <div class="sec-head reveal" style="margin-bottom:36px">
-      <h2 class="display" style="font-size:clamp(28px, 3.6vw, 44px) !important">Weitere Cases</h2>
-    </div>
-    <div class="other-cases__grid">
-      <a href="rink-media.html" class="other-cases__card reveal-blur">
-        <img src="https://vumbnail.com/1134147007.jpg" alt="RINK GmbH" />
-        <div class="other-cases__content">
-          <div class="other-cases__eye">Filmproduktion · 1 Monat</div>
-          <div class="other-cases__title">67.000 € Auftragseingang in 1 Monat. RINK GmbH</div>
-        </div>
-      </a>
-      <a href="linkbroker.html" class="other-cases__card reveal-blur d-1">
-        <img src="https://vumbnail.com/1108387444.jpg" alt="Linkbroker" />
-        <div class="other-cases__content">
-          <div class="other-cases__eye">Backlink Marktplatz · 2 Monate</div>
-          <div class="other-cases__title">342.000 € mehr Auftrag in 60 Tagen. Linkbroker.io</div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="final" id="final">
-  <div class="final__inner">
-    <div class="eyebrow reveal" style="color:var(--blue);margin-bottom:20px">Jetzt anfragen</div>
-    <h2 class="final__title reveal d-1">Du closest.<br><em>Wir telefonieren.</em></h2>
-    <p class="final__sub reveal d-2">30 Minuten am Telefon oder per Video. direkt mit Alex. Wir schauen, ob deine Pipeline-Lücke zu unserem Setup passt. Keine Demo, kein Pitch. Diagnose.</p>
-    <div class="reveal d-3">
-      <a href="formular.html" class="btn btn--primary btn--lg">
-        Analysegespräch sichern
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-    <div class="final__host reveal d-4">
-      <div class="final__host-av">AK</div>
-      <div class="final__host-text"><div class="final__host-name">Alexander Kiraly</div><div class="final__host-role">Geschäftsführer · SalesDrive GmbH</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════ UNIFIED FOOTER ════════════ -->
-<!-- ════════════ UNIFIED FOOTER ════════════ -->
-<!-- ════════════ UNIFIED FOOTER (SalesEye-Style) ════════════ -->
-<footer class="footer footer--clean">
-  <div class="container">
-    <div class="footer__grid">
-      <div class="footer__brand">
-        <a class="footer__brand-logo" href="/" aria-label="SalesDrive"><img src="/assets/brand/salesdrive-logo.png" alt="SalesDrive"></a>
-        <p class="footer__tag">Wir telefonieren. Du verkaufst.<br>Direkter Draht zur Geschäftsführung. Aus Wien, für DACH.</p>
-        <div class="footer__social">
-          <a href="https://wa.me/436767951018" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.464 3.488"/></svg></a>
-          <a href="https://www.linkedin.com/company/lehner-consulting/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-          <a href="https://www.instagram.com/salesdrive.at/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-          <a href="https://www.facebook.com/salesdrivegmbh" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.55V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg></a>
-          <a href="https://www.youtube.com/@SalesDriveGmbH" target="_blank" rel="noopener" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.2 0 12 0 12s0 3.8.5 5.8A3 3 0 0 0 2.6 19.9c2 .6 9.4.6 9.4.6s7.4 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.8 24 12 24 12s0-3.8-.5-5.8zM9.5 15.5v-7l6.5 3.5-6.5 3.5z"/></svg></a>
-        </div>
-        <div class="footer__trust-row">
-          <a href="https://www.tuv.com" target="_blank" rel="noopener" class="footer__trust-tuv" aria-label="TÜV Rheinland zertifiziert"><img src="/assets/trust/tuv-rheinland.png" alt="TÜV Rheinland zertifiziert · ID 0217466221" loading="lazy"></a>
-          <div class="footer__trust-tp">
-            <div class="trustpilot-widget" data-locale="de-DE" data-template-id="5419b732fbfb950b10de65e5" data-businessunit-id="6824f66b7d7d518b035be9fe" data-style-height="22px" data-style-width="100%" data-token="6c10c584-b7c5-4f1f-9e52-269566a2af4f">
-              <a href="https://de.trustpilot.com/review/salesdrive.at" target="_blank" rel="noopener">Trustpilot</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer__col">
-        <h6>Plattform</h6>
-        <a href="/#cases">Cases</a>
-        <a href="/branchen">Branchen</a>
-        <a href="/referenzen">Referenzen</a>
-        <a href="/blog">Journal</a>
-        <a href="/lohnt-sich">Lohnt sich</a>
-      </div>
-      <div class="footer__col">
-        <h6>Unternehmen</h6>
-        <a href="/team">Team</a>
-        <a href="/buero">Büro Wien</a>
-        <a href="/karriere">Karriere</a>
-        <a href="/zertifizierungen">Zertifizierungen</a>
-        <a href="/tuev">TÜV Rheinland</a>
-      </div>
-      <div class="footer__col">
-        <h6>Kontakt &amp; Recht</h6>
-        <a href="mailto:office@salesdrive.at">office@salesdrive.at</a>
-        <a href="tel:+436767951018">+43 676 795 10 18</a>
-        <a href="https://hub.salesdrive.at" target="_blank" rel="noopener">hub.salesdrive.at — Login →</a>
-        <a href="/impressum">Impressum</a>
-        <a href="/datenschutz">Datenschutz</a>
-        <a href="/agb">AGB</a>
-      </div>
-    </div>
-    <div class="footer__disclaimer">
-      This website is not part of the Facebook website or Facebook Inc. Furthermore, this website is not supported by Facebook in any way. Facebook is a trademark of Facebook, Inc. Es werden keine Unternehmensberatungen oder ähnliche Beratungsleistungen erbracht.
-    </div>
-    <div class="footer__bottom">
-      <span class="footer__bottom-meta">
-        <span>© 2026 SalesDrive GmbH</span><span class="footer__sep">·</span><strong>FN 599821s</strong><span class="footer__sep">·</span><strong>HG Wien</strong><span class="footer__sep">·</span><strong>UID ATU79430518</strong>
-      </span>
-      <span class="footer__status"><i></i>Alle Systeme operativ</span>
-    </div>
-  </div>
-</footer>
-<script src="assets/js/site.js"></script>
-<script src="assets/js/fancy.js"></script>
+<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fallstudie Putz & Stingl Events · 15 Abschlussgespräche in 90 Tagen · SalesDrive</title>
+<meta name="description" content="Wie SalesDrive für Putz & Stingl Events 259.000 € Auftragseingang in 90 Tagen erreicht hat. Branche: PR, Kommunikation & Events.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+:root{--ink:#1d1d1f;--ink2:#5f6470;--ink3:#86868b;--line:rgba(0,0,0,.08);--bg2:#f5f5f7;--accent:#0a66ff;--ok:#16a34a;--sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter Tight",sans-serif}
+body{font-family:var(--sans);color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}.rv.in{opacity:1;transform:none}
+nav{position:sticky;top:0;z-index:50;height:60px;display:flex;align-items:center;background:#000;border-bottom:1px solid rgba(255,255,255,.1)}
+.nav-in{width:100%;max-width:1080px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.nav-in .lg{height:24px}.nav-cta{display:inline-flex;align-items:center;gap:7px;background:#0a66ff;color:#fff;font-size:13.5px;font-weight:600;padding:9px 18px;border-radius:999px}.nav-cta svg{width:15px;height:15px}
+.back{color:#fff;opacity:.8;font-size:13.5px}.back:hover{opacity:1}
+section{padding:clamp(56px,8vw,104px) 0}.bg2{background:var(--bg2)}
+.eyebrow{font-size:13px;font-weight:600;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:16px}
+h1{font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-.04em;font-weight:700;max-width:15ch}
+h1 .hl{background:linear-gradient(120deg,#0a66ff,#42b2ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font-size:clamp(26px,3.6vw,44px);line-height:1.08;letter-spacing:-.03em;font-weight:700}
+.hero{padding-top:clamp(44px,6vw,84px);background:radial-gradient(120% 60% at 50% 0,#eef4ff,#fff 60%)}
+.hero .crumb{font-size:13px;color:var(--ink3);margin-bottom:18px}
+.hero .sub{font-size:clamp(17px,1.9vw,21px);color:var(--ink2);margin-top:20px;max-width:46ch}
+.hchips{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.hchip{font-size:13px;font-weight:600;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 15px;box-shadow:0 8px 22px -16px rgba(0,0,0,.18)}
+.hperson{display:flex;align-items:center;gap:13px;margin-top:30px}
+.hperson .av{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#0a66ff,#0a3fd0);color:#fff;display:grid;place-items:center;font-weight:700;font-size:15px}
+.hperson b{display:block;font-size:15px}.hperson span{font-size:13px;color:var(--ink3)}
+.vid{position:relative;max-width:940px;margin:48px auto 0;border-radius:22px;overflow:hidden;cursor:pointer;background:#000;aspect-ratio:16/9;box-shadow:0 50px 110px -46px rgba(0,0,0,.4)}
+.vid img{width:100%;height:100%;object-fit:cover}.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid .play{position:absolute;inset:0;display:grid;place-items:center}.vid .play span{width:78px;height:78px;border-radius:50%;background:rgba(255,255,255,.2);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.5);display:grid;place-items:center;transition:.3s}.vid:hover .play span{transform:scale(1.08)}.vid .play svg{width:26px;height:26px;color:#fff;margin-left:3px}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.mt .n{font-size:clamp(30px,4vw,50px);font-weight:700;letter-spacing:-.03em;background:linear-gradient(120deg,#1d1d1f,#0a66ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mt .l{font-size:14px;color:var(--ink2);margin-top:8px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,5vw,64px);align-items:start}
+.split p,.block p{font-size:16.5px;color:var(--ink2);line-height:1.7;margin-top:14px;max-width:54ch}.split p b{color:var(--ink)}
+.facts{list-style:none;margin-top:8px}.facts li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}.facts li span{color:var(--ink3)}.facts li b{color:var(--ink)}
+.steps{display:flex;flex-direction:column;gap:14px;margin-top:34px}
+.step{display:grid;grid-template-columns:46px 1fr;gap:18px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:0 12px 32px -24px rgba(0,0,0,.14)}
+.step .sn{width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,#0a66ff,#0a3fd0);color:#fff;display:grid;place-items:center;font-weight:700}
+.step h4{font-size:17px;font-weight:650}.step p{margin-top:4px;font-size:14.5px;color:var(--ink2);line-height:1.55}
+.funnel{margin-top:8px}.frow{display:grid;grid-template-columns:140px 1fr auto;gap:14px;align-items:center;margin-bottom:14px;font-size:14.5px;color:var(--ink2)}
+.fbar{height:10px;background:rgba(0,0,0,.07);border-radius:99px;overflow:hidden}.fbar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#0a66ff,#5b9bff);transition:width 1.3s cubic-bezier(.2,.7,.2,1)}
+.funnel.in .fbar i{width:var(--w)}.frow b{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.quote{max-width:880px;margin:0 auto;text-align:center}.quote .stars{color:#f5a623;font-size:20px;letter-spacing:3px;margin-bottom:22px}
+.quote q{font-size:clamp(22px,3vw,34px);font-weight:500;line-height:1.32;letter-spacing:-.02em;quotes:none}
+.quote .who{display:inline-flex;align-items:center;gap:13px;margin-top:28px}.quote .who .av{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#0a66ff,#0a3fd0);color:#fff;display:grid;place-items:center;font-weight:700}.quote .who b{display:block}.quote .who span{font-size:13px;color:var(--ink3)}
+.rel{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.relc{display:block;background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 12px 32px -24px rgba(0,0,0,.14);transition:transform .4s,box-shadow .4s}.relc:hover{transform:translateY(-4px);box-shadow:0 30px 60px -30px rgba(0,0,0,.22)}
+.relc .rc-e{font-size:12px;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:.08em}.relc h4{font-size:20px;font-weight:700;margin:6px 0 4px;letter-spacing:-.02em}.relc span{font-size:14px;color:var(--ink3)}
+.final{background:#000;color:#fff;text-align:center}.final h2{color:#fff}.final p{color:#a1a1a6;margin:18px auto 0;max-width:42ch;font-size:18px}
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#fff;font-size:17px;font-weight:600;padding:15px 30px;border-radius:999px;margin-top:30px}.btn svg{width:18px;height:18px}
+.sec-head{text-align:center;max-width:680px;margin:0 auto 48px}
+footer{background:#000;color:#a1a1a6;padding:46px 0;text-align:center;font-size:13px}footer a{color:#a1a1a6}footer a:hover{color:#fff}
+@media(max-width:820px){.metrics{grid-template-columns:1fr 1fr;gap:30px}.split,.rel{grid-template-columns:1fr}}
+</style></head><body>
+<nav><div class="nav-in"><a href="/"><img class="lg" src="/assets/brand/salesdrive-logo.png" alt="SalesDrive"></a><a class="back" href="/referenzen">‹ Alle Fallstudien</a><a class="nav-cta" href="/formular">Analysegespräch <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div></nav>
+<header class="hero"><div class="wrap">
+<div class="crumb rv">Fallstudien · PR, Kommunikation & Events</div>
+<span class="eyebrow rv">Fallstudie · Putz & Stingl Events</span>
+<h1 class="rv"><span class="hl">259.000 €</span> Auftragseingang<br>in 90 Tagen.</h1>
+<p class="sub rv">Wie wir Putz & Stingl Events (Putz & Stingl) planbar Abschlussgespräche mit echten Entscheidern in den Kalender gelegt haben.</p>
+<div class="hchips rv"><span class="hchip">259.000 € · Auftragseingang</span><span class="hchip">15 · Abschlussgespräche</span><span class="hchip">90 · Tage Laufzeit</span></div>
+<div class="hperson rv"><span class="av">GZ</span><div><b>Gert Zaunbauer</b><span>Putz & Stingl Events</span></div></div>
+<div class="vid rv" data-vimeo="860681704"><img src="/assets/video-thumbs/860681704.jpg" alt="Putz & Stingl Events Case-Video"><span class="play"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span></div>
+</div></header>
+<section><div class="wrap"><div class="metrics rv"><div class="mt"><div class="n">259.000 €</div><div class="l">Auftragseingang</div></div><div class="mt"><div class="n">15</div><div class="l">Abschlussgespräche</div></div><div class="mt"><div class="n">90</div><div class="l">Tage Laufzeit</div></div><div class="mt"><div class="n">4,9/5</div><div class="l">Zufriedenheit</div></div></div></div></section>
+<section class="bg2"><div class="wrap"><div class="split">
+<div class="rv"><span class="eyebrow">Der Kunde</span><h2>Über Putz & Stingl Events.</h2><p>Putz & Stingl Events (Putz & Stingl) ist im Bereich <b>PR, Kommunikation & Events</b> tätig. Ein Anbieter mit starkem Angebot — aber wie bei so vielen B2B-Unternehmen war die Neukundengewinnung der Flaschenhals.</p></div>
+<ul class="facts rv"><li><span>Unternehmen</span><b>Putz & Stingl Events</b></li><li><span>Branche</span><b>PR, Kommunikation & Events</b></li><li><span>Ansprechpartner</span><b>Gert Zaunbauer</b></li><li><span>Laufzeit</span><b>90 Tagen</b></li></ul>
+</div></div></section>
+<section><div class="wrap"><div class="split">
+<div class="rv"><span class="eyebrow">Die Herausforderung</span><h2>Akquise war der Engpass.</h2><p>Im Event- & PR-Geschäft zählt der direkte Draht zu Entscheidern. Doch die eigene Akquise blieb liegen, sobald das Tagesgeschäft lief — Neukunden waren reine Glückssache.</p></div>
+<div class="rv"><span class="eyebrow">Das Vorgehen</span><h2>Unser Weg zum Ergebnis.</h2><div class="steps"><div class="step"><span class="sn">1</span><div><h4>Zielgruppe definieren</h4><p>Gemeinsame Festlegung der idealen Auftraggeber für Events & Kommunikation.</p></div></div><div class="step"><span class="sn">2</span><div><h4>Markenkonforme Skripte</h4><p>Tonalität und No-Gos schriftlich freigegeben — professionell und sympathisch.</p></div></div><div class="step"><span class="sn">3</span><div><h4>Erstansprache & Vorqualifizierung</h4><p>Unsere Profis führen die Erstgespräche und qualifizieren nach Budget & Bedarf.</p></div></div><div class="step"><span class="sn">4</span><div><h4>Termine im Kalender</h4><p>15 qualifizierte Abschlussgespräche, planbar in Gerts Kalender gebucht.</p></div></div></div></div>
+</div></div></section>
+<section class="bg2"><div class="wrap"><div class="sec-head rv"><span class="eyebrow">Das Ergebnis</span><h2>259.000 € Auftragseingang in 90 Tagen.</h2></div>
+<div class="split"><div class="funnel rv"><div class="frow"><span>Erstansprachen</span><div class="fbar"><i style="--w:100%"></i></div><b>980</b></div><div class="frow"><span>Erreicht</span><div class="fbar"><i style="--w:41%"></i></div><b>402</b></div><div class="frow"><span>Termine</span><div class="fbar"><i style="--w:8%"></i></div><b>15</b></div><div class="frow"><span>Aufträge</span><div class="fbar"><i style="--w:4%"></i></div><b>7</b></div></div><div class="rv"><h2 style="font-size:22px">Vom Zufall zum System.</h2><p>Akquise wurde vom Zufall zum System: 15 qualifizierte Abschlussgespräche und 259.000 € Auftragseingang in 90 Tagen.</p></div></div></div></section>
+<section><div class="wrap"><div class="quote rv"><div class="stars">★★★★★</div><q>„15 qualifizierte Abschlussgespräche in 90 Tagen — vorher war Akquise reine Glückssache, heute ist sie ein System."</q><div class="who"><span class="av">GZ</span><div><b>Gert Zaunbauer</b><span>Putz & Stingl Events</span></div></div></div></div></section>
+<section class="bg2"><div class="wrap"><div class="sec-head rv"><span class="eyebrow">Weitere Fallstudien</span><h2>Mehr Resultate, die für sich sprechen.</h2></div><div class="rel rv"><a class="relc" href="/linkbroker"><span class="rc-e">Fallstudie</span><h4>Linkbroker.io</h4><span>342.000 € mehr Auftrag in 60 Tagen</span></a><a class="relc" href="/rink-media"><span class="rc-e">Fallstudie</span><h4>RINK GmbH</h4><span>67.000 € Auftragseingang in 1 Monat</span></a></div></div></section>
+<section class="final"><div class="wrap"><h2 class="rv">Wird das auch deine Fallstudie?</h2><p class="rv">Sichere dir dein kostenloses Analysegespräch mit Alexander Király.</p><div class="rv"><a class="btn" href="/formular">Kostenloses Analysegespräch <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div></div></section>
+<footer><div class="wrap">© 2026 SalesDrive GmbH · Wien · <a href="/">Startseite</a> · <a href="/referenzen">Fallstudien</a> · <a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a></div></footer>
 <script>
-  // Adapt case-detail device to vimeo handler
-  document.querySelectorAll('.case-detail__device').forEach(c => c.classList.add('hero__device'));
-</script>
-</body>
-</html>
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+document.querySelectorAll('[data-vimeo]').forEach(function(f){f.addEventListener('click',function(){f.innerHTML='<iframe src="https://player.vimeo.com/video/'+f.dataset.vimeo+'?autoplay=1&title=0&byline=0&portrait=0" allow="autoplay;fullscreen" allowfullscreen></iframe>';})});
+</script></body></html>
