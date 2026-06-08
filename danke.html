@@ -1,187 +1,101 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="robots" content="noindex, nofollow" />
-<title>Termin bestätigt · SalesDrive GmbH</title>
-<meta name="theme-color" content="#000000" />
-<link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Danke · SalesDrive</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css">
-<link rel="stylesheet" href="assets/css/mobile.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 <style>
-.thanks { padding: clamp(120px, 14vw, 180px) 0 clamp(60px, 9vw, 120px); text-align: center; position: relative; overflow: hidden; min-height: 80vh; display: flex; align-items: center; }
-.thanks::before { content: ""; position: absolute; inset: 0; background: radial-gradient(900px 600px at 50% 30%, rgba(41,151,255,.16), transparent 60%); pointer-events: none; }
-.thanks__inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 0 22px; width: 100%; }
+:root{--bg:#07080c;--panel:#0e1016;--panel2:#0a0b10;--rule:rgba(255,255,255,.08);--rule2:rgba(255,255,255,.15);
+  --ink:#f3f6fc;--ink2:#9aa4b4;--ink3:#5d6678;--accent:#2680ff;--accent2:#5b9bff;--ok:#34d399}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter Tight',-apple-system,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;min-height:100dvh;overflow-x:hidden;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(60% 50% at 50% -5%,rgba(52,211,153,.14),transparent 60%),radial-gradient(60% 55% at 50% 105%,rgba(38,128,255,.14),transparent 60%)}
+.top{position:relative;z-index:5;display:flex;justify-content:center;padding:26px}
+.brand img{height:28px}
+.wrap{position:relative;z-index:3;flex:1;display:flex;align-items:center;justify-content:center;padding:clamp(18px,4vw,40px)}
+.card{width:100%;max-width:620px;text-align:center;animation:rise .8s cubic-bezier(.16,1,.3,1)}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
 
-.thanks__check {
-  width: 84px; height: 84px;
-  margin: 0 auto 22px;
-  border-radius: 50%;
-  background: rgba(48,209,88,.14);
-  border: 1.5px solid rgba(48,209,88,.4);
-  color: var(--green);
-  display: flex; align-items: center; justify-content: center;
-  animation: thanks-pop .8s var(--ease-spring) .2s both;
-}
-.thanks__check svg { width: 38px; height: 38px; stroke-width: 2.6; }
-@keyframes thanks-pop { 0% { opacity: 0; transform: scale(.5); } 100% { opacity: 1; transform: scale(1); } }
+.check{width:96px;height:96px;margin:0 auto 30px;border-radius:50%;display:grid;place-items:center;position:relative;
+  background:radial-gradient(circle at 50% 35%,rgba(52,211,153,.25),rgba(52,211,153,.05));border:1.5px solid rgba(52,211,153,.5);box-shadow:0 0 60px -10px rgba(52,211,153,.6)}
+.check::before{content:"";position:absolute;inset:-10px;border-radius:50%;border:2px solid rgba(52,211,153,.3);animation:ring 2.4s ease-out infinite}
+@keyframes ring{0%{transform:scale(.8);opacity:.8}100%{transform:scale(1.5);opacity:0}}
+.check svg{width:46px;height:46px;color:var(--ok)}
+.check svg path{stroke-dasharray:40;stroke-dashoffset:40;animation:draw .6s cubic-bezier(.6,0,.3,1) .35s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
 
-.thanks__title {
-  font-family: var(--display);
-  font-size: clamp(36px, 6vw, 76px);
-  font-weight: 600;
-  letter-spacing: -.044em;
-  line-height: 1.02;
-  margin-bottom: 18px;
-}
-.thanks__title em { background: linear-gradient(180deg, var(--blue-bright), var(--blue)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.thanks__sub { font-size: clamp(16px, 1.4vw, 20px); color: var(--ink-2); line-height: 1.45; margin-bottom: 36px; }
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ok);margin-bottom:16px}
+h1{font-size:clamp(30px,5vw,50px);line-height:1.04;letter-spacing:-.035em;font-weight:700}
+h1 .hl{background:linear-gradient(120deg,#fff,#a7f3d0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--ink2);font-size:17px;margin-top:16px;line-height:1.55}
+.sub b{color:var(--ink)}
 
-.checklist { background: var(--surf); border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(22px, 3vw, 32px); text-align: left; margin-bottom: 32px; }
-.checklist__title { font-family: var(--display); font-size: 17px; font-weight: 600; letter-spacing: -.02em; margin-bottom: 14px; }
-.checklist__item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); font-size: 14px; line-height: 1.5; color: var(--ink-2); }
-.checklist__item:first-of-type { border-top: 0; }
-.checklist__item b { color: var(--ink); font-weight: 600; }
-.checklist__num {
-  width: 24px; height: 24px;
-  border-radius: 50%;
-  background: rgba(41,151,255,.12);
-  color: var(--blue);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--display);
-  font-size: 12px; font-weight: 600;
-  flex-shrink: 0;
-}
+.termbox{display:inline-flex;align-items:center;gap:14px;margin-top:26px;padding:16px 24px;border:1px solid rgba(38,128,255,.3);border-radius:16px;background:rgba(38,128,255,.06)}
+.termbox svg{width:24px;height:24px;color:var(--accent2)}
+.termbox .d{text-align:left}.termbox .d b{display:block;font-size:16px}.termbox .d span{font-size:13px;color:var(--ink3)}
 
-.thanks__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.next{margin-top:38px;display:grid;gap:12px;text-align:left}
+.next h3{text-align:center;font-size:14px;color:var(--ink3);letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+.nrow{display:flex;align-items:flex-start;gap:15px;background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--rule);border-radius:15px;padding:16px 18px}
+.nnum{flex:0 0 auto;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-weight:700;font-size:13px;color:#fff;background:linear-gradient(135deg,#2680ff,#0b3bd6)}
+.nrow h4{font-size:15.5px;font-weight:600;margin-bottom:3px}
+.nrow p{font-size:13.5px;color:var(--ink2);line-height:1.45}
+.btn{display:inline-flex;align-items:center;gap:10px;margin-top:34px;cursor:pointer;text-decoration:none;font-weight:600;font-size:15.5px;padding:14px 26px;border-radius:13px;color:var(--ink2);border:1px solid var(--rule2);background:rgba(255,255,255,.02);transition:.2s}
+.btn:hover{color:#fff;border-color:var(--accent)}
+
+/* confetti */
+.confetti{position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.confetti i{position:absolute;top:-12px;width:9px;height:14px;opacity:.9;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(640deg);opacity:0}}
 </style>
 </head>
 <body>
+<div class="top"><a class="brand" href="/v5"><img src="/assets/brand/salesdrive-logo.png" alt="SalesDrive"></a></div>
+<div class="confetti" id="confetti"></div>
+<div class="wrap">
+  <div class="card">
+    <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+    <span class="eyebrow">Termin bestätigt</span>
+    <h1 id="headline">Danke – <span class="hl">wir freuen uns auf dich!</span></h1>
+    <p class="sub" id="sub">Deine Anfrage ist bei uns eingegangen. Du bekommst gleich eine Bestätigung per E-Mail.</p>
 
-<nav class="nav" id="siteNav">
-  <div class="nav__inner">
-    <a class="nav__brand" href="/" aria-label="SalesDrive"><img class="nav__brand-logo" src="/assets/brand/salesdrive-logo.png" alt="SalesDrive"></a>
-    <ul class="nav__links">
-      <li><a href="/#cases">Cases</a></li>
-      <li class="nav__dd">
-        <a href="/branchen">Branchen<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:10px;height:10px;margin-left:4px;display:inline-block;vertical-align:middle"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <div class="nav__dd-menu">
-          <a href="/branchen/marken-pr">Marken- &amp; PR-Agenturen</a>
-          <a href="/branchen/film-events">Film, Video &amp; Events</a>
-          <a href="/branchen/software-industrie">Software, SaaS &amp; Industrie</a>
-          <a href="/branchen/personalberatung">Personalberatung</a>
-          <a href="/branchen/werbetechnik-print">Werbetechnik &amp; Print</a>
-        </div>
-      </li>
-      <li><a href="/referenzen">Referenzen</a></li>
-      <li><a href="/blog">Journal</a></li>
-      <li><a href="/zertifizierungen">Zertifizierungen</a></li>
-    </ul>
-    <a class="nav__login" href="https://hub.salesdrive.at" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
-      Login
-    </a>
-    <a class="nav__cta" href="/formular">
-      Analysegespräch
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-    </a>
+    <div class="termbox" id="termbox" style="display:none">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      <div class="d"><b id="tDate">—</b><span id="tTime">Analysegespräch mit Alexander Király</span></div>
+    </div>
+
+    <div class="next">
+      <h3>Das passiert jetzt</h3>
+      <div class="nrow"><span class="nnum">1</span><div><h4>Bestätigung per E-Mail</h4><p>Du erhältst sofort eine Termin­bestätigung mit allen Infos und dem Link für das Gespräch.</p></div></div>
+      <div class="nrow"><span class="nnum">2</span><div><h4>Wir bereiten uns vor</h4><p>Wir analysieren deine Angaben und erstellen ein erstes individuelles Kampagnen-Konzept.</p></div></div>
+      <div class="nrow"><span class="nnum">3</span><div><h4>Dein Analysegespräch</h4><p>30 Minuten, in denen wir dir zeigen, wie wir dir planbar Abschlussgespräche liefern.</p></div></div>
+    </div>
+    <a class="btn" href="/v5">‹ Zurück zur Startseite</a>
   </div>
-</nav>
-<div class="nav-spacer"></div>
+</div>
 
-<section class="thanks">
-  <div class="thanks__inner">
-    <div class="thanks__check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></div>
-    <h1 class="thanks__title reveal">Termin bestätigt.<br><em>Wir freuen uns auf dich.</em></h1>
-    <p class="thanks__sub reveal d-1">Du erhältst gleich eine Bestätigung per E-Mail mit Kalendereintrag und Zoom-Link. Falls du in den nächsten 2 Minuten keine Mail siehst, prüfe den Spam-Ordner.</p>
-
-    <div class="checklist reveal-blur d-2">
-      <div class="checklist__title">So bereitest du dich in 5 Minuten vor</div>
-      <div class="checklist__item"><span class="checklist__num">1</span><span><b>Stell dir kurz die echte Frage:</b> Was würde sich in deinem Vertrieb ändern, wenn jede Woche 4 vorqualifizierte Termine in deinem Kalender stehen?</span></div>
-      <div class="checklist__item"><span class="checklist__num">2</span><span><b>Notier dir, was du bisher probiert hast:</b> Setter, Pool-Agenturen, Inbound, Empfehlungen. Was hat funktioniert, was nicht?</span></div>
-      <div class="checklist__item"><span class="checklist__num">3</span><span><b>Halte deine Zahlen bereit:</b> ungefährer Kundenwert, durchschnittlicher Sales-Cycle, aktuelle monatliche Neukunden-Anzahl.</span></div>
-      <div class="checklist__item"><span class="checklist__num">4</span><span><b>Schau dir vorab unsere Cases an:</b> Putz &amp; Stingl, RINK, Linkbroker. damit du im Gespräch konkrete Vergleichspunkte hast.</span></div>
-    </div>
-
-    <div class="thanks__actions reveal d-3">
-      <a href="referenzen.html" class="btn btn--ghost btn--lg">
-        Cases ansehen
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </a>
-      <a href="zertifizierungen.html" class="btn btn--ghost btn--lg">
-        Zertifizierungen
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════ UNIFIED FOOTER ════════════ -->
-<!-- ════════════ UNIFIED FOOTER ════════════ -->
-<!-- ════════════ UNIFIED FOOTER (SalesEye-Style) ════════════ -->
-<footer class="footer footer--clean">
-  <div class="container">
-    <div class="footer__grid">
-      <div class="footer__brand">
-        <a class="footer__brand-logo" href="/" aria-label="SalesDrive"><img src="/assets/brand/salesdrive-logo.png" alt="SalesDrive"></a>
-        <p class="footer__tag">Wir telefonieren. Du verkaufst.<br>Direkter Draht zur Geschäftsführung. Aus Wien, für DACH.</p>
-        <div class="footer__social">
-          <a href="https://wa.me/436767951018" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.464 3.488"/></svg></a>
-          <a href="https://www.linkedin.com/company/lehner-consulting/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-          <a href="https://www.instagram.com/salesdrive.at/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-          <a href="https://www.facebook.com/salesdrivegmbh" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.55V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg></a>
-          <a href="https://www.youtube.com/@SalesDriveGmbH" target="_blank" rel="noopener" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.2 0 12 0 12s0 3.8.5 5.8A3 3 0 0 0 2.6 19.9c2 .6 9.4.6 9.4.6s7.4 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.8 24 12 24 12s0-3.8-.5-5.8zM9.5 15.5v-7l6.5 3.5-6.5 3.5z"/></svg></a>
-        </div>
-        <div class="footer__trust-row">
-          <a href="https://www.tuv.com" target="_blank" rel="noopener" class="footer__trust-tuv" aria-label="TÜV Rheinland zertifiziert"><img src="/assets/trust/tuv-rheinland.png" alt="TÜV Rheinland zertifiziert · ID 0217466221" loading="lazy"></a>
-          <div class="footer__trust-tp">
-            <div class="trustpilot-widget" data-locale="de-DE" data-template-id="5419b732fbfb950b10de65e5" data-businessunit-id="6824f66b7d7d518b035be9fe" data-style-height="22px" data-style-width="100%" data-token="6c10c584-b7c5-4f1f-9e52-269566a2af4f">
-              <a href="https://de.trustpilot.com/review/salesdrive.at" target="_blank" rel="noopener">Trustpilot</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer__col">
-        <h6>Plattform</h6>
-        <a href="/#cases">Cases</a>
-        <a href="/branchen">Branchen</a>
-        <a href="/referenzen">Referenzen</a>
-        <a href="/blog">Journal</a>
-        <a href="/lohnt-sich">Lohnt sich</a>
-      </div>
-      <div class="footer__col">
-        <h6>Unternehmen</h6>
-        <a href="/team">Team</a>
-        <a href="/buero">Büro Wien</a>
-        <a href="/karriere">Karriere</a>
-        <a href="/zertifizierungen">Zertifizierungen</a>
-        <a href="/tuev">TÜV Rheinland</a>
-      </div>
-      <div class="footer__col">
-        <h6>Kontakt &amp; Recht</h6>
-        <a href="mailto:office@salesdrive.at">office@salesdrive.at</a>
-        <a href="tel:+436767951018">+43 676 795 10 18</a>
-        <a href="https://hub.salesdrive.at" target="_blank" rel="noopener">hub.salesdrive.at — Login →</a>
-        <a href="/impressum">Impressum</a>
-        <a href="/datenschutz">Datenschutz</a>
-        <a href="/agb">AGB</a>
-      </div>
-    </div>
-    <div class="footer__disclaimer">
-      This website is not part of the Facebook website or Facebook Inc. Furthermore, this website is not supported by Facebook in any way. Facebook is a trademark of Facebook, Inc. Es werden keine Unternehmensberatungen oder ähnliche Beratungsleistungen erbracht.
-    </div>
-    <div class="footer__bottom">
-      <span class="footer__bottom-meta">
-        <span>© 2026 SalesDrive GmbH</span><span class="footer__sep">·</span><strong>FN 599821s</strong><span class="footer__sep">·</span><strong>HG Wien</strong><span class="footer__sep">·</span><strong>UID ATU79430518</strong>
-      </span>
-      <span class="footer__status"><i></i>Alle Systeme operativ</span>
-    </div>
-  </div>
-</footer>
-<script src="assets/js/site.js"></script>
+<script>
+const t=JSON.parse(sessionStorage.getItem('sd_termin')||'null');
+const f=JSON.parse(sessionStorage.getItem('sd_form')||'{}');
+if(f.name){const fn=(''+f.name).split(' ')[0];document.getElementById('headline').innerHTML='Danke, <span class="hl">'+fn.replace(/[<>&]/g,'')+'</span>!';}
+if(t&&t.date){
+  document.getElementById('termbox').style.display='inline-flex';
+  document.getElementById('tDate').textContent=t.date;
+  document.getElementById('tTime').textContent=t.time+' Uhr · mit Alexander Király';
+  document.getElementById('sub').innerHTML='Dein Termin ist reserviert. Du bekommst gleich eine <b>Bestätigung per E-Mail</b>'+(f.email?' an <b>'+(''+f.email).replace(/[<>&]/g,'')+'</b>':'')+'.';
+}
+// confetti
+(function(){const c=document.getElementById('confetti');const cols=['#2680ff','#5b9bff','#34d399','#ffffff','#7db8ff'];
+  for(let i=0;i<70;i++){const e=document.createElement('i');e.style.left=Math.random()*100+'%';
+    e.style.background=cols[i%cols.length];e.style.animationDuration=(2.4+Math.random()*2.4)+'s';
+    e.style.animationDelay=(Math.random()*1.2)+'s';e.style.transform='rotate('+(Math.random()*360)+'deg)';
+    e.style.borderRadius=Math.random()>.5?'2px':'50%';c.appendChild(e);}
+  setTimeout(()=>c.remove(),7000);
+})();
+</script>
 </body>
 </html>

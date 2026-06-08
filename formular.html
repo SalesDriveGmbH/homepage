@@ -1,570 +1,219 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="robots" content="noindex, nofollow" />
-<title>Analysegespräch anfragen · SalesDrive GmbH</title>
-<meta name="description" content="Trage dich für ein kostenloses 30-Minuten-Analysegespräch ein. Direkt mit Geschäftsführer Alexander Kiraly." />
-<link rel="canonical" href="https://salesdrive.at/formular" />
-<meta property="og:type" content="website" />
-<meta property="og:locale" content="de_AT" />
-<meta property="og:site_name" content="SalesDrive" />
-<meta property="og:title" content="Analysegespräch sichern · SalesDrive" />
-<meta property="og:description" content="Kostenloses 30-Min-Analysegespräch direkt mit Geschäftsführer Alexander Király." />
-<meta property="og:url" content="https://salesdrive.at/formular" />
-<meta property="og:image" content="https://salesdrive.at/assets/brand/og-image.jpg" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Analysegespräch sichern · SalesDrive" />
-<meta name="twitter:description" content="Kostenloses 30-Min-Analysegespräch direkt mit Geschäftsführer Alexander Király." />
-<meta name="twitter:image" content="https://salesdrive.at/assets/brand/og-image.jpg" />
-<meta name="theme-color" content="#000000" />
-<link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Kostenloses Analysegespräch · SalesDrive</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css">
-<link rel="stylesheet" href="assets/css/mobile.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 <style>
-.funnel { padding: clamp(100px, 12vw, 160px) 0 clamp(60px, 9vw, 120px); position: relative; overflow: hidden; }
-.funnel::before {
-  content: "";
-  position: absolute; inset: 0;
-  background: radial-gradient(900px 500px at 50% 10%, rgba(41,151,255,.10), transparent 60%);
-  pointer-events: none;
+:root{
+  --bg:#07080c;--panel:#0e1016;--panel2:#0a0b10;--rule:rgba(255,255,255,.08);--rule2:rgba(255,255,255,.15);
+  --ink:#f3f6fc;--ink2:#9aa4b4;--ink3:#5d6678;--accent:#2680ff;--accent2:#5b9bff;--accent-soft:rgba(38,128,255,.1);
+  --mono:'Inter Tight',sans-serif;--ok:#34d399;
 }
-.funnel__inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 22px; }
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter Tight',-apple-system,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;min-height:100dvh;overflow-x:hidden;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(70% 55% at 50% -8%,rgba(38,128,255,.18),transparent 60%),radial-gradient(50% 50% at 88% 108%,rgba(38,128,255,.12),transparent 60%)}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
 
-.funnel__progress {
-  display: flex; justify-content: center; gap: 6px;
-  margin-bottom: 32px;
-}
-.funnel__progress span {
-  height: 3px; width: 36px;
-  background: var(--surf-2);
-  border-radius: 2px;
-  transition: background .35s var(--ease);
-}
-.funnel__progress span.is-active { background: var(--blue); box-shadow: 0 0 8px var(--blue-glow); }
+.top{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:22px clamp(20px,4vw,46px);gap:18px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{height:26px;width:auto}
+.top-meta{display:flex;align-items:center;gap:18px}
+.step-count{font-size:12.5px;color:var(--ink2);letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.step-count b{color:var(--ink)}
+.exit{font-size:13px;color:var(--ink3);text-decoration:none;transition:.2s}.exit:hover{color:var(--ink)}
+.pbar{position:relative;z-index:5;height:3px;background:rgba(255,255,255,.06)}
+.pfill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));box-shadow:0 0 14px rgba(38,128,255,.6);transition:width .55s cubic-bezier(.16,1,.3,1);border-radius:0 3px 3px 0}
 
-.funnel__head { text-align: center; margin-bottom: 36px; }
-.funnel__eyebrow { font-size: 12px; color: var(--blue); margin-bottom: 12px; letter-spacing: .14em; text-transform: uppercase; }
-.funnel__title { font-family: var(--display); font-size: clamp(28px, 4vw, 48px); font-weight: 600; letter-spacing: -.038em; line-height: 1.05; margin-bottom: 14px; }
-.funnel__title em { background: linear-gradient(180deg, var(--blue-bright), var(--blue)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.funnel__sub { font-size: 16px; color: var(--ink-2); line-height: 1.5; }
+.wrap{position:relative;z-index:3;flex:1;display:flex;align-items:center;justify-content:center;padding:clamp(18px,4vw,40px)}
+.stage{width:100%;max-width:680px}
+.step{display:none}
+.step.active{display:block;animation:stepIn .6s cubic-bezier(.16,1,.3,1)}
+@keyframes stepIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.step.leaving{animation:stepOut .32s ease forwards}
+@keyframes stepOut{to{opacity:0;transform:translateY(-16px)}}
 
-.funnel__card {
-  background: var(--surf);
-  border: 1px solid var(--line);
-  border-radius: var(--r-lg);
-  padding: clamp(24px, 4vw, 40px);
-  box-shadow: 0 30px 80px -20px rgba(0,0,0,.6);
-}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);margin-bottom:18px}
+.eyebrow::before{content:"";width:18px;height:1px;background:var(--accent)}
+.q{font-size:clamp(26px,4.4vw,42px);line-height:1.08;letter-spacing:-.03em;font-weight:700}
+.q .hl{background:linear-gradient(120deg,#fff,#9fc0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.help{font-size:15.5px;color:var(--ink2);margin-top:14px;line-height:1.55;max-width:48ch}
 
-.fstep { display: none; flex-direction: column; gap: 16px; }
-.fstep.is-active { display: flex; animation: fadeUp .5s var(--ease-out); }
-@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.field{margin-top:36px}
+.field input{width:100%;background:transparent;border:0;border-bottom:2px solid var(--rule2);color:var(--ink);font-family:var(--mono);font-size:clamp(22px,3vw,30px);font-weight:500;padding:12px 2px;transition:border-color .3s}
+.field input::placeholder{color:var(--ink3)}
+.field input:focus{outline:0;border-color:var(--accent)}
 
-.field { display: flex; flex-direction: column; gap: 6px; }
-.field__label { font-size: 13px; font-weight: 500; color: var(--ink); }
-.field__hint { font-size: 12px; color: var(--ink-mute); }
-.field__input,
-.field__select,
-.field__textarea {
-  width: 100%;
-  background: var(--bg-3);
-  border: 1px solid var(--line-2);
-  border-radius: var(--r-sm);
-  padding: 12px 14px;
-  color: var(--ink);
-  font-family: inherit;
-  font-size: 15px;
-  letter-spacing: -.005em;
-  transition: border-color .2s ease, background .2s ease;
-}
-.field__input:focus,
-.field__select:focus,
-.field__textarea:focus {
-  outline: none;
-  border-color: var(--blue);
-  background: var(--bg-2);
-  box-shadow: 0 0 0 3px var(--blue-soft);
-}
-.field__textarea { min-height: 110px; resize: vertical; }
-.field__select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a1a1a6' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 14px; padding-right: 40px; }
+.choices{display:grid;gap:12px;margin-top:34px}
+.choice{display:flex;align-items:center;gap:16px;width:100%;text-align:left;cursor:pointer;
+  background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--rule);border-radius:16px;
+  padding:18px 20px;color:var(--ink);font-family:var(--mono);font-size:16.5px;font-weight:500;transition:.22s cubic-bezier(.16,1,.3,1)}
+.choice:hover{border-color:rgba(38,128,255,.5);transform:translateX(5px);background:linear-gradient(180deg,#11141d,#0c0e14)}
+.choice.sel{border-color:var(--accent);background:radial-gradient(120% 160% at 0 50%,rgba(38,128,255,.16),transparent),linear-gradient(180deg,#11141d,#0c0e14);box-shadow:0 0 0 1px var(--accent),0 18px 40px -20px rgba(38,128,255,.6)}
+.ckey{flex:0 0 auto;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-size:12.5px;font-weight:700;color:var(--ink2);border:1px solid var(--rule2);background:rgba(255,255,255,.03);transition:.22s}
+.choice:hover .ckey,.choice.sel .ckey{color:#fff;border-color:var(--accent);background:var(--accent)}
+.choice .cx{margin-left:auto;opacity:0;transform:scale(.6);transition:.22s;color:var(--accent2)}
+.choice.sel .cx{opacity:1;transform:scale(1)}
+.choice .cx svg{width:20px;height:20px;display:block}
 
-.field__row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-@media (max-width: 580px) { .field__row { grid-template-columns: 1fr; } }
+.actions{display:flex;align-items:center;gap:14px;margin-top:34px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:0;font-family:var(--mono);font-weight:600;font-size:16px;
+  padding:15px 26px;border-radius:13px;color:#04122e;background:linear-gradient(180deg,#7db8ff,#2680ff);
+  box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 18px 42px -16px rgba(38,128,255,.7);transition:.22s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 24px 54px -16px rgba(38,128,255,.9)}
+.btn svg{width:18px;height:18px;transition:transform .22s}.btn:hover svg{transform:translateX(4px)}
+.btn.ghost{background:transparent;color:var(--ink2);box-shadow:none;border:1px solid var(--rule2);padding:15px 22px}
+.btn.ghost:hover{color:var(--ink);transform:none;background:rgba(255,255,255,.03)}
+.hint{font-size:12.5px;color:var(--ink3);display:inline-flex;align-items:center;gap:8px}
+.hint kbd{font-family:var(--mono);font-size:11px;background:rgba(255,255,255,.06);border:1px solid var(--rule2);border-radius:5px;padding:2px 7px;color:var(--ink2)}
+.err{display:none;margin-top:16px;font-size:13.5px;color:#ff9b8a;align-items:center;gap:8px}
+.err.show{display:flex;animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
 
-.choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-@media (max-width: 580px) { .choice-grid { grid-template-columns: 1fr; } }
-.choice {
-  display: flex; align-items: flex-start; gap: 10px;
-  padding: 14px 16px;
-  background: var(--bg-3);
-  border: 1px solid var(--line-2);
-  border-radius: var(--r-sm);
-  cursor: pointer;
-  transition: all .2s ease;
-}
-.choice:hover { border-color: var(--line-3); background: var(--bg-2); }
-.choice.is-selected { border-color: var(--blue); background: var(--blue-soft); }
-.choice__radio {
-  width: 16px; height: 16px;
-  border-radius: 50%;
-  border: 1.5px solid var(--ink-3);
-  flex-shrink: 0;
-  margin-top: 2px;
-  position: relative;
-  transition: border-color .2s ease;
-}
-.choice.is-selected .choice__radio { border-color: var(--blue); }
-.choice.is-selected .choice__radio::after { content: ""; position: absolute; inset: 3px; border-radius: 50%; background: var(--blue); }
-.choice__label { font-size: 14px; color: var(--ink); font-weight: 500; }
-.choice__sub { font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+.intro-pill{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border:1px solid var(--rule2);border-radius:999px;background:rgba(255,255,255,.02);margin-bottom:26px;font-size:12px;letter-spacing:.04em;color:var(--ink2)}
+.intro-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft);animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 4px var(--accent-soft)}50%{box-shadow:0 0 0 8px transparent}}
+.intro h1{font-size:clamp(32px,5.5vw,56px);line-height:1.02;letter-spacing:-.04em;font-weight:700;max-width:16ch}
+.intro h1 .hl{background:linear-gradient(120deg,#fff,#9fc0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.intro p{font-size:clamp(16px,1.8vw,19px);color:var(--ink2);margin-top:20px;line-height:1.55;max-width:46ch}
+.trust{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.trust span{display:inline-flex;align-items:center;gap:9px;font-size:13.5px;color:var(--ink2);border:1px solid var(--rule);border-radius:11px;padding:10px 14px;background:rgba(255,255,255,.015)}
+.trust svg{width:16px;height:16px;color:var(--accent2)}
 
-.fstep__actions { display: flex; justify-content: space-between; gap: 10px; margin-top: 8px; }
-.fstep__actions .btn { flex: 1; max-width: 220px; }
-.btn--back { background: transparent; color: var(--ink-3); border: 1px solid var(--line-2); }
-.btn--back:hover { color: var(--ink); border-color: var(--line-3); background: rgba(255,255,255,.04); }
+.sumcard{margin-top:30px;border:1px solid var(--rule);border-radius:18px;background:linear-gradient(180deg,var(--panel),var(--panel2));overflow:hidden}
+.sumrow{display:flex;justify-content:space-between;gap:16px;padding:15px 20px;border-bottom:1px solid var(--rule);font-size:14.5px}
+.sumrow:last-child{border-bottom:0}
+.sumrow .k{color:var(--ink3)}.sumrow .v{color:var(--ink);font-weight:500;text-align:right}
 
-.error-msg { font-size: 12px; color: var(--red); margin-top: 4px; min-height: 16px; }
-
-.calendly-wrap {
-  background: var(--surf);
-  border: 1px solid var(--line);
-  border-radius: var(--r-lg);
-  padding: 14px;
-  min-height: 720px;
-  overflow: hidden;
-}
-.calendly-inline-widget { min-height: 720px; }
-
-.spinner {
-  width: 32px; height: 32px;
-  border: 2.5px solid var(--line-2);
-  border-top-color: var(--blue);
-  border-radius: 50%;
-  margin: 30px auto;
-  animation: spin .8s linear infinite;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-
-.assurance { display: flex; gap: 22px; justify-content: center; margin-top: 28px; flex-wrap: wrap; }
-.assurance__item { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-3); }
-.assurance__item svg { width: 12px; height: 12px; color: var(--green); }
+@media(max-width:560px){.top{padding:16px 18px}.exit span{display:none}.hint{order:3;width:100%}}
 </style>
 </head>
 <body>
-
-<nav class="nav" id="siteNav">
-  <div class="nav__inner">
-    <a class="nav__brand" href="/" aria-label="SalesDrive"><img class="nav__brand-logo" src="/assets/brand/salesdrive-logo.png" alt="SalesDrive"></a>
-    <ul class="nav__links">
-      <li><a href="/#cases">Cases</a></li>
-      <li class="nav__dd">
-        <a href="/branchen">Branchen<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:10px;height:10px;margin-left:4px;display:inline-block;vertical-align:middle"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <div class="nav__dd-menu">
-          <a href="/branchen/marken-pr">Marken- &amp; PR-Agenturen</a>
-          <a href="/branchen/film-events">Film, Video &amp; Events</a>
-          <a href="/branchen/software-industrie">Software, SaaS &amp; Industrie</a>
-          <a href="/branchen/personalberatung">Personalberatung</a>
-          <a href="/branchen/werbetechnik-print">Werbetechnik &amp; Print</a>
-        </div>
-      </li>
-      <li><a href="/referenzen">Referenzen</a></li>
-      <li><a href="/blog">Journal</a></li>
-      <li><a href="/zertifizierungen">Zertifizierungen</a></li>
-    </ul>
-    <a class="nav__login" href="https://hub.salesdrive.at" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
-      Login
-    </a>
-    <a class="nav__cta" href="/formular">
-      Analysegespräch
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-    </a>
+<div class="top">
+  <a class="brand" href="/v5"><img src="/assets/brand/salesdrive-logo.png" alt="SalesDrive"></a>
+  <div class="top-meta">
+    <span class="step-count" id="counter"></span>
+    <a class="exit" href="/v5">✕ <span>Schließen</span></a>
   </div>
-</nav>
-<div class="nav-spacer"></div>
+</div>
+<div class="pbar"><div class="pfill" id="pfill"></div></div>
 
-<section class="funnel">
-  <div class="funnel__inner">
-    <div class="funnel__progress" id="funnelProgress">
-      <span class="is-active"></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+<div class="wrap"><div class="stage" id="stage"></div></div>
 
-    <div class="funnel__head">
-      <div class="funnel__eyebrow">Kostenloses Analysegespräch</div>
-      <h1 class="funnel__title">Du gibst uns 2 Minuten.<br>Wir geben dir <em>einen Termin mit Alex.</em></h1>
-      <p class="funnel__sub">Vier kurze Fragen, dann buchst du direkt deinen Termin im Kalender. Direkter Draht zur Geschäftsführung.</p>
-    </div>
-
-    <form class="funnel__card" id="funnelForm" novalidate>
-      <!-- STEP 1: Company basics -->
-      <div class="fstep is-active" data-step="1">
-        <div class="field">
-          <label class="field__label" for="firma">Firma</label>
-          <input class="field__input" type="text" id="firma" name="firma" required autocomplete="organization" placeholder="z.B. Acme GmbH" />
-          <div class="error-msg" data-error="firma"></div>
-        </div>
-        <div class="field">
-          <label class="field__label" for="website">Website</label>
-          <input class="field__input" type="url" id="website" name="website" autocomplete="url" placeholder="https://" />
-        </div>
-        <div class="field">
-          <label class="field__label">Was bietet ihr an?</label>
-          <p class="field__hint">Wir lehnen B2C, Coaching, Kurse und Anbieter unter 5.000 € Kundenwert ab.</p>
-          <div class="choice-grid">
-            <label class="choice"><input type="radio" name="branche" value="agentur" hidden><span class="choice__radio"></span><span><span class="choice__label">Marketing- / Werbeagentur</span><span class="choice__sub">Branding, Performance, PR, Web</span></span></label>
-            <label class="choice"><input type="radio" name="branche" value="software" hidden><span class="choice__radio"></span><span><span class="choice__label">Software / SaaS</span><span class="choice__sub">B2B-Tools, Plattformen</span></span></label>
-            <label class="choice"><input type="radio" name="branche" value="dienstleistung" hidden><span class="choice__radio"></span><span><span class="choice__label">B2B-Dienstleistung</span><span class="choice__sub">Hochpreisige Services</span></span></label>
-            <label class="choice"><input type="radio" name="branche" value="andere" hidden><span class="choice__radio"></span><span><span class="choice__label">Andere Branche</span><span class="choice__sub">Sag uns, wer du bist</span></span></label>
-          </div>
-          <div class="error-msg" data-error="branche"></div>
-        </div>
-        <div class="fstep__actions">
-          <div></div>
-          <button type="button" class="btn btn--primary btn--lg" data-next>Weiter <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
-        </div>
-      </div>
-
-      <!-- STEP 2: Qualification -->
-      <div class="fstep" data-step="2">
-        <div class="field">
-          <label class="field__label">Wie hoch ist euer Jahresumsatz?</label>
-          <p class="field__hint">Wir arbeiten ab 1 Mio. € Jahresumsatz.</p>
-          <div class="choice-grid">
-            <label class="choice"><input type="radio" name="umsatz" value="<1M" hidden><span class="choice__radio"></span><span class="choice__label">Unter 1 Mio. €</span></label>
-            <label class="choice"><input type="radio" name="umsatz" value="1-3M" hidden><span class="choice__radio"></span><span class="choice__label">1 – 3 Mio. €</span></label>
-            <label class="choice"><input type="radio" name="umsatz" value="3-10M" hidden><span class="choice__radio"></span><span class="choice__label">3 – 10 Mio. €</span></label>
-            <label class="choice"><input type="radio" name="umsatz" value=">10M" hidden><span class="choice__radio"></span><span class="choice__label">Über 10 Mio. €</span></label>
-          </div>
-          <div class="error-msg" data-error="umsatz"></div>
-        </div>
-        <div class="field">
-          <label class="field__label">Wie hoch ist euer durchschnittlicher Kundenwert?</label>
-          <div class="choice-grid">
-            <label class="choice"><input type="radio" name="kundenwert" value="<5k" hidden><span class="choice__radio"></span><span class="choice__label">Unter 5.000 €</span></label>
-            <label class="choice"><input type="radio" name="kundenwert" value="5-15k" hidden><span class="choice__radio"></span><span class="choice__label">5.000 – 15.000 €</span></label>
-            <label class="choice"><input type="radio" name="kundenwert" value="15-50k" hidden><span class="choice__radio"></span><span class="choice__label">15.000 – 50.000 €</span></label>
-            <label class="choice"><input type="radio" name="kundenwert" value=">50k" hidden><span class="choice__radio"></span><span class="choice__label">Über 50.000 €</span></label>
-          </div>
-          <div class="error-msg" data-error="kundenwert"></div>
-        </div>
-        <div class="fstep__actions">
-          <button type="button" class="btn btn--back" data-back>Zurück</button>
-          <button type="button" class="btn btn--primary btn--lg" data-next>Weiter <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
-        </div>
-      </div>
-
-      <!-- STEP 3: Personal details -->
-      <div class="fstep" data-step="3">
-        <div class="field__row">
-          <div class="field">
-            <label class="field__label" for="vorname">Vorname</label>
-            <input class="field__input" type="text" id="vorname" name="vorname" required autocomplete="given-name" />
-            <div class="error-msg" data-error="vorname"></div>
-          </div>
-          <div class="field">
-            <label class="field__label" for="nachname">Nachname</label>
-            <input class="field__input" type="text" id="nachname" name="nachname" required autocomplete="family-name" />
-            <div class="error-msg" data-error="nachname"></div>
-          </div>
-        </div>
-        <div class="field">
-          <label class="field__label" for="email">Geschäftliche E-Mail</label>
-          <input class="field__input" type="email" id="email" name="email" required autocomplete="email" placeholder="name@firma.at" />
-          <div class="error-msg" data-error="email"></div>
-        </div>
-        <div class="field">
-          <label class="field__label" for="telefon">Telefon</label>
-          <input class="field__input" type="tel" id="telefon" name="telefon" required autocomplete="tel" placeholder="+43 …" />
-          <div class="error-msg" data-error="telefon"></div>
-        </div>
-        <div class="field">
-          <label class="field__label" for="position">Deine Position</label>
-          <select class="field__select" id="position" name="position">
-            <option value="">Auswählen …</option>
-            <option>Geschäftsführer:in / Inhaber:in</option>
-            <option>Vertriebsleitung</option>
-            <option>Marketing / Growth</option>
-            <option>Andere</option>
-          </select>
-        </div>
-        <div class="fstep__actions">
-          <button type="button" class="btn btn--back" data-back>Zurück</button>
-          <button type="button" class="btn btn--primary btn--lg" data-next>Weiter <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
-        </div>
-      </div>
-
-      <!-- STEP 4: Quelle -->
-      <div class="fstep" data-step="4">
-        <div class="field">
-          <label class="field__label" for="quelle">Wie bist du auf uns aufmerksam geworden?</label>
-          <select class="field__select" id="quelle" name="quelle" required>
-            <option value="" disabled selected>Bitte auswählen …</option>
-            <option>Empfehlung</option>
-            <option>Google / Suche</option>
-            <option>KI-Suche (ChatGPT, Perplexity, Gemini, Claude)</option>
-            <option>LinkedIn</option>
-            <option>YouTube / Podcast</option>
-            <option>Messe / Event</option>
-            <option>Anders</option>
-          </select>
-        </div>
-        <div class="fstep__actions">
-          <button type="button" class="btn btn--back" data-back>Zurück</button>
-          <button type="submit" class="btn btn--primary btn--lg" id="submitBtn">Termin buchen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
-        </div>
-      </div>
-
-      <!-- STEP 5: Loading -->
-      <div class="fstep" data-step="5">
-        <div style="text-align:center;padding:30px 0">
-          <div class="spinner"></div>
-          <p style="color:var(--ink-2);font-size:15px">Wir prüfen kurz deine Anfrage …</p>
-        </div>
-      </div>
-
-      <!-- STEP 6: Calendly -->
-      <div class="fstep" data-step="6">
-        <div style="text-align:center;margin-bottom:24px">
-          <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:rgba(48,209,88,.12);border:1px solid rgba(48,209,88,.3);border-radius:980px;font-size:12px;color:var(--green);margin-bottom:18px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><path d="M5 12l5 5 9-11"/></svg>Anfrage erhalten</div>
-          <h2 style="font-family:var(--display);font-size:clamp(22px,2.8vw,30px);font-weight:600;letter-spacing:-.028em;margin-bottom:8px">Such dir jetzt deinen Termin aus.</h2>
-          <p style="color:var(--ink-3);font-size:14px">30 Minuten · direkt mit Alexander Kiraly · per Telefon oder Video</p>
-        </div>
-        <div class="calendly-wrap">
-          <div class="calendly-inline-widget" data-url="https://calendly.com/salesdrive/analysegespraech?hide_event_type_details=1&hide_gdpr_banner=1&background_color=15161c&text_color=f5f5f7&primary_color=2997ff" id="calendlyEmbed"></div>
-        </div>
-      </div>
-    </form>
-
-    <div class="assurance">
-      <div class="assurance__item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg>
-        DSGVO-konform
-      </div>
-      <div class="assurance__item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg>
-        TÜV-zertifiziert
-      </div>
-      <div class="assurance__item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg>
-        Keine Verkaufsmasche
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════ UNIFIED FOOTER ════════════ -->
-<!-- ════════════ UNIFIED FOOTER ════════════ -->
-<!-- ════════════ UNIFIED FOOTER (SalesEye-Style) ════════════ -->
-<footer class="footer footer--clean">
-  <div class="container">
-    <div class="footer__grid">
-      <div class="footer__brand">
-        <a class="footer__brand-logo" href="/" aria-label="SalesDrive"><img src="/assets/brand/salesdrive-logo.png" alt="SalesDrive"></a>
-        <p class="footer__tag">Wir telefonieren. Du verkaufst.<br>Direkter Draht zur Geschäftsführung. Aus Wien, für DACH.</p>
-        <div class="footer__social">
-          <a href="https://wa.me/436767951018" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.464 3.488"/></svg></a>
-          <a href="https://www.linkedin.com/company/lehner-consulting/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-          <a href="https://www.instagram.com/salesdrive.at/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-          <a href="https://www.facebook.com/salesdrivegmbh" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.55V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z"/></svg></a>
-          <a href="https://www.youtube.com/@SalesDriveGmbH" target="_blank" rel="noopener" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.2 0 12 0 12s0 3.8.5 5.8A3 3 0 0 0 2.6 19.9c2 .6 9.4.6 9.4.6s7.4 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.8 24 12 24 12s0-3.8-.5-5.8zM9.5 15.5v-7l6.5 3.5-6.5 3.5z"/></svg></a>
-        </div>
-        <div class="footer__trust-row">
-          <a href="https://www.tuv.com" target="_blank" rel="noopener" class="footer__trust-tuv" aria-label="TÜV Rheinland zertifiziert"><img src="/assets/trust/tuv-rheinland.png" alt="TÜV Rheinland zertifiziert · ID 0217466221" loading="lazy"></a>
-          <div class="footer__trust-tp">
-            <div class="trustpilot-widget" data-locale="de-DE" data-template-id="5419b732fbfb950b10de65e5" data-businessunit-id="6824f66b7d7d518b035be9fe" data-style-height="22px" data-style-width="100%" data-token="6c10c584-b7c5-4f1f-9e52-269566a2af4f">
-              <a href="https://de.trustpilot.com/review/salesdrive.at" target="_blank" rel="noopener">Trustpilot</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer__col">
-        <h6>Plattform</h6>
-        <a href="/#cases">Cases</a>
-        <a href="/branchen">Branchen</a>
-        <a href="/referenzen">Referenzen</a>
-        <a href="/blog">Journal</a>
-        <a href="/lohnt-sich">Lohnt sich</a>
-      </div>
-      <div class="footer__col">
-        <h6>Unternehmen</h6>
-        <a href="/team">Team</a>
-        <a href="/buero">Büro Wien</a>
-        <a href="/karriere">Karriere</a>
-        <a href="/zertifizierungen">Zertifizierungen</a>
-        <a href="/tuev">TÜV Rheinland</a>
-      </div>
-      <div class="footer__col">
-        <h6>Kontakt &amp; Recht</h6>
-        <a href="mailto:office@salesdrive.at">office@salesdrive.at</a>
-        <a href="tel:+436767951018">+43 676 795 10 18</a>
-        <a href="https://hub.salesdrive.at" target="_blank" rel="noopener">hub.salesdrive.at — Login →</a>
-        <a href="/impressum">Impressum</a>
-        <a href="/datenschutz">Datenschutz</a>
-        <a href="/agb">AGB</a>
-      </div>
-    </div>
-    <div class="footer__disclaimer">
-      This website is not part of the Facebook website or Facebook Inc. Furthermore, this website is not supported by Facebook in any way. Facebook is a trademark of Facebook, Inc. Es werden keine Unternehmensberatungen oder ähnliche Beratungsleistungen erbracht.
-    </div>
-    <div class="footer__bottom">
-      <span class="footer__bottom-meta">
-        <span>© 2026 SalesDrive GmbH</span><span class="footer__sep">·</span><strong>FN 599821s</strong><span class="footer__sep">·</span><strong>HG Wien</strong><span class="footer__sep">·</span><strong>UID ATU79430518</strong>
-      </span>
-      <span class="footer__status"><i></i>Alle Systeme operativ</span>
-    </div>
-  </div>
-</footer>
-
-<script src="assets/js/site.js"></script>
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script>
-(function() {
-  const form = document.getElementById('funnelForm');
-  const steps = form.querySelectorAll('.fstep');
-  const progressDots = document.querySelectorAll('#funnelProgress span');
-  let currentStep = 1;
-  const maxFormStep = 4; // step 5 = loading, step 6 = calendly
+const ICON_CHECK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+const ICON_ARROW='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>';
+const ICON_SHIELD='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>';
+const ICON_STAR='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .8-5.2 4.7 1.4 6.9L12 17.8 5.8 20.9l1.4-6.9L2 9.3l7-.8z"/></svg>';
+const ICON_CLOCK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
+function ICON_WARN(){return '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>';}
 
-  // Choice selection (radio cards)
-  form.querySelectorAll('.choice').forEach(choice => {
-    choice.addEventListener('click', () => {
-      const input = choice.querySelector('input[type="radio"]');
-      const name = input.name;
-      form.querySelectorAll(`input[name="${name}"]`).forEach(r => {
-        r.checked = false;
-        r.closest('.choice').classList.remove('is-selected');
-      });
-      input.checked = true;
-      choice.classList.add('is-selected');
-      // clear error
-      const err = form.querySelector(`[data-error="${name}"]`);
-      if (err) err.textContent = '';
-    });
-  });
+const STEPS=[
+ {type:'intro'},
+ {key:'umsatz',type:'choice',q:'Wie hoch ist euer <span class="hl">Jahresumsatz</span>?',help:'Wir arbeiten ausschließlich mit etablierten B2B-Anbietern.',options:['Unter 1 Mio €','1–3 Mio €','3–10 Mio €','Über 10 Mio €']},
+ {key:'angebot',type:'choice',q:'Was bietet ihr an?',options:['Beratung / Dienstleistung','Software / SaaS','Produkt / Industrie','Etwas anderes']},
+ {key:'ziel',type:'choice',q:'Wie viele <span class="hl">Abschlussgespräche</span> willst du pro Monat?',options:['5–10 pro Monat','10–20 pro Monat','20–40 pro Monat','So viele wie möglich']},
+ {key:'name',type:'text',input:'text',q:'Wie heißt du?',ph:'Vor- und Nachname',required:true},
+ {key:'firma',type:'text',input:'text',q:'Für welches <span class="hl">Unternehmen</span>?',ph:'Firmenname oder Website',required:true},
+ {key:'email',type:'text',input:'email',q:'Wohin dürfen wir das Konzept schicken?',ph:'name@firma.de',required:true,help:'Deine E-Mail – wir spammen nicht.'},
+ {key:'phone',type:'text',input:'tel',q:'Und deine Telefonnummer?',ph:'+49 …',required:true,help:'Nur für die kurze Rückbestätigung deines Termins.'},
+ {type:'final'}
+];
+const answers={};let idx=0;
+const qSteps=STEPS.filter(s=>s.key).length;
+const stage=document.getElementById('stage'),pfill=document.getElementById('pfill'),counter=document.getElementById('counter');
 
-  // Validation per step
-  function validateStep(n) {
-    let valid = true;
-    const step = form.querySelector(`.fstep[data-step="${n}"]`);
-    step.querySelectorAll('.error-msg').forEach(e => e.textContent = '');
+function qIndex(){let c=0;for(let i=0;i<idx;i++)if(STEPS[i].key)c++;return c;}
+function updateChrome(){
+  const cur=STEPS[idx];
+  if(cur.type==='intro'){counter.innerHTML='';pfill.style.width='4%';}
+  else if(cur.type==='final'){counter.innerHTML='<b>Fertig</b>';pfill.style.width='100%';}
+  else{const n=qIndex()+1;counter.innerHTML='Schritt <b>'+n+'</b> von '+qSteps;pfill.style.width=(n/(qSteps+1)*100)+'%';}
+}
+function escapeHtml(s){return (s+'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 
-    if (n === 1) {
-      const firma = form.elements.firma.value.trim();
-      if (!firma) { showErr('firma', 'Bitte Firmenname angeben.'); valid = false; }
-      const branche = form.querySelector('input[name="branche"]:checked');
-      if (!branche) { showErr('branche', 'Bitte eine Branche wählen.'); valid = false; }
-    }
-    if (n === 2) {
-      if (!form.querySelector('input[name="umsatz"]:checked')) { showErr('umsatz', 'Bitte auswählen.'); valid = false; }
-      if (!form.querySelector('input[name="kundenwert"]:checked')) { showErr('kundenwert', 'Bitte auswählen.'); valid = false; }
-    }
-    if (n === 3) {
-      if (!form.elements.vorname.value.trim()) { showErr('vorname', 'Pflichtfeld.'); valid = false; }
-      if (!form.elements.nachname.value.trim()) { showErr('nachname', 'Pflichtfeld.'); valid = false; }
-      const email = form.elements.email.value.trim();
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showErr('email', 'Gültige E-Mail-Adresse erforderlich.'); valid = false; }
-      if (!form.elements.telefon.value.trim()) { showErr('telefon', 'Pflichtfeld.'); valid = false; }
-    }
-    return valid;
+function render(){
+  updateChrome();const cur=STEPS[idx];let h='';
+  if(cur.type==='intro'){
+    h=`<div class="step intro" data-s>
+      <span class="intro-pill"><span class="dot"></span>Kostenloses Analysegespräch</span>
+      <h1>In 60 Sekunden zu deinem <span class="hl">Kampagnen-Konzept</span>.</h1>
+      <p>Beantworte ein paar kurze Fragen – danach wählst du direkt deinen Wunschtermin mit Alexander Király.</p>
+      <div class="trust"><span>${ICON_SHIELD}TÜV-zertifiziert</span><span>${ICON_STAR}4,82 / 5 ProvenExpert</span><span>${ICON_CLOCK}Dauert unter 1 Minute</span></div>
+      <div class="actions"><button class="btn" id="go">Jetzt starten ${ICON_ARROW}</button><span class="hint">100 % kostenlos &amp; unverbindlich</span></div>
+    </div>`;
+  } else if(cur.type==='final'){
+    const map={umsatz:'Jahresumsatz',angebot:'Angebot',ziel:'Ziel / Monat',name:'Name',firma:'Unternehmen',email:'E-Mail',phone:'Telefon'};
+    let rows='';for(const k in map){if(answers[k])rows+=`<div class="sumrow"><span class="k">${map[k]}</span><span class="v">${escapeHtml(answers[k])}</span></div>`;}
+    const fn=(answers.name||'').split(' ')[0]||'';
+    h=`<div class="step" data-s>
+      <span class="eyebrow">Fast geschafft</span>
+      <div class="q">Perfekt${fn?', <span class="hl">'+escapeHtml(fn)+'</span>':''} – wähle jetzt deinen Termin.</div>
+      <p class="help">Wir haben alles, was wir brauchen. Im nächsten Schritt suchst du dir deinen Wunschtermin für das kostenlose Analysegespräch aus.</p>
+      <div class="sumcard">${rows}</div>
+      <div class="actions"><button class="btn" id="go">Weiter zur Terminauswahl ${ICON_ARROW}</button><button class="btn ghost" id="back">Zurück</button></div>
+    </div>`;
+  } else if(cur.type==='choice'){
+    let opts='';cur.options.forEach((o,i)=>{const sel=answers[cur.key]===o?' sel':'';
+      opts+=`<button class="choice${sel}" data-opt="${escapeHtml(o)}"><span class="ckey">${String.fromCharCode(65+i)}</span>${o}<span class="cx">${ICON_CHECK}</span></button>`;});
+    h=`<div class="step" data-s>
+      <span class="eyebrow">Frage ${qIndex()+1}</span><div class="q">${cur.q}</div>
+      ${cur.help?`<p class="help">${cur.help}</p>`:''}
+      <div class="choices">${opts}</div>
+      <div class="actions" style="margin-top:24px"><button class="btn ghost" id="back">Zurück</button><span class="hint">Tippe <kbd>A</kbd>–<kbd>${String.fromCharCode(64+cur.options.length)}</kbd> oder klick</span></div>
+    </div>`;
+  } else {
+    h=`<div class="step" data-s>
+      <span class="eyebrow">Frage ${qIndex()+1}</span><div class="q">${cur.q}</div>
+      ${cur.help?`<p class="help">${cur.help}</p>`:''}
+      <div class="field"><input id="inp" type="${cur.input}" placeholder="${cur.ph}" value="${escapeHtml(answers[cur.key]||'')}" autocomplete="${cur.input==='email'?'email':cur.input==='tel'?'tel':'name'}"></div>
+      <div class="err" id="err">${ICON_WARN()} <span>Bitte gib eine gültige Antwort ein.</span></div>
+      <div class="actions"><button class="btn" id="go">Weiter ${ICON_ARROW}</button><button class="btn ghost" id="back">Zurück</button><span class="hint">Drücke <kbd>Enter ↵</kbd></span></div>
+    </div>`;
   }
-  function showErr(name, msg) {
-    const el = form.querySelector(`[data-error="${name}"]`);
-    if (el) el.textContent = msg;
+  stage.innerHTML=h;
+  requestAnimationFrame(()=>{stage.querySelector('[data-s]').classList.add('active');});
+  bind();
+}
+function bind(){
+  const cur=STEPS[idx];const go=document.getElementById('go'),back=document.getElementById('back');
+  if(back)back.onclick=prev;
+  if(cur.type==='intro'){go.onclick=next;}
+  else if(cur.type==='final'){go.onclick=()=>{sessionStorage.setItem('sd_form',JSON.stringify(answers));location.href='/termin';};}
+  else if(cur.type==='choice'){
+    stage.querySelectorAll('.choice').forEach(b=>b.onclick=()=>{answers[cur.key]=b.dataset.opt;
+      stage.querySelectorAll('.choice').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');setTimeout(next,260);});
+  } else {
+    const inp=document.getElementById('inp');inp.focus();
+    inp.oninput=()=>document.getElementById('err').classList.remove('show');
+    go.onclick=submitText;inp.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();submitText();}};
   }
-
-  function goToStep(n) {
-    steps.forEach(s => s.classList.remove('is-active'));
-    const target = form.querySelector(`.fstep[data-step="${n}"]`);
-    if (target) target.classList.add('is-active');
-    currentStep = n;
-    // update progress (only for form steps 1-4)
-    progressDots.forEach((d, i) => {
-      if (i < Math.min(n, 4)) d.classList.add('is-active');
-      else d.classList.remove('is-active');
-    });
-    // scroll to top of card
-    window.scrollTo({ top: document.querySelector('.funnel').offsetTop - 60, behavior: 'smooth' });
-  }
-
-  form.querySelectorAll('[data-next]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (!validateStep(currentStep)) return;
-      goToStep(currentStep + 1);
-    });
-  });
-  form.querySelectorAll('[data-back]').forEach(btn => {
-    btn.addEventListener('click', () => goToStep(currentStep - 1));
-  });
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!validateStep(currentStep)) return;
-    goToStep(5); // loading
-
-    const data = {
-      firma: form.elements.firma.value.trim(),
-      website: form.elements.website.value.trim(),
-      branche: (form.querySelector('input[name="branche"]:checked') || {}).value,
-      umsatz: (form.querySelector('input[name="umsatz"]:checked') || {}).value,
-      kundenwert: (form.querySelector('input[name="kundenwert"]:checked') || {}).value,
-      vorname: form.elements.vorname.value.trim(),
-      nachname: form.elements.nachname.value.trim(),
-      email: form.elements.email.value.trim(),
-      telefon: form.elements.telefon.value.trim(),
-      position: form.elements.position.value,
-      quelle: form.elements.quelle.value,
-      page: location.href,
-      ts: new Date().toISOString()
-    };
-
-    // Persist locally in case the API fails (so we don't lose the lead)
-    try { localStorage.setItem('sd_last_lead', JSON.stringify(data)); } catch(e) {}
-
-    // Best-effort POST to our Vercel function. Move on regardless of result so the
-    // user always reaches the calendar. the lead is saved in Close from the API call.
-    try {
-      const resp = await fetch('/api/lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-      if (!resp.ok) console.warn('Lead API status:', resp.status);
-    } catch (err) {
-      console.warn('Lead API error:', err);
-    }
-
-    // Prefill Calendly via URL params
-    setTimeout(() => {
-      const url = new URL('https://calendly.com/salesdrive/analysegespraech');
-      url.searchParams.set('name', data.vorname + ' ' + data.nachname);
-      url.searchParams.set('email', data.email);
-      url.searchParams.set('a1', data.firma);
-      url.searchParams.set('a2', data.telefon);
-      url.searchParams.set('hide_gdpr_banner', '1');
-      url.searchParams.set('background_color', '15161c');
-      url.searchParams.set('text_color', 'f5f5f7');
-      url.searchParams.set('primary_color', '2997ff');
-      const widget = document.getElementById('calendlyEmbed');
-      widget.setAttribute('data-url', url.toString());
-      // Initialize Calendly widget
-      if (window.Calendly) {
-        window.Calendly.initInlineWidget({
-          url: url.toString(),
-          parentElement: widget,
-        });
-      }
-      goToStep(6);
-    }, 900);
-  });
-})();
+}
+function submitText(){
+  const cur=STEPS[idx];const inp=document.getElementById('inp');const v=inp.value.trim();
+  let ok=!!v;if(cur.input==='email')ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);if(cur.input==='tel')ok=v.replace(/[^0-9]/g,'').length>=6;
+  if(!ok){document.getElementById('err').classList.add('show');inp.focus();return;}
+  answers[cur.key]=v;next();
+}
+function transition(dir){
+  const s=stage.querySelector('.step');
+  if(s){s.classList.add('leaving');setTimeout(()=>{idx+=dir;render();},300);}else{idx+=dir;render();}
+}
+function next(){if(idx<STEPS.length-1)transition(1);}
+function prev(){if(idx>0)transition(-1);}
+document.addEventListener('keydown',e=>{
+  const cur=STEPS[idx];if(cur.type!=='choice')return;
+  const i=e.key.toUpperCase().charCodeAt(0)-65;
+  if(i>=0&&i<cur.options.length){const b=stage.querySelectorAll('.choice')[i];if(b)b.click();}
+});
+render();
 </script>
 </body>
 </html>
