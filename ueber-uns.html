@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="de"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Über uns · SalesDrive</title>
+<meta name="description" content="Wer wir sind: Das Team, die Geschichte und der Standort hinter SalesDrive — der Nr. 1 B2B Outbound Agentur im DACH-Raum.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d1d1f;--ink2:#5f6470;--ink3:#86868b;--line:rgba(0,0,0,.08);--bg2:#f5f5f7;--accent:#0a66ff;--sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter Tight",sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}.rv.in{opacity:1;transform:none}
+nav{position:sticky;top:0;z-index:50;height:60px;display:flex;align-items:center;background:#000;border-bottom:1px solid rgba(255,255,255,.1)}
+.nav-in{width:100%;max-width:1180px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.nav-in img{height:24px}
+.nav-links{display:flex;gap:26px}.nav-links a{color:#fff;opacity:.85;font-size:14px}.nav-links a:hover{opacity:1;color:#5b9bff}
+.nav-cta{background:#0a66ff;color:#fff;font-size:13.5px;font-weight:600;padding:9px 18px;border-radius:999px}
+@media(max-width:780px){.nav-links{display:none}}
+section{padding:clamp(64px,9vw,120px) 0}
+.bg2{background:var(--bg2)}
+.eyebrow{font-size:14px;font-weight:600;color:var(--accent);display:block;margin-bottom:14px;letter-spacing:.02em}
+h1{font-size:clamp(40px,6.5vw,84px);line-height:1.02;letter-spacing:-.04em;font-weight:700;max-width:15ch}
+h2{font-size:clamp(28px,4vw,50px);line-height:1.06;letter-spacing:-.03em;font-weight:700}
+.lead{font-size:clamp(18px,2vw,22px);color:var(--ink2);margin-top:20px;max-width:52ch;line-height:1.5}
+.hero{padding-top:clamp(48px,7vw,100px);background:radial-gradient(120% 60% at 50% 0,#eef4ff,#fff 60%)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:54px;border-top:1px solid var(--line);padding-top:40px}
+.stat .n{font-size:clamp(34px,4.4vw,52px);font-weight:700;letter-spacing:-.03em;background:linear-gradient(120deg,#1d1d1f,#0a66ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .l{font-size:14px;color:var(--ink2);margin-top:8px}
+.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(36px,5vw,72px);align-items:center}
+.split.rev{grid-template-columns:1.1fr .9fr}
+.ph{border-radius:24px;overflow:hidden;box-shadow:0 30px 70px -34px rgba(0,0,0,.32);aspect-ratio:4/5}.ph img{width:100%;height:100%;object-fit:cover}
+.ph.wide{aspect-ratio:4/3}
+.split p{font-size:16.5px;color:var(--ink2);line-height:1.65;margin-top:16px;max-width:54ch}.split p b{color:var(--ink)}
+.sign{display:flex;align-items:center;gap:13px;margin-top:24px}.sign img{width:48px;height:48px;border-radius:50%;object-fit:cover}.sign b{display:block;font-size:15px}.sign span{font-size:13px;color:var(--ink3)}
+.sec-head{text-align:center;max-width:720px;margin:0 auto 54px}
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.val{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:0 14px 36px -26px rgba(0,0,0,.16)}
+.val .vi{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:#eef3ff;color:var(--accent);margin-bottom:18px}.val .vi svg{width:22px;height:22px}
+.val h3{font-size:19px;font-weight:650;margin-bottom:8px}.val p{font-size:14.5px;color:var(--ink2);line-height:1.55}
+.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.tm{margin:0;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 12px 32px -22px rgba(0,0,0,.16);transition:transform .45s cubic-bezier(.16,1,.3,1)}.tm:hover{transform:translateY(-5px)}
+.tm img{width:100%;aspect-ratio:1;object-fit:cover;filter:grayscale(.15)}.tm figcaption{padding:13px 14px}.tm b{display:block;font-size:14.5px}.tm span{font-size:12.5px;color:var(--ink3)}
+.addr{display:flex;align-items:center;gap:13px;margin-top:24px;background:var(--bg2);border-radius:14px;padding:16px 18px}.addr svg{width:24px;height:24px;color:var(--accent)}.addr b{display:block;font-size:15px}.addr span{font-size:13.5px;color:var(--ink3)}
+.zcert{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.zc{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 14px 36px -24px rgba(0,0,0,.16)}
+.zc img{height:54px}.zc b{display:block;font-size:16px}.zc span{font-size:13px;color:var(--ink3)}
+.zc-stars{font-size:18px;color:#f5a623;white-space:nowrap}.zc-stars em{font-style:normal;color:#1d1d1f;font-weight:700;margin-left:4px}
+.zc-num{font-size:40px;font-weight:800;color:var(--accent);line-height:1}
+.final{background:#000;color:#fff;text-align:center}.final h2{color:#fff}.final p{color:#a1a1a6;margin:18px auto 0;max-width:42ch;font-size:18px}
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#fff;font-size:17px;font-weight:600;padding:15px 30px;border-radius:999px;margin-top:30px}.btn svg{width:18px;height:18px}
+footer{background:#000;color:#a1a1a6;padding:48px 0;text-align:center;font-size:13px}
+footer a{color:#a1a1a6}footer a:hover{color:#fff}
+@media(max-width:860px){.split,.split.rev{grid-template-columns:1fr}.values,.zcert{grid-template-columns:1fr}.team-grid{grid-template-columns:repeat(3,1fr)}.stats{grid-template-columns:1fr 1fr}.ph{aspect-ratio:16/11}}
+@media(max-width:560px){.team-grid{grid-template-columns:1fr 1fr}}
+</style></head>
+<body>
+<nav><div class="nav-in"><a href="/"><img src="/assets/brand/salesdrive-logo.png" alt="SalesDrive"></a>
+<div class="nav-links"><a href="/#leistung">Leistung</a><a href="/#team">Team</a><a href="/#stimmen">Stimmen</a><a href="/zertifizierungen">Zertifizierungen</a></div>
+<a class="nav-cta" href="/formular">Analysegespräch →</a></div></nav>
+
+<header class="hero"><div class="wrap">
+<span class="eyebrow rv">Über uns</span>
+<h1 class="rv">Die Menschen, die deine Pipeline füllen.</h1>
+<p class="lead rv">SalesDrive ist die Nr. 1 B2B Outbound Agentur im DACH-Raum. Wir rufen deine Wunschkunden an und legen dir Abschlussgespräche in den Kalender — mit echten deutschsprachigen Sales-Profis aus Wien.</p>
+<div class="stats rv">
+<div class="stat"><div class="n">2019</div><div class="l">gegründet in Wien</div></div>
+<div class="stat"><div class="n">10+</div><div class="l">im Team</div></div>
+<div class="stat"><div class="n">180</div><div class="l">Kampagnen</div></div>
+<div class="stat"><div class="n">4,82</div><div class="l">ProvenExpert-Score</div></div>
+</div></div></header>
+
+<section class="bg2"><div class="wrap"><div class="split rv">
+<div class="ph"><img src="/assets/photos/alex-headset-portrait.jpg" alt="Alexander Király"></div>
+<div><span class="eyebrow">Wer wir sind</span><h2>Aus Frust über schlechte Akquise wurde SalesDrive.</h2>
+<p>Die meisten guten B2B-Anbieter scheitern nicht am Angebot, sondern an der Akquise. Kaltakquise ist unbeliebt, Callcenter im Ausland liefern Müll-Termine und „Terminmaschinen" verbrennen deine Marke.</p>
+<p>Genau das wollten wir anders machen: <b>deutschsprachige Sales-Profis</b>, ein <b>TÜV-zertifizierter Prozess</b> und volle Transparenz über deinen eigenen Hub. Heute legen wir B2B-Unternehmen im ganzen DACH-Raum planbar Abschlussgespräche in den Kalender.</p>
+<div class="sign"><img src="/assets/team/alexander-kiraly.jpeg" alt=""><div><b>Alexander Király</b><span>Gründer &amp; Geschäftsführer</span></div></div></div>
+</div></div></section>
+
+<section><div class="wrap"><div class="sec-head rv"><span class="eyebrow">Wofür wir stehen</span><h2>Unsere Prinzipien.</h2></div>
+<div class="values rv">
+<div class="val"><span class="vi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Markenkonform</h3><p>Kein Wort geht ohne deine Freigabe raus. Deine Tonalität, deine Werte, deine No-Gos.</p></div>
+<div class="val"><span class="vi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></span><h3>Volle Transparenz</h3><p>Jeder Call wird protokolliert und ist live in deinem Hub einsehbar — nach 21 Qualitätskriterien bewertet.</p></div>
+<div class="val"><span class="vi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 7-7M14 7h6v6"/></svg></span><h3>Ergebnis statt Aktivität</h3><p>Wir verkaufen keine Anrufe, sondern Abschlussgespräche mit echten Entscheidern.</p></div>
+</div></div></section>
+
+<section id="team" class="bg2"><div class="wrap"><div class="sec-head rv"><span class="eyebrow">Das Team</span><h2>Echte Profis aus Wien.</h2></div>
+<div class="team-grid rv"><figure class="tm"><img src="/assets/team/alexander-kiraly.jpeg" alt="Alexander Király" loading="lazy"><figcaption><b>Alexander Király</b><span>Gründer & Geschäftsführer</span></figcaption></figure><figure class="tm"><img src="/assets/team/lukas-lehner.jpeg" alt="Lukas Lehner" loading="lazy"><figcaption><b>Lukas Lehner</b><span>Strategie & Kampagnen</span></figcaption></figure><figure class="tm"><img src="/assets/team/marcel-wolf.jpeg" alt="Marcel Wolf" loading="lazy"><figcaption><b>Marcel Wolf</b><span>Senior Sales-Profi</span></figcaption></figure><figure class="tm"><img src="/assets/team/sophie-oberlechner.jpeg" alt="Sophie Oberlechner" loading="lazy"><figcaption><b>Sophie Oberlechner</b><span>Account Management</span></figcaption></figure><figure class="tm"><img src="/assets/team/thomas-thate.jpeg" alt="Thomas Thate" loading="lazy"><figcaption><b>Thomas Thate</b><span>Sales-Profi</span></figcaption></figure><figure class="tm"><img src="/assets/team/lili-neumann.jpeg" alt="Lili Neumann" loading="lazy"><figcaption><b>Lili Neumann</b><span>Kampagnen-Management</span></figcaption></figure><figure class="tm"><img src="/assets/team/michael-huber.jpeg" alt="Michael Huber" loading="lazy"><figcaption><b>Michael Huber</b><span>Sales-Profi</span></figcaption></figure><figure class="tm"><img src="/assets/team/monika-fussi.jpeg" alt="Monika Fussi" loading="lazy"><figcaption><b>Monika Fussi</b><span>Quality Assurance</span></figcaption></figure><figure class="tm"><img src="/assets/team/zahrah-kannstein.jpeg" alt="Zahrah Kannstein" loading="lazy"><figcaption><b>Zahrah Kannstein</b><span>Onboarding & Support</span></figcaption></figure><figure class="tm"><img src="/assets/team/hans-peter-lorenz.jpeg" alt="Hans-Peter Lorenz" loading="lazy"><figcaption><b>Hans-Peter Lorenz</b><span>Sales-Profi</span></figcaption></figure></div></div></section>
+
+<section><div class="wrap"><div class="split rev rv">
+<div><span class="eyebrow">Unser Standort</span><h2>Mitten in Wien. Persönlich erreichbar.</h2>
+<p>Kein anonymes Briefkasten-Setup. Unser Team sitzt gemeinsam in Wien — hier entstehen deine Kampagnen, hier wird telefoniert, hier kannst du uns jederzeit besuchen.</p>
+<div class="addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div><b>SalesDrive GmbH</b><span>Obere Donaustraße 25 · 1020 Wien · Österreich</span></div></div></div>
+<div class="ph wide"><img src="/assets/photos/leopoldquartier-office.jpg" alt="SalesDrive Büro Wien"></div>
+</div></div></section>
+
+<section class="bg2"><div class="wrap"><div class="sec-head rv"><span class="eyebrow">Geprüft &amp; zertifiziert</span><h2>Qualität, unabhängig bestätigt.</h2></div>
+<div class="zcert rv">
+<div class="zc"><img src="/assets/trust/tuv-rheinland.png" alt="TÜV Rheinland"><div><b>TÜV-zertifiziert</b><span>TÜV Rheinland · ID 0217466221 · jährliches Re-Audit</span></div></div>
+<div class="zc"><div class="zc-stars">★★★★★ <em>4,82</em></div><div><b>ProvenExpert</b><span>Aus echten Kundenbewertungen.</span></div></div>
+<div class="zc"><div class="zc-num">21</div><div><b>Qualitätskriterien</b><span>Jedes Gespräch bewertet.</span></div></div>
+</div></div></section>
+
+<section class="final"><div class="wrap"><h2 class="rv">Lernen wir uns kennen.</h2>
+<p class="rv">Sichere dir dein kostenloses Analysegespräch mit Alexander Király.</p>
+<div class="rv"><a class="btn" href="/formular">Kostenloses Analysegespräch <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div></div></section>
+
+<footer><div class="wrap">© 2026 SalesDrive GmbH · Wien · <a href="/">Startseite</a> · <a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a></div></footer>
+<script>
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+</script>
+</body></html>
