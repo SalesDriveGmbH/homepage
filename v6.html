@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>SalesDrive · Wir telefonieren. Du verkaufst.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1d1d1f;--ink2:#6e6e73;--ink3:#86868b;--line:rgba(0,0,0,.10);--line2:rgba(0,0,0,.06);
+  --bg:#fff;--bg2:#f5f5f7;--accent:#0a66ff;--accent2:#2680ff;--blk:#000;--blk-ink:#f5f5f7;--blk-ink2:#a1a1a6;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter Tight",Inter,sans-serif;
+  --shadow:0 30px 70px -30px rgba(0,0,0,.28);--shadow-sm:0 10px 30px -14px rgba(0,0,0,.18);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 24px}
+.center{text-align:center}
+img{max-width:100%;display:block}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+.rv2{transition-delay:.1s}.rv3{transition-delay:.2s}.rv4{transition-delay:.3s}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;
+  background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line2)}
+.nav-in{width:100%;max-width:1180px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:700;font-size:20px;letter-spacing:-.025em;color:var(--ink)}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:30px}
+.nav-links a{font-size:13px;color:var(--ink);opacity:.85;transition:opacity .2s}
+.nav-links a:hover{opacity:1;color:var(--accent)}
+.nav-cta{font-size:13px;font-weight:500;background:var(--ink);color:#fff;padding:7px 16px;border-radius:999px;transition:.2s}
+.nav-cta:hover{background:var(--accent)}
+@media(max-width:820px){.nav-links{display:none}}
+
+/* ── HERO ── */
+.hero{padding:140px 0 0;text-align:center;background:radial-gradient(120% 60% at 50% 0,#f1f5ff 0,#fff 55%)}
+.eyebrow{display:inline-block;font-size:15px;font-weight:600;color:var(--accent);letter-spacing:-.01em;margin-bottom:16px}
+.hero h1{font-size:clamp(40px,6.6vw,84px);line-height:1.04;letter-spacing:-.035em;font-weight:600;max-width:16ch;margin:0 auto}
+.hero h1 .g{background:linear-gradient(120deg,#0a66ff,#42b2ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{font-size:clamp(19px,2.1vw,26px);color:var(--ink2);max-width:40ch;margin:24px auto 0;letter-spacing:-.01em;line-height:1.4}
+.hero .sub b{color:var(--ink);font-weight:600}
+.cta-row{display:flex;gap:16px;justify-content:center;align-items:center;margin-top:34px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;font-size:17px;font-weight:500;padding:14px 28px;border-radius:999px;background:var(--accent);color:#fff;transition:.2s;letter-spacing:-.01em}
+.btn:hover{background:#0a5ae0;transform:translateY(-1px)}
+.btn svg{width:17px;height:17px;transition:transform .2s}.btn:hover svg{transform:translateX(3px)}
+.btn-text{font-size:17px;font-weight:500;color:var(--accent);display:inline-flex;align-items:center;gap:6px}
+.btn-text:hover{text-decoration:underline}
+.hero-trust{display:flex;gap:26px;justify-content:center;align-items:center;margin-top:30px;flex-wrap:wrap;opacity:.9}
+.hero-trust img{height:38px;width:auto;filter:grayscale(.2)}
+.hero-trust .ht{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--ink2)}
+.hero-trust .ht b{color:var(--ink);font-weight:600}
+.hero-trust svg{width:15px;height:15px;color:#f5a623}
+
+.hero-stage{margin-top:60px;position:relative}
+.hframe{position:relative;max-width:980px;margin:0 auto;border-radius:24px;overflow:hidden;box-shadow:var(--shadow);cursor:pointer;background:#000;aspect-ratio:16/9}
+.hframe img{width:100%;height:100%;object-fit:cover;object-position:center 28%}
+.hframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.play{position:absolute;inset:0;display:grid;place-items:center}
+.play span{width:74px;height:74px;border-radius:50%;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.5);display:grid;place-items:center;transition:.3s}
+.hframe:hover .play span{transform:scale(1.08);background:rgba(255,255,255,.28)}
+.play svg{width:24px;height:24px;color:#fff;margin-left:3px}
+
+/* ── SECTIONS ── */
+section{position:relative}
+.sec{padding:clamp(80px,11vw,140px) 0}
+.bg2{background:var(--bg2)}
+.sec-head{text-align:center;max-width:760px;margin:0 auto clamp(48px,6vw,72px)}
+.sec-eye{font-size:14px;font-weight:600;color:var(--accent);letter-spacing:-.01em;display:block;margin-bottom:14px}
+.sec-head h2{font-size:clamp(30px,4.4vw,54px);line-height:1.08;letter-spacing:-.03em;font-weight:600}
+.sec-head p{font-size:clamp(17px,1.9vw,21px);color:var(--ink2);margin-top:18px;line-height:1.45;letter-spacing:-.01em}
+
+/* clients */
+.clients{padding:54px 0;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)}
+.clients .lab{text-align:center;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin-bottom:28px}
+.logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:clamp(28px,5vw,64px)}
+.logos img{height:30px;width:auto;filter:grayscale(1);opacity:.55;transition:.3s}
+.logos img:hover{filter:grayscale(0);opacity:1}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+.stat .n{font-size:clamp(38px,5vw,64px);font-weight:600;letter-spacing:-.035em;line-height:1;background:linear-gradient(120deg,#1d1d1f,#0a66ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .l{font-size:15px;color:var(--ink2);margin-top:12px;letter-spacing:-.01em}
+@media(max-width:760px){.stats{grid-template-columns:1fr 1fr;gap:40px 20px}}
+
+/* ── BLACK section ── */
+.black{background:var(--blk);color:var(--blk-ink)}
+.black .sec-head h2{color:#fff}
+.black .sec-head p{color:var(--blk-ink2)}
+.black .sec-eye{color:#5b9bff}
+.dash{max-width:980px;margin:0 auto;border-radius:24px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,#141416,#0b0b0d);overflow:hidden;box-shadow:0 60px 120px -50px rgba(0,0,0,.9)}
+.dash-top{display:flex;align-items:center;gap:8px;padding:15px 20px;border-bottom:1px solid rgba(255,255,255,.08)}
+.dash-top i{width:11px;height:11px;border-radius:50%;background:#3a3a3d}
+.dash-top .tt{margin-left:14px;font-size:13px;color:var(--blk-ink2)}
+.dash-top .live{margin-left:auto;font-size:11px;color:#34d399;display:flex;align-items:center;gap:7px}
+.dash-top .live::before{content:"";width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 0 4px rgba(52,211,153,.18);animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px transparent}}
+.dash-body{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.06)}
+.dash-kpis{background:#0b0b0d;padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:22px;align-content:start}
+.kpi .kl{font-size:12.5px;color:var(--blk-ink2)}
+.kpi .kn{font-size:34px;font-weight:600;letter-spacing:-.03em;margin-top:6px}
+.kpi .kn small{font-size:15px;color:#5b9bff;font-weight:600}
+.dash-funnel{background:#0b0b0d;padding:28px}
+.fl{font-size:12.5px;color:var(--blk-ink2);margin-bottom:18px}
+.frow{margin-bottom:15px}
+.frow .ft{display:flex;justify-content:space-between;font-size:13px;margin-bottom:7px;color:#d4d4d8}
+.frow .ft b{color:#fff;font-weight:600}
+.fbar{height:8px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden}
+.fbar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#0a66ff,#5b9bff);width:0;transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
+.black.in .fbar i{width:var(--w)}
+@media(max-width:760px){.dash-body{grid-template-columns:1fr}.dash-kpis{grid-template-columns:1fr 1fr}}
+
+/* feature cards */
+.fcards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.fcard{background:#fff;border:1px solid var(--line);border-radius:22px;padding:34px 30px;box-shadow:var(--shadow-sm);transition:.4s cubic-bezier(.16,1,.3,1)}
+.fcard:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.fcard .fi{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#eaf1ff,#dbe8ff);color:var(--accent);margin-bottom:22px}
+.fcard .fi svg{width:24px;height:24px}
+.fcard h3{font-size:21px;font-weight:600;letter-spacing:-.02em;margin-bottom:10px}
+.fcard p{font-size:15px;color:var(--ink2);line-height:1.55}
+@media(max-width:880px){.fcards{grid-template-columns:1fr}}
+
+/* voraussetzungen + iphone */
+.vor{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,90px);align-items:center}
+.iphone-wrap{display:flex;justify-content:center;position:relative}
+.iphone-wrap::before{content:"";position:absolute;width:74%;aspect-ratio:1;left:50%;top:48%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(10,102,255,.18),transparent 65%);filter:blur(50px)}
+.iphone{position:relative;width:290px;max-width:80vw;aspect-ratio:9/19.2;border-radius:46px;padding:54px 14px 22px;overflow:hidden;background:linear-gradient(170deg,#1a1c22,#0c0e13);box-shadow:0 0 0 10px #0a0a0c,0 0 0 11px rgba(0,0,0,.1),0 60px 110px -45px rgba(0,0,0,.5);animation:float 7s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+.iph-notch{position:absolute;top:15px;left:50%;transform:translateX(-50%);width:96px;height:26px;background:#000;border-radius:999px}
+.iph-time{position:absolute;top:19px;left:26px;font-size:13px;font-weight:600;color:#fff}
+.iph-sig{position:absolute;top:19px;right:26px;font-size:11px;font-weight:700;color:#fff}
+.iph-date{text-align:center;color:rgba(255,255,255,.9);font-size:13.5px;margin-top:6px}
+.iph-clock{text-align:center;font-size:62px;font-weight:300;color:#fff;letter-spacing:-.02em;line-height:1;margin:2px 0 24px}
+.iph-notif{background:rgba(60,62,70,.55);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:12px 14px;margin:10px 4px;opacity:0;transform:translateY(12px)}
+.vor.in .iph-notif{animation:nin .6s cubic-bezier(.16,1,.3,1) forwards}
+.vor.in .iph-notif:nth-of-type(2){animation-delay:.5s}.vor.in .iph-notif:nth-of-type(3){animation-delay:.9s}
+@keyframes nin{to{opacity:1;transform:none}}
+.iph-nh{display:flex;align-items:center;gap:7px;font-size:10px;font-weight:700;letter-spacing:.05em;color:rgba(255,255,255,.6);margin-bottom:5px}
+.iph-app{width:16px;height:16px;border-radius:5px;background:linear-gradient(135deg,#2680ff,#0a3fd0)}
+.iph-ago{margin-left:auto;font-weight:500;color:rgba(255,255,255,.4)}
+.iph-notif b{display:block;font-size:13px;color:#fff;font-weight:600;margin-bottom:2px}
+.iph-notif span{display:block;font-size:11.5px;color:rgba(255,255,255,.6);line-height:1.4}
+.vor-copy h2{font-size:clamp(28px,3.8vw,48px);line-height:1.08;letter-spacing:-.03em;font-weight:600}
+.vor-copy>p{font-size:17px;color:var(--ink2);line-height:1.6;margin-top:18px;max-width:46ch}
+.vor-copy>p b{color:var(--ink);font-weight:600}
+.vfeats{list-style:none;margin:30px 0 0;display:flex;flex-direction:column;gap:20px}
+.vfeats li{display:flex;gap:15px;align-items:flex-start}
+.vfeats .vi{flex:0 0 auto;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm);color:var(--accent)}
+.vfeats .vi svg{width:19px;height:19px}
+.vfeats h4{font-size:16px;font-weight:600;margin-bottom:3px}
+.vfeats p{font-size:14.5px;color:var(--ink2);line-height:1.5;max-width:44ch}
+@media(max-width:880px){.vor{grid-template-columns:1fr;gap:48px}.iphone-wrap{order:-1}}
+
+/* timeline */
+.tl{max-width:820px;margin:0 auto;position:relative}
+.tl-rail{position:absolute;left:27px;top:30px;bottom:40px;width:2px;background:var(--line);overflow:hidden}
+.tl-fill{position:absolute;top:0;left:0;width:100%;height:0;background:linear-gradient(180deg,#0a66ff,#42b2ff);transition:height .1s linear}
+.tl-step{position:relative;display:grid;grid-template-columns:56px 1fr;gap:26px;padding-bottom:clamp(28px,4vw,48px)}
+.tl-step:last-child{padding-bottom:0}
+.tl-node{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#fff;border:1px solid var(--line);color:var(--ink3);font-weight:600;box-shadow:var(--shadow-sm);transition:.5s;z-index:1}
+.tl-step.lit .tl-node{background:linear-gradient(135deg,#0a66ff,#42b2ff);color:#fff;border-color:transparent;box-shadow:0 14px 30px -10px rgba(10,102,255,.6)}
+.tl-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 30px;box-shadow:var(--shadow-sm)}
+.tl-eye{font-size:13px;font-weight:600;color:var(--accent)}
+.tl-card h3{font-size:22px;font-weight:600;letter-spacing:-.02em;margin:8px 0 10px}
+.tl-card p{font-size:15px;color:var(--ink2);line-height:1.6}
+.tl-time{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:13px;color:var(--ink3);border:1px solid var(--line);border-radius:999px;padding:7px 14px}
+.tl-time svg{width:13px;height:13px;color:var(--accent)}
+
+/* black quote */
+.bquote{max-width:920px;margin:0 auto;text-align:center}
+.bquote .stars{color:#f5a623;font-size:20px;letter-spacing:3px;margin-bottom:24px}
+.bquote q{font-size:clamp(24px,3.4vw,40px);font-weight:500;letter-spacing:-.025em;line-height:1.28;color:#fff;quotes:none}
+.bquote .who{margin-top:30px;display:inline-flex;align-items:center;gap:14px}
+.bquote .who img{width:50px;height:50px;border-radius:50%;object-fit:cover;border:1px solid rgba(255,255,255,.2)}
+.bquote .who .nm{text-align:left}.bquote .who b{font-size:15px;font-weight:600}.bquote .who span{display:block;font-size:13px;color:var(--blk-ink2)}
+
+/* testimonials */
+.tcards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.tcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
+.tcard .stars{color:#f5a623;font-size:15px;letter-spacing:2px;margin-bottom:16px}
+.tcard p{font-size:15.5px;color:var(--ink);line-height:1.6;flex:1}
+.tcard .who{display:flex;align-items:center;gap:12px;margin-top:22px;padding-top:20px;border-top:1px solid var(--line2)}
+.tcard .who img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+.tcard .who b{font-size:14.5px;font-weight:600;display:block}.tcard .who span{font-size:13px;color:var(--ink3)}
+@media(max-width:880px){.tcards{grid-template-columns:1fr}}
+
+/* branchen */
+.brc{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.brcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;transition:.35s cubic-bezier(.16,1,.3,1)}
+.brcard:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.brcard .bi{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--bg2);color:var(--accent);margin-bottom:16px}
+.brcard .bi svg{width:21px;height:21px}
+.brcard h4{font-size:16.5px;font-weight:600;letter-spacing:-.01em}
+.brcard p{font-size:13.5px;color:var(--ink2);margin-top:5px;line-height:1.45}
+@media(max-width:880px){.brc{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.brc{grid-template-columns:1fr}}
+
+/* final black CTA */
+.final{background:#000;color:#fff;text-align:center;padding:clamp(100px,14vw,180px) 0;position:relative;overflow:hidden}
+.final::before{content:"";position:absolute;width:900px;height:900px;left:50%;top:60%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(10,102,255,.28),transparent 60%);filter:blur(40px)}
+.final .in-w{position:relative;z-index:1}
+.final h2{font-size:clamp(40px,7vw,92px);line-height:1.02;letter-spacing:-.04em;font-weight:600}
+.final h2 .g{background:linear-gradient(120deg,#5b9bff,#9fd0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.final p{font-size:clamp(18px,2vw,22px);color:var(--blk-ink2);margin:22px auto 0;max-width:40ch}
+.final .cta-row{margin-top:38px}
+.final .btn-text{color:#5b9bff}
+
+/* footer */
+footer{background:#000;color:var(--blk-ink2);padding:70px 0 40px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-logo{font-weight:700;font-size:22px;letter-spacing:-.025em;color:#fff;display:inline-block;margin-bottom:16px}
+.foot-logo span{color:#5b9bff}
+.foot-brand p{font-size:13.5px;line-height:1.6;max-width:30ch}
+.foot-social{display:flex;gap:10px;margin-top:20px}
+.foot-social a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;transition:.2s}
+.foot-social a:hover{border-color:#5b9bff;color:#fff}
+.foot-social svg{width:16px;height:16px}
+.foot-col h5{font-size:13px;color:#fff;font-weight:600;margin-bottom:16px}
+.foot-col a{display:block;font-size:13.5px;margin-bottom:11px;transition:.2s}.foot-col a:hover{color:#fff}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;padding-top:26px;font-size:12.5px;flex-wrap:wrap;gap:14px}
+.foot-bot .badges{display:flex;align-items:center;gap:20px}
+.foot-bot .badges img{height:30px;width:auto;opacity:.7;filter:grayscale(1) brightness(1.4)}
+@media(max-width:880px){.foot-grid{grid-template-columns:1fr 1fr;gap:34px}.foot-brand{grid-column:1/-1}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="/v6" class="logo">Sales<span>drive</span></a>
+    <div class="nav-links">
+      <a href="#beweis">Live-Tracking</a>
+      <a href="#leistung">Leistung</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#stimmen">Stimmen</a>
+      <a href="#branchen">Branchen</a>
+    </div>
+    <a class="nav-cta" href="/formular">Analysegespräch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow rv">Nr. 1 B2B Outbound Agentur</span>
+    <h1 class="rv rv2">Wir rufen deine Wunschkunden an und legen dir <span class="g">Abschlussgespräche</span> in den Kalender.</h1>
+    <p class="sub rv rv3">Wir übernehmen die kalte Erstansprache. Du bekommst nur noch <b>vorqualifizierte Abschlussgespräche mit Entscheidern</b>.</p>
+    <div class="cta-row rv rv3">
+      <a class="btn" href="/formular">Kostenloses Analysegespräch <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      <a class="btn-text" href="#stimmen">Referenzen ansehen ›</a>
+    </div>
+    <div class="hero-trust rv rv4">
+      <img src="/assets/trust/tuv-rheinland.png" alt="TÜV Rheinland zertifiziert">
+      <span class="ht"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 .8-5.2 4.7 1.4 6.9L12 17.8 5.8 20.9l1.4-6.9L2 9.3l7-.8z"/></svg><b>4,82 / 5</b> · ProvenExpert</span>
+    </div>
+  </div>
+  <div class="hero-stage rv rv2">
+    <div class="wrap">
+      <div class="hframe" data-vimeo="1199134659">
+        <img src="/assets/video-thumbs/1199134659.jpg" alt="SalesDrive Vorstellung">
+        <span class="play"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- CLIENTS -->
+<div class="clients">
+  <div class="wrap">
+    <div class="lab">Vertraut von über 180 B2B-Unternehmen im DACH-Raum</div>
+    <div class="logos rv">
+      <img src="/assets/logos/menschen-im-vertrieb.png" alt="Menschen im Vertrieb">
+      <img src="/assets/logos/memberspot.png" alt="Memberspot">
+      <img src="/assets/logos/this-is-marketing.png" alt="This is Marketing">
+      <img src="/assets/logos/hano-einbaukuechen.png" alt="HANO">
+      <img src="/assets/logos/highbryd-media.png" alt="Highbryd Media">
+      <img src="/assets/logos/corestad.png" alt="Corestad">
+      <img src="/assets/logos/webit.png" alt="Webit">
+      <img src="/assets/logos/z-management.png" alt="Z Management">
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="stats rv">
+      <div class="stat"><div class="n"><span data-count="1.4">0</span> Mio+</div><div class="l">Gespräche geführt</div></div>
+      <div class="stat"><div class="n"><span data-count="10230">0</span></div><div class="l">Abschlussgespräche</div></div>
+      <div class="stat"><div class="n">€<span data-count="83">0</span> Mio</div><div class="l">Umsatz generiert</div></div>
+      <div class="stat"><div class="n"><span data-count="180">0</span></div><div class="l">Kampagnen</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BLACK 1 · Live-Tracking -->
+<section class="sec black" id="beweis">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-eye">Volle Transparenz</span>
+      <h2>Alles protokolliert.<br>Alles in Echtzeit einsehbar.</h2>
+      <p>Jeder Anruf wird protokolliert und ist für dich einsehbar. Jedes Gespräch wird nach 21 Qualitätskriterien bewertet. Du siehst live, was deine Kampagne bringt.</p>
+    </div>
+    <div class="dash rv">
+      <div class="dash-top"><i></i><i></i><i></i><span class="tt">SalesDrive · Live-Tracking</span><span class="live">Live</span></div>
+      <div class="dash-body">
+        <div class="dash-kpis">
+          <div class="kpi"><div class="kl">Termine im Kalender</div><div class="kn">31</div></div>
+          <div class="kpi"><div class="kl">Abschlussgespräche</div><div class="kn">8</div></div>
+          <div class="kpi"><div class="kl">Pipeline-Wert</div><div class="kn">20.800<small> €</small></div></div>
+          <div class="kpi"><div class="kl">Qualitätskriterien</div><div class="kn">21<small> / Call</small></div></div>
+        </div>
+        <div class="dash-funnel">
+          <div class="fl">Kampagnen-Funnel · diese Woche</div>
+          <div class="frow"><div class="ft">Angerufen <b>1.240</b></div><div class="fbar" style="--w:100%"><i></i></div></div>
+          <div class="frow"><div class="ft">Erreicht <b>612</b></div><div class="fbar" style="--w:72%"><i></i></div></div>
+          <div class="frow"><div class="ft">Mit Entscheider gesprochen <b>198</b></div><div class="fbar" style="--w:46%"><i></i></div></div>
+          <div class="frow"><div class="ft">Termin gebucht <b>31</b></div><div class="fbar" style="--w:24%"><i></i></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEISTUNG · feature cards -->
+<section class="sec bg2" id="leistung">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-eye">Mehr als nur Termine</span>
+      <h2>Ein komplettes Vertriebs­system. Schlüsselfertig.</h2>
+      <p>Liste, Skripte, Technik, deutschsprachige Sales-Profis und Reporting — wir bringen alles mit. Du führst nur noch die warmen Abschlussgespräche.</p>
+    </div>
+    <div class="fcards">
+      <div class="fcard rv">
+        <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></div>
+        <h3>Deutschsprachige Sales-Profis</h3>
+        <p>Kein Callcenter im Ausland. Geschulte deutschsprachige Profis, die deine Wunschkunden auf Augenhöhe ansprechen.</p>
+      </div>
+      <div class="fcard rv rv2">
+        <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>21 Qualitätskriterien</h3>
+        <p>Jedes Gespräch wird nach 21 Kriterien bewertet. Protokolliert, einsehbar, TÜV-zertifiziert geprüft.</p>
+      </div>
+      <div class="fcard rv rv3">
+        <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Markenkonform — ohne Risiko</h3>
+        <p>Jedes Wort vor dem ersten Anruf von dir freigegeben. Deine Tonalität, deine Werte, deine No-Gos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VORAUSSETZUNGEN + iPhone -->
+<section class="sec">
+  <div class="wrap">
+    <div class="vor rv">
+      <div class="iphone-wrap">
+        <div class="iphone">
+          <span class="iph-notch"></span><span class="iph-time">08:58</span><span class="iph-sig">5G</span>
+          <div class="iph-date">Donnerstag, 21. Mai</div>
+          <div class="iph-clock">08:58</div>
+          <div class="iph-notif"><div class="iph-nh"><span class="iph-app"></span>CALENDLY<span class="iph-ago">vor 1 Min.</span></div><b>Neues Ereignis: Strategiegespräch</b><span>Andrea Brunner · CFO · Mi, 21. Mai · 11:15</span></div>
+          <div class="iph-notif"><div class="iph-nh"><span class="iph-app"></span>CALENDLY<span class="iph-ago">vor 3 Std.</span></div><b>Neues Ereignis: Strategiegespräch</b><span>Florian Holzer · GF · Do, 22. Mai · 08:30</span></div>
+        </div>
+      </div>
+      <div class="vor-copy">
+        <span class="sec-eye">Unsere Voraussetzungen</span>
+        <h2>Ist SalesDrive für dich das Richtige?</h2>
+        <p>SalesDrive ist <b>kein Callcenter</b> und keine „Terminmaschine" für jedes Business. Wir arbeiten ausschließlich mit etablierten B2B-Anbietern.</p>
+        <p>Du machst mindestens <b>1 Mio € Jahresumsatz</b> und dein Kundenwert liegt über 5.000 €? Dann passt es.</p>
+        <ul class="vfeats">
+          <li><span class="vi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><path d="M21 16a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 2zM3 16a2 2 0 0 0 2 2h1v-5H5a2 2 0 0 0-2 2z"/></svg></span><div><h4>Qualität der Mitarbeiter</h4><p>Nur geprüfte Top-Performer telefonieren in deinem Namen.</p></div></li>
+          <li><span class="vi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><h4>Kontrolle &amp; Freigaben</h4><p>Keine Kommunikation ohne deine vorherige Freigabe.</p></div></li>
+          <li><span class="vi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h10M4 18h7"/></svg></span><div><h4>Branchen-Erfahrung</h4><p>Wir arbeiten nur in Branchen, in denen wir messbar performen.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABLAUF timeline -->
+<section class="sec bg2" id="ablauf">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-eye">Der Ablauf</span>
+      <h2>Drei Schritte.<br>Zwei Stunden Aufwand für dich.</h2>
+    </div>
+    <div class="tl rv" id="tl">
+      <div class="tl-rail"><div class="tl-fill" id="tlFill"></div></div>
+      <div class="tl-step"><div class="tl-node">01</div><div class="tl-card"><span class="tl-eye">Das Setup übernehmen wir</span><h3>Im Kick-Off bereiten wir alles vor.</h3><p>Wir lernen Angebot, Zielgruppe und Prozess kennen, definieren ein No-Brainer-Offer und richten das komplette technische Setup für dich ein.</p><span class="tl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Dein Aufwand · 60 Minuten</span></div></div>
+      <div class="tl-step"><div class="tl-node">02</div><div class="tl-card"><span class="tl-eye">Diese Gespräche führen wir</span><h3>Nach deiner Freigabe legen wir los.</h3><p>Wir führen die Erstansprachen, qualifizieren vor und buchen Abschlussgespräche mit Briefing, Bedarf und Budget direkt in deinen Kalender.</p><span class="tl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Dein Aufwand · 60 Minuten Freigabe</span></div></div>
+      <div class="tl-step"><div class="tl-node">03</div><div class="tl-card"><span class="tl-eye">Das ist deine Aufgabe</span><h3>Du führst die Abschlüsse.</h3><p>Du sprichst mit vorqualifizierten Entscheidern, bekommst vorab alle Notizen und ein bewährtes Gesprächs-Framework. Du verkaufst.</p><span class="tl-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>60–90 Minuten pro Termin</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BLACK 2 · featured quote -->
+<section class="sec black">
+  <div class="wrap">
+    <div class="bquote rv">
+      <div class="stars">★★★★★</div>
+      <q>Innerhalb von acht Wochen hatten wir mehr qualifizierte Entscheider­gespräche im Kalender als im ganzen Jahr davor. SalesDrive liefert — planbar.</q>
+      <div class="who"><img src="/assets/team/marcel-wolf.jpeg" alt=""><div class="nm"><b>Geschäftsführer</b><span>B2B-Dienstleister · DACH</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STIMMEN -->
+<section class="sec" id="stimmen">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-eye">Stimmen</span>
+      <h2>Resultate, die für sich sprechen.</h2>
+      <p>4,82 von 5 Sternen bei ProvenExpert — aus echten Kundenstimmen.</p>
+    </div>
+    <div class="tcards">
+      <div class="tcard rv"><div class="stars">★★★★★</div><p>„Endlich planbare Pipeline. Wir bekommen jede Woche Termine mit genau den Entscheidern, die wir wollen — und mussten dafür keinen einzigen Anruf selbst machen."</p><div class="who"><img src="/assets/team/thomas-thate.jpeg" alt=""><div><b>Thomas T.</b><span>Geschäftsführer</span></div></div></div>
+      <div class="tcard rv rv2"><div class="stars">★★★★★</div><p>„Das Reporting ist Gold wert. Jeder Call protokolliert, jede Quote sichtbar. So transparent habe ich Outbound noch nie erlebt."</p><div class="who"><img src="/assets/team/michael-huber.jpeg" alt=""><div><b>Michael H.</b><span>Head of Sales</span></div></div></div>
+      <div class="tcard rv rv3"><div class="stars">★★★★★</div><p>„Markenkonform, professionell, auf Augenhöhe. Unsere Kunden merken nicht, dass nicht wir selbst angerufen haben — im besten Sinne."</p><div class="who"><img src="/assets/team/sophie-oberlechner.jpeg" alt=""><div><b>Sophie O.</b><span>Marketing-Leitung</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANCHEN -->
+<section class="sec bg2" id="branchen">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-eye">Branchen</span>
+      <h2>Erprobt in den Branchen, in denen wir performen.</h2>
+    </div>
+    <div class="brc rv">
+      <div class="brcard"><div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3"/></svg></div><h4>Agenturen</h4><p>Marketing, Kreativ &amp; Media</p></div>
+      <div class="brcard"><div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg></div><h4>SaaS &amp; IT</h4><p>Software &amp; Tech-Anbieter</p></div>
+      <div class="brcard"><div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l9 4.5v11L12 22l-9-4.5v-11z"/></svg></div><h4>Industrie</h4><p>Produktion &amp; Maschinenbau</p></div>
+      <div class="brcard"><div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><h4>Beratung</h4><p>Consulting &amp; Coaching</p></div>
+      <div class="brcard"><div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><h4>Bau &amp; Immobilien</h4><p>Projekte &amp; Bauträger</p></div>
+      <div class="brcard"><div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M2 12h20"/></svg></div><h4>Gesundheit</h4><p>Medizin &amp; Health-Tech</p></div>
+      <div class="brcard"><div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div><h4>Finanzen</h4><p>Finanz- &amp; Versicherung</p></div>
+      <div class="brcard"><div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="7" r="4"/><path d="M3 21c0-4 3-6 6-6s6 2 6 6M16 3.1a4 4 0 0 1 0 7.8M21 21c0-3-1.5-5-4-5.7"/></svg></div><h4>Personal</h4><p>HR &amp; Recruiting</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL black CTA -->
+<section class="final">
+  <div class="in-w wrap">
+    <div class="rv">
+      <h2>Wir telefonieren.<br><span class="g">Du verkaufst.</span></h2>
+      <p>Sichere dir dein kostenloses Analysegespräch mit Alexander Király — und wir zeigen dir das komplette System.</p>
+      <div class="cta-row">
+        <a class="btn" href="/formular">Kostenloses Analysegespräch <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        <a class="btn-text" href="#beweis">Wie es funktioniert ›</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-logo">Sales<span>drive</span></div>
+        <p>Wir rufen deine Wunschkunden an und legen dir Abschlussgespräche in den Kalender. Wir telefonieren. Du verkaufst.</p>
+        <div class="foot-social">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.5-.4-5.1a2.7 2.7 0 0 0-1.9-1.9C18.9 4.5 12 4.5 12 4.5s-6.9 0-8.7.5a2.7 2.7 0 0 0-1.9 1.9C1 8.5 1 12 1 12s0 3.5.4 5.1a2.7 2.7 0 0 0 1.9 1.9c1.8.5 8.7.5 8.7.5s6.9 0 8.7-.5a2.7 2.7 0 0 0 1.9-1.9C23 15.5 23 12 23 12zM10 15.5v-7l6 3.5z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col"><h5>Unternehmen</h5><a href="#beweis">Live-Tracking</a><a href="#leistung">Leistung</a><a href="#ablauf">Ablauf</a><a href="#stimmen">Stimmen</a><a href="#branchen">Branchen</a></div>
+      <div class="foot-col"><h5>Ressourcen</h5><a href="/formular">Analysegespräch</a><a href="/v5">Dark-Version</a><a href="#">Referenzen</a><a href="#">Karriere</a></div>
+      <div class="foot-col"><h5>Rechtliches</h5><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a><a href="#">AGB</a></div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 SalesDrive GmbH · Wien. Alle Rechte vorbehalten.</span>
+      <div class="badges">
+        <img src="/assets/trust/tuv-rheinland.png" alt="TÜV Rheinland · ID 0217466221">
+        <span style="color:#86868b">ID 0217466221 · 4,82/5 ProvenExpert</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// reveal
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');if(e.target.id==='beweis'||e.target.classList.contains('black'))e.target.classList.add('in');countUp(e.target);}})},{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv,.black,#beweis').forEach(el=>io.observe(el));
+
+// count-up
+function countUp(scope){
+  scope.querySelectorAll('[data-count]').forEach(el=>{
+    if(el.dataset.done)return;el.dataset.done=1;
+    const target=parseFloat(el.dataset.count);const dec=(el.dataset.count.indexOf('.')>-1);
+    const dur=1400,t0=performance.now();
+    function tick(t){const p=Math.min(1,(t-t0)/dur);const e=1-Math.pow(1-p,3);
+      let v=target*e;el.textContent=dec?v.toFixed(1).replace('.',','):Math.round(v).toLocaleString('de-DE');
+      if(p<1)requestAnimationFrame(tick);}
+    requestAnimationFrame(tick);
+  });
+}
+
+// timeline fill + lit
+(function(){const tl=document.getElementById('tl'),fill=document.getElementById('tlFill');if(!tl)return;
+  const steps=tl.querySelectorAll('.tl-step');
+  function upd(){const r=tl.getBoundingClientRect(),vh=innerHeight;
+    let p=(vh*0.82-r.top)/(r.height*0.82);p=Math.max(0,Math.min(1,p));
+    fill.style.height=(p*100)+'%';
+    steps.forEach((s,i)=>{if(p>=(i+0.25)/steps.length)s.classList.add('lit');else s.classList.remove('lit');});}
+  addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
+})();
+
+// lazy vimeo
+document.querySelectorAll('[data-vimeo]').forEach(f=>f.addEventListener('click',()=>{
+  const id=f.dataset.vimeo;f.innerHTML='<iframe src="https://player.vimeo.com/video/'+id+'?autoplay=1&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
+}));
+</script>
+</body>
+</html>
