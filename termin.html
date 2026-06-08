@@ -9,84 +9,53 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#07080c;--panel:#0e1016;--panel2:#0a0b10;--rule:rgba(255,255,255,.08);--rule2:rgba(255,255,255,.15);
-  --ink:#f3f6fc;--ink2:#9aa4b4;--ink3:#5d6678;--accent:#2680ff;--accent2:#5b9bff;--accent-soft:rgba(38,128,255,.1);--ok:#34d399}
+:root{--bg:#06070b;--panel:#0d0f14;--panel2:#0a0b0f;--rule:rgba(255,255,255,.07);--rule2:rgba(255,255,255,.14);
+  --ink:#f4f6fc;--ink2:#98a1b2;--ink3:#596072;--accent:#2680ff;--accent2:#5b9bff;--accent-soft:rgba(38,128,255,.1);--ok:#34d399}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter Tight',-apple-system,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;min-height:100dvh;overflow-x:hidden;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
-body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(68% 50% at 50% -8%,rgba(38,128,255,.18),transparent 60%),radial-gradient(55% 55% at 92% 112%,rgba(38,128,255,.12),transparent 60%)}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(64% 46% at 50% -10%,rgba(38,128,255,.14),transparent 60%),radial-gradient(50% 50% at 94% 114%,rgba(38,128,255,.09),transparent 60%)}
 .top{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:22px clamp(20px,4vw,46px)}
 .brand img{height:26px}.exit{font-size:13px;color:var(--ink3);text-decoration:none}.exit:hover{color:var(--ink)}
 .steps{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink3)}
 .steps b{color:var(--accent2)}.steps i{width:5px;height:5px;border-radius:50%;background:var(--ink3);font-style:normal}
 
-.wrap{position:relative;z-index:3;flex:1;width:100%;max-width:1040px;margin:0 auto;padding:clamp(10px,2.4vw,24px) clamp(18px,4vw,40px) 54px}
-.head{text-align:center;margin-bottom:30px}
-.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);margin-bottom:16px;padding:8px 16px;border:1px solid rgba(38,128,255,.28);border-radius:999px;background:rgba(38,128,255,.06)}
-.head h1{font-size:clamp(27px,3.9vw,46px);line-height:1.08;letter-spacing:-.035em;font-weight:700;max-width:20ch;margin:0 auto}
+.wrap{position:relative;z-index:3;flex:1;width:100%;max-width:1060px;margin:0 auto;padding:clamp(8px,2vw,20px) clamp(18px,4vw,40px) 54px}
+.head{text-align:center;margin-bottom:28px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent2);margin-bottom:16px;padding:8px 16px;border:1px solid rgba(38,128,255,.24);border-radius:999px;background:rgba(38,128,255,.05)}
+.head h1{font-size:clamp(26px,3.7vw,44px);line-height:1.08;letter-spacing:-.035em;font-weight:700;max-width:20ch;margin:0 auto}
 .head h1 .hl{background:linear-gradient(120deg,#fff,#9fc0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
 
-/* card shell with glow border */
-.shell{position:relative;border-radius:26px;padding:1.5px;background:linear-gradient(160deg,rgba(38,128,255,.5),rgba(255,255,255,.06) 40%,rgba(38,128,255,.16));box-shadow:0 50px 120px -50px rgba(38,128,255,.5)}
-.shell::before{content:"";position:absolute;inset:-40px;z-index:-1;border-radius:50%;background:radial-gradient(closest-side,rgba(38,128,255,.18),transparent);filter:blur(40px)}
-.book{display:grid;grid-template-columns:.82fr 1.18fr;background:linear-gradient(180deg,#0c0e14,#090a0e);border-radius:25px;overflow:hidden}
+.shell{position:relative;border-radius:24px;padding:1px;background:linear-gradient(155deg,rgba(91,155,255,.42),rgba(255,255,255,.05) 38%,rgba(38,128,255,.14));box-shadow:0 44px 110px -54px rgba(38,128,255,.45),0 2px 10px rgba(0,0,0,.5)}
+.book{display:grid;grid-template-columns:.78fr 1.22fr;background:linear-gradient(180deg,#0b0d12,#08090d);border-radius:23px;overflow:hidden;min-height:680px}
 
-/* left host panel */
-.host{padding:34px 32px;border-right:1px solid var(--rule);display:flex;flex-direction:column}
-.havatar{width:66px;height:66px;border-radius:50%;object-fit:cover;border:1px solid var(--rule2);box-shadow:0 0 0 4px rgba(38,128,255,.12),0 14px 30px -14px rgba(0,0,0,.8)}
-.hname{margin-top:18px;font-size:13.5px;color:var(--ink2);font-weight:500}
-.htitle{font-size:23px;font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-top:3px}
-.hmeta{margin-top:22px;display:flex;flex-direction:column;gap:13px}
-.hmeta div{display:flex;align-items:center;gap:11px;font-size:14.5px;color:var(--ink2)}
-.hmeta svg{width:18px;height:18px;color:var(--ink3)}
-.hmeta b{color:var(--ink);font-weight:500}
-.hdesc{margin-top:22px;font-size:13.5px;color:var(--ink2);line-height:1.55}
-.yoursum{margin-top:auto;padding-top:22px}
-.ys-cap{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:8px}
+.host{padding:40px 34px;border-right:1px solid var(--rule);display:flex;flex-direction:column;position:relative;background:radial-gradient(130% 80% at 0 0,rgba(38,128,255,.07),transparent 58%)}
+.hpill{align-self:flex-start;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);padding:7px 13px;border:1px solid rgba(38,128,255,.24);border-radius:999px;background:rgba(38,128,255,.05)}
+.htitle{font-size:clamp(26px,2.6vw,32px);font-weight:700;letter-spacing:-.03em;line-height:1.1;margin-top:20px;color:var(--ink)}
+.htitle span{background:linear-gradient(120deg,#fff,#7db3ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hlede{margin-top:14px;font-size:14px;color:var(--ink2);line-height:1.6}
+.hpoints{list-style:none;margin-top:26px;display:flex;flex-direction:column;gap:16px}
+.hpoints li{display:flex;align-items:center;gap:13px}
+.hpoints .ic{flex:0 0 auto;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;border:1px solid var(--rule);background:rgba(255,255,255,.025);color:var(--accent2)}
+.hpoints svg{width:18px;height:18px}
+.hpoints b{display:block;font-size:14px;font-weight:600;color:var(--ink)}
+.hpoints span{display:block;font-size:12.5px;color:var(--ink3);margin-top:1px}
+.yoursum{margin-top:auto;padding-top:26px}
+.ys-cap{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:9px}
 .ys-row{display:flex;justify-content:space-between;gap:12px;font-size:12.5px;padding:5px 0;color:var(--ink2)}
-.ys-row .v{color:var(--ink);font-weight:500;text-align:right}
-.dpriv{margin-top:22px;font-size:12px}.dpriv a{color:var(--accent2);text-decoration:none}.dpriv a:hover{text-decoration:underline}
+.ys-row .v{color:var(--ink);font-weight:500;text-align:right;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dpriv{margin-top:20px;font-size:12px}.dpriv a{color:var(--ink3);text-decoration:none}.dpriv a:hover{color:var(--accent2)}
 
-/* right calendar */
-.cal{padding:30px 32px}
-.cal-title{font-size:17px;font-weight:600;margin-bottom:20px}
-.cal-head{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:16px}
-.cal-head h3{font-size:15.5px;font-weight:600;min-width:130px;text-align:center}
-.cal-nav{width:34px;height:34px;border-radius:10px;border:1px solid var(--rule2);background:rgba(255,255,255,.02);color:var(--ink2);cursor:pointer;display:grid;place-items:center;transition:.2s}
-.cal-nav:hover:not(:disabled){border-color:var(--accent);color:#fff}
-.cal-nav:disabled{opacity:.3;cursor:not-allowed}
-.dow{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:6px}
-.dow span{text-align:center;font-size:11px;color:var(--ink3);font-weight:600}
-.days{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
-.day{aspect-ratio:1;display:grid;place-items:center;border-radius:50%;font-size:14.5px;font-weight:500;cursor:pointer;color:var(--ink);background:transparent;border:1px solid transparent;transition:.16s;position:relative}
-.day.avail{color:var(--accent2);background:rgba(38,128,255,.08)}
-.day.avail:hover{background:rgba(38,128,255,.18);border-color:var(--accent);transform:translateY(-2px)}
-.day.off{color:var(--ink3);opacity:.4;cursor:default}
-.day.today::after{content:"";position:absolute;bottom:8px;width:4px;height:4px;border-radius:50%;background:currentColor}
-.day.sel{background:linear-gradient(180deg,#2680ff,#0b3bd6)!important;color:#fff!important;border-color:transparent;box-shadow:0 10px 26px -12px rgba(38,128,255,.85)}
+.calside{position:relative;background:#000}
+.calwidget{min-width:320px;height:680px}
+.calload{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;color:var(--ink3);font-size:13.5px;z-index:1;pointer-events:none;transition:opacity .4s}
+.calload.gone{opacity:0}
+.spinner{width:30px;height:30px;border:2.5px solid rgba(255,255,255,.12);border-top-color:var(--accent2);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
 
-.tz{margin-top:24px;padding-top:20px;border-top:1px solid var(--rule)}
-.tz-cap{font-size:13px;color:var(--ink3);margin-bottom:8px}
-.tz-val{display:inline-flex;align-items:center;gap:9px;font-size:14px;color:var(--ink2)}
-.tz-val svg{width:16px;height:16px;color:var(--ink3)}
-
-.slots-wrap{margin-top:24px}
-.slots-wrap.hidden{display:none}
-.slabel{font-size:13px;color:var(--ink3);margin-bottom:12px}.slabel b{color:var(--ink)}
-.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:9px;max-height:188px;overflow:auto}
-.slot{padding:13px 8px;border-radius:11px;border:1px solid var(--rule2);background:rgba(255,255,255,.02);color:var(--ink);font-family:inherit;font-size:14.5px;font-weight:600;cursor:pointer;text-align:center;transition:.16s}
-.slot:hover{border-color:var(--accent);transform:translateY(-2px)}
-.slot.sel{background:linear-gradient(180deg,#2680ff,#0b3bd6);border-color:transparent;color:#fff;box-shadow:0 10px 26px -12px rgba(38,128,255,.85)}
-
-.confirm{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:24px;padding-top:20px;border-top:1px solid var(--rule);flex-wrap:wrap}
-.cinfo{font-size:14px;color:var(--ink2)}.cinfo b{color:#fff;font-weight:600}
-.btn{display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:0;font-family:inherit;font-weight:600;font-size:15.5px;padding:14px 26px;border-radius:13px;color:#04122e;background:linear-gradient(180deg,#7db8ff,#2680ff);box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 18px 42px -16px rgba(38,128,255,.7);transition:.22s}
-.btn:hover:not(:disabled){transform:translateY(-2px)}
-.btn:disabled{opacity:.4;cursor:not-allowed;filter:grayscale(.4)}
-.btn svg{width:18px;height:18px}
 .backlink{display:inline-flex;align-items:center;gap:7px;color:var(--ink3);text-decoration:none;font-size:13.5px;margin-top:22px}
 .backlink:hover{color:var(--ink)}
 
-@media(max-width:820px){.book{grid-template-columns:1fr}.host{border-right:0;border-bottom:1px solid var(--rule)}.yoursum{margin-top:22px}}
+@media(max-width:820px){.book{grid-template-columns:1fr;min-height:0}.host{border-right:0;border-bottom:1px solid var(--rule)}.yoursum{margin-top:24px}.calwidget,.calside{height:720px}.calwidget{height:720px}}
 </style>
 </head>
 <body>
@@ -105,42 +74,21 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;bac
   <div class="shell">
    <div class="book">
     <div class="host">
-      <img class="havatar" src="/assets/team/alexander-kiraly.jpeg" alt="Alexander Király">
-      <div class="hname">Alexander Király</div>
-      <div class="htitle">Analysegespräch mit SalesDrive</div>
-      <div class="hmeta">
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><b>20 min</b></div>
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><b>Anruf</b></div>
-      </div>
-      <p class="hdesc">In 20 fokussierten Minuten zeigen wir dir, wie wir dir planbar Abschlussgespräche mit Entscheidern liefern – inklusive erstem Kampagnen-Konzept.</p>
+      <span class="hpill">Dein Gespräch</span>
+      <h2 class="htitle">Klarheit in <span>20 Minuten</span>.</h2>
+      <p class="hlede">Kein Verkaufsgespräch – eine ehrliche Analyse, ob und wie wir dir planbar Abschlussgespräche mit Entscheidern in den Kalender legen.</p>
+      <ul class="hpoints">
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><b>TÜV-zertifiziert</b><span>4,82 / 5 bei ProvenExpert</span></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></span><div><b>Direkt mit dem Gründer</b><span>Alexander Király, persönlich</span></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span><div><b>Telefonisch · 20 Minuten</b><span>Wähle rechts deinen Wunschtermin</span></div></li>
+      </ul>
       <div class="yoursum" id="yoursum"></div>
       <div class="dpriv"><a href="/datenschutz">Datenschutzerklärung</a></div>
     </div>
 
-    <div class="cal">
-      <div class="cal-title">Datum &amp; Uhrzeit wählen</div>
-      <div class="cal-head">
-        <button class="cal-nav" id="prevM" aria-label="Zurück"><svg viewBox="0 0 24 24" width="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
-        <h3 id="monthLabel">—</h3>
-        <button class="cal-nav" id="nextM" aria-label="Weiter"><svg viewBox="0 0 24 24" width="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
-      </div>
-      <div class="dow"><span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span>Sa</span><span>So</span></div>
-      <div class="days" id="days"></div>
-
-      <div class="slots-wrap hidden" id="slotsWrap">
-        <div class="slabel">Verfügbare Zeiten am <b id="slotDate"></b></div>
-        <div class="slots" id="slots"></div>
-      </div>
-
-      <div class="tz" id="tzBlock">
-        <div class="tz-cap">Zeitzone</div>
-        <div class="tz-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>Mitteleuropäische Zeit (MEZ)</div>
-      </div>
-
-      <div class="confirm">
-        <div class="cinfo" id="cinfo">Bitte wähle Tag &amp; Uhrzeit.</div>
-        <button class="btn" id="confirmBtn" disabled>Termin bestätigen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
-      </div>
+    <div class="calside">
+      <div class="calload" id="calload"><div class="spinner"></div>Termine werden geladen …</div>
+      <div class="calendly-inline-widget calwidget" id="cal" data-url="https://calendly.com/salesdrive/20min?hide_gdpr_banner=1&background_color=000000&text_color=ffffff&primary_color=2680ff"></div>
     </div>
    </div>
   </div>
@@ -155,52 +103,33 @@ if(form.name){const fn=form.name.split(' ')[0];document.getElementById('headline
   for(const k in map){if(form[k])h+='<div class="ys-row"><span>'+map[k]+'</span><span class="v">'+escapeHtml(form[k])+'</span></div>';}
   if(h)document.getElementById('yoursum').innerHTML='<div class="ys-cap">Deine Angaben</div>'+h;})();
 
-const MONTHS=['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
-const SLOTS=['09:00','09:30','10:00','10:30','11:00','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30'];
-const today=new Date();today.setHours(0,0,0,0);
-let view=new Date(today.getFullYear(),today.getMonth(),1);
-let selDate=null,selSlot=null;
-
-function buildCal(){
-  document.getElementById('monthLabel').textContent=MONTHS[view.getMonth()]+' '+view.getFullYear();
-  const first=new Date(view.getFullYear(),view.getMonth(),1);
-  let start=(first.getDay()+6)%7;
-  const dim=new Date(view.getFullYear(),view.getMonth()+1,0).getDate();
-  const days=document.getElementById('days');days.innerHTML='';
-  for(let i=0;i<start;i++)days.appendChild(Object.assign(document.createElement('div'),{className:'day off'}));
-  for(let d=1;d<=dim;d++){
-    const date=new Date(view.getFullYear(),view.getMonth(),d);
-    const el=document.createElement('div');el.className='day';el.textContent=d;
-    const dow=date.getDay();const past=date<today;const weekend=(dow===0||dow===6);
-    if(date.getTime()===today.getTime())el.classList.add('today');
-    if(past||weekend){el.classList.add('off');}
-    else{el.classList.add('avail');el.onclick=()=>pickDay(date,el);
-      if(selDate&&date.getTime()===selDate.getTime())el.classList.add('sel');}
-    days.appendChild(el);
+// Calendly mit Prefill aus dem Formular
+(function(){
+  const div=document.getElementById('cal');
+  let url=div.dataset.url;
+  const p=[];
+  if(form.name)p.push('name='+encodeURIComponent(form.name));
+  if(form.email)p.push('email='+encodeURIComponent(form.email));
+  if(form.firma||form.phone){
+    if(form.firma)p.push('a1='+encodeURIComponent(form.firma));
+    if(form.phone)p.push('a2='+encodeURIComponent(form.phone));
   }
-  document.getElementById('prevM').disabled=(view.getFullYear()===today.getFullYear()&&view.getMonth()===today.getMonth());
-}
-function pickDay(date,el){
-  selDate=date;selSlot=null;
-  document.querySelectorAll('.day.sel').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');
-  document.getElementById('slotDate').textContent=date.toLocaleDateString('de-DE',{weekday:'long',day:'numeric',month:'long'});
-  const sc=document.getElementById('slots');sc.innerHTML='';
-  SLOTS.forEach(t=>{const b=document.createElement('button');b.className='slot';b.textContent=t;
-    b.onclick=()=>{selSlot=t;document.querySelectorAll('.slot.sel').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');updateConfirm();};
-    sc.appendChild(b);});
-  document.getElementById('slotsWrap').classList.remove('hidden');updateConfirm();
-}
-function updateConfirm(){
-  const btn=document.getElementById('confirmBtn'),info=document.getElementById('cinfo');
-  if(selDate&&selSlot){btn.disabled=false;info.innerHTML='<b>'+selDate.toLocaleDateString('de-DE',{weekday:'long',day:'numeric',month:'long'})+'</b> · <b>'+selSlot+' Uhr</b>';}
-  else{btn.disabled=true;info.textContent=selDate?'Bitte wähle eine Uhrzeit.':'Bitte wähle Tag & Uhrzeit.';}
-}
-document.getElementById('prevM').onclick=()=>{view=new Date(view.getFullYear(),view.getMonth()-1,1);buildCal();};
-document.getElementById('nextM').onclick=()=>{view=new Date(view.getFullYear(),view.getMonth()+1,1);buildCal();};
-document.getElementById('confirmBtn').onclick=()=>{if(!selDate||!selSlot)return;
-  sessionStorage.setItem('sd_termin',JSON.stringify({date:selDate.toLocaleDateString('de-DE',{weekday:'long',day:'numeric',month:'long',year:'numeric'}),time:selSlot}));
-  location.href='/danke';};
-buildCal();
+  if(p.length)url+='&'+p.join('&');
+  div.dataset.url=url;
+  const s=document.createElement('script');
+  s.src='https://assets.calendly.com/assets/external/widget.js';s.async=true;
+  document.body.appendChild(s);
+  // Loader ausblenden sobald iframe da ist
+  const obs=setInterval(()=>{if(div.querySelector('iframe')){document.getElementById('calload').classList.add('gone');clearInterval(obs);}},300);
+  setTimeout(()=>{document.getElementById('calload').classList.add('gone');clearInterval(obs);},6000);
+  // Nach erfolgreicher Buchung auf Danke-Seite leiten
+  window.addEventListener('message',e=>{
+    if(e.data&&e.data.event==='calendly.event_scheduled'){
+      sessionStorage.setItem('sd_booked','1');
+      setTimeout(()=>{location.href='/danke';},600);
+    }
+  });
+})();
 </script>
 </body>
 </html>

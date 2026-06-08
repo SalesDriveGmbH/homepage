@@ -71,7 +71,7 @@ h1 .hl{background:linear-gradient(120deg,#fff,#a7f3d0);-webkit-background-clip:t
     <div class="next">
       <h3>Das passiert jetzt</h3>
       <div class="nrow"><span class="nnum">1</span><div><h4>Bestätigung per E-Mail</h4><p>Du erhältst sofort eine Termin­bestätigung mit allen Infos und dem Link für das Gespräch.</p></div></div>
-      <div class="nrow"><span class="nnum">2</span><div><h4>Wir bereiten uns vor</h4><p>Wir analysieren deine Angaben und erstellen ein erstes individuelles Kampagnen-Konzept.</p></div></div>
+      <div class="nrow"><span class="nnum">2</span><div><h4>Wir bereiten uns vor</h4><p>Wir analysieren deine Angaben und bereiten dein Analysegespräch optimal vor.</p></div></div>
       <div class="nrow"><span class="nnum">3</span><div><h4>Dein Analysegespräch</h4><p>20 Minuten, in denen wir dir zeigen, wie wir dir planbar Abschlussgespräche liefern.</p></div></div>
     </div>
     <a class="btn" href="/v5">‹ Zurück zur Startseite</a>
@@ -81,12 +81,16 @@ h1 .hl{background:linear-gradient(120deg,#fff,#a7f3d0);-webkit-background-clip:t
 <script>
 const t=JSON.parse(sessionStorage.getItem('sd_termin')||'null');
 const f=JSON.parse(sessionStorage.getItem('sd_form')||'{}');
+const booked=sessionStorage.getItem('sd_booked')==='1';
 if(f.name){const fn=(''+f.name).split(' ')[0];document.getElementById('headline').innerHTML='Danke, <span class="hl">'+fn.replace(/[<>&]/g,'')+'</span>!';}
+const mailHtml=f.email?' an <b>'+(''+f.email).replace(/[<>&]/g,'')+'</b>':'';
 if(t&&t.date){
   document.getElementById('termbox').style.display='inline-flex';
   document.getElementById('tDate').textContent=t.date;
   document.getElementById('tTime').textContent=t.time+' Uhr · mit Alexander Király';
-  document.getElementById('sub').innerHTML='Dein Termin ist reserviert. Du bekommst gleich eine <b>Bestätigung per E-Mail</b>'+(f.email?' an <b>'+(''+f.email).replace(/[<>&]/g,'')+'</b>':'')+'.';
+  document.getElementById('sub').innerHTML='Dein Termin ist reserviert. Du bekommst gleich eine <b>Bestätigung per E-Mail</b>'+mailHtml+'.';
+}else if(booked){
+  document.getElementById('sub').innerHTML='Dein Termin ist gebucht! Du bekommst gleich eine <b>Bestätigung per E-Mail</b>'+mailHtml+' – inklusive Kalendereintrag und Gesprächs-Link.';
 }
 // confetti
 (function(){const c=document.getElementById('confetti');const cols=['#2680ff','#5b9bff','#34d399','#ffffff','#7db8ff'];
