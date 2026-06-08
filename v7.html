@@ -1051,7 +1051,7 @@ nav{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.12) !im
 /* hartkodierte helle Texte -> dunkel (auf nun weissen Flaechen) */
 .wsec .hstat-n,.wsec .hstat:first-child .hstat-n,.wsec .deck-fore .big,.wsec .deck-demo,
 .wsec .bt-row b,.wsec .ft,.wsec .kh-no,.wsec .kt-n,.wsec .viz-score-n b,.wsec .hours-box b,
-.wsec .seg span,.wsec .deck-kpi b,.wsec .deck-kpi .n,.final h2,.final h2 .em,.final .mono{
+.wsec .seg span,.wsec .deck-kpi b,.wsec .deck-kpi .n{
   color:#1d1d1f !important;-webkit-text-fill-color:#1d1d1f !important}
 
 /* Final-Sektion weiss */
@@ -1070,6 +1070,12 @@ nav{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.12) !im
 .hcheck{gap:14px !important}
 .hbtns{margin-top:22px !important}
 .hbadges{margin-top:18px !important;padding-top:18px !important}
+/* Klartext: gruene Positiv-Spalte lesbar auf Weiss */
+.wsec .kt-y{color:#0f7a4a !important;font-weight:600}
+.wsec .kt-y::before{color:#16a34a !important}
+.wsec .kt-y{background:rgba(22,163,74,.07) !important;border-color:rgba(22,163,74,.22) !important}
+.wsec .kt-n{color:#9a3b30 !important}
+.wsec .kh-yes{color:#16a34a !important}
 </style>
 </head>
 <body>
@@ -1553,7 +1559,7 @@ nav{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.12) !im
 </section>
 
 <!-- FINAL -->
-<section class="final wsec">
+<section class="final">
   <div class="wrap">
     <span class="mono rv">Jetzt kostenlos Analysegespräch sichern</span>
     <h2 class="rv" style="margin-top:24px">Wir telefonieren.<br><span class="em">Du verkaufst.</span></h2>
