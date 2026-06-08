@@ -1587,6 +1587,29 @@ nav{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.12) !im
 .eb-slide img{width:100%;height:100%;object-fit:cover;display:block}
 @keyframes ebscroll{to{transform:translateX(-50%)}}
 </style>
+<style id="v7auftritte">
+#auftritte .auf-events{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:22px}
+#auftritte .auf-ev{margin:0;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:18px;overflow:hidden;box-shadow:0 14px 36px -26px rgba(0,0,0,.18);transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s;cursor:pointer}
+#auftritte .auf-ev:hover{transform:translateY(-5px);box-shadow:0 32px 64px -30px rgba(0,0,0,.26)}
+#auftritte .ev-thumb{position:relative;aspect-ratio:16/10;overflow:hidden;background:#000}
+#auftritte .ev-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+#auftritte .auf-ev:hover .ev-thumb img{transform:scale(1.05)}
+#auftritte .ev-play{position:absolute;inset:0;margin:auto;width:62px;height:62px;border-radius:50%;background:rgba(255,255,255,.22);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.5);display:grid;place-items:center;transition:.3s}
+#auftritte .auf-ev:hover .ev-play{transform:scale(1.08);background:rgba(255,255,255,.32)}
+#auftritte .ev-play svg{width:22px;height:22px;color:#fff;margin-left:2px}
+#auftritte .ev-tag{position:absolute;top:12px;left:12px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.45);backdrop-filter:blur(4px);padding:4px 9px;border-radius:7px}
+#auftritte .auf-ev figcaption{padding:16px 18px}
+#auftritte .auf-ev b{display:block;font-size:15.5px;color:#1d1d1f;font-weight:650;letter-spacing:-.01em}
+#auftritte .auf-ev figcaption span{display:block;font-size:12.5px;color:#86868b;margin-top:4px;line-height:1.45}
+#auftritte .auf-pod{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(28px,4vw,56px);align-items:center;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:22px;padding:clamp(24px,3vw,40px);box-shadow:0 18px 48px -30px rgba(0,0,0,.2)}
+#auftritte .auf-pill{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:#1db954;background:rgba(29,185,84,.1);padding:6px 13px;border-radius:999px}
+#auftritte .auf-pill svg{width:15px;height:15px}
+#auftritte .auf-pod-copy h3{font-size:clamp(22px,2.6vw,30px);font-weight:700;letter-spacing:-.02em;color:#1d1d1f;margin:14px 0 12px}
+#auftritte .auf-pod-copy p{font-size:15.5px;color:#5f6470;line-height:1.6;max-width:44ch}#auftritte .auf-pod-copy p b{color:#1d1d1f}
+#auftritte .auf-link{display:inline-flex;align-items:center;gap:8px;margin-top:20px;color:#1db954;font-weight:600;font-size:15px}#auftritte .auf-link svg{width:16px;height:16px;transition:transform .2s}#auftritte .auf-link:hover svg{transform:translateX(4px)}
+#auftritte .auf-pod-embed iframe{display:block;box-shadow:0 16px 40px -24px rgba(0,0,0,.3)}
+@media(max-width:860px){#auftritte .auf-events{grid-template-columns:1fr}#auftritte .auf-pod{grid-template-columns:1fr;gap:24px}}
+</style>
 </head>
 <body>
 
@@ -2191,6 +2214,24 @@ nav{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.12) !im
 <section id="einblicke" class="wsec graybg eb-sec">
   <div class="wrap"><div class="sec-h rv"><span class="sec-num">Einblicke</span><div><h2>SalesDrive in Aktion.</h2><p class="lead">Kampagnen, Events und zufriedene Kunden — echte Momente aus unserem Alltag.</p></div></div></div>
   <div class="eb-marquee rv"><div class="eb-track"><div class="eb-slide"><img src="/assets/photos/messe-vortrag.jpg" alt="" loading="lazy"></div><div class="eb-slide"><img src="/assets/photos/whiteboard-session.jpg" alt="" loading="lazy"></div><div class="eb-slide"><img src="/assets/photos/videocall-strategy.jpg" alt="" loading="lazy"></div><div class="eb-slide"><img src="/assets/photos/messe-stand-talk.jpg" alt="" loading="lazy"></div><div class="eb-slide"><img src="/assets/team/leopoldquartier-team.jpeg" alt="" loading="lazy"></div><div class="eb-slide"><img src="/assets/photos/menschen-im-vertrieb.jpg" alt="" loading="lazy"></div><div class="eb-slide"><img src="/assets/photos/leopoldquartier-office.jpg" alt="" loading="lazy"></div><div class="eb-slide"><img src="/assets/photos/alex-headset-portrait.jpg" alt="" loading="lazy"></div><div class="eb-slide"><img src="/assets/photos/messe-vortrag.jpg" alt="" loading="lazy"></div><div class="eb-slide"><img src="/assets/photos/whiteboard-session.jpg" alt="" loading="lazy"></div><div class="eb-slide"><img src="/assets/photos/videocall-strategy.jpg" alt="" loading="lazy"></div><div class="eb-slide"><img src="/assets/photos/messe-stand-talk.jpg" alt="" loading="lazy"></div><div class="eb-slide"><img src="/assets/team/leopoldquartier-team.jpeg" alt="" loading="lazy"></div><div class="eb-slide"><img src="/assets/photos/menschen-im-vertrieb.jpg" alt="" loading="lazy"></div><div class="eb-slide"><img src="/assets/photos/leopoldquartier-office.jpg" alt="" loading="lazy"></div><div class="eb-slide"><img src="/assets/photos/alex-headset-portrait.jpg" alt="" loading="lazy"></div></div></div>
+</section>
+
+
+<!-- AUFTRITTE & PRESSE -->
+<section id="auftritte" class="wsec graybg">
+  <div class="wrap">
+    <div class="sec-h rv"><span class="sec-num">Auftritte &amp; Presse</span><div><h2>Wo du uns persönlich findest.</h2><p class="lead">Auf Bühnen, Messen und im Podcast — SalesDrive ist da, wo über modernen B2B-Vertrieb gesprochen wird.</p></div></div>
+    <div class="auf-events rv"><figure class="auf-ev"><div class="ev-thumb"><img src="/assets/photos/messe-vortrag.jpg" alt="Vortrag bei This is Marketing" loading="lazy"><span class="ev-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="ev-tag">Video</span></div><figcaption><b>Vortrag bei This is Marketing</b><span>Lukas Lehner · „Die 5 häufigsten Fehler in der B2B-Neukundengewinnung"</span></figcaption></figure><figure class="auf-ev"><div class="ev-thumb"><img src="/assets/photos/messe-stand-talk.jpg" alt="Münchner Marketing Kongress" loading="lazy"><span class="ev-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="ev-tag">Video</span></div><figcaption><b>Münchner Marketing Kongress</b><span>SalesDrive-Messestand · Done-for-you Outbound"</span></figcaption></figure><figure class="auf-ev"><div class="ev-thumb"><img src="/assets/photos/menschen-im-vertrieb.jpg" alt="This is Marketing · Aftermovie" loading="lazy"><span class="ev-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="ev-tag">Video</span></div><figcaption><b>This is Marketing · Aftermovie</b><span>Impressionen von unserem Messeauftritt"</span></figcaption></figure></div>
+    <div class="auf-pod rv">
+      <div class="auf-pod-copy">
+        <span class="auf-pill"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.5 14.3a.6.6 0 0 1-.85.2c-2.3-1.4-5.2-1.7-8.6-.9a.62.62 0 1 1-.27-1.2c3.7-.85 6.9-.5 9.5 1.05.3.18.4.57.22.85zm1.2-2.7a.78.78 0 0 1-1.07.26c-2.65-1.63-6.7-2.1-9.83-1.15a.78.78 0 1 1-.45-1.5c3.6-1.08 8.05-.55 11.1 1.32.36.22.48.7.25 1.07zm.1-2.8C14.7 8.9 9.5 8.7 6.5 9.6a.94.94 0 1 1-.54-1.8c3.45-1.04 9.2-.84 12.8 1.3a.94.94 0 0 1-.96 1.62z"/></svg>Podcast-Folge</span>
+        <h3>„Erfolgreich kalt akquirieren"</h3>
+        <p>Lukas Lehner zu Gast im <b>„Menschen im Vertrieb"</b>-Podcast — über alles, worauf es bei erfolgreicher Kaltakquise wirklich ankommt. 26 Minuten Vertriebspraxis aus erster Hand.</p>
+        <a class="auf-link" href="https://open.spotify.com/episode/6A2BShoJkyYj5aXUz5q0Sl" target="_blank" rel="noopener">Auf Spotify anhören<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="auf-pod-embed"><iframe style="border-radius:14px" src="https://open.spotify.com/embed/episode/6A2BShoJkyYj5aXUz5q0Sl?theme=0" width="100%" height="232" frameborder="0" allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture" loading="lazy"></iframe></div>
+    </div>
+  </div>
 </section>
 
 <!-- FINAL -->
