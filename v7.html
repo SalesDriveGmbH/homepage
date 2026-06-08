@@ -1486,6 +1486,41 @@ nav{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.12) !im
 /* Script-Box im Markenkonform etwas hochwertiger */
 #programm .bd-script{box-shadow:0 10px 28px -20px rgba(0,0,0,.2)}
 </style>
+<style id="v7notifix">
+#benachrichtigung .iphone2{background:linear-gradient(170deg,#0a0b0e,#000) !important}
+#benachrichtigung .n2-app{background:linear-gradient(135deg,#3a3b40,#15161a) !important;position:relative}
+#benachrichtigung .n2-app::after{content:"";position:absolute;inset:3px;border:1.3px solid rgba(255,255,255,.7);border-radius:2px;background:linear-gradient(rgba(255,255,255,.0),rgba(255,255,255,.0));clip-path:polygon(0 0,100% 0,50% 55%)}
+#benachrichtigung .n2{background:rgba(26,27,31,.7) !important}
+</style>
+<style id="v7bento3">
+/* Ring-Track sichtbar auf Weiss */
+#programm .bring svg circle:first-child{stroke:rgba(0,0,0,.09) !important}
+/* Chips gestaffelt einblenden (floaty bleibt) */
+#programm .bchips span{opacity:0}
+#programm .bento.in .bchips span{opacity:1;transition:opacity .45s ease}
+#programm .bento.in .bchips span:nth-child(1){transition-delay:0.12s}
+#programm .bento.in .bchips span:nth-child(2){transition-delay:0.17s}
+#programm .bento.in .bchips span:nth-child(3){transition-delay:0.22s}
+#programm .bento.in .bchips span:nth-child(4){transition-delay:0.27s}
+#programm .bento.in .bchips span:nth-child(5){transition-delay:0.32s}
+#programm .bento.in .bchips span:nth-child(6){transition-delay:0.37s}
+#programm .bento.in .bchips span:nth-child(7){transition-delay:0.42s}
+#programm .bento.in .bchips span:nth-child(8){transition-delay:0.47s}
+/* kleine Icon-Kacheln: Pop-In */
+#programm .bsm .it,#programm .bsm .chip-sq,#programm .bsm .hours-box,#programm .bsm .tuv-badge{opacity:0;transform:scale(.7)}
+#programm .bento.in .bsm .it,#programm .bento.in .bsm .chip-sq,#programm .bento.in .bsm .hours-box,#programm .bento.in .bsm .tuv-badge{opacity:1;transform:scale(1);transition:opacity .5s ease,transform .6s cubic-bezier(.2,1.5,.45,1)}
+#programm .bsm:hover .it,#programm .bsm:hover .chip-sq,#programm .bsm:hover .hours-box,#programm .bsm:hover .tuv-badge{transform:translateY(-4px) scale(1.05) !important}
+/* Chart-Tooltip schwebt + Live-Puls */
+#programm .bchart-tip{animation:btipf 4.5s ease-in-out infinite}
+@keyframes btipf{50%{transform:translateY(-7px)}}
+#programm .bt-date{display:flex;align-items:center;gap:7px}
+#programm .bt-date::before{content:"";width:6px;height:6px;border-radius:50%;background:#34d399;box-shadow:0 0 0 3px rgba(52,211,153,.22);animation:bpulse 2s infinite}
+@keyframes bpulse{50%{box-shadow:0 0 0 6px transparent}}
+/* sanfter Glow hinter dem Top-Chart-Card */
+#programm .bA{position:relative}
+#programm .bA::before{content:"";position:absolute;left:-6%;top:-10%;width:60%;height:70%;background:radial-gradient(circle,rgba(10,102,255,.08),transparent 70%);filter:blur(40px);pointer-events:none;z-index:0}
+#programm .bA>*{position:relative;z-index:1}
+</style>
 </head>
 <body>
 
@@ -1533,8 +1568,8 @@ nav{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.12) !im
       </div>
       <!-- RIGHT: framed video -->
       <div class="hright rv">
-        <div class="vframe" data-vimeo="1199302252" role="button" tabindex="0" aria-label="SalesDrive Vorstellung abspielen">
-          <img src="/assets/video-thumbs/1199302252.jpg" alt="SalesDrive Vorstellung" decoding="async">
+        <div class="vframe" data-vimeo="1199308425" role="button" tabindex="0" aria-label="SalesDrive Vorstellung abspielen">
+          <img src="/assets/video-thumbs/1199308425.jpg" alt="SalesDrive Vorstellung" decoding="async">
           <span class="vframe-glow"></span>
           <button class="vid-play" type="button" aria-label="Video abspielen"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
           <span class="vid-cap">SalesDrive · Vorstellung · 2 Min</span>
@@ -1677,9 +1712,9 @@ nav{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.12) !im
       <article class="bcard bC">
         <div class="bcard-h"><h3>Starke Quoten</h3><p>Wie viele Leads zum Termin erscheinen und abschließen — aus laufenden Kampagnen.</p></div>
         <div class="brings">
-          <div class="bring"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="6"/><circle class="bring-fg" style="--off:17" cx="36" cy="36" r="30" fill="none" stroke="#34d399" stroke-width="6" stroke-linecap="round" stroke-dasharray="188" stroke-dashoffset="188" transform="rotate(-90 36 36)"/></svg><b>92<i>%</i></b><span>erscheinen zum Termin</span></div>
-          <div class="bring"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="6"/><circle class="bring-fg" style="--off:71" cx="36" cy="36" r="30" fill="none" stroke="#3b82ff" stroke-width="6" stroke-linecap="round" stroke-dasharray="188" stroke-dashoffset="188" transform="rotate(-90 36 36)"/></svg><b>62<i>%</i></b><span>Abschlussquote</span></div>
-          <div class="bring"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="6"/><circle class="bring-fg" style="--off:92" cx="36" cy="36" r="30" fill="none" stroke="#ffd24a" stroke-width="6" stroke-linecap="round" stroke-dasharray="188" stroke-dashoffset="188" transform="rotate(-90 36 36)"/></svg><b>51<i>%</i></b><span>Auftragsquote</span></div>
+          <div class="bring"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="6"/><circle class="bring-fg" style="--off:17" cx="36" cy="36" r="30" fill="none" stroke="#34d399" stroke-width="6" stroke-linecap="round" stroke-dasharray="188" stroke-dashoffset="188" transform="rotate(-90 36 36)"/></svg><b><span data-bc="92">92</span><i>%</i></b><span>erscheinen zum Termin</span></div>
+          <div class="bring"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="6"/><circle class="bring-fg" style="--off:71" cx="36" cy="36" r="30" fill="none" stroke="#3b82ff" stroke-width="6" stroke-linecap="round" stroke-dasharray="188" stroke-dashoffset="188" transform="rotate(-90 36 36)"/></svg><b><span data-bc="62">62</span><i>%</i></b><span>Abschlussquote</span></div>
+          <div class="bring"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="6"/><circle class="bring-fg" style="--off:92" cx="36" cy="36" r="30" fill="none" stroke="#ffd24a" stroke-width="6" stroke-linecap="round" stroke-dasharray="188" stroke-dashoffset="188" transform="rotate(-90 36 36)"/></svg><b><span data-bc="51">51</span><i>%</i></b><span>Auftragsquote</span></div>
         </div>
       </article>
 
@@ -2015,11 +2050,11 @@ nav{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.12) !im
     <div class="noti rv">
       <div class="noti-copy">
         <span class="noti-ey">Immer informiert</span>
-        <h2 class="noti-h">Wir melden uns aktiv — per E-Mail &amp; Push.</h2>
+        <h2 class="noti-h">Wir melden uns aktiv — per E-Mail.</h2>
         <p>Du musst nie nachfragen. Wir benachrichtigen dich <b>proaktiv über jedes Ergebnis</b> deiner Kampagne — und erinnern dich rechtzeitig an alles, was wir von dir brauchen, damit sie wirklich erfolgreich läuft.</p>
         <div class="noti-ch">
           <div class="noti-c"><span class="noti-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div><b>Per E-Mail</b><span>Wochenreports &amp; wichtige Updates direkt ins Postfach.</span></div></div>
-          <div class="noti-c"><span class="noti-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg></span><div><b>Per App-Push</b><span>Neue Termine &amp; Freigaben sofort aufs Handy.</span></div></div>
+          <div class="noti-c"><span class="noti-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg></span><div><b>Erinnerungen</b><span>An Freigaben &amp; nächste Schritte — rechtzeitig per Mail.</span></div></div>
         </div>
         <div class="noti-tags"><span>Neuer Termin gebucht</span><span>Leads zur Freigabe</span><span>Wochenreport</span><span>Freigabe-Erinnerung</span></div>
       </div>
@@ -2027,7 +2062,7 @@ nav{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.12) !im
         <div class="iphone2">
           <span class="iph2-notch"></span><span class="iph2-time">09:41</span><span class="iph2-sig">5G</span>
           <div class="iph2-date">Donnerstag, 4. Juni</div><div class="iph2-clock">09:41</div>
-<div class="n2"><div class="n2-h"><span class="n2-app"></span>SALESDRIVE<span class="n2-ago">jetzt</span></div><b>🎉 Neuer Termin gebucht</b><span>Andrea Brunner · CFO — Mi, 21. Mai · 11:15</span></div><div class="n2"><div class="n2-h"><span class="n2-app"></span>SALESDRIVE<span class="n2-ago">vor 2 Std.</span></div><b>📋 3 neue Leads zur Freigabe</b><span>Lead-Paket Juni · Agenturen DACH wartet auf dich.</span></div><div class="n2"><div class="n2-h"><span class="n2-app"></span>SALESDRIVE<span class="n2-ago">heute 08:00</span></div><b>📈 Dein Wochenreport ist da</b><span>31 Termine · 8 Abschlüsse · Pipeline 20.800 €</span></div><div class="n2"><div class="n2-h"><span class="n2-app"></span>SALESDRIVE<span class="n2-ago">gestern</span></div><b>⏰ Erinnerung: Skript-Freigabe</b><span>Das Opening-Skript ist noch nicht freigegeben.</span></div>        </div>
+<div class="n2"><div class="n2-h"><span class="n2-app"></span>SALESDRIVE · E-MAIL<span class="n2-ago">jetzt</span></div><b>🎉 Neuer Termin gebucht</b><span>Andrea Brunner · CFO — Mi, 21. Mai · 11:15</span></div><div class="n2"><div class="n2-h"><span class="n2-app"></span>SALESDRIVE · E-MAIL<span class="n2-ago">vor 2 Std.</span></div><b>📋 3 neue Leads zur Freigabe</b><span>Lead-Paket Juni · Agenturen DACH wartet auf dich.</span></div><div class="n2"><div class="n2-h"><span class="n2-app"></span>SALESDRIVE · E-MAIL<span class="n2-ago">heute 08:00</span></div><b>📈 Dein Wochenreport ist da</b><span>31 Termine · 8 Abschlüsse · Pipeline 20.800 €</span></div><div class="n2"><div class="n2-h"><span class="n2-app"></span>SALESDRIVE · E-MAIL<span class="n2-ago">gestern</span></div><b>⏰ Erinnerung: Skript-Freigabe</b><span>Das Opening-Skript ist noch nicht freigegeben.</span></div>        </div>
       </div>
     </div>
   </div>
@@ -2145,6 +2180,13 @@ var dk=document.getElementById('deckCard'); if(dk)io.observe(dk);
  var started=false;
  new IntersectionObserver(function(es){if(es[0].isIntersecting&&!started){started=true;setTimeout(function(){moveInd();go(0);},120);restart();}},{threshold:.2}).observe(root);
  setTimeout(moveInd,400);
+})();
+</script>
+<script id="v7bento3js">
+(function(){var b=document.querySelector('#programm .bento');if(!b)return;var done=false;
+ function run(){if(done)return;done=true;b.querySelectorAll('[data-bc]').forEach(function(el){var t=+el.getAttribute('data-bc'),s=null;
+  function tk(ts){if(!s)s=ts;var p=Math.min(1,(ts-s)/1200),e=1-Math.pow(1-p,3);el.textContent=Math.round(t*e);if(p<1)requestAnimationFrame(tk);}requestAnimationFrame(tk);});}
+ var io=new IntersectionObserver(function(es){if(es[0].isIntersecting)run();},{threshold:.15});io.observe(b);var r=b.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)run();
 })();
 </script>
 </body>
