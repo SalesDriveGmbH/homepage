@@ -104,4 +104,39 @@
   <url><loc>https://salesdrive.at/branchen/software-industrie</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://salesdrive.at/branchen/personalberatung</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://salesdrive.at/branchen/werbetechnik-print</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url>
+    <loc>https://salesdrive.at/wissen</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://salesdrive.at/wissen/kaltakquise-software-saas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://salesdrive.at/wissen/neukunden-werbeagentur</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://salesdrive.at/wissen/auftraege-filmproduktion</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://salesdrive.at/wissen/neukunden-eventagentur</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://salesdrive.at/wissen/mandate-personalberatung</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://salesdrive.at/wissen/auftraege-werbetechnik-print</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
