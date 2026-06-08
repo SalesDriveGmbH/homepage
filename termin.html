@@ -56,14 +56,28 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;bac
 .backlink:hover{color:var(--ink)}
 
 @media(max-width:820px){.book{grid-template-columns:1fr;min-height:0}.host{border-right:0;border-bottom:1px solid var(--rule)}.yoursum{margin-top:24px}.calwidget,.calside{height:720px}.calwidget{height:720px}}
+.pbar{position:relative;z-index:5;height:3px;background:rgba(255,255,255,.06)}
+.pfill{height:100%;width:8%;background:linear-gradient(90deg,var(--accent),var(--accent2));box-shadow:0 0 14px rgba(38,128,255,.6);transition:width 1.1s cubic-bezier(.16,1,.3,1);border-radius:0 3px 3px 0}
+.steps b{color:var(--accent2)}.steps .done{color:var(--ink2)}
+.head{animation:tIn .7s cubic-bezier(.16,1,.3,1) both}
+.shell{animation:tIn .7s cubic-bezier(.16,1,.3,1) .12s both,shellPulse 4.6s ease-in-out 1s infinite}
+.backlink{animation:tIn .7s cubic-bezier(.16,1,.3,1) .26s both}
+@keyframes tIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes shellPulse{0%,100%{box-shadow:0 44px 110px -54px rgba(38,128,255,.45),0 2px 10px rgba(0,0,0,.5)}50%{box-shadow:0 50px 130px -48px rgba(38,128,255,.72),0 2px 10px rgba(0,0,0,.5)}}
+.hpoints li{opacity:0;animation:tIn .6s cubic-bezier(.16,1,.3,1) both}
+.hpoints li:nth-child(1){animation-delay:.34s}.hpoints li:nth-child(2){animation-delay:.46s}.hpoints li:nth-child(3){animation-delay:.58s}
+.calwidget iframe{animation:fadeIn .7s ease}@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.calload .spinner{box-shadow:0 0 24px rgba(38,128,255,.3)}
+@media(prefers-reduced-motion:reduce){.head,.shell,.backlink,.hpoints li{animation:none;opacity:1}}
 </style>
 <style id="ofix">html,body{overflow-x:clip;max-width:100%}img,svg,video,iframe{max-width:100%}</style></head>
 <body>
 <div class="top">
   <a class="brand" href="/"><img src="/assets/brand/salesdrive-logo.png" alt="SalesDrive"></a>
-  <div class="steps">Fragen <i></i> <b>Termin wählen</b> <i></i> Bestätigung</div>
+  <div class="steps"><span class="done">✓ Fragen</span> <i></i> <b>Schritt 2/3 · Termin wählen</b> <i></i> Bestätigung</div>
   <a class="exit" href="/">✕</a>
 </div>
+<div class="pbar"><div class="pfill" id="pfill"></div></div>
 
 <div class="wrap">
   <div class="head">
@@ -97,6 +111,7 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;bac
 
 <script>
 const form=JSON.parse(sessionStorage.getItem('sd_form')||'{}');
+setTimeout(function(){var pf=document.getElementById('pfill');if(pf)pf.style.width='66%';},180);
 function escapeHtml(s){return (s+'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 if(form.name){const fn=form.name.split(' ')[0];document.getElementById('headline').innerHTML='Super, <span class="hl">'+escapeHtml(fn)+'</span> – wähle deinen Wunschtermin.';}
 (function(){const map={name:'Name',firma:'Unternehmen',email:'E-Mail'};let h='';
