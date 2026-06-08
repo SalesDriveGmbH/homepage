@@ -740,3 +740,27 @@ em { font-style: normal; color: var(--blue); }
 @media (max-width: 560px) {
   .cookie { right: 12px; left: 12px; max-width: none; padding: 18px; }
 }
+
+/* ============================================================
+   WHITE THEME OVERRIDE · v7 Branding (flippt alle site.css-Seiten auf Weiss)
+   ============================================================ */
+:root{
+  --bg:#ffffff; --bg-2:#f5f5f7; --bg-3:#f0f0f3; --bg-4:#eaeaef;
+  --surf:#ffffff; --surf-2:#f6f6f8; --surf-3:#ececf1;
+  --line:rgba(0,0,0,.09); --line-2:rgba(0,0,0,.13); --line-3:rgba(0,0,0,.2);
+  --ink:#1d1d1f; --ink-2:#3a3d44; --ink-3:#5f6470; --ink-mute:#86868b; --ink-faint:#b0b0b6;
+  --blue:#0a66ff; --blue-deep:#0a66ff; --blue-bright:#3b8aff; --blue-press:#0856d6;
+  --blue-glow:rgba(10,102,255,.20); --blue-soft:rgba(10,102,255,.07);
+}
+html,body{background:#fff !important;color:var(--ink) !important}
+body::before{display:none !important}
+.glow,.glow em{text-shadow:none !important}
+::selection{background:var(--blue);color:#fff}
+.card{background:#fff;box-shadow:0 16px 44px -32px rgba(0,0,0,.28)}
+.card:hover{background:#fff;box-shadow:0 32px 64px -38px rgba(0,0,0,.32)}
+.btn--ghost{background:#fff;color:var(--ink);border-color:var(--line-3)}
+.footer{background:#fff;border-top:1px solid var(--line)}
+
+/* WHITE THEME: Gradient-Headlines lesbar auf Weiss */
+.roi__metric--big .roi__metric-value, .article__h1, .blog-hero__title, .facts__num, .sec-head h2, .sectext h2, .subhero__title{background:linear-gradient(150deg,#15171c,#3a3d44 55%,#5f6470) !important;-webkit-background-clip:text !important;background-clip:text !important;color:transparent !important}
+.final__title em, .bottom-cta h2 em, article p em, .zert-tuv__title em, .roi__cta-bar-title em, .blog-hero__title em, .sectext h2 em, .subhero__title em, .blog-cta__title em, .gradient-blue, .sec-head h2 em{background:linear-gradient(130deg,#0a66ff,#3b8aff) !important;-webkit-background-clip:text !important;background-clip:text !important;color:transparent !important}
