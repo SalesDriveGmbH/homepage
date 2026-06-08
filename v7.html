@@ -1638,7 +1638,7 @@ nav{background:linear-gradient(180deg,rgba(10,11,15,.82),rgba(10,11,15,.62)) !im
 .lw-cell img:hover{filter:grayscale(0);opacity:1}
 @keyframes lwscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.lw-track{animation:none}}
-.seal-strip{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;align-items:center;margin-top:34px}.seal-strip a{display:block;line-height:0}.seal-strip img{height:104px;width:auto;border-radius:12px;background:#fff;box-shadow:0 18px 44px -28px rgba(0,0,0,.3);border:1px solid var(--rule);transition:transform .3s,box-shadow .3s}.seal-strip a:hover img{transform:translateY(-4px);box-shadow:0 30px 60px -30px rgba(0,0,0,.38)}@media(max-width:560px){.seal-strip img{height:78px}}
+.seal-strip{display:flex;flex-wrap:nowrap;gap:20px;justify-content:center;align-items:center;margin-top:34px;overflow-x:auto;padding:4px 4px 8px;scrollbar-width:none}.seal-strip::-webkit-scrollbar{display:none}.seal-strip a{flex:0 0 auto}.seal-strip a{display:block;line-height:0}.seal-strip img{height:112px;width:auto;border-radius:12px;background:#fff;box-shadow:0 18px 44px -28px rgba(0,0,0,.3);border:1px solid var(--rule);transition:transform .3s,box-shadow .3s}.seal-strip a:hover img{transform:translateY(-4px);box-shadow:0 30px 60px -30px rgba(0,0,0,.38)}@media(max-width:560px){.seal-strip img{height:86px}}
 @media(max-width:640px){.lw-track{gap:40px}.logowall{gap:24px}.lw-cell{transform:scale(.82)}}
 </style><style id="tmlinks">.tm figcaption{display:flex;flex-direction:column}.tm-links{display:flex;gap:12px;margin-top:10px}.tm-links a{color:#9a9aa0;display:inline-flex;transition:color .2s,transform .2s}.tm-links a:hover{color:#0a66ff;transform:translateY(-2px)}.tm-links svg{width:17px;height:17px;display:block}</style><style id="tcardcss">
 #stimmen .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -1702,7 +1702,7 @@ nav{background:linear-gradient(180deg,rgba(10,11,15,.82),rgba(10,11,15,.62)) !im
 @keyframes sdpulse{0%,100%{opacity:1}50%{opacity:.4}}
 @media(max-width:820px){.sdfoot-top{grid-template-columns:1fr 1fr;gap:28px}.sdfoot-brand{grid-column:1/-1}}
 </style><style id="sdHeroBackdrop">
-header.hero{position:relative;isolation:isolate;background:linear-gradient(100deg,rgba(255,255,255,.94) 32%,rgba(255,255,255,.62) 75%,rgba(255,255,255,.5) 100%),linear-gradient(180deg,rgba(255,255,255,.5) 0%,rgba(255,255,255,.72) 48%,rgba(255,255,255,.95) 82%,#fff 100%),url("/assets/wow/topbg.jpg") center 32%/cover no-repeat !important}
+header.hero{position:relative;isolation:isolate;background:linear-gradient(100deg,rgba(255,255,255,.9) 30%,rgba(255,255,255,.48) 75%,rgba(255,255,255,.36) 100%),linear-gradient(180deg,rgba(255,255,255,.38) 0%,rgba(255,255,255,.6) 48%,rgba(255,255,255,.92) 82%,#fff 100%),url("/assets/wow/topbg.jpg") center 32%/cover no-repeat !important}
 header.hero>*{position:relative;z-index:1}
 /* sanfter Glow hinter dem Hero oben rechts */
 header.hero::before{content:"";position:absolute;top:-80px;right:-60px;width:60%;height:560px;background:radial-gradient(50% 50% at 70% 30%,rgba(10,102,255,.14),transparent 70%);pointer-events:none;z-index:0}
