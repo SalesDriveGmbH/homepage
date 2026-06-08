@@ -1190,103 +1190,208 @@ nav{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.12) !im
 #deck .hb-fn b{color:#1d1d1f;font-weight:700;font-variant-numeric:tabular-nums}
 @media(max-width:820px){#deck .hb-main{grid-template-columns:1fr}#deck .hb-kpis{grid-template-columns:1fr}#deck .hb-step{min-width:46%}}
 </style>
-<style id="v7coop">
-#deck .coop{max-width:1080px;margin:clamp(36px,5vw,56px) auto 0}
-#deck .coop-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:22px}
-#deck .ctab{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(0,0,0,.1);background:#fff;color:#6e6e73;font-family:inherit;font-size:13.5px;font-weight:500;padding:10px 16px;border-radius:999px;cursor:pointer;transition:.2s}
-#deck .ctab .hb-ico.tb{width:20px;height:20px;background:none;box-shadow:none;color:inherit}
-#deck .ctab .hb-ico.tb svg{width:16px;height:16px}
-#deck .ctab:hover{border-color:rgba(10,102,255,.4);color:#1d1d1f}
-#deck .ctab.on{background:#0a66ff;border-color:#0a66ff;color:#fff;box-shadow:0 10px 24px -12px rgba(10,102,255,.6)}
-#deck .coop-stage{position:relative;min-height:560px}
-#deck .cpanel{display:none}
-#deck .cpanel.on{display:block;animation:cfade .55s cubic-bezier(.16,1,.3,1)}
-@keyframes cfade{from{opacity:0;transform:translateY(16px) scale(.99)}to{opacity:1;transform:none}}
-#deck .coop-feats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+<style id="v7lap">
+/* ===== Zusammenarbeit · Laptop + Phone + Apple-Toggle ===== */
+#deck .coop{max-width:1080px;margin:clamp(34px,5vw,54px) auto 0}
+#deck .lap-panels{position:relative}
+#deck .cpanel{display:none}#deck .cpanel.on{display:block;animation:cfade .55s cubic-bezier(.16,1,.3,1)}
+#deck .phpanel{display:none}#deck .phpanel.on{display:block;animation:cfade .5s}
+@keyframes cfade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+#deck .coop .hb-tr i{width:var(--w) !important}
+/* Apple segmented toggle */
+#deck .seg-wrap{display:flex;justify-content:center;margin-bottom:30px}
+#deck .seg{display:inline-flex;position:relative;background:#e8e9ee;border-radius:13px;padding:5px;max-width:96vw;overflow:auto}
+#deck .seg button{position:relative;z-index:1;border:0;background:none;font-family:inherit;font-size:13px;font-weight:500;color:#6e6e73;padding:9px 16px;border-radius:9px;cursor:pointer;white-space:nowrap;transition:color .3s}
+#deck .seg button.on{color:#1d1d1f}
+#deck .seg-ind{position:absolute;top:5px;bottom:5px;left:5px;width:0;background:#fff;border-radius:9px;box-shadow:0 1px 5px rgba(0,0,0,.16);transition:left .42s cubic-bezier(.3,.85,.3,1),width .42s cubic-bezier(.3,.85,.3,1)}
+/* stage */
+#deck .lap-stage{position:relative;perspective:2200px;perspective-origin:50% 22%;display:flex;justify-content:center;align-items:flex-end;padding:6px 0 20px}
+#deck .laptop{position:relative;width:min(880px,95%);z-index:1}
+#deck .lap-screen{transform-origin:50% 100%;transform:rotateX(-90deg);transition:transform 1.6s cubic-bezier(.2,.85,.25,1);background:#0b0c10;border-radius:16px 16px 0 0;padding:11px 11px 0;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+#deck .coop.in .lap-screen{transform:rotateX(0deg)}
+#deck .lap-cam{position:absolute;top:5px;left:50%;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:#23242a;z-index:6}
+#deck .lap-bezel{border-radius:9px 9px 0 0;overflow:hidden;background:#000}
+#deck .lap-screen-in{position:relative;background:#f4f5f8;aspect-ratio:16/10.2;overflow:hidden}
+#deck .lap-base{position:relative;height:15px;width:106%;margin-left:-3%;background:linear-gradient(#d3d6db,#a3a9b2);border-radius:0 0 12px 12px;z-index:2;box-shadow:0 22px 36px -12px rgba(0,0,0,.4)}
+#deck .lap-base::after{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:92px;height:8px;background:#9298a1;border-radius:0 0 8px 8px}
+#deck .lap-phone{position:absolute;right:-6px;bottom:-8px;width:clamp(138px,17%,196px);z-index:3;opacity:0;transform:translateY(48px) rotate(2deg)}
+#deck .coop.in .lap-phone{opacity:1;transform:none;transition:opacity .9s .85s,transform 1s cubic-bezier(.2,.85,.25,1) .85s}
+#deck .ph-frame{border-radius:30px;background:#0b0c10;padding:6px;box-shadow:0 0 0 2px #23242a,0 30px 50px -18px rgba(0,0,0,.55)}
+#deck .ph-screen{border-radius:25px;overflow:hidden;background:#f4f5f8;aspect-ratio:9/19.5;position:relative;display:flex;flex-direction:column}
+#deck .ph-top{display:flex;align-items:center;gap:6px;padding:9px 12px;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);font-size:10px;font-weight:600;color:#1d1d1f}
+#deck .ph-dot{width:6px;height:6px;border-radius:50%;background:#16a34a}
+#deck .ph-panels{position:relative;flex:1;padding:10px;overflow:hidden}
+/* app top */
+#deck .app-top{display:flex;align-items:center;gap:16px;padding:9px 14px;background:#fff;border-bottom:1px solid rgba(0,0,0,.07)}
+#deck .app-logo{font-weight:700;font-size:14px;color:#1d1d1f}#deck .app-logo span{color:#0a66ff}
+#deck .app-nav{display:flex;gap:14px;font-size:11.5px;color:#6e6e73}
+#deck .app-nav a{cursor:pointer;white-space:nowrap}#deck .app-nav a.on{color:#0a66ff;font-weight:600}
+#deck .app-user{margin-left:auto;width:24px;height:24px;border-radius:50%;background:#0a66ff;color:#fff;font-size:10px;font-weight:600;display:grid;place-items:center}
+#deck .lap-screen-in .hb-body{padding:16px}
+#deck .lap-screen-in .hb-head h3{font-size:18px}
+/* feats */
+#deck .coop-feats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
 #deck .coop-feats>div{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:14px;padding:16px}
 #deck .coop-feats b{display:block;font-size:14px;color:#1d1d1f;font-weight:600}
 #deck .coop-feats>div>div span{font-size:12.5px;color:#86868b}
 #deck .hb-ico.ft{width:38px;height:38px;background:#eef3ff;color:#0a66ff;box-shadow:none}
 #deck .hb-ico.ft svg{width:18px;height:18px}
-/* Dashboard */
+/* Dashboard panel */
 #deck .db-pill{font-size:11px;font-weight:600;padding:5px 11px;border-radius:999px;white-space:nowrap}
-#deck .db-pill.ok{color:#16a34a;background:rgba(22,163,74,.1)}
-#deck .db-pill.warn{color:#d9534f;background:rgba(217,83,79,.1)}
-#deck .db-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-#deck .db-kpi{background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:14px;padding:16px;box-shadow:0 8px 22px -18px rgba(0,0,0,.14)}
-#deck .db-kpi .hb-ico{margin-bottom:12px}
-#deck .db-kpi .hb-k{display:block;margin-bottom:4px}
-#deck .db-kpi .hb-n{font-size:24px;font-weight:700;color:#1d1d1f;letter-spacing:-.02em}
-#deck .db-sub{font-size:11.5px;color:#86868b}#deck .db-sub.up{color:#16a34a}
-#deck .db-ai{display:flex;align-items:center;gap:16px;margin-top:14px;background:linear-gradient(120deg,#eef4ff,#f2fbff);border:1px solid rgba(10,102,255,.18);border-radius:16px;padding:18px 20px}
-#deck .hb-ico.aiic{background:linear-gradient(135deg,#13c2c2,#0a66ff);width:46px;height:46px}
+#deck .db-pill.ok{color:#16a34a;background:rgba(22,163,74,.1)}#deck .db-pill.warn{color:#d9534f;background:rgba(217,83,79,.1)}
+#deck .db-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+#deck .db-kpi{background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:13px;padding:14px}
+#deck .db-kpi .hb-ico{margin-bottom:10px}
+#deck .db-kpi .hb-k{display:block;margin-bottom:3px}
+#deck .db-kpi .hb-n{font-size:22px;font-weight:700;color:#1d1d1f;letter-spacing:-.02em}
+#deck .db-sub{font-size:11px;color:#86868b}#deck .db-sub.up{color:#16a34a}
+#deck .db-ai{display:flex;align-items:center;gap:14px;margin-top:12px;background:linear-gradient(120deg,#eef4ff,#f2fbff);border:1px solid rgba(10,102,255,.18);border-radius:14px;padding:16px}
+#deck .hb-ico.aiic{background:linear-gradient(135deg,#13c2c2,#0a66ff);width:44px;height:44px}
 #deck .db-ai-t{flex:1}
 #deck .hb-ey.grad{background:linear-gradient(90deg,#0a66ff,#13c2c2);-webkit-background-clip:text;background-clip:text;color:transparent}
-#deck .db-ai-t b{display:block;font-size:18px;color:#1d1d1f;margin:2px 0 8px}
-#deck .db-chips{display:flex;gap:8px;flex-wrap:wrap}
-#deck .db-chips span{font-size:11.5px;color:#4a5568;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:8px;padding:5px 10px}
-#deck .db-aibtn{background:#0a66ff;color:#fff;font-size:13px;font-weight:600;padding:11px 18px;border-radius:11px;white-space:nowrap}
-#deck .db-quick{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:14px}
-#deck .db-q{background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:13px;padding:15px}
-#deck .db-q .hb-ico{margin-bottom:10px}
-#deck .db-q b{display:block;font-size:13.5px;color:#1d1d1f}
-#deck .db-q span{font-size:11.5px;color:#86868b}
+#deck .db-ai-t b{display:block;font-size:16px;color:#1d1d1f;margin:2px 0 7px}
+#deck .db-chips{display:flex;gap:7px;flex-wrap:wrap}
+#deck .db-chips span{font-size:11px;color:#4a5568;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:7px;padding:4px 9px}
+#deck .db-aibtn{background:#0a66ff;color:#fff;font-size:12.5px;font-weight:600;padding:10px 16px;border-radius:10px;white-space:nowrap}
+#deck .db-quick{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:12px}
+#deck .db-q{background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:12px;padding:13px}
+#deck .db-q .hb-ico{margin-bottom:9px}
+#deck .db-q b{display:block;font-size:12.5px;color:#1d1d1f}#deck .db-q span{font-size:11px;color:#86868b}
 /* Workspace */
-#deck .ws-journey{background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:16px;padding:20px;margin-bottom:14px}
-#deck .ws-jh{font-size:13px;font-weight:600;color:#1d1d1f;margin-bottom:16px}
+#deck .ws-journey{background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:14px;padding:18px;margin-bottom:12px}
+#deck .ws-jh{font-size:13px;font-weight:600;color:#1d1d1f;margin-bottom:14px}
 #deck .ws-steps{display:flex;align-items:center;gap:8px}
-#deck .ws-step{display:flex;align-items:center;gap:11px;flex:0 0 auto}
-#deck .ws-step .hb-ico.rk{width:42px;height:42px;background:#f0f1f4;color:#86868b;box-shadow:none}
-#deck .ws-step.on .hb-ico.rk{background:linear-gradient(135deg,#0a66ff,#0a3fd0);color:#fff;box-shadow:0 10px 22px -10px rgba(10,102,255,.6)}
-#deck .ws-st-t b{display:block;font-size:14px;color:#1d1d1f}
-#deck .ws-st-t span{font-size:11.5px;color:#86868b}
-#deck .ws-step em{font-style:normal;font-size:10.5px;font-weight:600;color:#0a66ff;background:rgba(10,102,255,.1);padding:3px 8px;border-radius:999px;margin-left:4px}
-#deck .ws-line{flex:1;height:2px;background:rgba(0,0,0,.1);border-radius:2px;min-width:20px}
-#deck .ws-docs{display:flex;flex-direction:column;gap:10px}
-#deck .ws-doc{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:13px;padding:15px 18px;transition:.2s}
-#deck .ws-doc:hover{border-color:rgba(10,102,255,.3);transform:translateX(3px)}
-#deck .ws-doc .hb-ico.doc{background:linear-gradient(135deg,#0a66ff,#13a7c2);width:42px;height:42px}
-#deck .ws-doc-t{flex:1}
-#deck .ws-doc-t .hb-ey{font-size:9.5px}
-#deck .ws-doc-t b{display:block;font-size:15px;color:#1d1d1f;margin:1px 0}
-#deck .ws-doc-t span{font-size:12.5px;color:#86868b}
+#deck .ws-step{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+#deck .ws-step .hb-ico.rk{width:40px;height:40px;background:#f0f1f4;color:#86868b;box-shadow:none}
+#deck .ws-step.on .hb-ico.rk{background:linear-gradient(135deg,#0a66ff,#0a3fd0);color:#fff}
+#deck .ws-st-t b{display:block;font-size:13px;color:#1d1d1f}#deck .ws-st-t span{font-size:11px;color:#86868b}
+#deck .ws-step em{font-style:normal;font-size:10px;font-weight:600;color:#0a66ff;background:rgba(10,102,255,.1);padding:3px 8px;border-radius:999px}
+#deck .ws-line{flex:1;height:2px;background:rgba(0,0,0,.1);border-radius:2px;min-width:16px}
+#deck .ws-docs{display:flex;flex-direction:column;gap:8px}
+#deck .ws-doc{display:flex;align-items:center;gap:13px;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:12px;padding:13px 16px}
+#deck .ws-doc .hb-ico.doc{background:linear-gradient(135deg,#0a66ff,#13a7c2);width:40px;height:40px}
+#deck .ws-doc-t{flex:1}#deck .ws-doc-t .hb-ey{font-size:9px}
+#deck .ws-doc-t b{display:block;font-size:14px;color:#1d1d1f}#deck .ws-doc-t span{font-size:12px;color:#86868b}
 #deck .ws-ok{font-size:11px;font-weight:600;color:#16a34a;background:rgba(22,163,74,.1);padding:5px 11px;border-radius:999px;white-space:nowrap}
 #deck .ws-chev{color:#aeb0b6}#deck .ws-chev svg{width:18px;height:18px}
-/* Lead-Freigaben */
-#deck .lf-list{display:flex;flex-direction:column;gap:10px}
-#deck .lf-row{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:13px;padding:15px 18px}
-#deck .lf-row.done{background:linear-gradient(90deg,rgba(22,163,74,.05),#fff)}
-#deck .lf-row .hb-ico.sm{width:38px;height:38px}
-#deck .lf-t{flex:1}#deck .lf-t b{display:block;font-size:14.5px;color:#1d1d1f}#deck .lf-t span{font-size:12.5px;color:#86868b}
-#deck .lf-ok{font-size:11px;font-weight:600;color:#16a34a;background:rgba(22,163,74,.1);padding:5px 11px;border-radius:999px;white-space:nowrap}
-#deck .lf-act{display:flex;gap:8px}
-#deck .lf-yes{background:#0a66ff;color:#fff;border:0;font-family:inherit;font-size:12.5px;font-weight:600;padding:9px 16px;border-radius:10px;cursor:pointer}
-#deck .lf-no{background:#fff;color:#6e6e73;border:1px solid rgba(0,0,0,.12);font-family:inherit;font-size:12.5px;font-weight:500;padding:9px 14px;border-radius:10px;cursor:pointer}
-#deck .lf-note{display:flex;align-items:center;gap:11px;margin-top:14px;font-size:12.5px;color:#6e6e73;background:#f5f7fa;border-radius:12px;padding:13px 16px}
-#deck .lf-note .hb-ico.sm{width:32px;height:32px}
-/* Skill-Profile */
-#deck .sp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-#deck .sp-card{background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:16px;padding:22px;box-shadow:0 10px 26px -20px rgba(0,0,0,.16)}
-#deck .sp-top{display:flex;align-items:center;gap:13px;margin-bottom:18px}
-#deck .sp-top img{width:50px;height:50px;border-radius:50%;object-fit:cover}
-#deck .sp-id{flex:1}#deck .sp-id b{display:block;font-size:16px;color:#1d1d1f}#deck .sp-id span{font-size:12.5px;color:#86868b}
-#deck .sp-score{font-size:13px;font-weight:700;color:#f5a623;background:rgba(245,166,35,.12);padding:5px 11px;border-radius:999px;white-space:nowrap}
-#deck .sp-skills{display:flex;flex-direction:column;gap:12px;margin-bottom:18px}
-#deck .sp-sk{display:grid;grid-template-columns:140px 1fr;align-items:center;gap:12px;font-size:12.5px;color:#6e6e73}
-#deck .sp-meta{display:flex;gap:8px;flex-wrap:wrap;padding-top:16px;border-top:1px solid rgba(0,0,0,.07)}
-#deck .sp-meta span{font-size:11.5px;color:#6e6e73;background:#f5f6f9;border-radius:8px;padding:6px 11px}
-/* bars in coop fill immediately */
-#deck .coop .hb-tr i{width:var(--w) !important}
-#deck .cpanel.on .hb-tr i{animation:barfill 1.1s cubic-bezier(.2,.7,.2,1)}
-@keyframes barfill{from{width:0}}
-@media(max-width:860px){
- #deck .db-kpis,#deck .db-quick,#deck .coop-feats,#deck .sp-grid{grid-template-columns:1fr 1fr}
- #deck .db-ai{flex-direction:column;align-items:flex-start}
- #deck .ws-steps{flex-direction:column;align-items:flex-start}
- #deck .ws-line{width:2px;height:16px;min-width:0;margin-left:20px}
- #deck .coop-tabs{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding-bottom:4px}
- #deck .ctab{flex:0 0 auto}
+/* Lead-Freigaben v2 */
+#deck .lf2 .lf2-card{background:#eef1f8;border:1px solid rgba(10,102,255,.12);border-radius:12px;padding:14px 16px;margin-bottom:12px}
+#deck .lf2-card>b{font-size:15px;color:#1d1d1f;display:block}
+#deck .lf2-card>span{font-size:11.5px;color:#6e6e73;display:block;margin:3px 0 8px}
+#deck .lf2-pills{display:flex;gap:8px}
+#deck .lf2-pills span{font-size:10.5px;font-weight:600;padding:3px 9px;border-radius:999px}
+#deck .lf2-pills .ok{color:#16a34a;background:rgba(22,163,74,.12)}#deck .lf2-pills .no{color:#d9534f;background:rgba(217,83,79,.12)}
+#deck .lf2-table{background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:12px;overflow:hidden}
+#deck .lf2-tr{display:grid;grid-template-columns:1.25fr 1.15fr 1.5fr .85fr 1fr 1.15fr;gap:8px;align-items:center;padding:9px 14px;border-top:1px solid rgba(0,0,0,.05);font-size:10.5px;color:#4a5568}
+#deck .lf2-th{border-top:0;font-size:8.5px;letter-spacing:.05em;text-transform:uppercase;color:#9aa0aa;background:#fafbfc}
+#deck .lf2-fi{font-weight:600;color:#1d1d1f}
+#deck .lf2-ap b{display:block;color:#1d1d1f;font-size:10.5px}#deck .lf2-ap small{color:#9aa0aa;font-size:9px}
+#deck .lf2-em,#deck .lf2-tel,#deck .lf2-web{font-size:9.5px;color:#6e6e73;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#deck .lf2-dec{display:inline-flex;align-items:center;justify-content:space-between;gap:4px;font-size:10px;font-weight:600;padding:6px 9px;border-radius:7px;border:1px solid}
+#deck .lf2-dec svg{width:11px;height:11px;opacity:.5}
+#deck .lf2-dec.ok{color:#16a34a;border-color:rgba(22,163,74,.3);background:rgba(22,163,74,.05)}
+#deck .lf2-dec.no{color:#d9534f;border-color:rgba(217,83,79,.3);background:rgba(217,83,79,.05)}
+#deck .lf2-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:12px}
+#deck .lf2-foot span{font-size:11px;color:#86868b}
+#deck .lf2-btn{display:inline-flex;align-items:center;gap:8px;background:#0a66ff;color:#fff;border:0;font-family:inherit;font-size:12px;font-weight:600;padding:11px 18px;border-radius:11px;cursor:pointer}
+#deck .lf2-btn svg{width:14px;height:14px}
+/* Skill v2 */
+#deck .sp2-hero{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:14px;padding:18px;margin-bottom:12px}
+#deck .sp2-ring{position:relative;width:96px;height:96px}
+#deck .sp2-ring svg{width:96px;height:96px;transform:rotate(-90deg)}
+#deck .sp2-ring .tr{fill:none;stroke:rgba(0,0,0,.08);stroke-width:8}
+#deck .sp2-ring .fg{fill:none;stroke:#13c2c2;stroke-width:8;stroke-linecap:round;stroke-dasharray:327;stroke-dashoffset:327}
+#deck .coop.in .sp2-ring .fg{stroke-dashoffset:173;transition:stroke-dashoffset 1.5s ease .4s}
+#deck .sp2-ring-n{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+#deck .sp2-ring-n b{font-size:30px;font-weight:700;color:#1d1d1f;line-height:1}#deck .sp2-ring-n i{font-size:10px;color:#9aa0aa;font-style:normal}
+#deck .sp2-tags{display:flex;gap:7px;margin-bottom:8px}
+#deck .sp2-tags span{font-size:10px;font-weight:600;padding:4px 10px;border-radius:999px;background:#eef1f8;color:#0a66ff}
+#deck .sp2-htxt h4{font-size:21px;font-weight:700;color:#1d1d1f}
+#deck .sp2-htxt p{font-size:12px;color:#6e6e73;line-height:1.5;margin-top:6px;max-width:44ch}
+#deck .sp2-radar{text-align:center}
+#deck .sp2-rt{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#9aa0aa}
+#deck .sp2-radar-svg{width:160px;height:150px}
+#deck .sp2-radar-svg .rl{font-size:7.5px;fill:#86868b}
+#deck .sp2-radar-svg .rg,#deck .sp2-radar-svg .ra{fill:none;stroke:rgba(0,0,0,.1)}
+#deck .sp2-radar-svg .rd{fill:rgba(10,102,255,.18);stroke:#0a66ff;stroke-width:1.5}
+#deck .sp2-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:12px}
+#deck .sp2-stats>div{background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:12px;padding:14px}
+#deck .sp2-stats span{font-size:10.5px;color:#86868b;display:block}
+#deck .sp2-stats b{font-size:22px;font-weight:700;color:#1d1d1f;display:block;margin:2px 0}#deck .sp2-stats b.up{color:#16a34a}
+#deck .sp2-stats small{font-size:9.5px;color:#9aa0aa}
+#deck .sp2-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:12px}
+#deck .sp2-cd{background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:12px;padding:16px}
+#deck .sp2-ch{font-size:12px;font-weight:600;color:#1d1d1f;display:flex;justify-content:space-between;margin-bottom:10px}
+#deck .sp2-ch em{font-style:normal;font-size:9.5px;color:#9aa0aa}
+#deck .sp2-line{width:100%;height:110px;display:block}
+#deck .sp2-line .spl{stroke:#13c2c2;stroke-width:2.5;stroke-dasharray:1400;stroke-dashoffset:1400}
+#deck .coop.in .sp2-line .spl{stroke-dashoffset:0;transition:stroke-dashoffset 1.8s ease .5s}
+#deck .sp2-xaxis{display:flex;justify-content:space-between;font-size:8.5px;color:#aeb0b6;margin-top:4px}
+#deck .sp2-bar{display:grid;grid-template-columns:96px 1fr auto;align-items:center;gap:10px;margin-bottom:10px;font-size:11px;color:#6e6e73}
+#deck .sp2-bar b{color:#1d1d1f;font-weight:600}
+/* phone minis */
+#deck .ph-h{font-size:11px;font-weight:700;color:#1d1d1f;margin-bottom:8px}
+#deck .ph-kpi{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:10px;padding:9px 11px;margin-bottom:7px;display:flex;justify-content:space-between;align-items:center}
+#deck .ph-kpi span{font-size:9px;color:#86868b}#deck .ph-kpi b{font-size:15px;font-weight:700;color:#1d1d1f}
+#deck .ph-ai{background:linear-gradient(120deg,#eef4ff,#f2fbff);border:1px solid rgba(10,102,255,.16);border-radius:10px;padding:9px;font-size:9.5px;font-weight:600;color:#0a66ff;margin-top:3px}
+#deck .ph-ai small{display:block;color:#86868b;font-weight:500;margin-top:2px}
+#deck .ph-big{font-size:27px;font-weight:700;color:#1d1d1f;letter-spacing:-.02em}
+#deck .ph-mini{display:flex;justify-content:space-between;font-size:9.5px;color:#6e6e73;margin:8px 0 5px}#deck .ph-mini b{color:#1d1d1f;font-weight:700}
+#deck .ph-mb{height:5px;background:rgba(0,0,0,.07);border-radius:99px;margin-bottom:5px;overflow:hidden}#deck .ph-mb i{display:block;height:100%;background:#0a66ff;border-radius:99px}#deck .ph-mb.green i{background:#16a34a}
+#deck .ph-step{font-size:10px;color:#86868b;padding:4px 0}#deck .ph-step.on{color:#0a66ff;font-weight:600}
+#deck .ph-doc{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:9px;padding:8px 10px;font-size:9.5px;color:#1d1d1f;margin-top:6px}#deck .ph-doc small{float:right;color:#16a34a}
+#deck .ph-lead{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:9px;padding:9px 10px;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;font-size:9.5px}
+#deck .ph-lead b{color:#1d1d1f}#deck .ph-lead.ok span{color:#16a34a}#deck .ph-lead.no span{color:#d9534f}
+#deck .ph-btn{width:100%;margin-top:4px;background:#0a66ff;color:#fff;border:0;font-family:inherit;font-size:10px;font-weight:600;padding:9px;border-radius:9px}
+#deck .ph-ring{position:relative;width:80px;height:80px;margin:6px auto 14px}
+#deck .ph-ring svg{width:80px;height:80px;transform:rotate(-90deg)}
+#deck .ph-ring .tr{fill:none;stroke:rgba(0,0,0,.08);stroke-width:8}
+#deck .ph-ring .fg{fill:none;stroke:#13c2c2;stroke-width:8;stroke-linecap:round;stroke-dasharray:264;stroke-dashoffset:140}
+#deck .ph-ring b{position:absolute;inset:0;display:grid;place-items:center;font-size:21px;font-weight:700;color:#1d1d1f}
+#deck .ph-bar{display:grid;grid-template-columns:48px 1fr;gap:8px;align-items:center;font-size:9px;color:#6e6e73;margin-bottom:8px}
+#deck .ph-bar i{display:block;height:5px;background:#f5a623;border-radius:99px;width:var(--w)}
+@media(max-width:920px){
+ #deck .lap-phone{display:none}
+ #deck .db-kpis,#deck .db-quick,#deck .coop-feats,#deck .sp2-stats,#deck .sp2-grid{grid-template-columns:1fr 1fr}
 }
+</style>
+<style id="v7noti">
+#benachrichtigung .noti{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,80px);align-items:center}
+#benachrichtigung .noti-ey{font-size:14px;font-weight:600;color:#0a66ff;display:block;margin-bottom:14px}
+#benachrichtigung .noti-h{font-size:clamp(28px,3.8vw,46px);line-height:1.06;letter-spacing:-.03em;font-weight:700;color:#1d1d1f}
+#benachrichtigung .noti-copy>p{font-size:16.5px;color:#5f6470;line-height:1.6;margin-top:18px;max-width:46ch}
+#benachrichtigung .noti-copy>p b{color:#1d1d1f;font-weight:600}
+#benachrichtigung .noti-ch{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+#benachrichtigung .noti-c{display:flex;gap:13px;align-items:flex-start;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:15px;padding:16px;box-shadow:0 12px 30px -22px rgba(0,0,0,.18)}
+#benachrichtigung .noti-ic{flex:0 0 auto;width:40px;height:40px;border-radius:11px;display:grid;place-items:center;color:#0a66ff;background:#eef3ff}
+#benachrichtigung .noti-ic svg{width:20px;height:20px}
+#benachrichtigung .noti-c b{display:block;font-size:14.5px;color:#1d1d1f;font-weight:600;margin-bottom:3px}
+#benachrichtigung .noti-c span{font-size:12.5px;color:#86868b;line-height:1.45}
+#benachrichtigung .noti-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+#benachrichtigung .noti-tags span{font-size:12.5px;color:#5f6470;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:7px 14px}
+/* iPhone */
+#benachrichtigung .noti-phone{display:flex;justify-content:center;position:relative}
+#benachrichtigung .noti-phone::before{content:"";position:absolute;width:76%;aspect-ratio:1;left:50%;top:44%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(10,102,255,.18),transparent 64%);filter:blur(54px)}
+#benachrichtigung .iphone2{position:relative;z-index:1;width:300px;max-width:84vw;aspect-ratio:9/19.3;border-radius:46px;padding:54px 14px 22px;overflow:hidden;background:linear-gradient(170deg,#1a1c22,#0c0e13);box-shadow:0 0 0 10px #0a0a0c,0 0 0 11px rgba(255,255,255,.06),0 60px 110px -44px rgba(0,0,0,.55);animation:notifloat 7s ease-in-out infinite}
+@keyframes notifloat{50%{transform:translateY(-12px)}}
+#benachrichtigung .iph2-notch{position:absolute;top:15px;left:50%;transform:translateX(-50%);width:96px;height:26px;background:#000;border-radius:999px}
+#benachrichtigung .iph2-time{position:absolute;top:19px;left:26px;font-size:13px;font-weight:600;color:#fff}
+#benachrichtigung .iph2-sig{position:absolute;top:19px;right:26px;font-size:11px;font-weight:700;color:#fff}
+#benachrichtigung .iph2-date{text-align:center;color:rgba(255,255,255,.92);font-size:14px;margin-top:6px}
+#benachrichtigung .iph2-clock{text-align:center;font-size:60px;font-weight:300;color:#fff;letter-spacing:-.02em;line-height:1;margin:2px 0 22px}
+#benachrichtigung .n2{background:rgba(40,42,48,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.07);border-radius:17px;padding:12px 14px;margin:9px 4px;opacity:0;transform:translateY(12px) scale(.97)}
+#benachrichtigung .noti.in .n2{animation:n2in .65s cubic-bezier(.16,1,.3,1) forwards}
+#benachrichtigung .noti.in .n2:nth-of-type(2){animation-delay:.45s}
+#benachrichtigung .noti.in .n2:nth-of-type(3){animation-delay:.85s}
+#benachrichtigung .noti.in .n2:nth-of-type(4){animation-delay:1.25s}
+@keyframes n2in{to{opacity:1;transform:none}}
+#benachrichtigung .n2-h{display:flex;align-items:center;gap:7px;font-size:10.5px;font-weight:700;letter-spacing:.05em;color:rgba(255,255,255,.62);margin-bottom:5px}
+#benachrichtigung .n2-app{width:17px;height:17px;border-radius:5px;background:linear-gradient(135deg,#16c79a,#0a8f6c)}
+#benachrichtigung .n2-ago{margin-left:auto;font-weight:500;color:rgba(255,255,255,.4)}
+#benachrichtigung .n2 b{display:block;font-size:13px;color:#fff;font-weight:600;margin-bottom:2px}
+#benachrichtigung .n2 span{display:block;font-size:11.5px;color:rgba(255,255,255,.62);line-height:1.4}
+@media(max-width:880px){#benachrichtigung .noti{grid-template-columns:1fr;gap:46px}#benachrichtigung .noti-phone{order:-1}}
+@media(max-width:520px){#benachrichtigung .noti-ch{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -1335,8 +1440,8 @@ nav{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.12) !im
       </div>
       <!-- RIGHT: framed video -->
       <div class="hright rv">
-        <div class="vframe" data-vimeo="1199134659" role="button" tabindex="0" aria-label="SalesDrive Vorstellung abspielen">
-          <img src="/assets/video-thumbs/1199134659.jpg" alt="SalesDrive Vorstellung" decoding="async">
+        <div class="vframe" data-vimeo="1199302252" role="button" tabindex="0" aria-label="SalesDrive Vorstellung abspielen">
+          <img src="/assets/video-thumbs/1199302252.jpg" alt="SalesDrive Vorstellung" decoding="async">
           <span class="vframe-glow"></span>
           <button class="vid-play" type="button" aria-label="Video abspielen"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
           <span class="vid-cap">SalesDrive · Vorstellung · 2 Min</span>
@@ -1519,21 +1624,14 @@ nav{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.12) !im
   </div>
 </section>
 
-<!-- ZUSAMMENARBEIT (Hub Showcase) -->
+<!-- ZUSAMMENARBEIT (Laptop+Phone Showcase) -->
 <section id="deck" class="wsec">
   <div class="wrap">
-    <div class="sec-h rv">
-      <span class="sec-num">02 — Unsere Zusammenarbeit</span>
-      <div><h2>Volle Kontrolle. Volle Transparenz. Dein eigenes Back-Office.</h2><p class="lead">Kein Blackbox-Outbound. Du bekommst Zugang zu unserem SalesDrive Hub — siehst jeden Anruf, gibst jedes Skript frei und behältst die volle Kontrolle. In Echtzeit.</p></div>
-    </div>
+    <div class="sec-h rv"><span class="sec-num">02 — Unsere Zusammenarbeit</span><div><h2>Dein eigenes Back-Office. Volle Kontrolle, in Echtzeit.</h2><p class="lead">Kein Blackbox-Outbound. Du bekommst Zugang zu unserem SalesDrive Hub — am Desktop und mobil. Du siehst jeden Anruf, gibst jeden Lead frei und behältst die volle Kontrolle.</p></div></div>
     <div class="coop rv">
-      <div class="coop-tabs"><button class="ctab on" data-p="0"><span class="hb-ico tb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-7M14 7h6v6"/></svg></span><span>Dashboard</span></button><button class="ctab" data-p="1"><span class="hb-ico tb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span><span>Live-Tracking</span></button><button class="ctab" data-p="2"><span class="hb-ico tb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><span>Kampagnen-Workspace</span></button><button class="ctab" data-p="3"><span class="hb-ico tb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span>Lead-Freigaben</span></button><button class="ctab" data-p="4"><span class="hb-ico tb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg></span><span>Skill-Profile</span></button></div>
-      <div class="coop-stage"><div class="cpanel on" data-p="0"><div class="hubwin"><div class="hb-chrome"><span class="hb-dot"></span><span class="hb-dot"></span><span class="hb-dot"></span><span class="hb-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="9" width="16" height="12" rx="2"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg>app.salesdrive.at / dashboard</span><span class="hb-live"><i></i>Live</span></div><div class="hb-body"><div class="hb-head"><div><span class="hb-ey">SalesDrive Hub</span><h3>Willkommen zurück, Alexander</h3><span class="hb-sub">Lukas GmbH</span></div><span class="db-pill ok">● Live</span></div><div class="db-kpis"><div class="db-kpi"><span class="hb-ico cal sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><span class="hb-k">Termine</span><div class="hb-n"><span data-n="12">0</span></div><span class="db-sub up">+0 % diese Woche</span></div><div class="db-kpi"><span class="hb-ico eur sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5a7 7 0 1 0 0 14M5 10h7M5 14h6"/></svg></span><span class="hb-k">Gewonnener Umsatz</span><div class="hb-n"><span data-n="18">0</span> K€</div><span class="db-sub">12 K€ offen in Pipeline</span></div><div class="db-kpi"><span class="hb-ico tgt sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></span><span class="hb-k">Termin-Quote</span><div class="hb-n">0,9 %</div><span class="db-sub">stabil</span></div><div class="db-kpi"><span class="hb-ico trd sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-7M14 7h6v6"/></svg></span><span class="hb-k">Auf Kurs</span><div class="hb-n">67 %</div><span class="db-pill warn">Unter Plan</span></div></div><div class="db-ai"><span class="hb-ico aiic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18 9l-4.2 1.3L12 15l-1.8-4.7L6 9l4.2-1.3z"/></svg></span><div class="db-ai-t"><span class="hb-ey grad">Sales Intelligence · Beta</span><b>Dein AI Sales Coach</b><div class="db-chips"><span>Briefing pro Lead</span><span>Pain Points + Hebel</span><span>Outcome tracken</span></div></div><span class="db-aibtn">Zum AI Sales Coach →</span></div><div class="db-quick"><div class="db-q"><span class="hb-ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-7M14 7h6v6"/></svg></span><b>Live Tracking</b><span>Echtzeit-Zahlen</span></div><div class="db-q"><span class="hb-ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><b>Kampagne</b><span>Skripte & ICP</span></div><div class="db-q"><span class="hb-ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5a7 7 0 1 0 0 14M5 10h7M5 14h6"/></svg></span><b>Umsatz</b><span>Aufträge zuweisen</span></div><div class="db-q"><span class="hb-ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><b>Lead-Freigaben</b><span>Pakete prüfen</span></div><div class="db-q"><span class="hb-ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11 7l-5 2 1.5-4.5A8 8 0 1 1 21 12z"/></svg></span><b>Chat</b><span>Direkter Draht</span></div></div></div></div></div><div class="cpanel" data-p="1"><div class="hubwin">
-      <div class="hb-chrome"><span class="hb-dot"></span><span class="hb-dot"></span><span class="hb-dot"></span>
-        <span class="hb-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="9" width="16" height="12" rx="2"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg>app.salesdrive.at / live-tracking</span>
-        <span class="hb-live"><i></i>Live</span>
-      </div>
-      <div class="hb-body">
+      <div class="seg-wrap"><div class="seg" id="seg"><span class="seg-ind" id="segInd"></span><button class="on" data-p="0">Dashboard</button><button class="" data-p="1">Live-Tracking</button><button class="" data-p="2">Kampagnen-Workspace</button><button class="" data-p="3">Lead-Freigaben</button><button class="" data-p="4">Skill-Profil</button></div></div>
+      <div class="lap-stage">
+        <div class="laptop"><div class="lap-screen"><span class="lap-cam"></span><div class="lap-bezel"><div class="lap-screen-in"><div class="app-top"><div class="app-logo">Sales<span>drive</span></div><nav class="app-nav"><a data-nav="0" class="on">Dashboard</a><a data-nav="1" class="">Live Tracking</a><a data-nav="2" class="">Lead-Freigaben</a><a data-nav="3" class="">Onboarding</a><a data-nav="4" class="">Sales Intelligence</a></nav><span class="app-user">AK</span></div><div class="lap-panels"><div class="cpanel on" data-p="0"><div class="hb-body"><div class="hb-head"><div><span class="hb-ey">SalesDrive Hub</span><h3>Willkommen zurück, Alexander</h3><span class="hb-sub">Lukas GmbH</span></div><span class="db-pill ok">● Live</span></div><div class="db-kpis"><div class="db-kpi"><span class="hb-ico cal sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><span class="hb-k">Termine</span><div class="hb-n"><span data-n="12">0</span></div><span class="db-sub up">+0 % diese Woche</span></div><div class="db-kpi"><span class="hb-ico eur sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5a7 7 0 1 0 0 14M5 10h7M5 14h6"/></svg></span><span class="hb-k">Gewonnener Umsatz</span><div class="hb-n"><span data-n="18">0</span> K€</div><span class="db-sub">12 K€ offen in Pipeline</span></div><div class="db-kpi"><span class="hb-ico tgt sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></span><span class="hb-k">Termin-Quote</span><div class="hb-n">0,9 %</div><span class="db-sub">stabil</span></div><div class="db-kpi"><span class="hb-ico trd sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-7M14 7h6v6"/></svg></span><span class="hb-k">Auf Kurs</span><div class="hb-n">67 %</div><span class="db-pill warn">Unter Plan</span></div></div><div class="db-ai"><span class="hb-ico aiic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18 9l-4.2 1.3L12 15l-1.8-4.7L6 9l4.2-1.3z"/></svg></span><div class="db-ai-t"><span class="hb-ey grad">Sales Intelligence · Beta</span><b>Dein AI Sales Coach</b><div class="db-chips"><span>Briefing pro Lead</span><span>Pain Points + Hebel</span><span>Outcome tracken</span></div></div><span class="db-aibtn">Zum AI Sales Coach →</span></div><div class="db-quick"><div class="db-q"><span class="hb-ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-7M14 7h6v6"/></svg></span><b>Live Tracking</b><span>Echtzeit-Zahlen</span></div><div class="db-q"><span class="hb-ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><b>Kampagne</b><span>Skripte & ICP</span></div><div class="db-q"><span class="hb-ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5a7 7 0 1 0 0 14M5 10h7M5 14h6"/></svg></span><b>Umsatz</b><span>Aufträge zuweisen</span></div><div class="db-q"><span class="hb-ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><b>Lead-Freigaben</b><span>Pakete prüfen</span></div><div class="db-q"><span class="hb-ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11 7l-5 2 1.5-4.5A8 8 0 1 1 21 12z"/></svg></span><b>Chat</b><span>Direkter Draht</span></div></div></div></div><div class="cpanel" data-p="1"><div class="hb-body">
         <div class="hb-head">
           <div><span class="hb-ey">Live Tracking</span><h3>Deine Kampagne in Echtzeit</h3><span class="hb-sub">Lukas GmbH · Stand 04.06.2026</span></div>
           <div class="hb-seg"><span>30 Tage</span><span class="on">Gesamt</span></div>
@@ -1582,9 +1680,25 @@ nav{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.12) !im
           <div class="hb-fn"><span class="hb-ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg></span><span class="hb-fl">Mit Entscheider</span><div class="hb-tr amber"><i style="--w:18%"></i></div><b>591</b></div>
           <div class="hb-fn"><span class="hb-ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><span class="hb-fl">Termin gebucht</span><div class="hb-tr green"><i style="--w:5%"></i></div><b>31</b></div>
         </div>
+      </div></div><div class="cpanel" data-p="2"><div class="hb-body"><div class="hb-head"><div><span class="hb-ey">Kampagne</span><h3>Dein Kampagnen-Workspace</h3><span class="hb-sub">Alle Kampagnendokumente an einem Ort — ansehen, freigeben, Feedback geben.</span></div></div><div class="ws-journey"><div class="ws-jh">Deine Kampagnen-Reise</div><div class="ws-steps"><div class="ws-step on"><span class="hb-ico rk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13c-1.6 1.6-2 5-2 5s3.4-.4 5-2M13 16l-3-3a11 11 0 0 1 7-8c2 0 3 1 3 3a11 11 0 0 1-8 7zM15 9h.01"/></svg></span><div class="ws-st-t"><b>Onboarding</b><span>Kick-Off & Aufbau</span></div><em>Aktuell hier</em></div><div class="ws-line"></div><div class="ws-step"><span class="hb-ico rk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></span><div class="ws-st-t"><b>Validierung</b><span>Erste Wählschleifen</span></div></div><div class="ws-line"></div><div class="ws-step"><span class="hb-ico rk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-7M14 7h6v6"/></svg></span><div class="ws-st-t"><b>Laufende Kampagne</b><span>Termine & Wachstum</span></div></div></div></div><div class="ws-docs"><div class="ws-doc"><span class="hb-ico doc sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><div class="ws-doc-t"><span class="hb-ey">Kampagnen-Dokument</span><b>Opening- & Gatekeeper-Skript</b><span>Gesprächseinstieg und Umgang mit dem Gatekeeper.</span></div><span class="ws-ok">✓ Freigegeben</span></div><div class="ws-doc"><span class="hb-ico doc sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><div class="ws-doc-t"><span class="hb-ey">Kampagnen-Dokument</span><b>Analysegesprächsskript</b><span>Leitfaden für das Analysegespräch mit dem Lead.</span></div><span class="ws-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div><div class="ws-doc"><span class="hb-ico doc sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><div class="ws-doc-t"><span class="hb-ey">Kampagnen-Dokument</span><b>Strategiegesprächs-Framework</b><span>Framework für das Strategiegespräch.</span></div><span class="ws-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div><div class="ws-doc"><span class="hb-ico doc sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><div class="ws-doc-t"><span class="hb-ey">Kampagnen-Dokument</span><b>Ideales Kundenprofil (ICP)</b><span>Definition der idealen Zielkunden der Kampagne.</span></div><span class="ws-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div><div class="ws-doc"><span class="hb-ico doc sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><div class="ws-doc-t"><span class="hb-ey">Kampagnen-Dokument</span><b>Kampagnenkonzept</b><span>Das übergreifende Konzept der Kampagne.</span></div><span class="ws-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div></div></div></div><div class="cpanel" data-p="3"><div class="hb-body lf2"><div class="lf2-card"><b>Lead-Paket Juni · Agenturen DACH</b><span>Standardmäßig sind alle Leads freigegeben. Markier nur die Einträge, die nicht passen — danach „Freigabe abschließen".</span><div class="lf2-pills"><span class="ok">✓ 6 freigeben</span><span class="no">✕ 2 ablehnen</span></div></div><div class="lf2-table"><div class="lf2-tr lf2-th"><span>Firma</span><span>Ansprechpartner</span><span>E-Mail</span><span>Telefon</span><span>Website</span><span>Entscheidung</span></div><div class="lf2-tr"><span class="lf2-fi">Nordlicht Marketing GmbH</span><span class="lf2-ap"><b>Jonas Brandt</b><small>Geschäftsführer</small></span><span class="lf2-em">jonas@nordlicht-marketing.de</span><span class="lf2-tel">+49 31 1000013</span><span class="lf2-web">nordlicht-marketing.de</span><span class="lf2-dec ok">Freigeben<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span></div><div class="lf2-tr"><span class="lf2-fi">Aurea Consulting</span><span class="lf2-ap"><b>Dr. Mara Vogt</b><small>Partnerin</small></span><span class="lf2-em">dr@aurea-consulting.de</span><span class="lf2-tel">+49 32 1000026</span><span class="lf2-web">aurea-consulting.de</span><span class="lf2-dec no">Passt nicht ins Profil<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span></div><div class="lf2-tr"><span class="lf2-fi">Helios Software AG</span><span class="lf2-ap"><b>Tobias Reinhardt</b><small>Head of Sales</small></span><span class="lf2-em">tobias@helios-software.de</span><span class="lf2-tel">+49 33 1000039</span><span class="lf2-web">helios-software.de</span><span class="lf2-dec ok">Freigeben<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span></div><div class="lf2-tr"><span class="lf2-fi">Vektor Logistik GmbH</span><span class="lf2-ap"><b>Sabine Krüger</b><small>Vertriebsleiterin</small></span><span class="lf2-em">sabine@vektor-logistik.de</span><span class="lf2-tel">+49 34 1000052</span><span class="lf2-web">vektor-logistik.de</span><span class="lf2-dec no">Passt nicht ins Profil<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span></div><div class="lf2-tr"><span class="lf2-fi">Brennecke Industrietechnik</span><span class="lf2-ap"><b>Frank Brennecke</b><small>Inhaber</small></span><span class="lf2-em">frank@brennecke-technik.de</span><span class="lf2-tel">+49 35 1000065</span><span class="lf2-web">brennecke-technik.de</span><span class="lf2-dec ok">Freigeben<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span></div><div class="lf2-tr"><span class="lf2-fi">Pixelwerk Studio</span><span class="lf2-ap"><b>Lena Hofmann</b><small>Creative Director</small></span><span class="lf2-em">lena@pixelwerk.studio</span><span class="lf2-tel">+49 36 1000078</span><span class="lf2-web">pixelwerk.studio</span><span class="lf2-dec ok">Freigeben<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span></div><div class="lf2-tr"><span class="lf2-fi">Meridian Finanzberatung</span><span class="lf2-ap"><b>Christoph Wieser</b><small>Geschäftsführer</small></span><span class="lf2-em">christoph@meridian-finanz.at</span><span class="lf2-tel">+49 37 1000091</span><span class="lf2-web">meridian-finanz.at</span><span class="lf2-dec ok">Freigeben<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span></div><div class="lf2-tr"><span class="lf2-fi">Talentbridge HR</span><span class="lf2-ap"><b>Aylin Demir</b><small>Head of Growth</small></span><span class="lf2-em">aylin@talentbridge.io</span><span class="lf2-tel">+49 38 1000104</span><span class="lf2-web">talentbridge.io</span><span class="lf2-dec ok">Freigeben<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span></div></div><div class="lf2-foot"><span>Nach dem Klick gehen die freigegebenen Leads automatisch in dein CRM.</span><button class="lf2-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Freigabe abschließen (6 freigeben)</button></div></div></div><div class="cpanel" data-p="4"><div class="hb-body sp2"><div class="sp2-hero"><div class="sp2-ring"><svg viewBox="0 0 120 120"><circle class="tr" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52"/></svg><div class="sp2-ring-n"><b>47</b><i>/ 100</i></div></div><div class="sp2-htxt"><div class="sp2-tags"><span class="t1">⚡ Solid</span><span class="t2">— Stabil</span><span class="t3">⊞ Der Macher</span></div><h4>Dein Skill-Score</h4><p>Typisch ESTJ: Du pitchst klar und führst. Dein Hebel ist jetzt der harte Ask am Ende und Einwand-Skripte wortwörtlich durchziehen.</p></div><div class="sp2-radar"><span class="sp2-rt">Skill-DNA</span><svg class="sp2-radar-svg" viewBox="0 0 180 170">
+<text x="90" y="14" class="rl" text-anchor="middle">Discovery</text>
+<text x="170" y="92" class="rl" text-anchor="end">Pitch</text>
+<text x="90" y="162" class="rl" text-anchor="middle">Einwand-Handling</text>
+<text x="10" y="92" class="rl" text-anchor="start">Closing</text>
+<polygon class="rg" points="90,28 158,88 90,148 22,88"/>
+<polygon class="rg" points="90,50 130,88 90,126 50,88"/>
+<polygon class="rg" points="90,70 108,88 90,106 72,88"/>
+<line class="ra" x1="90" y1="28" x2="90" y2="148"/><line class="ra" x1="22" y1="88" x2="158" y2="88"/>
+<polygon class="rd" points="90,58 120,88 90,120 64,86"/>
+</svg></div></div><div class="sp2-stats"><div><span>Coachings</span><b>7</b><small>gesamt ausgewertet</small></div><div><span>Aktuelle Serie</span><b>—</b><small>starte Deine Serie</small></div><div><span>Bester Score</span><b>72</b><small>Ø 47</small></div><div><span>Entwicklung</span><b class="up">+18</b><small>aufwärts</small></div></div><div class="sp2-grid"><div class="sp2-cd"><div class="sp2-ch">Score-Verlauf <em>7 Auswertungen</em></div><svg class="sp2-line" viewBox="0 0 560 200" preserveAspectRatio="none">
+<defs><linearGradient id="spfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(20,200,180,.22)"/><stop offset="1" stop-color="rgba(20,200,180,0)"/></linearGradient></defs>
+<path class="spf" fill="url(#spfill)" d="M0,150 C60,90 90,70 140,80 C190,90 210,150 260,150 C320,150 340,40 400,55 C450,68 470,150 520,135 C540,128 555,110 560,105 L560,200 L0,200 Z"/>
+<path class="spl" fill="none" d="M0,150 C60,90 90,70 140,80 C190,90 210,150 260,150 C320,150 340,40 400,55 C450,68 470,150 520,135 C540,128 555,110 560,105"/>
+</svg>
+<div class="sp2-xaxis"><span>05-21</span><span>05-21</span><span>05-22</span><span>05-23</span><span>05-26</span><span>05-27</span></div></div><div class="sp2-cd"><div class="sp2-ch">Phasen-Stärke <em>Ø je Phase</em></div><div class="sp2-bar"><span>Pitch</span><div class="hb-tr amber"><i style="--w:55%"></i></div><b>55</b></div><div class="sp2-bar"><span>Discovery</span><div class="hb-tr amber"><i style="--w:44%"></i></div><b>44</b></div><div class="sp2-bar"><span>Einwandbehandlung</span><div class="hb-tr amber"><i style="--w:40%"></i></div><b>40</b></div><div class="sp2-bar"><span>Closing</span><div class="hb-tr red"><i style="--w:36%"></i></div><b>36</b></div></div></div></div></div></div></div></div></div><div class="lap-base"></div></div>
+        <div class="lap-phone"><div class="ph-frame"><div class="ph-screen"><div class="ph-top"><span class="ph-dot"></span><span class="ph-name">Dashboard</span></div><div class="ph-panels"><div class="phpanel on" data-p="0"><div class="ph-h">Willkommen, Alexander</div><div class="ph-kpi"><span>Termine</span><b>12</b></div><div class="ph-kpi"><span>Umsatz</span><b>18 K€</b></div><div class="ph-ai">✦ AI Sales Coach<small>Briefing pro Lead</small></div></div><div class="phpanel" data-p="1"><div class="ph-h">Anrufe · Gesamt</div><div class="ph-big">3.284</div><div class="ph-mini"><span>Termin gebucht</span><b>31</b></div><div class="ph-mb"><i style="width:100%"></i></div><div class="ph-mb"><i style="width:40%"></i></div><div class="ph-mb green"><i style="width:5%"></i></div></div><div class="phpanel" data-p="2"><div class="ph-h">Kampagnen-Reise</div><div class="ph-step on">● Onboarding</div><div class="ph-step">○ Validierung</div><div class="ph-step">○ Laufende Kampagne</div><div class="ph-doc">📄 Opening-Skript<small>✓ Freigegeben</small></div><div class="ph-doc">📄 ICP<small>offen</small></div></div><div class="phpanel" data-p="3"><div class="ph-h">Lead-Freigaben</div><div class="ph-lead ok"><b>Nordlicht Marketing</b><span>✓ Freigeben</span></div><div class="ph-lead no"><b>Aurea Consulting</b><span>✕ Ablehnen</span></div><div class="ph-lead ok"><b>Helios Software</b><span>✓ Freigeben</span></div><button class="ph-btn">Freigabe abschließen</button></div><div class="phpanel" data-p="4"><div class="ph-h">Dein Skill-Score</div><div class="ph-ring"><svg viewBox="0 0 100 100"><circle class="tr" cx="50" cy="50" r="42"/><circle class="fg" cx="50" cy="50" r="42"/></svg><b>47</b></div><div class="ph-bar"><span>Pitch</span><i style="--w:55%"></i></div><div class="ph-bar"><span>Closing</span><i style="--w:36%"></i></div></div></div></div></div></div>
       </div>
-    </div></div><div class="cpanel" data-p="2"><div class="hubwin"><div class="hb-chrome"><span class="hb-dot"></span><span class="hb-dot"></span><span class="hb-dot"></span><span class="hb-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="9" width="16" height="12" rx="2"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg>app.salesdrive.at / kampagnen-workspace</span><span class="hb-live"><i></i>Live</span></div><div class="hb-body"><div class="hb-head"><div><span class="hb-ey">Kampagne</span><h3>Dein Kampagnen-Workspace</h3><span class="hb-sub">Alle Kampagnendokumente an einem Ort — ansehen, freigeben, Feedback geben.</span></div></div><div class="ws-journey"><div class="ws-jh">Deine Kampagnen-Reise</div><div class="ws-steps"><div class="ws-step on"><span class="hb-ico rk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13c-1.6 1.6-2 5-2 5s3.4-.4 5-2M13 16l-3-3a11 11 0 0 1 7-8c2 0 3 1 3 3a11 11 0 0 1-8 7zM15 9h.01"/></svg></span><div class="ws-st-t"><b>Onboarding</b><span>Kick-Off & Aufbau</span></div><em>Aktuell hier</em></div><div class="ws-line"></div><div class="ws-step"><span class="hb-ico rk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></span><div class="ws-st-t"><b>Validierung</b><span>Erste Wählschleifen</span></div></div><div class="ws-line"></div><div class="ws-step"><span class="hb-ico rk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 7-7M14 7h6v6"/></svg></span><div class="ws-st-t"><b>Laufende Kampagne</b><span>Termine & Wachstum</span></div></div></div></div><div class="ws-docs"><div class="ws-doc"><span class="hb-ico doc sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><div class="ws-doc-t"><span class="hb-ey">Kampagnen-Dokument</span><b>Opening- & Gatekeeper-Skript</b><span>Gesprächseinstieg und Umgang mit dem Gatekeeper.</span></div><span class="ws-ok">✓ Freigegeben</span></div><div class="ws-doc"><span class="hb-ico doc sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><div class="ws-doc-t"><span class="hb-ey">Kampagnen-Dokument</span><b>Analysegesprächsskript</b><span>Leitfaden für das Analysegespräch mit dem Lead.</span></div><span class="ws-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div><div class="ws-doc"><span class="hb-ico doc sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><div class="ws-doc-t"><span class="hb-ey">Kampagnen-Dokument</span><b>Strategiegesprächs-Framework</b><span>Framework für das Strategiegespräch.</span></div><span class="ws-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div><div class="ws-doc"><span class="hb-ico doc sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><div class="ws-doc-t"><span class="hb-ey">Kampagnen-Dokument</span><b>Ideales Kundenprofil (ICP)</b><span>Definition der idealen Zielkunden der Kampagne.</span></div><span class="ws-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div><div class="ws-doc"><span class="hb-ico doc sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><div class="ws-doc-t"><span class="hb-ey">Kampagnen-Dokument</span><b>Kampagnenkonzept</b><span>Das übergreifende Konzept der Kampagne.</span></div><span class="ws-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></div></div></div></div></div><div class="cpanel" data-p="3"><div class="hubwin"><div class="hb-chrome"><span class="hb-dot"></span><span class="hb-dot"></span><span class="hb-dot"></span><span class="hb-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="9" width="16" height="12" rx="2"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg>app.salesdrive.at / lead-freigaben</span><span class="hb-live"><i></i>Live</span></div><div class="hb-body"><div class="hb-head"><div><span class="hb-ey">Lead-Freigaben</span><h3>Kein Wort ohne deine Freigabe</h3><span class="hb-sub">Skripte, Zielgruppen und Listen — du gibst frei, bevor wir den Hörer abheben.</span></div><span class="db-pill warn">2 offen</span></div><div class="lf-list"><div class="lf-row done"><span class="hb-ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><div class="lf-t"><b>Opening-Skript v3</b><span>Eingereicht von SalesDrive · vor 2 Std.</span></div><span class="lf-ok">✓ Freigegeben</span></div><div class="lf-row"><span class="hb-ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg></span><div class="lf-t"><b>Zielgruppe · GF Bauunternehmen DACH</b><span>Wartet auf deine Freigabe</span></div><div class="lf-act"><button class="lf-yes">Freigeben</button><button class="lf-no">Ändern</button></div></div><div class="lf-row done"><span class="hb-ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div class="lf-t"><b>Einwand-Leitfaden</b><span>Freigegeben · 04.06.2026</span></div><span class="lf-ok">✓ Freigegeben</span></div><div class="lf-row"><span class="hb-ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span><div class="lf-t"><b>Lead-Liste · 240 Kontakte</b><span>Wartet auf deine Freigabe</span></div><div class="lf-act"><button class="lf-yes">Freigeben</button><button class="lf-no">Ändern</button></div></div></div><div class="lf-note"><span class="hb-ico sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></span><span>Jeder freigegebene Punkt ist später im Live-Tracking nachvollziehbar — wer, wann, mit wem.</span></div></div></div></div><div class="cpanel" data-p="4"><div class="hubwin"><div class="hb-chrome"><span class="hb-dot"></span><span class="hb-dot"></span><span class="hb-dot"></span><span class="hb-url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="9" width="16" height="12" rx="2"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg>app.salesdrive.at / skill-profile</span><span class="hb-live"><i></i>Live</span></div><div class="hb-body"><div class="hb-head"><div><span class="hb-ey">Skill-Profile</span><h3>Wer für dich telefoniert</h3><span class="hb-sub">Deutschsprachige Sales-Profis — geprüft, trainiert, nach 21 Kriterien bewertet.</span></div></div><div class="sp-grid"><div class="sp-card"><div class="sp-top"><img src="/assets/team/marcel-wolf.jpeg" alt=""><div class="sp-id"><b>Marcel W.</b><span>Senior Sales-Profi · DACH</span></div><span class="sp-score">★ 4,9</span></div><div class="sp-skills"><div class="sp-sk"><span>Telefonie & Rapport</span><div class="hb-tr "><i style="--w:94%"></i></div></div><div class="sp-sk"><span>Einwandbehandlung</span><div class="hb-tr green"><i style="--w:90%"></i></div></div><div class="sp-sk"><span>Branchen-Know-how</span><div class="hb-tr "><i style="--w:86%"></i></div></div><div class="sp-sk"><span>Terminqualität</span><div class="hb-tr amber"><i style="--w:92%"></i></div></div></div><div class="sp-meta"><span>50 Std. Training</span><span>21 QA-Kriterien</span><span>1.200+ Calls</span></div></div><div class="sp-card"><div class="sp-top"><img src="/assets/team/thomas-thate.jpeg" alt=""><div class="sp-id"><b>Thomas T.</b><span>Sales-Profi · DACH</span></div><span class="sp-score">★ 4,8</span></div><div class="sp-skills"><div class="sp-sk"><span>Telefonie & Rapport</span><div class="hb-tr "><i style="--w:88%"></i></div></div><div class="sp-sk"><span>Einwandbehandlung</span><div class="hb-tr green"><i style="--w:92%"></i></div></div><div class="sp-sk"><span>Branchen-Know-how</span><div class="hb-tr "><i style="--w:90%"></i></div></div><div class="sp-sk"><span>Terminqualität</span><div class="hb-tr amber"><i style="--w:87%"></i></div></div></div><div class="sp-meta"><span>50 Std. Training</span><span>21 QA-Kriterien</span><span>1.200+ Calls</span></div></div></div></div></div></div></div>
-      <div class="coop-feats"><div><span class="hb-ico ft"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Alles freigegeben</b><span>Kein Anruf ohne dein OK.</span></div></div><div><span class="hb-ico ft"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></span><div><b>Live einsehbar</b><span>Jeder Call protokolliert.</span></div></div><div><span class="hb-ico ft"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><b>TÜV-zertifiziert</b><span>& DSGVO-konform.</span></div></div><div><span class="hb-ico ft"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11 7l-5 2 1.5-4.5A8 8 0 1 1 21 12z"/></svg></span><div><b>Direkter Draht</b><span>Zur Geschäftsführung.</span></div></div></div>
+      <div class="coop-feats"><div><span class="hb-ico ft"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Alles freigegeben</b><span>Kein Anruf ohne dein OK.</span></div></div><div><span class="hb-ico ft"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></span><div><b>Live einsehbar</b><span>Jeder Call protokolliert.</span></div></div><div><span class="hb-ico ft"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><b>TÜV-zertifiziert</b><span>& DSGVO-konform.</span></div></div><div><span class="hb-ico ft"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a8 8 0 0 1-11 7l-5 2 1.5-4.5A8 8 0 1 1 21 12z"/></svg></span><div><b>Direkter Draht</b><span>Zur Geschäftsführung.</span></div></div></div>
     </div>
   </div>
 </section>
@@ -1801,6 +1915,31 @@ nav{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.12) !im
   </div>
 </section>
 
+
+<!-- BENACHRICHTIGUNG -->
+<section id="benachrichtigung" class="wsec graybg">
+  <div class="wrap">
+    <div class="noti rv">
+      <div class="noti-copy">
+        <span class="noti-ey">Immer informiert</span>
+        <h2 class="noti-h">Wir melden uns aktiv — per E-Mail &amp; Push.</h2>
+        <p>Du musst nie nachfragen. Wir benachrichtigen dich <b>proaktiv über jedes Ergebnis</b> deiner Kampagne — und erinnern dich rechtzeitig an alles, was wir von dir brauchen, damit sie wirklich erfolgreich läuft.</p>
+        <div class="noti-ch">
+          <div class="noti-c"><span class="noti-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div><b>Per E-Mail</b><span>Wochenreports &amp; wichtige Updates direkt ins Postfach.</span></div></div>
+          <div class="noti-c"><span class="noti-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg></span><div><b>Per App-Push</b><span>Neue Termine &amp; Freigaben sofort aufs Handy.</span></div></div>
+        </div>
+        <div class="noti-tags"><span>Neuer Termin gebucht</span><span>Leads zur Freigabe</span><span>Wochenreport</span><span>Freigabe-Erinnerung</span></div>
+      </div>
+      <div class="noti-phone">
+        <div class="iphone2">
+          <span class="iph2-notch"></span><span class="iph2-time">09:41</span><span class="iph2-sig">5G</span>
+          <div class="iph2-date">Donnerstag, 4. Juni</div><div class="iph2-clock">09:41</div>
+<div class="n2"><div class="n2-h"><span class="n2-app"></span>SALESDRIVE<span class="n2-ago">jetzt</span></div><b>🎉 Neuer Termin gebucht</b><span>Andrea Brunner · CFO — Mi, 21. Mai · 11:15</span></div><div class="n2"><div class="n2-h"><span class="n2-app"></span>SALESDRIVE<span class="n2-ago">vor 2 Std.</span></div><b>📋 3 neue Leads zur Freigabe</b><span>Lead-Paket Juni · Agenturen DACH wartet auf dich.</span></div><div class="n2"><div class="n2-h"><span class="n2-app"></span>SALESDRIVE<span class="n2-ago">heute 08:00</span></div><b>📈 Dein Wochenreport ist da</b><span>31 Termine · 8 Abschlüsse · Pipeline 20.800 €</span></div><div class="n2"><div class="n2-h"><span class="n2-app"></span>SALESDRIVE<span class="n2-ago">gestern</span></div><b>⏰ Erinnerung: Skript-Freigabe</b><span>Das Opening-Skript ist noch nicht freigegeben.</span></div>        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FINAL -->
 <section class="final">
   <div class="wrap">
@@ -1885,26 +2024,34 @@ var dk=document.getElementById('deckCard'); if(dk)io.observe(dk);
   window.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);upd();
 })();
 </script>
-<script id="v7coopjs">
+<script id="v7lapjs">
 (function(){
  var root=document.querySelector('#deck .coop'); if(!root)return;
- var tabs=[].slice.call(root.querySelectorAll('.ctab'));
- var panels=[].slice.call(root.querySelectorAll('.cpanel'));
+ var btns=[].slice.call(root.querySelectorAll('#seg button'));
+ var ind=root.querySelector('#segInd');
+ var cps=[].slice.call(root.querySelectorAll('.cpanel'));
+ var phs=[].slice.call(root.querySelectorAll('.phpanel'));
+ var navs=[].slice.call(root.querySelectorAll('.app-nav a'));
+ var phName=root.querySelector('.ph-name');
+ var names=['Dashboard','Live-Tracking','Workspace','Lead-Freigaben','Skill-Profil'];
+ var navMap=[0,1,3,2,4];
  var i=0,timer;
- function cnt(scope){scope.querySelectorAll('[data-n]').forEach(function(el){
-   var t=parseFloat(el.getAttribute('data-n')),sep=el.hasAttribute('data-sep'),s=null,dur=1100;
-   function tk(ts){if(!s)s=ts;var p=Math.min(1,(ts-s)/dur),e=1-Math.pow(1-p,3),v=Math.round(t*e);
-     el.textContent=sep?v.toLocaleString('de-DE'):v;if(p<1)requestAnimationFrame(tk);}
-   requestAnimationFrame(tk);});}
+ function moveInd(){var b=btns[i];if(b&&ind){ind.style.left=b.offsetLeft+'px';ind.style.width=b.offsetWidth+'px';}}
+ function cnt(scope){scope.querySelectorAll('[data-n]').forEach(function(el){var t=parseFloat(el.getAttribute('data-n')),sep=el.hasAttribute('data-sep'),s=null;function tk(ts){if(!s)s=ts;var p=Math.min(1,(ts-s)/1000),e=1-Math.pow(1-p,3),v=Math.round(t*e);el.textContent=sep?v.toLocaleString('de-DE'):v;if(p<1)requestAnimationFrame(tk);}requestAnimationFrame(tk);});}
  function go(n){i=n;
-   tabs.forEach(function(t,k){t.classList.toggle('on',k===n);});
-   panels.forEach(function(p,k){var on=k===n;p.classList.toggle('on',on);
-     if(on){var w=p.querySelector('.hubwin');if(w){w.classList.remove('in');void w.offsetWidth;w.classList.add('in');}cnt(p);}});
+  btns.forEach(function(b,k){b.classList.toggle('on',k===n);});
+  cps.forEach(function(p,k){var on=k===n;p.classList.toggle('on',on);if(on)cnt(p);});
+  phs.forEach(function(p,k){p.classList.toggle('on',k===n);});
+  navs.forEach(function(a,k){a.classList.toggle('on',k===navMap[n]);});
+  if(phName)phName.textContent=names[n];
+  moveInd();
  }
- tabs.forEach(function(t,k){t.addEventListener('click',function(){go(k);restart();});});
- function restart(){clearInterval(timer);timer=setInterval(function(){go((i+1)%tabs.length);},6000);}
+ btns.forEach(function(b,k){b.addEventListener('click',function(){go(k);restart();});});
+ function restart(){clearInterval(timer);timer=setInterval(function(){go((i+1)%btns.length);},6500);}
+ window.addEventListener('resize',moveInd);
  var started=false;
- new IntersectionObserver(function(es,o){if(es[0].isIntersecting&&!started){started=true;go(0);restart();}},{threshold:.2}).observe(root);
+ new IntersectionObserver(function(es){if(es[0].isIntersecting&&!started){started=true;setTimeout(function(){moveInd();go(0);},120);restart();}},{threshold:.2}).observe(root);
+ setTimeout(moveInd,400);
 })();
 </script>
 </body>
