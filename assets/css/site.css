@@ -764,3 +764,17 @@ body::before{display:none !important}
 /* WHITE THEME: Gradient-Headlines lesbar auf Weiss */
 .roi__metric--big .roi__metric-value, .article__h1, .blog-hero__title, .facts__num, .sec-head h2, .sectext h2, .subhero__title{background:linear-gradient(150deg,#15171c,#3a3d44 55%,#5f6470) !important;-webkit-background-clip:text !important;background-clip:text !important;color:transparent !important}
 .final__title em, .bottom-cta h2 em, article p em, .zert-tuv__title em, .roi__cta-bar-title em, .blog-hero__title em, .sectext h2 em, .subhero__title em, .blog-cta__title em, .gradient-blue, .sec-head h2 em{background:linear-gradient(130deg,#0a66ff,#3b8aff) !important;-webkit-background-clip:text !important;background-clip:text !important;color:transparent !important}
+
+/* WHITE THEME: Deko-Blau-Glows dimmen (auf Dunkel subtil, auf Weiss zu kraeftig) */
+.subhero::before,.blog-hero::before,.final::before,.zert-tuv::before,.contact-band::before,.legal-shell::before{
+  background:radial-gradient(760px 420px at 50% 22%,rgba(10,102,255,.05),transparent 60%) !important;
+}
+
+/* WHITE THEME: Cookie-Banner als helles Glas-Card */
+.cookie{background:rgba(255,255,255,.93) !important;backdrop-filter:saturate(160%) blur(18px) !important;-webkit-backdrop-filter:saturate(160%) blur(18px) !important;border:1px solid rgba(0,0,0,.1) !important;box-shadow:0 28px 70px -28px rgba(0,0,0,.3) !important;color:#1d1d1f !important}
+.cookie__title,.cookie__opt-label{color:#1d1d1f !important}
+.cookie__text,.cookie__opt,.cookie__toggle,.cookie__opt-info{color:#5f6470 !important}
+.cookie__icon{color:#0a66ff !important}
+
+/* WHITE THEME: Deko-Orbs stark dimmen (waren auf Dunkel subtil) */
+.orb{opacity:.12 !important;filter:blur(80px) !important}
