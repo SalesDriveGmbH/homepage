@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Jetzt bewerben · SalesDrive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07080c;--panel:#0e1016;--panel2:#0a0b10;--rule:rgba(255,255,255,.08);--rule2:rgba(255,255,255,.15);
+  --ink:#f3f6fc;--ink2:#9aa4b4;--ink3:#5d6678;--accent:#2680ff;--accent2:#5b9bff;--accent-soft:rgba(38,128,255,.1);
+  --mono:'Inter Tight',sans-serif;--ok:#34d399;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter Tight',-apple-system,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;min-height:100dvh;overflow-x:clip;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(70% 55% at 50% -8%,rgba(38,128,255,.18),transparent 60%),radial-gradient(50% 50% at 88% 108%,rgba(38,128,255,.12),transparent 60%)}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+.top{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:22px clamp(20px,4vw,46px);gap:18px}
+.brand{display:flex;align-items:center;gap:10px}.brand img{height:26px;width:auto}
+.top-meta{display:flex;align-items:center;gap:18px}
+.step-count{font-size:12.5px;color:var(--ink2);letter-spacing:.02em;font-variant-numeric:tabular-nums}.step-count b{color:var(--ink)}
+.exit{font-size:13px;color:var(--ink3);text-decoration:none;transition:.2s}.exit:hover{color:var(--ink)}
+.pbar{position:relative;z-index:5;height:3px;background:rgba(255,255,255,.06)}
+.pfill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));box-shadow:0 0 14px rgba(38,128,255,.6);transition:width .55s cubic-bezier(.16,1,.3,1);border-radius:0 3px 3px 0}
+.wrap{position:relative;z-index:3;flex:1;display:flex;align-items:center;justify-content:center;padding:clamp(18px,4vw,40px)}
+.stage{width:100%;max-width:680px}
+.step{display:none}.step.active{display:block;animation:stepIn .6s cubic-bezier(.16,1,.3,1)}
+@keyframes stepIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.step.leaving{animation:stepOut .32s ease forwards}@keyframes stepOut{to{opacity:0;transform:translateY(-16px)}}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);margin-bottom:18px}
+.eyebrow::before{content:"";width:18px;height:1px;background:var(--accent)}
+.q{font-size:clamp(26px,4.4vw,42px);line-height:1.08;letter-spacing:-.03em;font-weight:700}
+.q .hl{background:linear-gradient(120deg,#fff,#9fc0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.help{font-size:15.5px;color:var(--ink2);margin-top:14px;line-height:1.55;max-width:48ch}
+.field{margin-top:36px}
+.field input{width:100%;background:transparent;border:0;border-bottom:2px solid var(--rule2);color:var(--ink);font-family:var(--mono);font-size:clamp(22px,3vw,30px);font-weight:500;padding:12px 2px;transition:border-color .3s}
+.field input::placeholder{color:var(--ink3)}.field input:focus{outline:0;border-color:var(--accent)}
+.choices{display:grid;gap:12px;margin-top:34px}
+.choice{display:flex;align-items:center;gap:16px;width:100%;text-align:left;cursor:pointer;background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--rule);border-radius:16px;padding:18px 20px;color:var(--ink);font-family:var(--mono);font-size:16.5px;font-weight:500;transition:.22s cubic-bezier(.16,1,.3,1)}
+.choice:hover{border-color:rgba(38,128,255,.5);transform:translateX(5px);background:linear-gradient(180deg,#11141d,#0c0e14)}
+.choice.sel{border-color:var(--accent);background:radial-gradient(120% 160% at 0 50%,rgba(38,128,255,.16),transparent),linear-gradient(180deg,#11141d,#0c0e14);box-shadow:0 0 0 1px var(--accent),0 18px 40px -20px rgba(38,128,255,.6)}
+.ckey{flex:0 0 auto;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-size:12.5px;font-weight:700;color:var(--ink2);border:1px solid var(--rule2);background:rgba(255,255,255,.03);transition:.22s}
+.choice:hover .ckey,.choice.sel .ckey{color:#fff;border-color:var(--accent);background:var(--accent)}
+.choice .cx{margin-left:auto;opacity:0;transform:scale(.6);transition:.22s;color:var(--accent2)}.choice.sel .cx{opacity:1;transform:scale(1)}.choice .cx svg{width:20px;height:20px;display:block}
+.actions{display:flex;align-items:center;gap:14px;margin-top:34px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:0;font-family:var(--mono);font-weight:600;font-size:16px;padding:15px 26px;border-radius:13px;color:#04122e;background:linear-gradient(180deg,#7db8ff,#2680ff);box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 18px 42px -16px rgba(38,128,255,.7);transition:.22s;text-decoration:none}
+.btn:hover{transform:translateY(-2px);box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 24px 54px -16px rgba(38,128,255,.9)}
+.btn svg{width:18px;height:18px;transition:transform .22s}.btn:hover svg{transform:translateX(4px)}
+.btn.ghost{background:transparent;color:var(--ink2);box-shadow:none;border:1px solid var(--rule2);padding:15px 22px}
+.btn.ghost:hover{color:var(--ink);transform:none;background:rgba(255,255,255,.03)}
+.hint{font-size:12.5px;color:var(--ink3);display:inline-flex;align-items:center;gap:8px}
+.hint kbd{font-family:var(--mono);font-size:11px;background:rgba(255,255,255,.06);border:1px solid var(--rule2);border-radius:5px;padding:2px 7px;color:var(--ink2)}
+.err{display:none;margin-top:16px;font-size:13.5px;color:#ff9b8a;align-items:center;gap:8px}.err.show{display:flex;animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.intro-pill{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border:1px solid var(--rule2);border-radius:999px;background:rgba(255,255,255,.02);margin-bottom:26px;font-size:12px;letter-spacing:.04em;color:var(--ink2)}
+.intro-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft);animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 4px var(--accent-soft)}50%{box-shadow:0 0 0 8px transparent}}
+.intro h1{font-size:clamp(32px,5.5vw,56px);line-height:1.02;letter-spacing:-.04em;font-weight:700;max-width:16ch}
+.intro h1 .hl{background:linear-gradient(120deg,#fff,#9fc0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.intro p{font-size:clamp(16px,1.8vw,19px);color:var(--ink2);margin-top:20px;line-height:1.55;max-width:46ch}
+.trust{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.trust span{display:inline-flex;align-items:center;gap:9px;font-size:13.5px;color:var(--ink2);border:1px solid var(--rule);border-radius:11px;padding:10px 14px;background:rgba(255,255,255,.015)}
+.trust svg{width:16px;height:16px;color:var(--accent2)}
+.sumcard{margin-top:30px;border:1px solid var(--rule);border-radius:18px;background:linear-gradient(180deg,var(--panel),var(--panel2));overflow:hidden}
+.sumrow{display:flex;justify-content:space-between;gap:16px;padding:14px 20px;border-bottom:1px solid var(--rule);font-size:14.5px}
+.sumrow:last-child{border-bottom:0}.sumrow .k{color:var(--ink3)}.sumrow .v{color:var(--ink);font-weight:500;text-align:right}
+.check{width:84px;height:84px;margin:0 auto 26px;border-radius:50%;display:grid;place-items:center;position:relative;background:radial-gradient(circle at 50% 35%,rgba(52,211,153,.25),rgba(52,211,153,.05));border:1.5px solid rgba(52,211,153,.5);box-shadow:0 0 60px -10px rgba(52,211,153,.6)}
+.check svg{width:42px;height:42px;color:var(--ok)}
+.thanks{text-align:center}
+.nextlist{display:grid;gap:10px;margin-top:28px;text-align:left;max-width:520px;margin-left:auto;margin-right:auto}
+.nrow{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--rule);border-radius:14px;padding:15px 18px}
+.nnum{flex:0 0 auto;width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-weight:700;font-size:12.5px;color:#fff;background:linear-gradient(135deg,#2680ff,#0b3bd6)}
+.nrow b{font-size:14.5px}.nrow p{font-size:13px;color:var(--ink2);margin-top:2px;line-height:1.45}
+@media(max-width:560px){.top{padding:16px 18px}.exit span{display:none}.hint{order:3;width:100%}}
+</style>
+</head>
+<body>
+<div class="top">
+  <a class="brand" href="/"><img src="/assets/brand/salesdrive-logo.png" alt="SalesDrive"></a>
+  <div class="top-meta"><span class="step-count" id="counter"></span><a class="exit" href="/karriere">✕ <span>Schließen</span></a></div>
+</div>
+<div class="pbar"><div class="pfill" id="pfill"></div></div>
+<div class="wrap"><div class="stage" id="stage"></div></div>
+<script>
+const ICON_CHECK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+const ICON_ARROW='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>';
+const ICON_SHIELD='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>';
+const ICON_PIN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>';
+const ICON_CLOCK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
+function ICON_WARN(){return '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>';}
+
+const STEPS=[
+ {type:'intro'},
+ {key:'bereich',type:'choice',q:'In welchem <span class="hl">Bereich</span> willst du durchstarten?',options:['Vertrieb & Sales','Persönliche Assistenz','Account Management','Initiativ / offen']},
+ {key:'erfahrung',type:'choice',q:'Wie viel <span class="hl">Erfahrung</span> bringst du mit?',options:['Berufseinstieg / Quereinsteiger','1–3 Jahre','3–5 Jahre','5+ Jahre']},
+ {key:'start',type:'choice',q:'Ab wann könntest du <span class="hl">starten</span>?',options:['Sofort','In 1 Monat','In 2–3 Monaten','Flexibel']},
+ {key:'umfang',type:'choice',q:'Voll- oder Teilzeit?',options:['Vollzeit','Teilzeit','Beides möglich']},
+ {key:'name',type:'text',input:'text',q:'Wie heißt du?',ph:'Vor- und Nachname',required:true},
+ {key:'email',type:'text',input:'email',q:'Deine <span class="hl">E-Mail-Adresse</span>?',ph:'name@mail.com',required:true,help:'Hier meldet sich unser Team persönlich bei dir.'},
+ {key:'phone',type:'text',input:'tel',q:'Deine Telefonnummer?',ph:'+43 …',required:true},
+ {key:'motivation',type:'text',input:'text',q:'Warum <span class="hl">SalesDrive</span>?',ph:'1–2 Sätze (optional)',required:false,help:'Optional, aber es hilft uns, dich kennenzulernen.'},
+ {key:'cv',type:'text',input:'text',q:'Link zu CV / LinkedIn?',ph:'https://… (optional)',required:false,help:'Optional. Unterlagen kannst du auch später per Mail nachreichen.'},
+ {type:'final'},
+ {type:'thanks'}
+];
+const answers={};let idx=0;
+// Rolle aus URL vorbelegen
+(function(){var p=new URLSearchParams(location.search).get('role');if(p){answers.position=p;var pl=p.toLowerCase();
+ answers.bereich=/sales|vertrieb|closer|quereinst/.test(pl)?'Vertrieb & Sales':/assist/.test(pl)?'Persönliche Assistenz':/account/.test(pl)?'Account Management':'Initiativ / offen';}})();
+const qSteps=STEPS.filter(s=>s.key).length;
+const stage=document.getElementById('stage'),pfill=document.getElementById('pfill'),counter=document.getElementById('counter');
+function qIndex(){let c=0;for(let i=0;i<idx;i++)if(STEPS[i].key)c++;return c;}
+function updateChrome(){const cur=STEPS[idx];
+  if(cur.type==='intro'){counter.innerHTML='';pfill.style.width='4%';}
+  else if(cur.type==='final'){counter.innerHTML='<b>Prüfen</b>';pfill.style.width='94%';}
+  else if(cur.type==='thanks'){counter.innerHTML='<b>Gesendet</b>';pfill.style.width='100%';}
+  else{const n=qIndex()+1;counter.innerHTML='Schritt <b>'+n+'</b> von '+qSteps;pfill.style.width=(n/(qSteps+1)*100)+'%';}}
+function esc(s){return (s+'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function buildMailto(){
+  const map={position:'Stelle',bereich:'Bereich',erfahrung:'Erfahrung',start:'Verfügbar ab',umfang:'Umfang',name:'Name',email:'E-Mail',phone:'Telefon',motivation:'Motivation',cv:'CV / LinkedIn'};
+  let body='Neue Bewerbung über salesdrive.at/bewerbung\\n\\n';
+  for(const k in map){if(answers[k])body+=map[k]+': '+answers[k]+'\\n';}
+  const subj='Bewerbung: '+(answers.position||answers.bereich||'Initiativ');
+  return 'mailto:office@salesdrive.at?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+}
+function render(){
+  updateChrome();const cur=STEPS[idx];let h='';
+  if(cur.type==='intro'){
+    h=`<div class="step intro" data-s>
+      <span class="intro-pill"><span class="dot"></span>Bewerbung bei SalesDrive</span>
+      <h1>In 60 Sekunden zu deiner <span class="hl">Bewerbung</span>.</h1>
+      <p>Ein paar kurze Fragen, danach schickst du deine Bewerbung direkt ab. Kein langes Anschreiben nötig.</p>
+      <div class="trust"><span>${ICON_PIN}Team in Wien</span><span>${ICON_SHIELD}Echte Aufstiegschancen</span><span>${ICON_CLOCK}Dauert unter 1 Minute</span></div>
+      <div class="actions"><button class="btn" id="go">Jetzt bewerben ${ICON_ARROW}</button><span class="hint">${answers.position?('Stelle: '+esc(answers.position)):'Vertrieb · Assistenz · Account Management'}</span></div>
+    </div>`;
+  } else if(cur.type==='final'){
+    const map={position:'Stelle',bereich:'Bereich',erfahrung:'Erfahrung',start:'Verfügbar ab',umfang:'Umfang',name:'Name',email:'E-Mail',phone:'Telefon',motivation:'Motivation',cv:'CV / LinkedIn'};
+    let rows='';for(const k in map){if(answers[k])rows+=`<div class="sumrow"><span class="k">${map[k]}</span><span class="v">${esc(answers[k])}</span></div>`;}
+    const fn=(answers.name||'').split(' ')[0]||'';
+    h=`<div class="step" data-s>
+      <span class="eyebrow">Fast geschafft</span>
+      <div class="q">Passt das so${fn?', <span class="hl">'+esc(fn)+'</span>':''}?</div>
+      <p class="help">Prüf deine Angaben und schick deine Bewerbung ab. Dein E-Mail-Programm öffnet sich mit allem vorausgefüllt.</p>
+      <div class="sumcard">${rows}</div>
+      <div class="actions"><button class="btn" id="send">Bewerbung absenden ${ICON_ARROW}</button><button class="btn ghost" id="back">Zurück</button></div>
+    </div>`;
+  } else if(cur.type==='thanks'){
+    const fn=(answers.name||'').split(' ')[0]||'';
+    h=`<div class="step thanks" data-s>
+      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <span class="eyebrow" style="justify-content:center">Bewerbung gesendet</span>
+      <div class="q">Danke${fn?', <span class="hl">'+esc(fn)+'</span>':''}!</div>
+      <p class="help" style="margin-left:auto;margin-right:auto;text-align:center">Deine Bewerbung ist auf dem Weg zu uns. Falls sich dein Mail-Programm nicht geöffnet hat, klick einfach nochmal auf „Bewerbung senden".</p>
+      <div class="nextlist">
+        <div class="nrow"><span class="nnum">1</span><div><b>Wir melden uns</b><p>Du hörst innerhalb von 1-2 Werktagen von uns, meist schneller.</p></div></div>
+        <div class="nrow"><span class="nnum">2</span><div><b>Kurzes Kennenlernen</b><p>Wir telefonieren und du lernst dein zukünftiges Team in Wien kennen.</p></div></div>
+        <div class="nrow"><span class="nnum">3</span><div><b>Probetag &amp; Start</b><p>Du erlebst einen echten Arbeitstag. Passt es, starten wir gemeinsam.</p></div></div>
+      </div>
+      <div class="actions" style="justify-content:center"><a class="btn" id="resend" href="${buildMailto()}">Bewerbung senden ${ICON_ARROW}</a><a class="btn ghost" href="/karriere">Zur Karriere-Seite</a></div>
+    </div>`;
+  } else if(cur.type==='choice'){
+    let opts='';cur.options.forEach((o,i)=>{const sel=answers[cur.key]===o?' sel':'';
+      opts+=`<button class="choice${sel}" data-opt="${esc(o)}"><span class="ckey">${String.fromCharCode(65+i)}</span>${o}<span class="cx">${ICON_CHECK}</span></button>`;});
+    h=`<div class="step" data-s><span class="eyebrow">Frage ${qIndex()+1}</span><div class="q">${cur.q}</div>${cur.help?`<p class="help">${cur.help}</p>`:''}<div class="choices">${opts}</div><div class="actions" style="margin-top:24px"><button class="btn ghost" id="back">Zurück</button><span class="hint">Tippe <kbd>A</kbd>–<kbd>${String.fromCharCode(64+cur.options.length)}</kbd> oder klick</span></div></div>`;
+  } else {
+    h=`<div class="step" data-s><span class="eyebrow">Frage ${qIndex()+1}</span><div class="q">${cur.q}</div>${cur.help?`<p class="help">${cur.help}</p>`:''}<div class="field"><input id="inp" type="${cur.input}" placeholder="${cur.ph}" value="${esc(answers[cur.key]||'')}" autocomplete="${cur.input==='email'?'email':cur.input==='tel'?'tel':'name'}"></div><div class="err" id="err">${ICON_WARN()} <span>Bitte gib eine gültige Antwort ein.</span></div><div class="actions"><button class="btn" id="go">${cur.required?'Weiter':'Weiter / Überspringen'} ${ICON_ARROW}</button><button class="btn ghost" id="back">Zurück</button><span class="hint">Drücke <kbd>Enter ↵</kbd></span></div></div>`;
+  }
+  stage.innerHTML=h;requestAnimationFrame(()=>{stage.querySelector('[data-s]').classList.add('active');});bind();
+}
+function bind(){
+  const cur=STEPS[idx];const go=document.getElementById('go'),back=document.getElementById('back');
+  if(back)back.onclick=prev;
+  if(cur.type==='intro'){go.onclick=next;}
+  else if(cur.type==='final'){document.getElementById('send').onclick=()=>{try{window.location.href=buildMailto();}catch(e){}setTimeout(next,300);};}
+  else if(cur.type==='thanks'){/* nichts */}
+  else if(cur.type==='choice'){stage.querySelectorAll('.choice').forEach(b=>b.onclick=()=>{answers[cur.key]=b.dataset.opt;stage.querySelectorAll('.choice').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');setTimeout(next,260);});}
+  else{const inp=document.getElementById('inp');inp.focus();inp.oninput=()=>document.getElementById('err').classList.remove('show');go.onclick=submitText;inp.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();submitText();}};}
+}
+function submitText(){
+  const cur=STEPS[idx];const inp=document.getElementById('inp');const v=inp.value.trim();
+  let ok=cur.required?!!v:true;
+  if(v&&cur.input==='email')ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  if(v&&cur.input==='tel')ok=v.replace(/[^0-9]/g,'').length>=6;
+  if(!ok){document.getElementById('err').classList.add('show');inp.focus();return;}
+  if(v)answers[cur.key]=v;next();
+}
+function transition(dir){const s=stage.querySelector('.step');if(s){s.classList.add('leaving');setTimeout(()=>{idx+=dir;render();},300);}else{idx+=dir;render();}}
+function next(){if(idx<STEPS.length-1)transition(1);}
+function prev(){if(idx>0)transition(-1);}
+document.addEventListener('keydown',e=>{const cur=STEPS[idx];if(cur.type!=='choice')return;const i=e.key.toUpperCase().charCodeAt(0)-65;if(i>=0&&i<cur.options.length){const b=stage.querySelectorAll('.choice')[i];if(b)b.click();}});
+render();
+</script>
+</body>
+</html>
