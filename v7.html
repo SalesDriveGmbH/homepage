@@ -1035,6 +1035,42 @@ nav{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.12) !im
 .wsec .qi{border-bottom-color:rgba(0,0,0,.10) !important}
 .wsec .an p{color:#5f6470 !important}
 </style>
+<style id="v7full">
+/* ===== v7 · ALLES weiss (ausser Footer) ===== */
+/* reiche Mockup-Flaechen -> weiss */
+.wsec .bcard,.wsec .svcard,.wsec .svc-mock,.wsec .viz,.wsec .deck,.wsec .ktab,
+.wsec .hstat,.wsec .chip-sq,.wsec .hours-box,.wsec .deck-kpi,.wsec .deck-fore,
+.wsec .mk,.wsec .cal-card,.wsec .stack-row,.wsec .audit{
+  background:#ffffff !important;border-color:rgba(0,0,0,.09) !important}
+.wsec .bcard,.wsec .svcard,.wsec .deck{box-shadow:0 18px 46px -28px rgba(0,0,0,.20) !important}
+.wsec .deck{border:1px solid rgba(0,0,0,.09) !important}
+
+/* Mockup-Tracks / dezente Innenflaechen hell */
+.wsec .fbar,.wsec .fb,.wsec .seg,.wsec .bar,.wsec .track,.wsec .deck-bar,.wsec .pf-bar{background:rgba(0,0,0,.07) !important}
+
+/* hartkodierte helle Texte -> dunkel (auf nun weissen Flaechen) */
+.wsec .hstat-n,.wsec .hstat:first-child .hstat-n,.wsec .deck-fore .big,.wsec .deck-demo,
+.wsec .bt-row b,.wsec .ft,.wsec .kh-no,.wsec .kt-n,.wsec .viz-score-n b,.wsec .hours-box b,
+.wsec .seg span,.wsec .deck-kpi b,.wsec .deck-kpi .n,.final h2,.final h2 .em,.final .mono{
+  color:#1d1d1f !important;-webkit-text-fill-color:#1d1d1f !important}
+
+/* Final-Sektion weiss */
+.wsec.final{background:#ffffff !important}
+.wsec.final::before,.wsec.final::after{opacity:.06 !important}
+
+/* Trustpilot nativ einbetten (kein Helligkeits-Filter auf Weiss) */
+.htp .trustpilot-widget{filter:none !important;min-height:24px}
+.htp{margin-top:12px}
+
+/* Hero: weniger Abstand oben */
+.hero{padding-top:clamp(28px,3.6vw,52px) !important}
+.hpill{margin-bottom:20px !important}
+.hsub{margin-top:16px !important}
+.hsplit{margin-top:clamp(20px,2.8vw,32px) !important}
+.hcheck{gap:14px !important}
+.hbtns{margin-top:22px !important}
+.hbadges{margin-top:18px !important;padding-top:18px !important}
+</style>
 </head>
 <body>
 
@@ -1118,7 +1154,7 @@ nav{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.12) !im
 </section>
 
 <!-- SERVICES -->
-<section id="leistung">
+<section id="leistung" class="wsec">
   <div class="wrap">
     <div class="sec-h rv">
       <span class="sec-num">01 — Leistung</span>
@@ -1181,7 +1217,7 @@ nav{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.12) !im
 </section>
 
 <!-- BENTO: Im Programm enthalten -->
-<section id="programm">
+<section id="programm" class="wsec">
   <div class="wrap">
     <div class="sec-h rv">
       <span class="sec-num">Inklusive · ohne Aufpreis</span>
@@ -1267,7 +1303,7 @@ nav{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.12) !im
 </section>
 
 <!-- LIVE DECK (dark inset) -->
-<section id="deck">
+<section id="deck" class="wsec">
   <div class="wrap">
     <div class="sec-h rv">
       <span class="sec-num">02 — Live-Tracking</span>
@@ -1305,7 +1341,7 @@ nav{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.12) !im
 </section>
 
 <!-- CASES -->
-<section id="cases">
+<section id="cases" class="wsec">
   <div class="wrap">
     <div class="sec-h rv">
       <span class="sec-num">03 — Cases</span>
@@ -1462,7 +1498,7 @@ nav{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.12) !im
 </section>
 
 <!-- KLARTEXT -->
-<section id="klartext">
+<section id="klartext" class="wsec">
   <div class="wrap">
     <div class="sec-h rv">
       <span class="sec-num">06 — Klartext</span>
@@ -1517,7 +1553,7 @@ nav{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.12) !im
 </section>
 
 <!-- FINAL -->
-<section class="final">
+<section class="final wsec">
   <div class="wrap">
     <span class="mono rv">Jetzt kostenlos Analysegespräch sichern</span>
     <h2 class="rv" style="margin-top:24px">Wir telefonieren.<br><span class="em">Du verkaufst.</span></h2>
