@@ -117,13 +117,13 @@ function ICON_WARN(){return '<svg viewBox="0 0 24 24" width="16" height="16" fil
 
 const STEPS=[
  {type:'intro'},
- {key:'umsatz',type:'choice',q:'Wie hoch ist euer <span class="hl">Jahresumsatz</span>?',help:'Wir arbeiten ausschließlich mit etablierten B2B-Anbietern.',options:['Unter 1 Mio €','1–3 Mio €','3–10 Mio €','Über 10 Mio €']},
+ {key:'umsatz',type:'choice',q:'Wie hoch ist euer <span class="hl">Jahresumsatz</span>?',help:'Damit wir den richtigen Plan für dich schnüren – zu groß und zu klein führt zu unterschiedlichen Strategien.',options:['Unter 1 Mio €','1–3 Mio €','3–10 Mio €','Über 10 Mio €']},
  {key:'angebot',type:'choice',q:'Was bietet ihr an?',options:['Beratung / Dienstleistung','Software / SaaS','Produkt / Industrie','Etwas anderes']},
  {key:'ziel',type:'choice',q:'Wie viele <span class="hl">Abschlussgespräche</span> willst du pro Monat?',options:['5–10 pro Monat','10–20 pro Monat','20–40 pro Monat','So viele wie möglich']},
  {key:'name',type:'text',input:'text',q:'Wie heißt du?',ph:'Vor- und Nachname',required:true},
  {key:'firma',type:'text',input:'text',q:'Für welches <span class="hl">Unternehmen</span>?',ph:'Firmenname oder Website',required:true},
- {key:'email',type:'text',input:'email',q:'Wie lautet deine <span class="hl">E-Mail-Adresse</span>?',ph:'name@firma.de',required:true,help:'An diese Adresse schicken wir deine Terminbestätigung.'},
- {key:'phone',type:'text',input:'tel',q:'Und deine Telefonnummer?',ph:'+49 …',required:true,help:'Nur für die kurze Rückbestätigung deines Termins.'},
+ {key:'email',type:'text',input:'email',q:'Wie lautet deine <span class="hl">E-Mail-Adresse</span>?',ph:'name@firma.de',required:true,help:'Damit du dein Analysegespräch sofort in deinem Postfach bestätigt hast.'},
+ {key:'phone',type:'text',input:'tel',q:'Und deine Telefonnummer?',ph:'+49 …',required:true,help:'Damit Alexander dich telefonisch bestätigen kann – 90 Sekunden, dann weißt du Bescheid.'},
  {type:'final'}
 ];
 const answers={};let idx=0;
@@ -144,8 +144,8 @@ function render(){
   if(cur.type==='intro'){
     h=`<div class="step intro" data-s>
       <span class="intro-pill"><span class="dot"></span>Kostenloses Analysegespräch</span>
-      <h1>In 60 Sekunden zu deinem <span class="hl">Analysegespräch</span>.</h1>
-      <p>Beantworte ein paar kurze Fragen – danach wählst du direkt deinen Wunschtermin mit Alexander Király.</p>
+      <h1>In 60 Sekunden zum Plan, der deine <span class="hl">Verkaufsgespräche effizienter macht</span>.</h1>
+      <p>Beantworte ein paar kurze Fragen – danach hast du einen konkreten Plan, den du direkt umsetzen kannst.</p>
       <div class="trust"><span>${ICON_SHIELD}TÜV-zertifiziert</span><span>${ICON_STAR}4,82 / 5 ProvenExpert</span><span>${ICON_CLOCK}Dauert unter 1 Minute</span></div>
       <div class="actions"><button class="btn" id="go">Jetzt starten ${ICON_ARROW}</button><span class="hint">100 % kostenlos &amp; unverbindlich</span></div>
     </div>`;
@@ -155,10 +155,10 @@ function render(){
     const fn=(answers.name||'').split(' ')[0]||'';
     h=`<div class="step" data-s>
       <span class="eyebrow">Fast geschafft</span>
-      <div class="q">Perfekt${fn?', <span class="hl">'+escapeHtml(fn)+'</span>':''} – wähle jetzt deinen Termin.</div>
-      <p class="help">Wir haben alles, was wir brauchen. Im nächsten Schritt suchst du dir deinen Wunschtermin für das kostenlose Analysegespräch aus.</p>
+      <div class="q">Perfekt${fn?', <span class="hl">'+escapeHtml(fn)+'</span>':''} – dein Plan startet jetzt.</div>
+      <p class="help">Alles notiert. Alexander wird die beste Zeit mit dir absprechen – und dann startet euer gemeinsamer Plan.</p>
       <div class="sumcard">${rows}</div>
-      <div class="actions"><button class="btn" id="go">Weiter zur Terminauswahl ${ICON_ARROW}</button><button class="btn ghost" id="back">Zurück</button></div>
+      <div class="actions"><button class="btn" id="go">Termin buchen – dein Plan wartet ${ICON_ARROW}</button><button class="btn ghost" id="back">Zurück</button></div>
     </div>`;
   } else if(cur.type==='choice'){
     let opts='';cur.options.forEach((o,i)=>{const sel=answers[cur.key]===o?' sel':'';
