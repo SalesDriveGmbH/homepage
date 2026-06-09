@@ -1633,6 +1633,24 @@ nav{background:#08090c !important;border-bottom:1px solid rgba(255,255,255,.09) 
 #leistung .svc2.in .svcard:nth-child(4){animation-delay:.37s,0s}
 @media(prefers-reduced-motion:reduce){#programm .bento.in .bcard,#leistung .svc2.in .svcard{animation:none !important;transform:none !important;filter:none !important}}
 </style>
+<style id="boxfill">
+/* Quoten: Hero-Stat */
+#programm .bq-hero{display:flex;flex-direction:column;align-items:flex-start;margin:18px 0 2px}
+#programm .bq-hero b{font-size:clamp(30px,3.3vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1;background:linear-gradient(132deg,#15171c 36%,#0a66ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+#programm .bq-hero span{font-size:12.5px;color:var(--ink-2);margin-top:7px}
+#programm .bC .brings{margin-top:16px}
+/* Marke: Bottom-Line (was es heisst) */
+#programm .bd-bottom{margin-top:14px;padding-top:13px;border-top:1px solid var(--rule);font-size:13px;line-height:1.5;color:var(--ink-2)}
+#programm .bd-bottom b{color:var(--ink);font-weight:650}
+/* Kleine Karten: gefuellte, aussagekraeftige Beschreibung */
+#programm .bsm{min-height:232px;padding:26px 20px 24px !important}
+#programm .bsm .bsm-meta{font-size:12.5px;line-height:1.5;color:#6c7280;max-width:27ch;margin:9px auto 0;letter-spacing:0;font-variant-numeric:normal}
+/* Hintergrundbild + Farb-Glow hinter beiden Sektionen (Wow-Backdrop) */
+#leistung,#programm{position:relative}
+#leistung>.wrap,#programm>.wrap{position:relative;z-index:1}
+#leistung::before,#programm::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(55% 42% at 12% -4%,rgba(10,102,255,.08),transparent 60%),radial-gradient(48% 50% at 92% 104%,rgba(123,92,255,.07),transparent 62%),linear-gradient(rgba(255,255,255,.9),rgba(255,255,255,.95)),url("/assets/wow/topbg.jpg") center 26%/cover no-repeat}
+</style>
 <style id="v7fix2">
 /* Laptop-Display: App-Top + fixe Panel-Hoehe -> Inhalt oben sichtbar, Rest geclippt */
 #deck .lap-screen-in{aspect-ratio:auto !important;height:auto !important;display:block !important;overflow:hidden}
@@ -2083,7 +2101,8 @@ header.hero::before{content:"";position:absolute;top:-80px;right:-60px;width:60%
 
       <!-- C: Quoten Rings -->
       <article class="bcard bC">
-        <div class="bcard-h"><h3>Quoten, die halten.</h3><p>Wie viele Leads zum Termin erscheinen und abschließen, aus laufenden Kampagnen.</p></div>
+        <div class="bcard-h"><h3>Quoten, die halten.</h3><p>Aus laufenden Kampagnen, Monat für Monat, nicht aus einem guten Tag.</p></div>
+        <div class="bq-hero"><b>&Oslash; 1,6 %</b><span>von Anruf zu qualifiziertem Termin</span></div>
         <div class="brings">
           <div class="bring"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="6"/><circle class="bring-fg" style="--off:17" cx="36" cy="36" r="30" fill="none" stroke="#34d399" stroke-width="6" stroke-linecap="round" stroke-dasharray="188" stroke-dashoffset="188" transform="rotate(-90 36 36)"/></svg><b><span data-bc="92">92</span><i>%</i></b><span>erscheinen zum Termin</span></div>
           <div class="bring"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="6"/><circle class="bring-fg" style="--off:71" cx="36" cy="36" r="30" fill="none" stroke="#3b82ff" stroke-width="6" stroke-linecap="round" stroke-dasharray="188" stroke-dashoffset="188" transform="rotate(-90 36 36)"/></svg><b><span data-bc="62">62</span><i>%</i></b><span>Abschlussquote</span></div>
@@ -2100,6 +2119,7 @@ header.hero::before{content:"";position:absolute;top:-80px;right:-60px;width:60%
           <div class="bd-line"><span class="bd-dot ok"></span>No-Gos schriftlich fixiert</div>
           <div class="bd-script">„Guten Tag Herr Müller, ich rufe an, weil …"<span class="bd-cursor"></span></div>
           <div class="bd-stamp">Freigegeben ✓</div>
+          <div class="bd-bottom">Heißt: Jeder Anruf klingt wie von <b>deinem besten Mitarbeiter</b>, nie wie ein fremder Dienstleister.</div>
         </div>
       </article>
 
@@ -2107,22 +2127,22 @@ header.hero::before{content:"";position:absolute;top:-80px;right:-60px;width:60%
       <article class="bcard bsm">
         <span class="bsm-med" style="--mc:#0a66ff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
         <h4>Perfekt integriert</h4>
-        <span class="bsm-meta">CRM · Kalender · API</span>
+        <span class="bsm-meta">Close CRM, Kalender &amp; API laufen in deinem Setup mit, ganz ohne Aufwand für dich.</span>
       </article>
       <article class="bcard bsm">
         <span class="bsm-med" style="--mc:#6b5bff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg></span>
         <h4>Skaliert mit dir</h4>
-        <span class="bsm-meta">Volumen nach Bedarf</span>
+        <span class="bsm-meta">Von 5 auf 50+ Gespräche pro Woche, ohne dass du intern eine Person mehr einstellst.</span>
       </article>
       <article class="bcard bsm">
         <span class="bsm-med" style="--mc:#0aa2e0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></svg></span>
         <h4>Immer erreichbar</h4>
-        <span class="bsm-meta">Mo–Fr · 8–18 Uhr</span>
+        <span class="bsm-meta">Mo bis Fr, 8 bis 18 Uhr. Direkter Draht zur Geschäftsführung statt zur Hotline.</span>
       </article>
       <article class="bcard bsm">
         <span class="bsm-med" style="--mc:#14a06a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
         <h4>Sicher &amp; konform</h4>
-        <span class="bsm-meta">TÜV · DSGVO</span>
+        <span class="bsm-meta">DSGVO-konform, mit AVV und TÜV-geprüften Prozessen. Deine Daten bleiben sicher.</span>
       </article>
 
     </div>
