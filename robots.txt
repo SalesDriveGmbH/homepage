@@ -4,6 +4,11 @@ Allow: /
 Disallow: /api/
 Disallow: /index.old.html
 Disallow: /index.v2.html
+Disallow: /archive/
+Disallow: /formular
+Disallow: /termin
+Disallow: /danke
+Disallow: /bewerbung
 
 # Sitemap
 Sitemap: https://salesdrive.at/sitemap.xml
