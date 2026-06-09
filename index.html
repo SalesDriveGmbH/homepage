@@ -1599,11 +1599,11 @@ nav{background:#08090c !important;border-bottom:1px solid rgba(255,255,255,.09) 
 /* Breitere, animierte Gradient-Rahmen (rotierender Conic) + mehr Wow */
 @property --bdang{syntax:"<angle>";initial-value:0deg;inherits:false}
 @keyframes bdspin{to{--bdang:360deg}}
-#programm .bcard{--bdang:0deg;border:2px solid transparent !important;
-  background:linear-gradient(#fff,#fff) padding-box,conic-gradient(from var(--bdang),rgba(10,102,255,.10) 0deg,rgba(10,102,255,.10) 76deg,rgba(10,102,255,.68) 126deg,rgba(123,92,255,.58) 158deg,rgba(10,102,255,.10) 210deg,rgba(10,102,255,.10) 360deg) border-box !important;
+#programm .bcard{--bdang:0deg;border:1.5px solid transparent !important;
+  background:linear-gradient(#fff,#fff) padding-box,conic-gradient(from var(--bdang),rgba(10,102,255,.10) 0deg,rgba(10,102,255,.10) 76deg,rgba(10,102,255,.32) 130deg,rgba(123,92,255,.22) 156deg,rgba(10,102,255,.10) 210deg,rgba(10,102,255,.10) 360deg) border-box !important;
   animation:bdspin 11s linear infinite;box-shadow:0 22px 50px -30px rgba(16,40,90,.22) !important}
-#leistung .svcard{--bdang:0deg;border:2px solid transparent !important;
-  background:linear-gradient(#fff,#fff) padding-box,conic-gradient(from var(--bdang),rgba(10,102,255,.10) 0deg,rgba(10,102,255,.10) 76deg,rgba(10,102,255,.62) 126deg,rgba(123,92,255,.5) 158deg,rgba(10,102,255,.10) 210deg,rgba(10,102,255,.10) 360deg) border-box !important;
+#leistung .svcard{--bdang:0deg;border:1.5px solid transparent !important;
+  background:linear-gradient(#fff,#fff) padding-box,conic-gradient(from var(--bdang),rgba(10,102,255,.10) 0deg,rgba(10,102,255,.10) 76deg,rgba(10,102,255,.3) 130deg,rgba(123,92,255,.2) 156deg,rgba(10,102,255,.10) 210deg,rgba(10,102,255,.10) 360deg) border-box !important;
   animation:bdspin 13s linear infinite;box-shadow:0 24px 56px -34px rgba(16,40,90,.24) !important}
 /* deutlich staerkerer Hover-Glow + Lift */
 #programm .bento.in .bcard:hover,#leistung .svc2.in .svcard:hover,#programm .bcard:hover,#leistung .svcard:hover{box-shadow:0 54px 110px -42px rgba(10,80,220,.52),0 0 0 1px rgba(10,102,255,.28) !important;transform:translateY(-8px) !important}
@@ -1612,11 +1612,7 @@ nav{background:#08090c !important;border-bottom:1px solid rgba(255,255,255,.09) 
 <style id="wowentrance">
 /* Bewegte Eingangsanimation (Slide + Scale + 3D-Kipp + Feder-Overshoot + Blur-in) */
 #programm .bento,#leistung .svc2{perspective:1500px}
-@keyframes cardIn{
-  0%{transform:translateY(58px) scale(.9) rotateX(10deg);filter:blur(6px)}
-  58%{transform:translateY(-9px) scale(1.012) rotateX(0deg);filter:blur(0)}
-  100%{transform:none;filter:none}
-}
+@keyframes cardIn{0%{transform:translateY(26px) scale(.992)}100%{transform:none}}
 #programm .bento.in .bcard{animation:cardIn .95s cubic-bezier(.16,1,.3,1) backwards, bdspin 11s linear infinite}
 #programm .bento.in .bcard:nth-child(1){animation-delay:0s,0s}
 #programm .bento.in .bcard:nth-child(2){animation-delay:.08s,0s}
@@ -1650,6 +1646,26 @@ nav{background:#08090c !important;border-bottom:1px solid rgba(255,255,255,.09) 
 #leistung>.wrap,#programm>.wrap{position:relative;z-index:1}
 #leistung::before,#programm::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
   background:radial-gradient(55% 42% at 12% -4%,rgba(10,102,255,.08),transparent 60%),radial-gradient(48% 50% at 92% 104%,rgba(123,92,255,.07),transparent 62%),linear-gradient(rgba(255,255,255,.9),rgba(255,255,255,.95)),url("/assets/wow/topbg.jpg") center 26%/cover no-repeat}
+</style>
+<style id="appletune">
+/* Namen/Labels dezenter (Apple-subtil) */
+#leistung .svc-top .svc-n{border-color:rgba(0,0,0,.1) !important;background:#f4f5f7 !important;color:#9aa0a8 !important}
+#leistung .svc-lbl{color:#a6abb4 !important;font-size:10.5px !important;font-weight:500}
+.wsec .sec-num{color:#969ba4 !important;border-color:rgba(0,0,0,.06) !important;background:transparent !important}
+.wsec .sec-num::before{background:#c6cad1 !important}
+.vtl-eye{color:#9aa0a8 !important;font-weight:500}
+/* Ablauf-Schritte: gestaffelter Apple-Auftritt */
+@keyframes stepIn{0%{opacity:0;transform:translateY(22px)}100%{opacity:1;transform:none}}
+#ablauf .vtl.in .vtl-step{animation:stepIn .75s cubic-bezier(.16,1,.3,1) both}
+#ablauf .vtl.in .vtl-step:nth-child(3){animation-delay:.12s}
+#ablauf .vtl.in .vtl-step:nth-child(4){animation-delay:.24s}
+/* Ablauf: grosse Wasserzeichen-Nummer pro Box + feinerer Hover */
+#ablauf .vtl{counter-reset:vstep}
+#ablauf .vtl-step{counter-increment:vstep}
+#ablauf .vtl-card{position:relative;overflow:hidden;background:linear-gradient(180deg,#fff,#fcfdff) !important;transition:border-color .4s,transform .5s cubic-bezier(.16,1,.3,1),box-shadow .4s !important}
+#ablauf .vtl-card::before{content:counter(vstep,decimal-leading-zero);position:absolute;top:-30px;right:6px;font-size:clamp(108px,13vw,162px);font-weight:800;line-height:1;letter-spacing:-.05em;color:rgba(10,102,255,.07);pointer-events:none;z-index:0}
+#ablauf .vtl-card>*{position:relative;z-index:1}
+#ablauf .vtl-card:hover{transform:translateY(-4px) !important;box-shadow:0 36px 70px -34px rgba(10,80,220,.3) !important;border-color:rgba(10,102,255,.2) !important}
 </style>
 <style id="v7fix2">
 /* Laptop-Display: App-Top + fixe Panel-Hoehe -> Inhalt oben sichtbar, Rest geclippt */
