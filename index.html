@@ -1642,10 +1642,13 @@ nav{background:#08090c !important;border-bottom:1px solid rgba(255,255,255,.09) 
 #programm .bsm{min-height:232px;padding:26px 20px 24px !important}
 #programm .bsm .bsm-meta{font-size:12.5px;line-height:1.5;color:#6c7280;max-width:27ch;margin:9px auto 0;letter-spacing:0;font-variant-numeric:normal}
 /* Hintergrundbild + Farb-Glow hinter beiden Sektionen (Wow-Backdrop) */
-#leistung,#programm{position:relative}
-#leistung>.wrap,#programm>.wrap{position:relative;z-index:1}
-#leistung::before,#programm::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(55% 42% at 12% -4%,rgba(10,102,255,.08),transparent 60%),radial-gradient(48% 50% at 92% 104%,rgba(123,92,255,.07),transparent 62%),linear-gradient(rgba(255,255,255,.9),rgba(255,255,255,.95)),url("/assets/wow/topbg.jpg") center 26%/cover no-repeat}
+#leistung,#programm,#ablauf{position:relative}
+#leistung>.wrap,#programm>.wrap,#ablauf>.wrap{position:relative;z-index:1}
+#leistung::before,#programm::before,#ablauf::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none}
+/* unterschiedliche, passende Farb-Strukturen pro Sektion (kein Bild) */
+#leistung::before{background:radial-gradient(42% 40% at 6% -2%,rgba(10,102,255,.11),transparent 60%),radial-gradient(44% 42% at 96% 8%,rgba(64,178,255,.09),transparent 62%),radial-gradient(54% 52% at 52% 112%,rgba(10,102,255,.06),transparent 60%),linear-gradient(180deg,#f5f9ff,#ffffff)}
+#programm::before{background:radial-gradient(44% 40% at 5% 2%,rgba(123,92,255,.12),transparent 60%),radial-gradient(46% 44% at 97% 6%,rgba(10,102,255,.08),transparent 62%),radial-gradient(50% 54% at 62% 112%,rgba(123,92,255,.07),transparent 60%),linear-gradient(180deg,#faf8ff,#ffffff)}
+#ablauf::before{background:radial-gradient(44% 40% at 8% 0%,rgba(18,170,158,.09),transparent 60%),radial-gradient(46% 44% at 95% 10%,rgba(10,102,255,.06),transparent 62%),radial-gradient(52% 52% at 55% 112%,rgba(18,170,158,.06),transparent 60%),linear-gradient(180deg,#f2f7f7,#f6f7f9)}
 </style>
 <style id="appletune">
 /* Namen/Labels dezenter (Apple-subtil) */
