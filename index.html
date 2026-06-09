@@ -1563,12 +1563,20 @@ nav{background:linear-gradient(180deg,rgba(10,11,15,.82),rgba(10,11,15,.62)) !im
 #deck .lap-panels{height:clamp(340px,29vw,460px) !important;overflow:hidden}
 /* TÜV-Siegel im App-Header */
 #deck .app-tuv{height:17px;width:auto;margin-left:-4px;border-radius:3px}
-/* Voraussetzungen: Textspalte breiter, Handy schmaler */
-#voraussetzungen .vor-grid{grid-template-columns:.7fr 1.3fr !important;gap:clamp(36px,5vw,72px) !important}
-#voraussetzungen .iphone{width:248px !important}
-#voraussetzungen .vor-copy>p{max-width:54ch !important}
-#voraussetzungen .vfeats p{max-width:50ch !important}
-@media(max-width:880px){#voraussetzungen .vor-grid{grid-template-columns:1fr !important}}
+/* Voraussetzungen: Textspalte breiter + kompakter, Handy groesser, feiner */
+#voraussetzungen .wrap{max-width:1180px}
+#voraussetzungen .vor-grid{grid-template-columns:.74fr 1.26fr !important;gap:clamp(30px,4.2vw,60px) !important;align-items:center}
+#voraussetzungen .iphone{width:300px !important}
+#voraussetzungen .vor-h{font-size:clamp(28px,3.4vw,44px) !important;margin:14px 0 16px !important;line-height:1.05 !important}
+#voraussetzungen .vor-copy>p{max-width:64ch !important;font-size:15.5px !important;line-height:1.6 !important;margin-bottom:12px !important}
+#voraussetzungen .vor-feats{gap:13px !important;margin:24px 0 26px !important}
+#voraussetzungen .vor-feats li{gap:14px !important;align-items:flex-start}
+#voraussetzungen .vor-feats p{max-width:62ch !important;font-size:13.5px !important}
+#voraussetzungen .vor-feats h4{font-size:15px !important;margin-bottom:2px !important}
+/* feinere, weniger klobige Icons */
+#voraussetzungen .vor-ic{width:36px !important;height:36px !important;border-radius:10px !important;border-color:rgba(10,102,255,.16) !important;box-shadow:0 6px 16px -10px rgba(10,102,255,.30) !important}
+#voraussetzungen .vor-ic svg{width:18px !important;height:18px !important;stroke-width:1.7}
+@media(max-width:880px){#voraussetzungen .vor-grid{grid-template-columns:1fr !important}#voraussetzungen .wrap{max-width:560px}}
 </style>
 <style id="v7about">
 /* Story */
@@ -1850,7 +1858,7 @@ header.hero::before{content:"";position:absolute;top:-80px;right:-60px;width:60%
         <div class="svc-stats"><div><b>Tag 1</b><span>startklar</span></div><div><b>0 €</b><span>Setup-Kosten für dich</span></div></div>
         <div class="svc-mock"><ul class="mk-list">
           <li><span class="mk-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span>Close CRM<span class="mk-st mono">verbunden</span></li>
-          <li><span class="mk-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span>Calendly &amp; Reminders<span class="mk-st mono">aktiv</span></li>
+          <li><span class="mk-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span>Kalender &amp; Reminders<span class="mk-st mono">aktiv</span></li>
           <li><span class="mk-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span>Integrationen &amp; API<span class="mk-st mono">live</span></li>
           <li><span class="mk-ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg></span>Live-Reporting<span class="mk-st mono">aktiv</span></li>
         </ul></div>
@@ -2111,8 +2119,8 @@ header.hero::before{content:"";position:absolute;top:-80px;right:-60px;width:60%
           <span class="iph-time">08:58</span><span class="iph-sig">5G</span>
           <div class="iph-date">Donnerstag, 21. Mai</div>
           <div class="iph-clock">08:58</div>
-          <div class="iph-notif"><div class="iph-nh"><span class="iph-app"></span>CALENDLY<span class="iph-ago">vor 1 Min.</span></div><b>Neues Ereignis: Strategiegespräch</b><span>Andrea Brunner · CFO hat ein Strategiegespräch gebucht. Mi, 21. Mai · 11:15.</span></div>
-          <div class="iph-notif"><div class="iph-nh"><span class="iph-app"></span>CALENDLY<span class="iph-ago">vor 3 Std.</span></div><b>Neues Ereignis: Strategiegespräch</b><span>Florian Holzer · GF hat ein Strategiegespräch gebucht. Do, 22. Mai · 08:30.</span></div>
+          <div class="iph-notif"><div class="iph-nh"><span class="iph-app"></span>KALENDER<span class="iph-ago">vor 1 Min.</span></div><b>Neues Ereignis: Strategiegespräch</b><span>Andrea Brunner · CFO hat ein Strategiegespräch gebucht. Mi, 21. Mai · 11:15.</span></div>
+          <div class="iph-notif"><div class="iph-nh"><span class="iph-app"></span>KALENDER<span class="iph-ago">vor 3 Std.</span></div><b>Neues Ereignis: Strategiegespräch</b><span>Florian Holzer · GF hat ein Strategiegespräch gebucht. Do, 22. Mai · 08:30.</span></div>
         </div>
       </div>
     </div>
