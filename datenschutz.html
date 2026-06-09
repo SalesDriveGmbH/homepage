@@ -110,7 +110,73 @@
 .sdfoot-status i{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399;animation:sdpulse 2s infinite}
 @keyframes sdpulse{0%,100%{opacity:1}50%{opacity:.4}}
 @media(max-width:820px){.sdfoot-top{grid-template-columns:1fr 1fr;gap:28px}.sdfoot-brand{grid-column:1/-1}}
-</style><style id="ofix">html,body{overflow-x:clip;max-width:100%}img,svg,video,iframe{max-width:100%}</style></head>
+</style><style id="ofix">html,body{overflow-x:clip;max-width:100%}img,svg,video,iframe{max-width:100%}</style>
+<style id="pagepremium">
+/* ===== SalesDrive Homepage-Niveau · Legal (schlicht, dunkel, Apple-elegant) ===== */
+/* Main Colors: Primaerblau #0a66ff, Hellblau #42b2ff, Violett-Akzent #7b5cff */
+
+/* HERO: dezentes dunkles Farb-Mesh (statt flachem Blau-Glow) */
+body .legal-shell::before{
+  background:
+    radial-gradient(46% 52% at 6% -8%, rgba(10,102,255,.16), transparent 60%),
+    radial-gradient(44% 48% at 97% 4%, rgba(123,92,255,.12), transparent 62%),
+    radial-gradient(60% 55% at 60% 116%, rgba(66,178,255,.08), transparent 60%) !important;
+}
+
+/* HEADLINES auf dunklem Grund: Verlauf weiss -> Hellblau via background-clip:text */
+body .legal-title{
+  background:linear-gradient(126deg,#ffffff 44%,#42b2ff) !important;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent !important;
+}
+body .legal-title em{
+  -webkit-text-fill-color:#42b2ff;color:#42b2ff !important;
+}
+
+/* Akzent-Vereinheitlichung: das tuerkis-leanende rgba(41,151,255) auf #0a66ff/#42b2ff */
+body .legal-eye-dot{
+  background:#0a66ff !important;box-shadow:0 0 12px rgba(10,102,255,.85) !important;
+}
+body .legal-pill{
+  color:#42b2ff !important;
+  background:rgba(10,102,255,.14) !important;
+  border:1px solid rgba(66,178,255,.22) !important;
+}
+body .legal-side__item.is-active{
+  background:rgba(10,102,255,.12) !important;color:#42b2ff !important;border-left-color:#0a66ff !important;
+}
+body .legal-side__item.is-active .legal-side__num{color:#0a66ff !important;}
+body .legal-side__hint a,
+body .legal-section a,
+body .legal-trust__card-sub a,
+body .legal-trust__head-eye{color:#42b2ff !important;}
+body .legal-side__item.is-active{box-shadow:inset 2px 0 0 #0a66ff;}
+
+/* KARTEN: weicher 1px-Rand, weicher Schatten, sauberer Radius, blauer Hover-Glow */
+body .legal-card,
+body .legal-side,
+body .legal-trust__card{
+  border:1px solid rgba(255,255,255,.08) !important;
+  border-radius:20px !important;
+  box-shadow:0 18px 44px -28px rgba(16,40,90,.55), 0 1px 0 rgba(255,255,255,.04) inset !important;
+  transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease !important;
+}
+body .legal-trust__card:hover{
+  transform:translateY(-5px) !important;
+  border-color:rgba(66,178,255,.35) !important;
+  box-shadow:0 34px 70px -36px rgba(10,80,220,.55), 0 0 0 1px rgba(66,178,255,.18) inset !important;
+}
+body .legal-trust__card-val,
+body .legal-trust__head-title{color:#fff !important;}
+
+/* SECTIONS: graue Sektionen dezent blau/violett tonen */
+body .legal-card{
+  background:
+    radial-gradient(120% 80% at 0% 0%, rgba(10,102,255,.05), transparent 55%),
+    radial-gradient(120% 80% at 100% 100%, rgba(123,92,255,.04), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,.030), rgba(255,255,255,.012)) !important;
+}
+</style></head>
 <body>
 
 <nav class="sdnav"><div class="sdnav-in">

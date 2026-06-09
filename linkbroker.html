@@ -134,7 +134,106 @@ footer{background:#000;color:#a1a1a6;padding:46px 0;text-align:center;font-size:
 .sdfoot-status i{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399;animation:sdpulse 2s infinite}
 @keyframes sdpulse{0%,100%{opacity:1}50%{opacity:.4}}
 @media(max-width:820px){.sdfoot-top{grid-template-columns:1fr 1fr;gap:28px}.sdfoot-brand{grid-column:1/-1}}
-</style><style id="ofix">html,body{overflow-x:clip;max-width:100%}img,svg,video,iframe{max-width:100%}</style></head><body>
+</style><style id="ofix">html,body{overflow-x:clip;max-width:100%}img,svg,video,iframe{max-width:100%}</style>
+<style id="pagepremium">
+/* === SalesDrive Premium - Homepage-Niveau (Main Colors: #0a66ff / #42b2ff / #7b5cff / Ink #15171c) === */
+
+/* HERO: subtiles Farb-Mesh statt flachem Radial. Vordergrund-Bilder bleiben. */
+body header.hero{
+  background:
+    radial-gradient(46% 52% at 6% -8%,rgba(10,102,255,.13),transparent 60%),
+    radial-gradient(44% 48% at 97% 4%,rgba(123,92,255,.10),transparent 62%),
+    radial-gradient(60% 55% at 60% 116%,rgba(10,102,255,.06),transparent 60%),
+    linear-gradient(180deg,#f4f8ff,#fff 72%) !important;
+}
+
+/* HEADLINES: dezenter Verlauf dunkel -> blau (nur auf hellem Grund) */
+body h1,
+body section h2,
+body .sec-head h2,
+body .split h2{
+  background:linear-gradient(126deg,#15171c 46%,#0a66ff) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  color:transparent !important;
+}
+/* Bestehender .hl-Span weiter im Markenblau (innerhalb h1) */
+body h1 .hl{
+  background:linear-gradient(120deg,#0a66ff,#42b2ff) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  color:transparent !important;
+}
+/* Headlines auf DUNKLEM Grund bleiben weiss (kein Verlauf) */
+body .final h2{
+  background:none !important;
+  -webkit-text-fill-color:#fff !important;
+  color:#fff !important;
+}
+
+/* KARTEN: weiche Raender, weicher Schatten, blauer Hover-Glow */
+body .step,
+body .relc,
+body .hchip{
+  border:1px solid rgba(0,0,0,.08) !important;
+  box-shadow:0 18px 44px -28px rgba(16,40,90,.18) !important;
+  transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s cubic-bezier(.16,1,.3,1) !important;
+}
+body .step,body .relc{border-radius:20px !important;}
+body .step:hover,
+body .relc:hover{
+  transform:translateY(-5px) !important;
+  box-shadow:0 34px 70px -36px rgba(10,80,220,.3) !important;
+}
+body .hchip:hover{
+  transform:translateY(-2px) !important;
+  box-shadow:0 22px 48px -30px rgba(10,80,220,.26) !important;
+}
+
+/* SECTIONS: graue Sektion dezent blau/violett tonen statt flach */
+body section.bg2{
+  background:
+    radial-gradient(60% 80% at 100% 0,rgba(123,92,255,.05),transparent 60%),
+    radial-gradient(60% 80% at 0 100%,rgba(10,102,255,.05),transparent 60%),
+    #f5f7fb !important;
+}
+
+/* Metrik-Zahlen: einheitlicher Ink -> Blau Verlauf */
+body .mt .n{
+  background:linear-gradient(126deg,#15171c 40%,#0a66ff) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  color:transparent !important;
+}
+
+/* Funnel-Balken im Markenblau */
+body .fbar i{
+  background:linear-gradient(90deg,#0a66ff,#42b2ff) !important;
+}
+
+/* Sterne: vom Orange auf dezentes Markenblau vereinheitlicht */
+body .quote .stars{
+  color:#0a66ff !important;
+}
+
+/* Buttons / CTA-Pills im Markenblau mit weichem Glow */
+body .btn{
+  background:linear-gradient(135deg,#0a66ff,#3b86ff) !important;
+  box-shadow:0 18px 40px -20px rgba(10,80,220,.5) !important;
+  transition:transform .3s,box-shadow .3s !important;
+}
+body .btn:hover{
+  transform:translateY(-2px) !important;
+  box-shadow:0 26px 54px -22px rgba(10,80,220,.58) !important;
+}
+
+/* Avatare / Step-Nummern im einheitlichen Blau-Verlauf */
+body .hperson .av,
+body .quote .who .av,
+body .step .sn{
+  background:linear-gradient(135deg,#0a66ff,#2f59e6) !important;
+}
+</style></head><body>
 <nav class="sdnav"><div class="sdnav-in">
 <a href="/" class="sdnav-logo" aria-label="SalesDrive Startseite"><img src="/assets/brand/salesdrive-logo.png" alt="SalesDrive"></a>
 <div class="sdnav-links"><a href="/#cases">Cases</a><a href="/branchen">Branchen</a><a href="/wissen">Wissen</a><a href="/karriere">Karriere</a><a href="/ueber-uns">Über uns</a><a href="/zertifizierungen">Zertifizierungen</a></div>

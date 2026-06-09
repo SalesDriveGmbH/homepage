@@ -112,7 +112,109 @@ footer a{color:#a1a1a6}footer a:hover{color:#fff}
 .sdfoot-status i{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399;animation:sdpulse 2s infinite}
 @keyframes sdpulse{0%,100%{opacity:1}50%{opacity:.4}}
 @media(max-width:820px){.sdfoot-top{grid-template-columns:1fr 1fr;gap:28px}.sdfoot-brand{grid-column:1/-1}}
-</style><style id="ofix">html,body{overflow-x:clip;max-width:100%}img,svg,video,iframe{max-width:100%}</style></head>
+</style><style id="ofix">html,body{overflow-x:clip;max-width:100%}img,svg,video,iframe{max-width:100%}</style>
+<style id="pagepremium">
+/* === SalesDrive Premium-Angleichung an Homepage-Niveau === */
+/* Farbsystem auf Main Colors vereinheitlichen */
+body{--ink:#15171c;--ink2:#5f6470;--ink3:#86868b;--accent:#0a66ff}
+
+/* HERO: subtiles Farb-Mesh statt flachem Verlauf (Fotos im Vordergrund bleiben) */
+body .hero{
+  background:
+    radial-gradient(46% 52% at 6% -8%,rgba(10,102,255,.13),transparent 60%),
+    radial-gradient(44% 48% at 97% 4%,rgba(123,92,255,.10),transparent 62%),
+    radial-gradient(60% 55% at 60% 116%,rgba(10,102,255,.06),transparent 60%),
+    linear-gradient(180deg,#f4f8ff,#fff 72%) !important;
+}
+
+/* HEADLINES: dezenter Verlauf dunkel -> blau (nicht auf dunklen Sektionen) */
+body .hero h1,
+body .split h2,
+body .sec-head h2{
+  background:linear-gradient(126deg,#15171c 46%,#0a66ff) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  color:transparent !important;
+}
+/* Headlines auf dunklem Hintergrund bleiben weiss */
+body .final h2,
+body .sdfoot h2{
+  background:none !important;
+  -webkit-text-fill-color:#fff;
+  color:#fff !important;
+}
+
+/* SECTIONS: graue Flaeche dezent blau/violett tonen statt flach */
+body .bg2{
+  background:
+    radial-gradient(60% 80% at 100% 0,rgba(123,92,255,.05),transparent 60%),
+    radial-gradient(70% 90% at 0% 100%,rgba(10,102,255,.05),transparent 62%),
+    #f5f7fb !important;
+}
+
+/* KARTEN: Werte-Karten */
+body .val{
+  background:#fff !important;
+  border:1px solid rgba(0,0,0,.08) !important;
+  border-radius:20px !important;
+  box-shadow:0 18px 44px -28px rgba(16,40,90,.18) !important;
+  transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s cubic-bezier(.16,1,.3,1),border-color .45s !important;
+}
+body .val:hover{
+  transform:translateY(-5px) !important;
+  box-shadow:0 34px 70px -36px rgba(10,80,220,.3) !important;
+  border-color:rgba(10,102,255,.18) !important;
+}
+body .val .vi{background:#eef3ff !important;color:#0a66ff !important}
+
+/* KARTEN: Team-Kacheln */
+body .tm{
+  background:#fff !important;
+  border:1px solid rgba(0,0,0,.08) !important;
+  border-radius:20px !important;
+  box-shadow:0 18px 44px -28px rgba(16,40,90,.18) !important;
+  transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s cubic-bezier(.16,1,.3,1),border-color .45s !important;
+}
+body .tm:hover{
+  transform:translateY(-5px) !important;
+  box-shadow:0 34px 70px -36px rgba(10,80,220,.3) !important;
+  border-color:rgba(10,102,255,.18) !important;
+}
+body .tm img{filter:grayscale(.12) !important}
+
+/* KARTEN: Zertifikats-Boxen */
+body .zc{
+  background:#fff !important;
+  border:1px solid rgba(0,0,0,.08) !important;
+  border-radius:20px !important;
+  box-shadow:0 18px 44px -28px rgba(16,40,90,.18) !important;
+  transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s cubic-bezier(.16,1,.3,1),border-color .45s !important;
+}
+body .zc:hover{
+  transform:translateY(-5px) !important;
+  box-shadow:0 34px 70px -36px rgba(10,80,220,.3) !important;
+  border-color:rgba(10,102,255,.18) !important;
+}
+body .zc-num{color:#0a66ff !important}
+
+/* Standort-Box dezent veredeln */
+body .addr{
+  background:#fff !important;
+  border:1px solid rgba(0,0,0,.08) !important;
+  border-radius:16px !important;
+  box-shadow:0 14px 38px -30px rgba(16,40,90,.2) !important;
+}
+body .addr svg{color:#0a66ff !important}
+
+/* Stat-Zahlen: Verlauf an Main Colors angleichen */
+body .stat .n{background:linear-gradient(126deg,#15171c 46%,#0a66ff) !important;-webkit-background-clip:text !important;background-clip:text !important;color:transparent !important}
+
+/* Foto-Rahmen weicher blauer Schatten */
+body .ph{box-shadow:0 30px 70px -36px rgba(16,40,90,.34) !important}
+
+/* Eyebrows + Akzentfarben auf Primaerblau */
+body .eyebrow{color:#0a66ff !important}
+</style></head>
 <body>
 <nav class="sdnav"><div class="sdnav-in">
 <a href="/" class="sdnav-logo" aria-label="SalesDrive Startseite"><img src="/assets/brand/salesdrive-logo.png" alt="SalesDrive"></a>

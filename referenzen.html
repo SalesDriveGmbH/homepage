@@ -320,7 +320,179 @@
 .sdfoot-status i{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399;animation:sdpulse 2s infinite}
 @keyframes sdpulse{0%,100%{opacity:1}50%{opacity:.4}}
 @media(max-width:820px){.sdfoot-top{grid-template-columns:1fr 1fr;gap:28px}.sdfoot-brand{grid-column:1/-1}}
-</style><style id="ofix">html,body{overflow-x:clip;max-width:100%}img,svg,video,iframe{max-width:100%}</style></head>
+</style><style id="ofix">html,body{overflow-x:clip;max-width:100%}img,svg,video,iframe{max-width:100%}</style>
+<style id="pagepremium">
+/* ============================================================
+   PAGE PREMIUM · Referenzen auf Homepage-Niveau
+   Helle Designsprache, Main Colors: Blau #0a66ff / #42b2ff,
+   Violett-Akzent #7b5cff. Alte Gruen-/41,151,255-Toene auf Blau
+   vereinheitlicht. Fotos/Videos im Vordergrund bleiben.
+   ============================================================ */
+
+/* HERO - subtiles Farb-Mesh statt flach (kein Foto) */
+body .subhero{
+  background:
+    radial-gradient(46% 52% at 6% -8%,rgba(10,102,255,.13),transparent 60%),
+    radial-gradient(44% 48% at 97% 4%,rgba(123,92,255,.10),transparent 62%),
+    radial-gradient(60% 55% at 60% 116%,rgba(10,102,255,.06),transparent 60%),
+    linear-gradient(180deg,#f4f8ff,#fff 72%) !important;
+}
+/* dezenter Orb, in Blau gehalten */
+body .subhero__bg .orb,
+body .subhero .orb--blue{ background:rgba(10,102,255,.18) !important; opacity:.10 !important; }
+
+/* HERO-HEADLINE - dunkel -> blau Verlauf (auf hellem Grund lesbar) */
+body .subhero__title{
+  background:linear-gradient(126deg,#15171c 46%,#0a66ff) !important;
+  -webkit-background-clip:text !important; background-clip:text !important;
+  color:transparent !important;
+}
+body .subhero__title em{
+  background:linear-gradient(126deg,#0a66ff,#42b2ff) !important;
+  -webkit-background-clip:text !important; background-clip:text !important;
+  color:transparent !important;
+}
+
+/* CONTENT-HEADLINES (h2 .display, Case-Titel) - dunkel -> blau */
+body .wall .display,
+body .case__title{
+  background:linear-gradient(126deg,#15171c 46%,#0a66ff) !important;
+  -webkit-background-clip:text !important; background-clip:text !important;
+  color:transparent !important;
+}
+body .wall .display em{
+  background:linear-gradient(126deg,#0a66ff,#42b2ff) !important;
+  -webkit-background-clip:text !important; background-clip:text !important;
+  color:transparent !important;
+}
+
+/* SECTIONS - graue Flaechen dezent blau/violett tonen statt flach */
+body .wall{
+  background:
+    radial-gradient(50% 70% at 0% 0%,rgba(10,102,255,.05),transparent 60%),
+    radial-gradient(46% 64% at 100% 100%,rgba(123,92,255,.045),transparent 62%),
+    linear-gradient(180deg,#f6f8fd,#f4f6fb) !important;
+}
+body .cases{
+  background:linear-gradient(180deg,#ffffff,#f7faff) !important;
+}
+
+/* CASE-KARTEN - weisse Karte, weicher Rand + Schatten, Hover-Glow */
+body .case{
+  background:#ffffff !important;
+  border:1px solid rgba(0,0,0,.08) !important;
+  border-radius:22px !important;
+  box-shadow:0 18px 44px -28px rgba(16,40,90,.18) !important;
+  transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s cubic-bezier(.16,1,.3,1) !important;
+}
+body .case:hover{
+  transform:translateY(-5px) !important;
+  box-shadow:0 34px 70px -36px rgba(10,80,220,.3) !important;
+}
+/* Video-Rahmen - auf Blau, dunkler Player-Hintergrund bleibt fuer das Video */
+body .case__media{
+  border:1px solid rgba(0,0,0,.08) !important;
+  box-shadow:0 18px 44px -28px rgba(16,40,90,.22),0 0 0 1px rgba(10,102,255,.05) inset !important;
+}
+
+/* CASE-FUNNEL - helle Karte, lesbare Zahlen, Blau statt Gruen */
+body .case__funnel{
+  background:linear-gradient(180deg,#f7faff,#eef4ff) !important;
+  border:1px solid rgba(0,0,0,.08) !important;
+}
+body .case__funnel::before{
+  background:#fff !important;
+  border:1px solid rgba(0,0,0,.10) !important;
+  color:#5f6470 !important;
+}
+body .case__step-num{ color:#15171c !important; }
+body .case__step.green .case__step-num{
+  color:#0a66ff !important;
+  text-shadow:0 0 26px rgba(10,102,255,.30),0 0 60px rgba(10,102,255,.14) !important;
+}
+body .case__step:not(:last-child)::after{
+  border-right-color:rgba(0,0,0,.22) !important;
+  border-top-color:rgba(0,0,0,.22) !important;
+}
+body .case__step-lbl{ color:#5f6470 !important; }
+body .case__block-label,
+body .case__link{ color:#0a66ff !important; }
+body .case__industry-pill{
+  background:rgba(10,102,255,.08) !important;
+  border-color:rgba(10,102,255,.20) !important;
+  color:#0a66ff !important;
+}
+
+/* TESTIMONIAL-KARTEN - premium weiss + Hover-Glow */
+body .testimonial{
+  background:#ffffff !important;
+  border:1px solid rgba(0,0,0,.08) !important;
+  border-radius:18px !important;
+  box-shadow:0 18px 44px -30px rgba(16,40,90,.16) !important;
+  transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s cubic-bezier(.16,1,.3,1) !important;
+}
+body .testimonial:hover{
+  transform:translateY(-5px) !important;
+  box-shadow:0 34px 70px -36px rgba(10,80,220,.3) !important;
+}
+body .testimonial__quote::before,
+body .testimonial__site{ color:#0a66ff !important; }
+
+/* SIZZLE-DEVICE - Blau-Glow statt 41,151,255 */
+body .sizzle__device{
+  box-shadow:0 30px 70px -32px rgba(16,40,90,.28),0 0 0 1px rgba(10,102,255,.06) inset,0 40px 90px -50px rgba(10,80,220,.3) !important;
+}
+
+/* FINAL CTA - heller Grund, Blau-Glow, lesbare Headline */
+body .final{ background:linear-gradient(180deg,#f7faff,#ffffff) !important; }
+body .final::before{
+  background:radial-gradient(900px 540px at 50% 45%,rgba(10,102,255,.10),transparent 60%) !important;
+}
+body .final__title{ color:#15171c !important; }
+body .final__title em{
+  background:linear-gradient(126deg,#0a66ff,#42b2ff) !important;
+  -webkit-background-clip:text !important; background-clip:text !important;
+  color:transparent !important;
+}
+
+/* KONTAKT-BAND - weisse Premium-Karte, Akzent von Gruen auf Blau */
+body .contact-band__wrap{
+  background:#ffffff !important;
+  border:1px solid rgba(0,0,0,.08) !important;
+  border-radius:22px !important;
+  box-shadow:0 18px 44px -28px rgba(16,40,90,.18) !important;
+}
+body .contact-band::before{
+  background:radial-gradient(900px 500px at 50% 30%,rgba(10,102,255,.10),transparent 60%) !important;
+}
+body .contact-band__title em{ color:#0a66ff !important; }
+body .contact-band__eye{
+  background:rgba(10,102,255,.10) !important;
+  border:1px solid rgba(10,102,255,.24) !important;
+  color:#0a66ff !important;
+}
+body .contact-band__eye-dot,
+body .contact-band__photo-dot{
+  background:#0a66ff !important;
+  box-shadow:0 0 14px rgba(10,102,255,.6) !important;
+  animation:none !important;
+}
+body .contact-band__photo{ border:2px solid rgba(0,0,0,.10) !important; }
+body .contact-band__btn{
+  background:#ffffff !important;
+  border:1px solid rgba(0,0,0,.10) !important;
+  color:#15171c !important;
+}
+body .contact-band__btn:hover{
+  background:rgba(10,102,255,.06) !important;
+  border-color:#0a66ff !important;
+}
+body .contact-band__btn svg{ color:#0a66ff !important; }
+
+/* STATBAR - blaue KPI-Zahlen einheitlich */
+body .statbar__num.blue{ color:#0a66ff !important; }
+</style>
+</head>
 <body>
 
 <nav class="sdnav"><div class="sdnav-in">
