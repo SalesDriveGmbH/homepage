@@ -1595,6 +1595,20 @@ nav{background:#08090c !important;border-bottom:1px solid rgba(255,255,255,.09) 
 #leistung .mk-audit{gap:14px !important}
 #leistung .mk-dialog .mk-q,#leistung .mk-dialog .mk-a{font-size:12.5px !important}
 </style>
+<style id="wowborders">
+/* Breitere, animierte Gradient-Rahmen (rotierender Conic) + mehr Wow */
+@property --bdang{syntax:"<angle>";initial-value:0deg;inherits:false}
+@keyframes bdspin{to{--bdang:360deg}}
+#programm .bcard{--bdang:0deg;border:2px solid transparent !important;
+  background:linear-gradient(#fff,#fff) padding-box,conic-gradient(from var(--bdang),rgba(10,102,255,.10) 0deg,rgba(10,102,255,.10) 76deg,rgba(10,102,255,.68) 126deg,rgba(123,92,255,.58) 158deg,rgba(10,102,255,.10) 210deg,rgba(10,102,255,.10) 360deg) border-box !important;
+  animation:bdspin 11s linear infinite;box-shadow:0 22px 50px -30px rgba(16,40,90,.22) !important}
+#leistung .svcard{--bdang:0deg;border:2px solid transparent !important;
+  background:linear-gradient(#fff,#fff) padding-box,conic-gradient(from var(--bdang),rgba(10,102,255,.10) 0deg,rgba(10,102,255,.10) 76deg,rgba(10,102,255,.62) 126deg,rgba(123,92,255,.5) 158deg,rgba(10,102,255,.10) 210deg,rgba(10,102,255,.10) 360deg) border-box !important;
+  animation:bdspin 13s linear infinite;box-shadow:0 24px 56px -34px rgba(16,40,90,.24) !important}
+/* deutlich staerkerer Hover-Glow + Lift */
+#programm .bento.in .bcard:hover,#leistung .svc2.in .svcard:hover,#programm .bcard:hover,#leistung .svcard:hover{box-shadow:0 54px 110px -42px rgba(10,80,220,.52),0 0 0 1px rgba(10,102,255,.28) !important;transform:translateY(-8px) !important}
+@media(prefers-reduced-motion:reduce){#programm .bcard,#leistung .svcard{animation:none !important}}
+</style>
 <style id="v7fix2">
 /* Laptop-Display: App-Top + fixe Panel-Hoehe -> Inhalt oben sichtbar, Rest geclippt */
 #deck .lap-screen-in{aspect-ratio:auto !important;height:auto !important;display:block !important;overflow:hidden}
