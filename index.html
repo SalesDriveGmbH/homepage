@@ -1537,6 +1537,26 @@ nav{background:linear-gradient(180deg,rgba(10,11,15,.82),rgba(10,11,15,.62)) !im
 #programm .bA::before{content:"";position:absolute;left:-6%;top:-10%;width:60%;height:70%;background:radial-gradient(circle,rgba(10,102,255,.08),transparent 70%);filter:blur(40px);pointer-events:none;z-index:0}
 #programm .bA>*{position:relative;z-index:1}
 </style>
+<style id="v8bento">
+/* Bento-Headlines: kurz, Apple-Stil, Gradient ("verlaufen") */
+#programm .bcard-h h3,#programm .bA-txt h3{
+  font-size:clamp(21px,2.15vw,28px) !important;line-height:1.12 !important;font-weight:700 !important;letter-spacing:-.03em !important;
+  background:linear-gradient(116deg,#15171c 38%,#0a66ff) !important;-webkit-background-clip:text !important;background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;color:transparent !important;max-width:16ch}
+/* Designer-Grade Mini-Kacheln: einheitliches Medaillon-System, Mehrfarb-Akzent */
+#programm .bsm{justify-content:center !important;gap:0 !important;min-height:200px;padding:30px 20px 26px !important}
+#programm .bsm .bsm-med{width:62px;height:62px;border-radius:18px;display:grid;place-items:center;margin:0 auto 16px;
+  color:var(--mc,#0a66ff);
+  background:linear-gradient(155deg,color-mix(in srgb,var(--mc,#0a66ff) 16%,#fff),#fbfdff);
+  border:1px solid color-mix(in srgb,var(--mc,#0a66ff) 26%,transparent);
+  box-shadow:0 16px 30px -16px color-mix(in srgb,var(--mc,#0a66ff) 55%,transparent),inset 0 1px 0 rgba(255,255,255,.92);
+  opacity:0;transform:scale(.7)}
+#programm .bsm .bsm-med svg{width:28px;height:28px}
+#programm .bento.in .bsm .bsm-med{opacity:1;transform:scale(1);transition:opacity .5s ease,transform .6s cubic-bezier(.2,1.5,.45,1)}
+#programm .bsm:hover .bsm-med{transform:translateY(-5px) scale(1.06);box-shadow:0 24px 46px -16px color-mix(in srgb,var(--mc,#0a66ff) 62%,transparent),inset 0 1px 0 rgba(255,255,255,.92)}
+#programm .bsm h4{font-size:16px;font-weight:650;letter-spacing:-.012em;color:#1d1d1f;margin:0}
+#programm .bsm .bsm-meta{display:block;margin-top:7px;font-size:12px;color:#949aa6;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+</style>
 <style id="v7fix2">
 /* Laptop-Display: App-Top + fixe Panel-Hoehe -> Inhalt oben sichtbar, Rest geclippt */
 #deck .lap-screen-in{aspect-ratio:auto !important;height:auto !important;display:block !important;overflow:hidden}
@@ -1966,7 +1986,7 @@ header.hero::before{content:"";position:absolute;top:-80px;right:-60px;width:60%
           </div>
         </div>
         <div class="bA-txt">
-          <h3>Live-Tracking: Keine Blackbox mehr, keine Überraschungen</h3>
+          <h3>Alles live. Nichts versteckt.</h3>
           <div class="bA-grid">
             <div><h5>Protokolliert</h5><p>Jeder Call im Live-Hub einsehbar.</p></div>
             <div><h5>21 Qualitätskriterien</h5><p>Jedes Gespräch wird bewertet.</p></div>
@@ -1978,13 +1998,13 @@ header.hero::before{content:"";position:absolute;top:-80px;right:-60px;width:60%
 
       <!-- B: Komplettes Setup (Chips) -->
       <article class="bcard bB">
-        <div class="bcard-h"><h3>Du sparst dir Wochen Aufbau</h3><p>Zielkundenliste, Gesprächsleitfäden, CRM, Auswertung: Wir bringen alles fertig mit. Kein Setup, kein Tool-Stress. Ab Tag eins siehst du nur das Ergebnis, deine Termine.</p></div>
+        <div class="bcard-h"><h3>Startklar, ohne Aufwand.</h3><p>Zielkundenliste, Gesprächsleitfäden, CRM, Auswertung: Wir bringen alles fertig mit. Kein Setup, kein Tool-Stress. Ab Tag eins siehst du nur das Ergebnis, deine Termine.</p></div>
         <div class="bchips" aria-hidden="true"><span>Fertige Zielliste</span><span>Erprobte Leitfäden</span><span>CRM eingerichtet</span><span>Kalender-Sync</span><span>Briefing pro Lead</span><span>Live-Reporting</span><span>Agent-Training</span><span>Anbindung</span></div>
       </article>
 
       <!-- C: Quoten Rings -->
       <article class="bcard bC">
-        <div class="bcard-h"><h3>Quoten, auf die du bauen kannst. Zuverlässig.</h3><p>Wie viele Leads zum Termin erscheinen und abschließen, aus laufenden Kampagnen.</p></div>
+        <div class="bcard-h"><h3>Quoten, die halten.</h3><p>Wie viele Leads zum Termin erscheinen und abschließen, aus laufenden Kampagnen.</p></div>
         <div class="brings">
           <div class="bring"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="6"/><circle class="bring-fg" style="--off:17" cx="36" cy="36" r="30" fill="none" stroke="#34d399" stroke-width="6" stroke-linecap="round" stroke-dasharray="188" stroke-dashoffset="188" transform="rotate(-90 36 36)"/></svg><b><span data-bc="92">92</span><i>%</i></b><span>erscheinen zum Termin</span></div>
           <div class="bring"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="30" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="6"/><circle class="bring-fg" style="--off:71" cx="36" cy="36" r="30" fill="none" stroke="#3b82ff" stroke-width="6" stroke-linecap="round" stroke-dasharray="188" stroke-dashoffset="188" transform="rotate(-90 36 36)"/></svg><b><span data-bc="62">62</span><i>%</i></b><span>Abschlussquote</span></div>
@@ -1994,7 +2014,7 @@ header.hero::before{content:"";position:absolute;top:-80px;right:-60px;width:60%
 
       <!-- D: Markenkonform (hoch) -->
       <article class="bcard bD">
-        <div class="bcard-h"><h3>Deine Marke, dein Ton, dein Risiko-Management</h3><p>Jedes Wort vor dem ersten Anruf von dir freigegeben. Deine Tonalität, dein Wertekanon, deine No-Gos.</p></div>
+        <div class="bcard-h"><h3>Deine Marke bleibt deine.</h3><p>Jedes Wort vor dem ersten Anruf von dir freigegeben. Deine Tonalität, dein Wertekanon, deine No-Gos.</p></div>
         <div class="bD-vis">
           <div class="bd-line"><span class="bd-dot ok"></span>Tonalität freigegeben</div>
           <div class="bd-line"><span class="bd-dot ok"></span>Wertekanon definiert</div>
@@ -2006,20 +2026,24 @@ header.hero::before{content:"";position:absolute;top:-80px;right:-60px;width:60%
 
       <!-- E–H klein -->
       <article class="bcard bsm">
-        <div class="bsm-vis bsm-int"><span class="it it1">C</span><span class="it-plus">+</span><span class="it it2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span></div>
+        <span class="bsm-med" style="--mc:#0a66ff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
         <h4>Perfekt integriert</h4>
+        <span class="bsm-meta">CRM · Kalender · API</span>
       </article>
       <article class="bcard bsm">
-        <div class="bsm-vis bsm-chip"><div class="chip-sq"><span class="mono">SalesDrive</span><small>v3.2</small></div></div>
+        <span class="bsm-med" style="--mc:#6b5bff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/></svg></span>
         <h4>Skaliert mit dir</h4>
+        <span class="bsm-meta">Volumen nach Bedarf</span>
       </article>
       <article class="bcard bsm">
-        <div class="bsm-vis bsm-hours"><div class="hours-box">Mo–Fr<br><b>8–18 Uhr</b></div></div>
+        <span class="bsm-med" style="--mc:#0aa2e0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></svg></span>
         <h4>Immer erreichbar</h4>
+        <span class="bsm-meta">Mo–Fr · 8–18 Uhr</span>
       </article>
       <article class="bcard bsm">
-        <div class="bsm-vis bsm-tuv"><div class="tuv-badge"><span>TÜV</span><i>geprüft</i></div></div>
+        <span class="bsm-med" style="--mc:#14a06a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
         <h4>Sicher &amp; konform</h4>
+        <span class="bsm-meta">TÜV · DSGVO</span>
       </article>
 
     </div>
