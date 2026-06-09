@@ -134,9 +134,9 @@ function render(){
   if(cur.type==='intro'){
     h=`<div class="step intro" data-s>
       <span class="intro-pill"><span class="dot"></span>Bewerbung bei SalesDrive</span>
-      <h1>In 60 Sekunden zu deiner <span class="hl">Bewerbung</span>.</h1>
-      <p>Ein paar kurze Fragen, danach schickst du deine Bewerbung direkt ab. Kein langes Anschreiben nötig.</p>
-      <div class="trust"><span>${ICON_PIN}Team in Wien</span><span>${ICON_SHIELD}Echte Aufstiegschancen</span><span>${ICON_CLOCK}Dauert unter 1 Minute</span></div>
+      <h1>Dein Traum-Job in Wien – in 60 Sekunden beworben.</h1>
+      <p>Wir stellen nur Menschen ein, die durchstarten wollen. Keine nervigen Formulare – nur das Wesentliche.</p>
+      <div class="trust"><span>${ICON_PIN}Team in Wien</span><span>${ICON_SHIELD}Ab Tag 1 verdienen & wachsen</span><span>${ICON_CLOCK}Dauert unter 1 Minute</span></div>
       <div class="actions"><button class="btn" id="go">Jetzt bewerben ${ICON_ARROW}</button><span class="hint">${answers.position?('Stelle: '+esc(answers.position)):'Vertrieb · Assistenz · Account Management'}</span></div>
     </div>`;
   } else if(cur.type==='final'){
@@ -146,7 +146,7 @@ function render(){
     h=`<div class="step" data-s>
       <span class="eyebrow">Fast geschafft</span>
       <div class="q">Passt das so${fn?', <span class="hl">'+esc(fn)+'</span>':''}?</div>
-      <p class="help">Prüf deine Angaben und schick deine Bewerbung ab. Dein E-Mail-Programm öffnet sich mit allem vorausgefüllt.</p>
+      <p class="help">Fast geschafft – danach machst du dich selbst bekannt. Dein Mail-Programm öffnet sich mit allem vorausgefüllt.</p>
       <div class="sumcard">${rows}</div>
       <div class="actions"><button class="btn" id="send">Bewerbung absenden ${ICON_ARROW}</button><button class="btn ghost" id="back">Zurück</button></div>
     </div>`;
@@ -158,9 +158,9 @@ function render(){
       <div class="q">Danke${fn?', <span class="hl">'+esc(fn)+'</span>':''}!</div>
       <p class="help" style="margin-left:auto;margin-right:auto;text-align:center">Deine Bewerbung ist auf dem Weg zu uns. Falls sich dein Mail-Programm nicht geöffnet hat, klick einfach nochmal auf „Bewerbung senden".</p>
       <div class="nextlist">
-        <div class="nrow"><span class="nnum">1</span><div><b>Wir melden uns</b><p>Du hörst innerhalb von 1-2 Werktagen von uns, meist schneller.</p></div></div>
-        <div class="nrow"><span class="nnum">2</span><div><b>Kurzes Kennenlernen</b><p>Wir telefonieren und du lernst dein zukünftiges Team in Wien kennen.</p></div></div>
-        <div class="nrow"><span class="nnum">3</span><div><b>Probetag &amp; Start</b><p>Du erlebst einen echten Arbeitstag. Passt es, starten wir gemeinsam.</p></div></div>
+        <div class="nrow"><span class="nnum">1</span><div><b>Wir melden uns</b><p>Du hörst von uns – und merkst sofort, dass wir keine Zeit verschwenden.</p></div></div>
+        <div class="nrow"><span class="nnum">2</span><div><b>Dein Team in Wien kennenlernen</b><p>Ein echtes Gespräch – du siehst, wen du führen wirst und was auf dich wartet.</p></div></div>
+        <div class="nrow"><span class="nnum">3</span><div><b>Dein erster echter Verkaufstag</b><p>Du siehst live, wie dein erstes Geld verdient wird. Passt es, starten wir nächste Woche.</p></div></div>
       </div>
       <div class="actions" style="justify-content:center"><a class="btn" id="resend" href="${buildMailto()}">Bewerbung senden ${ICON_ARROW}</a><a class="btn ghost" href="/karriere">Zur Karriere-Seite</a></div>
     </div>`;
