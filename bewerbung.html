@@ -57,6 +57,19 @@ body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opac
 .hint{font-size:12.5px;color:var(--ink3);display:inline-flex;align-items:center;gap:8px}
 .hint kbd{font-family:var(--mono);font-size:11px;background:rgba(255,255,255,.06);border:1px solid var(--rule2);border-radius:5px;padding:2px 7px;color:var(--ink2)}
 .err{display:none;margin-top:16px;font-size:13.5px;color:#ff9b8a;align-items:center;gap:8px}.err.show{display:flex;animation:shake .4s}
+.drop{margin-top:32px;border:2px dashed var(--rule2);border-radius:18px;background:linear-gradient(180deg,var(--panel),var(--panel2));padding:28px 24px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;cursor:pointer;transition:.22s}
+.drop:hover,.drop.over{border-color:var(--accent);background:var(--accent-soft)}
+.drop svg{width:30px;height:30px;color:var(--accent)}
+.drop b{font-size:17px;font-weight:600}
+.drop span{font-size:13.5px;color:var(--ink2)}
+.drop input[type=file]{display:none}
+.datei-gewaehlt{margin-top:18px;display:flex;align-items:center;gap:10px;font-size:14.5px;color:var(--ok)}
+.datei-gewaehlt svg{width:17px;height:17px;flex:0 0 auto}
+.datei-gewaehlt>span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.datei-gewaehlt button{background:none;border:0;color:var(--ink3);font-family:var(--mono);font-size:13px;cursor:pointer;text-decoration:underline}
+.dsgvo{margin-top:22px;display:flex;gap:11px;align-items:flex-start;font-size:13.5px;color:var(--ink2);line-height:1.5;max-width:52ch}
+.dsgvo input{margin-top:3px;width:17px;height:17px;accent-color:var(--accent)}
+.dsgvo a{color:var(--accent2)}
 @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
 .intro-pill{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border:1px solid var(--rule2);border-radius:999px;background:rgba(255,255,255,.02);margin-bottom:26px;font-size:12px;letter-spacing:.04em;color:var(--ink2)}
 .intro-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft);animation:pulse 2.4s infinite}
@@ -105,11 +118,16 @@ const STEPS=[
  {key:'email',type:'text',input:'email',q:'Deine <span class="hl">E-Mail-Adresse</span>?',ph:'name@mail.com',required:true,help:'Hier meldet sich unser Team persönlich bei dir.'},
  {key:'phone',type:'text',input:'tel',q:'Deine Telefonnummer?',ph:'+43 …',required:true},
  {key:'motivation',type:'text',input:'text',q:'Warum <span class="hl">SalesDrive</span>?',ph:'1–2 Sätze (optional)',required:false,help:'Optional, aber es hilft uns, dich kennenzulernen.'},
- {key:'cv',type:'text',input:'text',q:'Link zu CV / LinkedIn?',ph:'https://… (optional)',required:false,help:'Optional. Unterlagen kannst du auch später per Mail nachreichen.'},
+ {key:'lebenslauf',type:'file',q:'Lade deinen <span class="hl">Lebenslauf</span> hoch',required:true,help:'PDF, höchstens 10 MB. Ohne Lebenslauf können wir deine Bewerbung nicht annehmen.'},
  {type:'final'},
  {type:'thanks'}
 ];
-const answers={};let idx=0;
+const answers={};let idx=0;let cvDatei=null;
+// Bewerbungen gehen direkt ins Bewerberportal (Herkunft salesdrive.at ist dort
+// freigeschaltet). Der Endpunkt nimmt nur Bewerbungen MIT PDF an.
+const ENDPUNKT='https://admin.salesdrive.at/api/hr/bewerbung';
+const MAX_BYTES=10*1024*1024;
+const ICON_UPLOAD='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 9l5-5 5 5"/><path d="M12 4v12"/></svg>';
 // Rolle aus URL vorbelegen
 (function(){var p=new URLSearchParams(location.search).get('role');if(p){answers.position=p;var pl=p.toLowerCase();
  answers.bereich=/sales|vertrieb|closer|quereinst/.test(pl)?'Vertrieb & Sales':/assist/.test(pl)?'Persönliche Assistenz':/account/.test(pl)?'Account Management':'Initiativ / offen';}})();
@@ -123,9 +141,10 @@ function updateChrome(){const cur=STEPS[idx];
   else{const n=qIndex()+1;counter.innerHTML='Schritt <b>'+n+'</b> von '+qSteps;pfill.style.width=(n/(qSteps+1)*100)+'%';}}
 function esc(s){return (s+'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 function buildMailto(){
-  const map={position:'Stelle',bereich:'Bereich',erfahrung:'Erfahrung',start:'Verfügbar ab',umfang:'Umfang',name:'Name',email:'E-Mail',phone:'Telefon',motivation:'Motivation',cv:'CV / LinkedIn'};
-  let body='Neue Bewerbung über salesdrive.at/bewerbung\\n\\n';
-  for(const k in map){if(answers[k])body+=map[k]+': '+answers[k]+'\\n';}
+  const map={position:'Stelle',bereich:'Bereich',erfahrung:'Erfahrung',start:'Verfügbar ab',umfang:'Umfang',name:'Name',email:'E-Mail',phone:'Telefon',motivation:'Motivation',lebenslauf:'Lebenslauf'};
+  let body='Neue Bewerbung über salesdrive.at/bewerbung\n\n';
+  for(const k in map){if(answers[k])body+=map[k]+': '+answers[k]+'\n';}
+  if(cvDatei)body+='\nBitte den Lebenslauf ('+cvDatei.name+') an diese Mail anhängen.\n';
   const subj='Bewerbung: '+(answers.position||answers.bereich||'Initiativ');
   return 'mailto:office@salesdrive.at?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
 }
@@ -140,15 +159,17 @@ function render(){
       <div class="actions"><button class="btn" id="go">Jetzt bewerben ${ICON_ARROW}</button><span class="hint">${answers.position?('Stelle: '+esc(answers.position)):'Vertrieb · Assistenz · Account Management'}</span></div>
     </div>`;
   } else if(cur.type==='final'){
-    const map={position:'Stelle',bereich:'Bereich',erfahrung:'Erfahrung',start:'Verfügbar ab',umfang:'Umfang',name:'Name',email:'E-Mail',phone:'Telefon',motivation:'Motivation',cv:'CV / LinkedIn'};
+    const map={position:'Stelle',bereich:'Bereich',erfahrung:'Erfahrung',start:'Verfügbar ab',umfang:'Umfang',name:'Name',email:'E-Mail',phone:'Telefon',motivation:'Motivation',lebenslauf:'Lebenslauf'};
     let rows='';for(const k in map){if(answers[k])rows+=`<div class="sumrow"><span class="k">${map[k]}</span><span class="v">${esc(answers[k])}</span></div>`;}
     const fn=(answers.name||'').split(' ')[0]||'';
     h=`<div class="step" data-s>
       <span class="eyebrow">Fast geschafft</span>
       <div class="q">Passt das so${fn?', <span class="hl">'+esc(fn)+'</span>':''}?</div>
-      <p class="help">Fast geschafft – danach machst du dich selbst bekannt. Dein Mail-Programm öffnet sich mit allem vorausgefüllt.</p>
+      <p class="help">Ein Klick und deine Bewerbung liegt bei uns – samt Lebenslauf. Du bekommst sofort eine Bestätigung per Mail.</p>
       <div class="sumcard">${rows}</div>
-      <div class="actions"><button class="btn" id="send">Bewerbung absenden ${ICON_ARROW}</button><button class="btn ghost" id="back">Zurück</button></div>
+      <label class="dsgvo"><input type="checkbox" id="dsgvo"><span>Ich stimme zu, dass meine Daten zur Bearbeitung der Bewerbung gespeichert werden. Nach einer Absage werden sie nach sieben Monaten gelöscht. <a href="/datenschutz" target="_blank" rel="noreferrer">Datenschutzerklärung</a></span></label>
+      <div class="err" id="err2">${ICON_WARN()} <span>Bitte prüfen.</span></div>
+      <div class="actions"><button class="btn" id="send">Bewerbung absenden ${ICON_ARROW}</button><button class="btn ghost" id="back">Zurück</button><a class="btn ghost" id="mailfallback" style="display:none" href="${buildMailto()}">Stattdessen per Mail</a></div>
     </div>`;
   } else if(cur.type==='thanks'){
     const fn=(answers.name||'').split(' ')[0]||'';
@@ -156,18 +177,25 @@ function render(){
       <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
       <span class="eyebrow" style="justify-content:center">Bewerbung gesendet</span>
       <div class="q">Danke${fn?', <span class="hl">'+esc(fn)+'</span>':''}!</div>
-      <p class="help" style="margin-left:auto;margin-right:auto;text-align:center">Deine Bewerbung ist auf dem Weg zu uns. Falls sich dein Mail-Programm nicht geöffnet hat, klick einfach nochmal auf „Bewerbung senden".</p>
+      <p class="help" style="margin-left:auto;margin-right:auto;text-align:center">Deine Bewerbung samt Lebenslauf liegt bei uns. Die Bestätigung ist schon per Mail unterwegs.</p>
       <div class="nextlist">
         <div class="nrow"><span class="nnum">1</span><div><b>Wir melden uns</b><p>Du hörst von uns – und merkst sofort, dass wir keine Zeit verschwenden.</p></div></div>
         <div class="nrow"><span class="nnum">2</span><div><b>Dein Team in Wien kennenlernen</b><p>Ein echtes Gespräch – du siehst, wen du führen wirst und was auf dich wartet.</p></div></div>
         <div class="nrow"><span class="nnum">3</span><div><b>Dein erster echter Verkaufstag</b><p>Du siehst live, wie dein erstes Geld verdient wird. Passt es, starten wir nächste Woche.</p></div></div>
       </div>
-      <div class="actions" style="justify-content:center"><a class="btn" id="resend" href="${buildMailto()}">Bewerbung senden ${ICON_ARROW}</a><a class="btn ghost" href="/karriere">Zur Karriere-Seite</a></div>
+      <div class="actions" style="justify-content:center"><a class="btn ghost" href="/karriere">Zur Karriere-Seite</a></div>
     </div>`;
   } else if(cur.type==='choice'){
     let opts='';cur.options.forEach((o,i)=>{const sel=answers[cur.key]===o?' sel':'';
       opts+=`<button class="choice${sel}" data-opt="${esc(o)}"><span class="ckey">${String.fromCharCode(65+i)}</span>${o}<span class="cx">${ICON_CHECK}</span></button>`;});
     h=`<div class="step" data-s><span class="eyebrow">Frage ${qIndex()+1}</span><div class="q">${cur.q}</div>${cur.help?`<p class="help">${cur.help}</p>`:''}<div class="choices">${opts}</div><div class="actions" style="margin-top:24px"><button class="btn ghost" id="back">Zurück</button><span class="hint">Tippe <kbd>A</kbd>–<kbd>${String.fromCharCode(64+cur.options.length)}</kbd> oder klick</span></div></div>`;
+  } else if(cur.type==='file'){
+    const gewaehlt=cvDatei?`<div class="datei-gewaehlt">${ICON_CHECK} <span>${esc(cvDatei.name)}</span> <button type="button" id="dateiweg">entfernen</button></div>`:'';
+    h=`<div class="step" data-s><span class="eyebrow">Frage ${qIndex()+1}</span><div class="q">${cur.q}</div>${cur.help?`<p class="help">${cur.help}</p>`:''}
+      <label class="drop" id="drop">${ICON_UPLOAD}<b>PDF auswählen oder hierher ziehen</b><span>Lebenslauf, höchstens 10 MB</span><input id="datei" type="file" accept="application/pdf,.pdf"></label>
+      ${gewaehlt}
+      <div class="err" id="err">${ICON_WARN()} <span>Bitte ein PDF anhängen.</span></div>
+      <div class="actions"><button class="btn" id="go">Weiter ${ICON_ARROW}</button><button class="btn ghost" id="back">Zurück</button></div></div>`;
   } else {
     h=`<div class="step" data-s><span class="eyebrow">Frage ${qIndex()+1}</span><div class="q">${cur.q}</div>${cur.help?`<p class="help">${cur.help}</p>`:''}<div class="field"><input id="inp" type="${cur.input}" placeholder="${cur.ph}" value="${esc(answers[cur.key]||'')}" autocomplete="${cur.input==='email'?'email':cur.input==='tel'?'tel':'name'}"></div><div class="err" id="err">${ICON_WARN()} <span>Bitte gib eine gültige Antwort ein.</span></div><div class="actions"><button class="btn" id="go">${cur.required?'Weiter':'Weiter / Überspringen'} ${ICON_ARROW}</button><button class="btn ghost" id="back">Zurück</button><span class="hint">Drücke <kbd>Enter ↵</kbd></span></div></div>`;
   }
@@ -177,10 +205,56 @@ function bind(){
   const cur=STEPS[idx];const go=document.getElementById('go'),back=document.getElementById('back');
   if(back)back.onclick=prev;
   if(cur.type==='intro'){go.onclick=next;}
-  else if(cur.type==='final'){document.getElementById('send').onclick=()=>{try{window.location.href=buildMailto();}catch(e){}setTimeout(next,300);};}
+  else if(cur.type==='final'){document.getElementById('send').onclick=sendeBewerbung;}
+  else if(cur.type==='file'){
+    const feld=document.getElementById('datei'),drop=document.getElementById('drop'),weg=document.getElementById('dateiweg');
+    feld.onchange=()=>{const f=feld.files&&feld.files[0];if(f)waehleDatei(f);};
+    ['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('over');}));
+    ['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('over');}));
+    drop.addEventListener('drop',e=>{const f=e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files[0];if(f)waehleDatei(f);});
+    if(weg)weg.onclick=e=>{e.preventDefault();cvDatei=null;delete answers.lebenslauf;render();};
+    go.onclick=()=>{if(!cvDatei){zeigeFehler('err','Bitte ein PDF anhängen.');return;}next();};
+  }
   else if(cur.type==='thanks'){/* nichts */}
   else if(cur.type==='choice'){stage.querySelectorAll('.choice').forEach(b=>b.onclick=()=>{answers[cur.key]=b.dataset.opt;stage.querySelectorAll('.choice').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');setTimeout(next,260);});}
   else{const inp=document.getElementById('inp');inp.focus();inp.oninput=()=>document.getElementById('err').classList.remove('show');go.onclick=submitText;inp.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();submitText();}};}
+}
+function zeigeFehler(id,text){const e=document.getElementById(id);if(!e)return;const sp=e.querySelector('span');if(sp)sp.textContent=text;e.classList.add('show');}
+function waehleDatei(f){
+  if(f.type!=='application/pdf'&&!/\.pdf$/i.test(f.name)){zeigeFehler('err','Bitte ein PDF anhängen – andere Formate können wir nicht annehmen.');return;}
+  if(f.size>MAX_BYTES){zeigeFehler('err','Die Datei ist größer als 10 MB.');return;}
+  if(f.size===0){zeigeFehler('err','Die Datei ist leer.');return;}
+  cvDatei=f;answers.lebenslauf=f.name;render();
+}
+async function sendeBewerbung(){
+  const knopf=document.getElementById('send'),haken=document.getElementById('dsgvo');
+  if(!haken.checked){zeigeFehler('err2','Bitte der Datenschutzerklärung zustimmen.');return;}
+  if(!cvDatei){zeigeFehler('err2','Der Lebenslauf fehlt – bitte eine Seite zurück.');return;}
+  document.getElementById('err2').classList.remove('show');
+  knopf.disabled=true;knopf.innerHTML='Wird gesendet …';
+  const daten=new FormData();
+  // Feldnamen wie im Bewerberportal (/api/hr/bewerbung), damit die Angaben
+  // dort beschriftet in der Akte landen.
+  const felder={name:answers.name,email:answers.email,telefon:answers.phone,
+    stelle:answers.position||answers.bereich||'Initiativbewerbung',
+    position:answers.position,bereich:answers.bereich,
+    erfahrung:answers.erfahrung,start:answers.start,umfang:answers.umfang,
+    motivation:answers.motivation};
+  for(const k in felder){if(felder[k])daten.append(k,felder[k]);}
+  daten.append('datenschutz_zugestimmt','true');
+  daten.append('lebenslauf',cvDatei,cvDatei.name);
+  try{
+    let res;
+    try{res=await fetch(ENDPUNKT,{method:'POST',body:daten});}
+    catch(_){throw new Error('Keine Verbindung. Bitte gleich noch einmal versuchen – oder schick uns die Bewerbung per Mail.');}
+    const antwort=await res.json().catch(()=>({}));
+    if(!res.ok||!antwort.ok)throw new Error(antwort.error||'Das hat leider nicht geklappt. Bitte noch einmal versuchen.');
+    next();
+  }catch(e){
+    zeigeFehler('err2',(e&&e.message)?e.message:'Das hat leider nicht geklappt.');
+    knopf.disabled=false;knopf.innerHTML='Bewerbung absenden '+ICON_ARROW;
+    const fb=document.getElementById('mailfallback');if(fb)fb.style.display='inline-flex';
+  }
 }
 function submitText(){
   const cur=STEPS[idx];const inp=document.getElementById('inp');const v=inp.value.trim();
