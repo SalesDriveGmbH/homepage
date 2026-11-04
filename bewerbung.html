@@ -130,7 +130,10 @@ const MAX_BYTES=10*1024*1024;
 const ICON_UPLOAD='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 9l5-5 5 5"/><path d="M12 4v12"/></svg>';
 // Rolle aus URL vorbelegen
 (function(){var p=new URLSearchParams(location.search).get('role');if(p){answers.position=p;var pl=p.toLowerCase();
- answers.bereich=/sales|vertrieb|closer|quereinst/.test(pl)?'Vertrieb & Sales':/assist/.test(pl)?'Persönliche Assistenz':/account/.test(pl)?'Account Management':'Initiativ / offen';}})();
+ answers.bereich=/sales|vertrieb|closer|quereinst/.test(pl)?'Vertrieb & Sales':/assist/.test(pl)?'Persönliche Assistenz':/account/.test(pl)?'Account Management':'Initiativ / offen';
+ // Wer über eine konkrete Stelle kommt, hat sich schon entschieden: die
+ // Bereichsfrage fällt weg (Lukas 04.11.2026). Nur die Initiativbewerbung fragt.
+ if(!/initiativ/.test(pl)){var bi=STEPS.findIndex(function(s){return s.key==='bereich';});if(bi>=0)STEPS.splice(bi,1);}}})();
 const qSteps=STEPS.filter(s=>s.key).length;
 const stage=document.getElementById('stage'),pfill=document.getElementById('pfill'),counter=document.getElementById('counter');
 function qIndex(){let c=0;for(let i=0;i<idx;i++)if(STEPS[i].key)c++;return c;}
